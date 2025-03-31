@@ -143,6 +143,32 @@ class LOLDraftModel:
 
     def train(self, train_data, validation_data, epochs=20, batch_size=64):
         return self.model.fit(train_data, validation_data, epochs=epochs, batch_size=batch_size)
+    
+    def predict_next_pick(self, current_draft, side, meta_relevance, player_comfort, player_id, team_id, draft_phase):
+        prediction = self.model.predict([
+            np.array([current_draft]),
+            np.array([side]),
+            np.array([meta_relevance]),
+            np.array([player_comfort]),
+            np.array([player_id]),
+            np.array([team_id]),
+            np.array([draft_phase])
+        ])
+
+        top_k = 5
+        top_indices = np.argsort(prediction[0])[-top_k:][::-1]
+        top_probs = prediction[0][top_indices]
+
+        return list(zip(top_indices, top_probs))
+    
+    def save(self, file: str):
+        self.model.save(file)
+
+    @classmethod
+    def load(cls, filepath, num_champions):
+        instance = cls(num_champions)
+        instance.model = tf.keras.models.load_model(filepath)
+        return instance
 
 
 def main():
