@@ -1,10 +1,11 @@
-import pandas as pd
+"""
+Neural Network Preprocessing, Training, and Construction for utilization
+"""
 import os
+import pandas as pd
 import numpy as np
-import torch
-import torch.nn as nn
-import torch.optim as optim
-from torch.utils.data import DataLoader, Dataset
+import tensorflow as tf
+from tensorflow.keras import layers, Model
 
 def get_csv_tournament(file: str):
     df = pd.read_csv(f"tournament_draft_csvs/{file}")
@@ -17,7 +18,6 @@ def get_csv_pickban(file: str):
 def preprocess_draft_data(df: pd.DataFrame):
     processed_bans = []
     g_df = df.groupby(df.index // 6)
-    print(g_df)
     for _, group in g_df:
         blue_fs_bans = group["blue_bans"].tolist()[:3]
         blue_picks = group["blue_picks"].tolist()[:5]
@@ -25,8 +25,8 @@ def preprocess_draft_data(df: pd.DataFrame):
         red_picks = group["red_picks"].tolist()[:5]
         blue_ss_bans = group["blue_bans"].tolist()[-2:]
         red_ss_bans = group["red_bans"].tolist()[-2:]
-        blue_players = group["Blue Side Roster"].iloc[:5]
-        red_players = group["Red Side Roster"].iloc[:5]
+        blue_players = group["blue_roster"].iloc[:5]
+        red_players = group["red_roster"].iloc[:5]
         patch = group["patch"].iloc[0]
         blue_side = group["blue_side"].iloc[5]
         red_side = group["red_side"].iloc[5]
@@ -63,7 +63,8 @@ def build_pickban_df():
     for file in os.listdir("PickBan_csvs"):
         df = get_csv_pickban(file)
         pickban_df = pd.concat([pickban_df, df], ignore_index=True)
-    return pickban_df
+    g_df = pickban_df.groupby("patch")
+    return {patch: g_df.get_group(patch) for patch in g_df.groups}
 
 def build_draft_df():
     full_df = pd.DataFrame()
@@ -74,65 +75,87 @@ def build_draft_df():
         full_df = pd.concat([full_df, df], ignore_index=True)
     return full_df
 
-class DraftMLP(nn.Module):
-    def __init__(self, input_size, hidden_size, output_size):
-        super(DraftMLP, self).__init__()
-        self.fc1 = nn.Linear(input_size, hidden_size)
-        self.fc2 = nn.Linear(hidden_size, hidden_size)
-        self.relu = nn.ReLU()
-        self.sigmoid = nn.Sigmoid()
+class LOLDraftModel:
+    def __init__(self, num_champions, embedding_dim=64, lstm_units=128):
+        self.num_champions = num_champions
+        self.embedding_dim = embedding_dim
+        self.lstm_units = lstm_units
+        self.model = self._build_model()
 
-    def forward(self, x):
-        x = self.fc1(x)
-        x = self.relu(x)
-        x = self.fc2(x)
-        x = self.sigmoid(x)
-        return x
+    def _build_model(self):
+        current_draft = layers.Input(shape=(10,), name="current_draft")
+        side = layers.Input(shape=(1,), name="side")
+        meta_relevance = layers.Input(shape=(self.num_champions,), name="meta_relevance")
+        player_comfort = layers.Input(shape=(self.num_champions,), name="player_comfort")
+        player_id = layers.Input(shape=(1,), name="player_id")
+        team_id = layers.Input(shape=(1,), name="team_id")
+        phase = layers.Input(shape=(1,), name="draft_phase")
 
-def train_model(matches: pd.DataFrame, pb_percent: pd.DataFrame):
-    pass
-    # encoder = OneHotEncoder(sparse=False)
-    # X = matches.values # feature matrix
-    # y = pb_percent.values # label matrix
+        champ_embedding = layers.Embedding(self.num_champions + 1, self.embedding_dim, mask_zero=True)
+        team_embedding = layers.Embedding(100, 32, name="team_embedding")(team_id)
+        player_embedding = layers.Embedding(1000, 32, name="player_embedding")(player_id)
 
-    # X_train = torch.tensor(X_train, dtype=torch.float32)
-    # y_train = torch.tensor(y_train, dtype=torch.float32)
-    # X_test = torch.tensor(X_test, dtype=torch.float32)
-    # y_test = torch.tensor(y_test, dtype=torch.float32)
+        draft_embedded = champ_embedding(current_draft)
+        draft_lstm = layers.LSTM(self.lstm_units)(draft_embedded)
 
-    # input_size = X_train.shape[1]
-    # hidden_size = 128
-    # output_size = 1
+        side_features = layers.Dense(16, activation="relu")(side)
+        meta_dense = layers.Dense(16, activation="relu")(meta_relevance)
+        player_comfort_dense = layers.Dense(16, activation="relu")(player_comfort)
 
-    # model = DraftMLP(input_size, hidden_size, output_size)
-    
-    # criterion = nn.BCELoss()
-    # optimizer = torch.optim.Adam(model.parameters(), lr=0.001)
+        combined = layers.concatenate({
+            draft_lstm,
+            side_features,
+            meta_dense,
+            player_comfort_dense,
+            team_embedding,
+            player_embedding,
+            phase
+        })
 
-    # epochs = 10
-    # for epoch in range(epochs):
-    #     model.train()
-    #     optimizer.zero_grad()
-        
-    #     outputs = model(X_train)
-    #     loss = criterion(outputs, y_train)
-    #     loss.backward()
-    #     optimizer.step()
+        # Deep Layers
+        x = layers.Dense(256, activation="relu")(combined)
+        x = layers.Dropout(0.3)(x)
+        x = layers.Dense(256, activation="relu")(x)
+        x = layers.Dropout(0.3)(x)
 
-    #     if (epoch + 1) % 10 == 0:
-    #         print(f"Epoch [{epoch + 1}/{epochs}], Loss: {loss.item()}")
-    
-    # model.eval()
-    # with torch.no_grad():
-    #     y_pred = model(X_test)
-        
+        outputs = layers.Dense(self.num_champions, activation="softmax")(x)
+
+        model = Model(
+            inputs=[
+                current_draft,
+                side,
+                meta_relevance,
+                player_comfort,
+                player_id,
+                team_id,
+                phase
+            ],
+            outputs=outputs
+        )
+
+        model.compile(
+            optimizer="adam",
+            loss="categorical_crossentropy",
+            metrics=["accuracy"]
+        )
+
+        return model
+
+    def train(self, train_data, validation_data, epochs=20, batch_size=64):
+        return self.model.fit(train_data, validation_data, epochs=epochs, batch_size=batch_size)
+
 
 def main():
-    draft_df = build_draft_df()
-    pickban_df = build_pickban_df()
-    print(draft_df)
-    print(pickban_df)
+    """
+    Main function to build pickban and draft dataframes.
+    """
 
-    train_model(draft_df, pickban_df)
+    pickban_df = build_pickban_df()
+    draft_df = build_draft_df()
+
+    print(draft_df)
+    
+
+
 if __name__ == "__main__":
     main()
