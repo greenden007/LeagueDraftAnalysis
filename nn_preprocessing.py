@@ -2,10 +2,13 @@
 Neural Network Preprocessing, Training, and Construction for utilization
 """
 import os
+import pickle
 import pandas as pd
 import numpy as np
 import tensorflow as tf
 from tensorflow.keras import layers, Model
+from sklearn.model_selection import train_test_split
+
 
 def get_csv_tournament(file: str):
     df = pd.read_csv(f"tournament_draft_csvs/{file}")
@@ -15,6 +18,8 @@ def get_csv_pickban(file: str):
     df = pd.read_csv(f"PickBan_csvs/{file}")
     return df
 
+# Do not use if possible!
+# Look to load from file instead
 def preprocess_draft_data(df: pd.DataFrame):
     processed_bans = []
     g_df = df.groupby(df.index // 6)
@@ -47,6 +52,7 @@ def preprocess_draft_data(df: pd.DataFrame):
         })
     return pd.DataFrame(processed_bans)
 
+# Avoid using this function if possible
 def clean_ban_data(df: pd.DataFrame):
     """
     Cleans the ban data by converting the winner column to 1.0 and 0.0.
@@ -76,6 +82,9 @@ def build_draft_df():
     return full_df
 
 class LOLDraftModel:
+    """
+    A neural network model for draft prediction.
+    """
     def __init__(self, num_champions, embedding_dim=64, lstm_units=128):
         self.num_champions = num_champions
         self.embedding_dim = embedding_dim
@@ -170,17 +179,88 @@ class LOLDraftModel:
         instance.model = tf.keras.models.load_model(filepath)
         return instance
 
+def load_full_draft_csv() -> pd.DataFrame:
+    return pd.read_csv("processed_data_files/full_draft_df.csv")
+
+def load_player_data() -> dict[str, pd.DataFrame]:
+    return pickle.load(open("processed_data_files/player_data.pkl", "rb"))
+
+def load_pickban_data() -> dict[str, pd.DataFrame]:
+    return pickle.load(open("processed_data_files/pickban_df.pkl", "rb"))
+
+def get_unique_players(df: pd.DataFrame) -> list[str]:
+    """
+    Returns a list of unique player names from the entire draft data.
+
+    Args:
+        df (pd.DataFrame): The DataFrame containing every draft's data.
+
+    Returns:
+        list[str]: A list of unique player names.
+    """
+    players = set()
+    for index, row in df.iterrows():
+        for player in row["blue_roster"] + row["red_roster"]:
+            players.add(player)
+    return list(players)
+
+
+def organize_by_player_performance(df: pd.DataFrame) -> dict[str, pd.DataFrame]:
+    """
+    Organizes the draft data by player performance.
+
+    Args:
+        df (pd.DataFrame): The DataFrame containing the draft data.
+
+    Returns:
+        dict[str, pd.DataFrame]: A dictionary mapping player names to their draft data and win rate on champion.
+    """
+
+    player_data = {}
+    for index, row in df.iterrows():
+        for player in row["blue_players"]:
+            champion = row["blue_picks"][row["blue_players"].to_list().index(player)]
+            if player not in player_data:
+                player_data[player] = {}
+            if champion not in player_data[player]:
+                player_data[player][champion] = {"wins": 0, "games": 0}
+            if row["winner"] == 1.0:
+                player_data[player][champion]["wins"] += 1
+            player_data[player][champion]["games"] += 1
+
+        for player in row["red_players"]:
+            champion = row["red_picks"][row["red_players"].to_list().index(player)]
+            if player not in player_data:
+                player_data[player] = {}
+            if champion not in player_data[player]:
+                player_data[player][champion] = {"wins": 0, "games": 0}
+            if row["winner"] == 0.0:
+                player_data[player][champion]["wins"] += 1
+            player_data[player][champion]["games"] += 1
+    
+    for player, champions in player_data.items():
+        for champion, stats in champions.items():
+            stats["win_rate"] = stats["wins"] / stats["games"]
+            player_data[player][champion] = pd.DataFrame([stats])
+    
+    return player_data
+        
 
 def main():
     """
     Main function to build pickban and draft dataframes.
     """
 
-    pickban_df = build_pickban_df()
-    draft_df = build_draft_df()
+    draft_df = load_full_draft_csv()
+    # player_data = load_player_data()
+    # pickban_df = load_pickban_data()
 
     print(draft_df)
-    
+    # print(player_data)
+    # print(pickban_df)
+    print(draft_df.columns)
+
+    df_draft_confirm = build_draft_df()
 
 
 if __name__ == "__main__":
