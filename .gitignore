@@ -76,4 +76,6 @@ Thumbs.db
 # Python package manager lockfiles (optional)
 requirements.txt.lock
 
+scraper.log
+
 
