@@ -5,6 +5,7 @@ import os
 import time
 import logging
 from datetime import datetime
+from threading import Lock
 
 # --- Constants ---
 API_KEY = os.getenv("RIOT_API_KEY")
