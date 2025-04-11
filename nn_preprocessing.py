@@ -244,7 +244,12 @@ def organize_by_player_performance(df: pd.DataFrame) -> dict[str, pd.DataFrame]:
             player_data[player][champion] = pd.DataFrame([stats])
     
     return player_data
-        
+
+def adc_sup_synergies(df: pd.DataFrame) -> pd.DataFrame:
+    pass # TODO: Finish
+
+def role_by_role_counter_gen(df: pd.DataFrame) -> pd.DataFrame:
+    pass # TODO: Finish this you retard bastard
 
 def main():
     """
@@ -260,7 +265,6 @@ def main():
     # print(pickban_df)
     print(draft_df.columns)
 
-    df_draft_confirm = build_draft_df()
 
 
 if __name__ == "__main__":
