@@ -6,16 +6,15 @@ import time
 import logging
 
 # Riot API Key
-# Only I (Idan) has this key
 API_KEY = os.getenv("RIOT_API_KEY")
 if not API_KEY:
-    raise ValueError("API key not found! Please set the RIOT_API_KEY environment variable.") 
+    raise ValueError("API key not found! Please set the RIOT_API_KEY environment variable.")
 
 # Base URL for Riot API
 BASE_URL = "https://{region}.api.riotgames.com/lol"
 
 # Set up logging
-logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s")
+logging.basicConfig(level=logging.DEBUG, format="%(asctime)s - %(levelname)s - %(message)s")
 
 def get_latest_patches():
     """Fetch the latest two patch versions from Riot's Data Dragon API."""
@@ -29,16 +28,36 @@ def get_latest_patches():
     logging.info(f"Latest patches: {latest_patches}")
     return latest_patches
 
-def rate_limit_delay(requests_made, start_time):
+def rate_limit_delay(requests_made_second, requests_made_minute, start_time_second, start_time_minute):
     """Ensure we don't exceed Riot's API rate limits."""
     # Riot API limits: 20 requests per second, 100 requests per minute
-    if requests_made >= 20:  # Check if we’ve hit the per-second limit
-        elapsed_time = time.time() - start_time
-        if elapsed_time < 1:  # If less than a second has passed, wait
-            time.sleep(1 - elapsed_time)
-        return 0, time.time()  # Reset the counter and start time
+    elapsed_time_second = time.time() - start_time_second
+    elapsed_time_minute = time.time() - start_time_minute
+    
+    # Handle per-second limit
+    if requests_made_second >= 20 and elapsed_time_second < 1:
+        sleep_duration = 1 - elapsed_time_second
+        logging.warning(f"Exceeded per-second rate limit. Sleeping for {sleep_duration:.2f} seconds.")
+        time.sleep(sleep_duration)
+        return 0, requests_made_minute, time.time(), start_time_minute
+    
+    # Handle per-minute limit
+    if requests_made_minute >= 100 and elapsed_time_minute < 60:
+        sleep_duration = 60 - elapsed_time_minute
+        logging.warning(f"Exceeded per-minute rate limit. Sleeping for {sleep_duration:.2f} seconds.")
+        time.sleep(sleep_duration)
+        return requests_made_second, 0, start_time_second, time.time()
+    
+    return requests_made_second, requests_made_minute, start_time_second, start_time_minute
 
-    return requests_made, start_time
+def handle_rate_limit(response):
+    """Handle rate limit errors by pausing execution."""
+    if response.status_code == 429:
+        retry_after = int(response.headers.get("Retry-After", 1))  # Default to 1 second if header is missing
+        logging.error(f"Rate limit exceeded. Pausing for {retry_after} seconds...")
+        time.sleep(retry_after)
+        return True
+    return False
 
 def get_challenger_win_rates():
     """Fetch match data and calculate champion win rates for Challenger Solo Queue."""
@@ -56,8 +75,10 @@ def get_challenger_win_rates():
     latest_patches = get_latest_patches()
 
     # Initialize rate-limiting variables
-    requests_made = 0
-    start_time = time.time()
+    requests_made_second = 0
+    requests_made_minute = 0
+    start_time_second = time.time()
+    start_time_minute = time.time()
     
     for region in regions:
         logging.info(f"Processing region: {region}")
@@ -65,13 +86,32 @@ def get_challenger_win_rates():
         try:
             # Step 1: Get Challenger players' PUUIDs
             url = f"{BASE_URL}/league/v4/challengerleagues/by-queue/RANKED_SOLO_5x5"
-            response = requests.get(url.format(region=region), headers={"X-Riot-Token": API_KEY})
-            requests_made += 1
-            requests_made, start_time = rate_limit_delay(requests_made, start_time)
             
-            if response.status_code == 429:
-                logging.error("Rate limit exceeded while fetching Challenger data. Pausing for 60 seconds...")
-                time.sleep(60)  # Wait for a minute before retrying
+            # Helper function to make requests with rate limiting and error handling
+            def make_request(url):
+                nonlocal requests_made_second, requests_made_minute, start_time_second, start_time_minute
+                
+                logging.debug(f"Before API call: requests_made_second={requests_made_second}, requests_made_minute={requests_made_minute}")
+                
+                requests_made_second += 1
+                requests_made_minute += 1
+                requests_made_second, requests_made_minute, start_time_second, start_time_minute = rate_limit_delay(
+                    requests_made_second, requests_made_minute, start_time_second, start_time_minute
+                )
+                
+                response = requests.get(url, headers={"X-Riot-Token": API_KEY})
+                
+                logging.debug(f"After API call: requests_made_second={requests_made_second}, requests_made_minute={requests_made_minute}")
+                
+                if handle_rate_limit(response):
+                    return None
+                
+                return response
+            
+            response = make_request(url.format(region=region))
+            
+            if response is None:
+                logging.warning(f"Skipping region {region} due to rate limit or request failure.")
                 continue
             
             if response.status_code != 200:
@@ -79,21 +119,24 @@ def get_challenger_win_rates():
                 continue
             
             players = response.json()["entries"]
+            logging.info(f"Found {len(players)} challenger players in region {region}.")
+            
             puuids = []
+            
             for player in players:
                 summoner_id = player["summonerId"]
                 summoner_url = f"{BASE_URL}/summoner/v4/summoners/{summoner_id}"
-                summoner_response = requests.get(summoner_url.format(region=region), headers={"X-Riot-Token": API_KEY})
-                requests_made += 1
-                requests_made, start_time = rate_limit_delay(requests_made, start_time)
+                summoner_response = make_request(summoner_url.format(region=region))
                 
-                if summoner_response.status_code == 429:
-                    logging.error("Rate limit exceeded while fetching PUUIDs. Pausing for 60 seconds...")
-                    time.sleep(60)
+                if summoner_response is None:
                     continue
                 
                 if summoner_response.status_code == 200:
-                    puuids.append(summoner_response.json()["puuid"])
+                    puuid = summoner_response.json()["puuid"]
+                    logging.debug(f"Summoner {summoner_id} has PUUID: {puuid}")
+                    puuids.append(puuid)
+                else:
+                    logging.warning(f"Failed to fetch PUUID for summoner {summoner_id} in region {region}: {summoner_response.status_code}")
             
             patch_counts = defaultdict(int)
             
@@ -102,40 +145,40 @@ def get_challenger_win_rates():
                 start_index = 0
                 while True:  # Paginate through all matches
                     match_url = f"{BASE_URL}/match/v5/matches/by-puuid/{puuid}/ids?start={start_index}&count=100"
-                    match_response = requests.get(match_url.format(region=region), headers={"X-Riot-Token": API_KEY})
-                    requests_made += 1
-                    requests_made, start_time = rate_limit_delay(requests_made, start_time)
+                    match_response = make_request(match_url.format(region=region))
                     
-                    if match_response.status_code == 429:
-                        logging.error("Rate limit exceeded while fetching match history. Pausing for 60 seconds...")
-                        time.sleep(60)
-                        continue
+                    if match_response is None:
+                        break
                     
-                    if match_response.status_code != 200 or not match_response.json():
+                    if match_response.status_code != 200:
+                        logging.warning(f"Failed to fetch match history for PUUID {puuid} (start {start_index}): {match_response.status_code}")
                         break
                     
                     match_ids = match_response.json()
+                    if not match_ids:
+                        logging.info(f"No more matches for PUUID {puuid} after start {start_index}")
+                        break
+                        
                     start_index += 100
+                    logging.info(f"Fetched {len(match_ids)} match IDs for PUUID {puuid} (start {start_index - 100})")
                     
                     # Step 3: Process each match
                     for match_id in match_ids:
                         match_data_url = f"{BASE_URL}/match/v5/matches/{match_id}"
-                        match_data_response = requests.get(match_data_url.format(region=region), headers={"X-Riot-Token": API_KEY})
-                        requests_made += 1
-                        requests_made, start_time = rate_limit_delay(requests_made, start_time)
+                        match_data_response = make_request(match_data_url.format(region=region))
                         
-                        if match_data_response.status_code == 429:
-                            logging.error("Rate limit exceeded while fetching match data. Pausing for 60 seconds...")
-                            time.sleep(60)
-                            continue
+                        if match_data_response is None:
+                            break
                         
                         if match_data_response.status_code != 200:
+                            logging.warning(f"Failed to fetch match data for match {match_id}: {match_data_response.status_code}")
                             continue
                         
                         match_data = match_data_response.json()
                         
                         # Filter by ranked Solo Queue matches only and patch version
                         if match_data["info"]["queueId"] != 420:
+                            logging.debug(f"Skipping match ID {match_id} due to queue ID: {match_data['info']['queueId']}")
                             continue
                         
                         game_version = match_data["info"]["gameVersion"].split(".")
@@ -159,14 +202,15 @@ def get_challenger_win_rates():
                                 champion_stats[champion_name][role]["games"] += 1
                                 if win:
                                     champion_stats[champion_name][role]["wins"] += 1
-
+                                logging.debug(f"Champion: {champion_name}, Role: {role}, Win: {win}")
+        
             logging.info("Matches per patch:")
             for patch, count in patch_counts.items():
                 logging.info(f"Patch {patch}: {count} matches")
         
         except Exception as e:
             logging.error(f"An unexpected error occurred while processing region {region}: {e}")
-                
+
     # Step 5: Calculate win rates and save to CSV
     rows = []
     for champion, stats in champion_stats.items():
@@ -180,7 +224,5 @@ def get_challenger_win_rates():
     df.to_csv(output_path, index=False)
     logging.info(f"Win rate data saved to {output_path}")
 
-    
 if __name__ == "__main__":
-    # Call the main function when this script is executed directly
     get_challenger_win_rates()
