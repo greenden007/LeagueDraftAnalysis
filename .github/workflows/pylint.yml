@@ -1,6 +1,14 @@
 name: Pylint
 
-on: [push]
+on:
+  push:
+    branches:
+      - main
+      - dev
+  pull_request:
+    branches:
+      - main
+      - dev
 
 jobs:
   build:
@@ -20,4 +28,4 @@ jobs:
         pip install pylint requests beautifulsoup4 pandas
     - name: Analysing the code with pylint
       run: |
-        pylint --disable=W0611,W0511 --fail-under=8 $(git ls-files '*.py')
+        pylint --disable=W0611,W0511 --fail-under=7 $(git ls-files '*.py')

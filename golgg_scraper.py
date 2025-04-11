@@ -333,6 +333,9 @@ def scrape_full_tournament(tourney_url_endpoint: str):
         series_games = collect_matches_from_game(game_html)
         new_data = scrape_draft_from_game(game_html)
         new_data["patch"] = collect_match_patch(game_html)
+        rosters = collect_roster_from_match(game_html)
+        new_data["blue_roster"] = rosters["Blue Side Roster"]
+        new_data["red_roster"] = rosters["Red Side Roster"]
         new_data = pd.concat([new_data, scrape_teams_side_winner_from_game(game_html)], ignore_index=True)
         df = pd.concat([df, new_data], ignore_index=True)
 
@@ -347,8 +350,8 @@ def scrape_full_tournament(tourney_url_endpoint: str):
             new_data = scrape_draft_from_game(game_html)
             new_data["patch"] = collect_match_patch(game_html)
             rosters = collect_roster_from_match(game_html)
-            new_data["Blue Side Roster"] = rosters["Blue Side Roster"]
-            new_data["Red Side Roster"] = rosters["Red Side Roster"]
+            new_data["blue_roster"] = rosters["Blue Side Roster"]
+            new_data["red_roster"] = rosters["Red Side Roster"]
             new_data = pd.concat([new_data, scrape_teams_side_winner_from_game(game_html)], ignore_index=True)
             df = pd.concat([df, new_data], ignore_index=True)
     return df
@@ -415,13 +418,15 @@ def main():
 
 
     # TODO: DO NOT DO NOT DO NOT TURN THIS ON UNLESS ABSOLUTELY NECESSARY
-    # for s_num in range(11, 15):
-    #     with open (f"tournaments_s{s_num}.txt", "r") as f:ß
-    #         tourneys = f.readlines()
+    for s_num in range(10, 15):
+        with open (f"tournaments_by_season/tournaments_s{s_num}.txt", "r") as f:
+            tourneys = f.readlines()
 
-    #     for tourney in tourneys:
-    #         df = scrape_full_tournament(f"{tourney.strip()}/")
-    #         df.to_csv(f"drafts_s{s_num}_{tourney.strip()}.csv", index=False)
+        for tourney in tourneys:
+            df = scrape_full_tournament(f"{tourney.strip()}/")
+            df.to_csv(f"tournament_draft_csvs/drafts_s{s_num}_{tourney.strip()}.csv", index=False)
+    # ff = scrape_full_tournament("LCS Spring 2020/")
+    # print(ff)
 
 
 if __name__ == "__main__":
