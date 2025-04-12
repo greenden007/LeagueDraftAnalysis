@@ -246,12 +246,6 @@ def organize_by_player_performance(df: pd.DataFrame) -> dict[str, pd.DataFrame]:
     return player_data
 
 
-def adc_sup_synergies(df: pd.DataFrame) -> pd.DataFrame:
-    pass # TODO: Finish
-
-def role_by_role_counter_gen(df: pd.DataFrame) -> pd.DataFrame:
-    pass # TODO: Finish this you retard bastard
-
 def main():
     """
     Main function to build pickban and draft dataframes.
