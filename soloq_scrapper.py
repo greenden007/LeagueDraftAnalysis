@@ -69,7 +69,6 @@ class Config:
     REQUEST_TIMEOUT = 15
     MAX_RETRIES = 3
     RETRY_DELAYS = [1, 2, 3]
-    PROGRESS_LOG_INTERVAL = 10
 
     @classmethod
     def validate(cls):
@@ -294,13 +293,11 @@ class LeagueScraper:
         logger.info(f"Found {len(players)} players in {region.upper()}")
         
         for i, player in enumerate(players):
-            if i % Config.PROGRESS_LOG_INTERVAL == 0:
-                logger.info(f"⏳ Processing player {i+1}/{len(players)} in {region.upper()}")
-                result = self.process_player(region, player["summonerId"])
-                status = "✅ Processed" if result[0] else f"❌ Skipped: {result[1]}"
-                logger.info(f"Status: {status}")
-            else:
-                result = self.process_player(region, player["summonerId"])
+            
+            logger.info(f"⏳ Processing player {i+1}/{len(players)} in {region.upper()}")
+            result = self.process_player(region, player["summonerId"])
+            status = "✅ Processed" if result[0] else f"❌ Skipped: {result[1]}"
+            logger.info(f"Status: {status}")
             
             if result[0]:
                 self.processed_players += 1
