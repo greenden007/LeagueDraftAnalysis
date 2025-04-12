@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
 """
-Ultimate Riot API Scraper - Fixed ID Edition
-- Corrected summoner ID usage
-- Proper PUUID handling
-- Enhanced validation
-- Detailed error tracking
+Ultimate Riot API Scraper - Enhanced Debugging Edition
+- Detailed skip reason logging
+- Maintains original rate limiting
+- Strict validation preserved
+- Polished and modular
 """
 
 import os
@@ -14,7 +14,6 @@ from datetime import datetime
 from collections import defaultdict, deque
 import pandas as pd
 import requests
-import json
 from typing import Dict, List, Optional, Tuple
 
 # ========================
@@ -253,7 +252,7 @@ class RiotAPI:
 # Main Scraper
 # ========================
 class LeagueScraper:
-    """Main scraper with fixed ID handling"""
+    """Main scraper with enhanced skip reason logging"""
     def __init__(self):
         self.rate_limiter = PrecisionRateLimiter()
         self.api = RiotAPI(self.rate_limiter)
@@ -297,8 +296,12 @@ class LeagueScraper:
         for i, player in enumerate(players):
             if i % Config.PROGRESS_LOG_INTERVAL == 0:
                 logger.info(f"⏳ Processing player {i+1}/{len(players)} in {region.upper()}")
+                result = self.process_player(region, player["summonerId"])
+                status = "✅ Processed" if result[0] else f"❌ Skipped: {result[1]}"
+                logger.info(f"Status: {status}")
+            else:
+                result = self.process_player(region, player["summonerId"])
             
-            result = self.process_player(region, player["summonerId"])
             if result[0]:
                 self.processed_players += 1
             else:
@@ -309,50 +312,107 @@ class LeagueScraper:
             time.sleep(0.1)
 
     def process_player(self, region: str, summoner_id: str) -> Tuple[bool, str]:
-        """Process a single player with detailed status reporting"""
+        """Process a single player with detailed skip reasons"""
         # Step 1: Get summoner by summonerId
         summoner = self.api.get_summoner_by_id(region, summoner_id)
         if not summoner:
-            return (False, f"Summoner not found by ID {summoner_id[:6]} (may have changed name)")
+            skip_reason = f"Summoner not found by ID {summoner_id[:6]}"
+            logger.debug(f"❌ {skip_reason}")
+            return (False, skip_reason)
         
         # Step 2: Verify we have PUUID
         puuid = summoner.get("puuid")
         if not puuid:
-            return (False, f"Summoner {summoner_id[:6]} has no PUUID")
+            skip_reason = f"Summoner {summoner_id[:6]} has no PUUID"
+            logger.debug(f"❌ {skip_reason}")
+            return (False, skip_reason)
         
         # Step 3: Get match history by PUUID
         match_ids = self.api.get_match_history(puuid, region)
-        if not match_ids:
-            return (False, f"No match history for {summoner_id[:6]} (PUUID: {puuid[:8]}...)")
         
-        # Step 4: Process matches
+        if not match_ids:
+            skip_reason = f"No match history for {summoner_id[:6]} (PUUID: {puuid[:8]}...)"
+            logger.debug(f"❌ {skip_reason}")
+            return (False, skip_reason)
+        
+        # Step 4: Process matches with detailed validation tracking
         valid_matches = []
+        skip_details = {
+            "invalid_id": 0,
+            "match_not_found": 0,
+            "player_not_in_match": 0,
+            "validation_error": 0
+        }
+        
         for match_id in match_ids[:Config.MAX_MATCHES_PER_PLAYER]:
+            
+            # logger.warning(f"Match IDs for {puuid}: {match_id}")
+            # Validate match ID
             if not self.validate_match_id(match_id, region):
-                logger.debug(f"Invalid match ID format: {match_id[:12]}...")
+                skip_details["invalid_id"] += 1
+                logger.debug(f"Invalid match ID format: {match_id}")
                 continue
                 
+            # Get match details
             match = self.api.get_match_details(match_id, region)
-            if match and self.validate_match_data(match, puuid):
-                valid_matches.append(match)
+            if not match:
+                skip_details["match_not_found"] += 1
+                logger.debug(f"Match not found: {match_id}")
+                continue
+                
+            # Validate match data
+            try:
+                if not any(p["puuid"] == puuid for p in match["info"]["participants"]):
+                    skip_details["player_not_in_match"] += 1
+                    logger.debug(f"Player {puuid[:8]} not in match {match_id}")
+                    continue
+            except Exception as e:
+                skip_details["validation_error"] += 1
+                logger.debug(f"Match validation error: {str(e)}")
+                continue
+                
+            valid_matches.append(match)
         
+        # Handle no valid matches case
         if not valid_matches:
-            return (False, f"No valid matches for {summoner_id[:6]} (PUUID: {puuid[:8]}...)")
+            skip_reason = self._format_skip_reason(skip_details, summoner_id[:6], puuid[:8])
+            logger.debug(f"❌ Player {summoner_id[:6]} skipped - {skip_reason}")
+            return (False, skip_reason)
         
         # Step 5: Process stats
         try:
             stats = self.process_matches(summoner, valid_matches)
             self.aggregate_stats(region, stats)
+            logger.debug(f"✅ Player {summoner_id[:6]} processed - {len(valid_matches)} valid matches")
             return (True, f"Processed {len(valid_matches)} matches")
         except Exception as e:
-            return (False, f"Processing error: {str(e)}")
+            skip_reason = f"Processing error: {str(e)}"
+            logger.debug(f"❌ Player {summoner_id[:6]} skipped - {skip_reason}")
+            return (False, skip_reason)
+
+    def _format_skip_reason(self, skip_details: Dict, player_id: str, puuid: str) -> str:
+        """Format detailed skip reason message"""
+        reasons = []
+        if skip_details["invalid_id"] > 0:
+            reasons.append(f"{skip_details['invalid_id']} invalid match IDs")
+        if skip_details["match_not_found"] > 0:
+            reasons.append(f"{skip_details['match_not_found']} matches not found")
+        if skip_details["player_not_in_match"] > 0:
+            reasons.append(f"{skip_details['player_not_in_match']} matches without player")
+        if skip_details["validation_error"] > 0:
+            reasons.append(f"{skip_details['validation_error']} validation errors")
+        
+        if not reasons:
+            return f"No valid matches for {player_id} (PUUID: {puuid}...)"
+        
+        return f"No valid matches - Reasons: {', '.join(reasons)}"
 
     def validate_match_id(self, match_id: str, region: str) -> bool:
         """Validate match ID structure and region"""
         try:
             parts = match_id.split('_')
             return (len(parts) == 2 
-                    and parts[0] == Config.MATCH_REGION_MAP[region].upper()
+                    and parts[0] == region.upper()
                     and parts[1].isdigit()
                     and len(parts[1]) == 10)
         except Exception:
@@ -401,6 +461,36 @@ class LeagueScraper:
         except Exception:
             return None
         return None
+
+    def aggregate_stats(self, region: str, stats: Dict[str, ChampionStats]) -> None:
+        """Aggregate champion stats for the region"""
+        for champion, champion_stats in stats.items():
+            if champion not in self.region_data[region]:
+                self.region_data[region][champion] = ChampionStats()
+            
+            # Merge the stats
+            existing = self.region_data[region][champion]
+            existing.games += champion_stats.games
+            existing.wins += champion_stats.wins
+            existing.kills += champion_stats.kills
+            existing.deaths += champion_stats.deaths
+            existing.assists += champion_stats.assists
+            
+            # Merge matchups
+            for opponent, matchup in champion_stats.matchups.items():
+                if opponent not in existing.matchups:
+                    existing.matchups[opponent] = {
+                        "games": 0,
+                        "wins": 0,
+                        "kills": 0,
+                        "deaths": 0,
+                        "assists": 0
+                    }
+                existing.matchups[opponent]["games"] += matchup["games"]
+                existing.matchups[opponent]["wins"] += matchup["wins"]
+                existing.matchups[opponent]["kills"] += matchup["kills"]
+                existing.matchups[opponent]["deaths"] += matchup["deaths"]
+                existing.matchups[opponent]["assists"] += matchup["assists"]
 
     def save_data(self) -> None:
         """Save all collected data"""
