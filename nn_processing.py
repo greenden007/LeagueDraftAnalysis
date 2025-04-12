@@ -1,4 +1,5 @@
 import nn_preprocessing
+import numpy as np
 import pandas as pd
 import tensorflow as tf
 from tensorflow.keras.models import Model
@@ -92,6 +93,44 @@ class LoLDraftRNN:
             metrics=['accuracy']
         )
         return model
+
+    def prep_data(self, draft_df, player_data, pickban_df):
+        pass # TODO: Finish later
+
+    def train(self, X, y, validation_data=None, epochs=10, batch_size=32):
+        return self.model.fit(
+            X, y,
+            validation_data=validation_data,
+            epochs=epochs,
+            batch_size=batch_size
+        )
+    
+    def predict_next(self, current_draft, team, action_type, series_picked=None, player_features=None, patch_features=None):
+        pass # TODO: Finish later
+    
+    def create_availability_mask(self, current_draft, series_picked=None):
+        mask = np.ones(self.num_champions, dtype=np.float32)
+        for champ in current_draft:
+            if champ > 0 and champ <= self.num_champions:
+                mask[champ-1] = 0
+        
+        if series_picked:
+            for champ in series_picked:
+                if champ > 0 and champ <= self.num_champions:
+                    mask[champ-1] = 0
+        return mask
+    
+def process_draft_data(matches_df, champion_data):
+    pass # TODO: Finish later
+
+def extract_player_features(player_data, champion_data):
+    pass # TODO: Finish later
+
+def extract_patch_features(patch_data, champion_data):
+    pass # TODO: Finish later
+
+def process_data_patch(patch_data, champion_data):
+        pass # TODO: Finish later
 
 def main():
     pass
