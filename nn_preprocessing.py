@@ -179,8 +179,8 @@ class LOLDraftModel:
         instance.model = tf.keras.models.load_model(filepath)
         return instance
 
-def load_full_draft_csv() -> pd.DataFrame:
-    return pd.read_csv("processed_data_files/full_draft_df.csv")
+def load_full_draft_data() -> pd.DataFrame:
+    return pickle.load(open("processed_data_files/draft_df.pkl", "rb"))
 
 def load_player_data() -> dict[str, pd.DataFrame]:
     return pickle.load(open("processed_data_files/player_data.pkl", "rb"))
@@ -245,15 +245,50 @@ def organize_by_player_performance(df: pd.DataFrame) -> dict[str, pd.DataFrame]:
     
     return player_data
 
+def collect_player_data(df: pd.DataFrame) -> dict[str, pd.DataFrame]:
+    """
+    Aggregates per-player, per-champion stats (wins, games, win_rate) from blue/red_picks and blue/red_players arrays, using the winner field.
+    Returns dict[player][champion] = pd.DataFrame([stats])
+    """
+    player_data = {}
+    for _, row in df.iterrows():
+        # Blue side
+        for idx in range(len(row["blue_players"])):
+            champion = row["blue_picks"][idx]
+            player = row["blue_players"][idx]
+            if player not in player_data:
+                player_data[player] = pd.DataFrame(columns=["champion", "wins", "games", "win_rate", "blue_wins", "red_wins", "blue_games", "red_games"])
+            if champion not in player_data[player]["champion"].values:
+                player_data[player] = pd.concat([player_data[player], pd.DataFrame({"champion": [champion], "wins": [0], "games": [0], "win_rate": [0], "blue_wins": [0], "red_wins": [0], "blue_games": [0], "red_games": [0]})], ignore_index=True)
+            if row["winner"] == 1.0:
+                player_data[player][player_data[player]["champion"] == champion]["blue_wins"] += 1
+                player_data[player][player_data[player]["champion"] == champion]["wins"] += 1
+            player_data[player]["blue_games"] += 1
+        # Red side
+        for idx in range(len(row["red_players"])):
+            champion = row["red_picks"][idx]
+            player = row["red_players"][idx]
+            if player not in player_data:
+                player_data[player] = pd.DataFrame(columns=["champion", "wins", "games", "win_rate"])
+            if champion not in player_data[player]["champion"].values:
+                player_data[player] = pd.concat([player_data[player], pd.DataFrame({"champion": [champion], "wins": [0], "games": [0], "win_rate": [0]})], ignore_index=True)
+            if row["winner"] == 0.0:
+                player_data[player][player_data[player]["champion"] == champion]["wins"] += 1
+            player_data[player]["games"] += 1
+    return player_data
 
 def main():
     """
     Main function to build pickban and draft dataframes.
     """
 
-    draft_df = load_full_draft_csv()
+    draft_df = load_full_draft_data()
     # player_data = load_player_data()
     # pickban_df = load_pickban_data()
+    player_data = collect_player_data(draft_df)
+    with open("processed_data_files/player_data.pkl", "wb") as f:
+        pickle.dump(player_data, f)
+    
 
     print(draft_df)
     # print(player_data)
