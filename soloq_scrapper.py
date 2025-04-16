@@ -1,171 +1,585 @@
+
+"""
+Riot API Scraper - ITS WORKING HAHAHA
+"""
+
 import os
 import time
 import logging
 from datetime import datetime
-from threading import Lock
 from collections import defaultdict, deque
 import pandas as pd
 import requests
+from typing import Dict, List, Optional, Tuple
 
 # ========================
-# Configuration Classes
+# Configuration
 # ========================
 class Config:
-    """Centralized configuration"""
+    """Centralized configuration with validation"""
+    # API Settings
+    # Only Idan has the API key obv
     API_KEY = os.getenv("RIOT_API_KEY")
     BASE_URL = "https://{region}.api.riotgames.com/lol"
-    RATE_LIMITS = {
-        "per_second": 18,  # 20 * 0.9 buffer
-        "per_two_minutes": 90  # 100 * 0.9 buffer
-    }
-    REGIONS = ["na1", "euw1", "kr", "eun1", "br1", "la1", "la2", "oc1", "ru", "tr1", "jp1"]
-    OUTPUT_DIR = "soloq_stats"
     
+    # Data Collection Parameters
+    REGIONS = ["na1", "euw1", "kr", "eun1", "br1", "la1"]
+    MATCH_REGION_MAP = {
+        region: "americas" if region in ["na1", "br1", "la1", "la2", "oc1"] 
+        else "europe" if region in ["euw1", "eun1", "tr1", "ru"] 
+        else "asia" 
+        for region in REGIONS
+    }
+    
+    # Rate Limits
+    RATE_LIMITS = {
+        "app": {
+            "per_two_minutes": 95,
+            "window_seconds": 120
+        },
+        "endpoints": {
+            "league": {
+                "per_two_minutes": 85,
+                "window_seconds": 120
+            },
+            "match": {
+                "per_two_minutes": 85,
+                "window_seconds": 120
+            },
+            "summoner": {
+                "per_two_minutes": 85,
+                "window_seconds": 120
+            }
+        }
+    }
+    
+    # Collection Parameters
+    MAX_MATCHES_PER_PLAYER = 100
+    MIN_GAMES_THRESHOLD = 3
+    MATCHUP_THRESHOLD = 10
+    
+    # Output Directories
+    OUTPUT_DIR = "soloq_stats"
+    MATCHUP_DIR = os.path.join(OUTPUT_DIR, "matchups")
+    
+    # Request Parameters
+    REQUEST_TIMEOUT = 15
+    MAX_RETRIES = 3
+    RETRY_DELAYS = [1, 2, 3]
+
     @classmethod
     def validate(cls):
+        """Validate configuration and create directories"""
         if not cls.API_KEY:
             raise ValueError("RIOT_API_KEY environment variable not set")
+        os.makedirs(cls.OUTPUT_DIR, exist_ok=True)
+        os.makedirs(cls.MATCHUP_DIR, exist_ok=True)
 
 # ========================
-# Core Components
+# Data Models
 # ========================
-class RateLimiter:
-    """Thread-safe rate limiting"""
+class ChampionStats:
+    """Comprehensive champion statistics with matchup tracking"""
     def __init__(self):
-        self.requests_second = deque(maxlen=Config.RATE_LIMITS["per_second"])
-        self.requests_two_min = deque(maxlen=Config.RATE_LIMITS["per_two_minutes"])
-        self.lock = Lock()
+        self.games = 0
+        self.wins = 0
+        self.kills = 0
+        self.deaths = 0
+        self.assists = 0
+        self.matchups = defaultdict(lambda: {
+            "games": 0,
+            "wins": 0,
+            "kills": 0,
+            "deaths": 0,
+            "assists": 0
+        })
 
-    def wait(self):
-        with self.lock:
-            now = time.time()
-            self._clean_old_requests(now)
+    def add_game(self, win: bool, kills: int, deaths: int, assists: int, opponent_champ: Optional[str] = None) -> None:
+        """Record game stats with matchup data"""
+        self.games += 1
+        self.wins += int(win)
+        self.kills += kills
+        self.deaths += deaths
+        self.assists += assists
+        
+        if opponent_champ:
+            self.matchups[opponent_champ]["games"] += 1
+            self.matchups[opponent_champ]["wins"] += int(win)
+            self.matchups[opponent_champ]["kills"] += kills
+            self.matchups[opponent_champ]["deaths"] += deaths
+            self.matchups[opponent_champ]["assists"] += assists
+
+    @property
+    def win_rate(self) -> float:
+        return (self.wins / self.games) * 100 if self.games else 0
+
+    @property
+    def kda(self) -> float:
+        return (self.kills + self.assists) / max(1, self.deaths)
+
+    def get_matchup_stats(self) -> List[Dict]:
+        """Get matchup statistics meeting threshold"""
+        return [
+            {
+                "opponent": opponent,
+                "games": data["games"],
+                "win_rate": round((data["wins"] / data["games"]) * 100, 2),
+                "kda": round((data["kills"] + data["assists"]) / max(1, data["deaths"]), 2),
+                "avg_kills": round(data["kills"] / data["games"], 2),
+                "avg_deaths": round(data["deaths"] / data["games"], 2),
+                "avg_assists": round(data["assists"] / data["games"], 2),
+                "last_updated": datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+            }
+            for opponent, data in self.matchups.items()
+            if data["games"] >= Config.MATCHUP_THRESHOLD
+        ]
+
+# ========================
+# Rate Limiter
+# ========================
+class PrecisionRateLimiter:
+    """Maintains exact 95% utilization through precise request pacing"""
+    def __init__(self):
+        self.request_times = {
+            "app": deque(maxlen=Config.RATE_LIMITS["app"]["per_two_minutes"]),
+            "league": deque(maxlen=Config.RATE_LIMITS["endpoints"]["league"]["per_two_minutes"]),
+            "match": deque(maxlen=Config.RATE_LIMITS["endpoints"]["match"]["per_two_minutes"]),
+            "summoner": deque(maxlen=Config.RATE_LIMITS["endpoints"]["summoner"]["per_two_minutes"])
+        }
+        self.last_request_time = 0
+        self.total_requests = 0
+
+    def wait(self, endpoint_type: str) -> None:
+        """Ensure perfect request pacing for 95% utilization"""
+        now = time.time()
+        self.total_requests += 1
+        
+        # Calculate delays for all limits
+        delays = []
+        for limit_type in ["app", endpoint_type]:
+            queue = self.request_times[limit_type]
+            max_requests = Config.RATE_LIMITS["app"]["per_two_minutes"] if limit_type == "app" else Config.RATE_LIMITS["endpoints"][endpoint_type]["per_two_minutes"]
+            window = Config.RATE_LIMITS["app"]["window_seconds"] if limit_type == "app" else Config.RATE_LIMITS["endpoints"][endpoint_type]["window_seconds"]
             
-            if self._needs_throttle(now):
-                sleep_time = self._calculate_sleep(now)
-                logging.warning(f"Rate limit approaching. Sleeping {sleep_time:.2f}s")
-                time.sleep(sleep_time)
-            
-            self.requests_second.append(now)
-            self.requests_two_min.append(now)
+            if len(queue) >= max_requests:
+                elapsed = now - queue[0]
+                if elapsed < window:
+                    delays.append((queue[0] + window) - now)
+        
+        # Apply the longest required delay
+        if delays:
+            time.sleep(max(delays))
+        
+        # Record the request
+        current_time = time.time()
+        self.request_times["app"].append(current_time)
+        self.request_times[endpoint_type].append(current_time)
+        self.last_request_time = current_time
 
-    def _clean_old_requests(self, now):
-        """Remove expired request timestamps"""
-        while self.requests_second and now - self.requests_second[0] > 1:
-            self.requests_second.popleft()
-        while self.requests_two_min and now - self.requests_two_min[0] > 120:
-            self.requests_two_min.popleft()
-
-    def _needs_throttle(self, now):
-        """Check if we're approaching limits"""
-        return (len(self.requests_second) >= Config.RATE_LIMITS["per_second"] or
-                len(self.requests_two_min) >= Config.RATE_LIMITS["per_two_minutes"])
-
-    def _calculate_sleep(self, now):
-        """Determine required sleep duration"""
-        sleep_times = []
-        if self.requests_second:
-            sleep_times.append((self.requests_second[0] + 1) - now)
-        if self.requests_two_min:
-            sleep_times.append((self.requests_two_min[0] + 120) - now)
-        return max(max(sleep_times) if sleep_times else 0, 0.1)
-
+# ========================
+# API Client
+# ========================
 class RiotAPI:
-    """Handles all Riot API communication"""
-    def __init__(self, rate_limiter):
+    """Fixed API client with proper ID handling"""
+    def __init__(self, rate_limiter: PrecisionRateLimiter):
         self.rate_limiter = rate_limiter
+        self.session = requests.Session()
+        self.session.headers.update({
+            "X-Riot-Token": Config.API_KEY,
+            "Accept": "application/json",
+            "User-Agent": "LeagueDataCollector/10.0 (FixedIDs)"
+        })
+        self.total_requests = 0
+        self.failed_requests = 0
 
-    def get_challenger_league(self, region):
+    def get_json(self, url: str, endpoint_type: str) -> Optional[Dict]:
+        """Make API request with retry logic"""
+        for attempt in range(Config.MAX_RETRIES):
+            self.rate_limiter.wait(endpoint_type)
+            
+            try:
+                response = self.session.get(url, timeout=Config.REQUEST_TIMEOUT)
+                self.total_requests += 1
+                
+                if response.status_code == 404:
+                    return None  # Summoner not found
+                elif response.status_code == 429:
+                    retry_after = int(response.headers.get("Retry-After", 10))
+                    logger.warning(f"Rate limited. Waiting {retry_after}s")
+                    time.sleep(retry_after)
+                    continue
+                    
+                response.raise_for_status()
+                return response.json()
+                
+            except requests.exceptions.RequestException as e:
+                self.failed_requests += 1
+                logger.debug(f"Attempt {attempt+1} failed: {str(e)}")
+                time.sleep(Config.RETRY_DELAYS[attempt])
+                
+        logger.error(f"Failed after {Config.MAX_RETRIES} attempts for {url}")
+        return None
+
+    def get_challenger_league(self, region: str) -> Optional[Dict]:
         url = f"{Config.BASE_URL.format(region=region)}/league/v4/challengerleagues/by-queue/RANKED_SOLO_5x5"
-        return self._make_request(url)
+        return self.get_json(url, "league")
 
-    def get_summoner(self, region, summoner_id):
+    def get_summoner_by_id(self, region: str, summoner_id: str) -> Optional[Dict]:
+        """Get summoner by summonerId (v4 API)"""
         url = f"{Config.BASE_URL.format(region=region)}/summoner/v4/summoners/{summoner_id}"
-        return self._make_request(url)
+        return self.get_json(url, "summoner")
 
-    def _make_request(self, url):
-        """Generic request handler"""
-        self.rate_limiter.wait()
+    def get_summoner_by_puuid(self, region: str, puuid: str) -> Optional[Dict]:
+        """Get summoner by puuid (v4 API)"""
+        url = f"{Config.BASE_URL.format(region=region)}/summoner/v4/summoners/by-puuid/{puuid}"
+        return self.get_json(url, "summoner")
+
+    def get_match_history(self, puuid: str, region: str) -> Optional[List[str]]:
+        match_region = Config.MATCH_REGION_MAP[region]
+        url = f"https://{match_region}.api.riotgames.com/lol/match/v5/matches/by-puuid/{puuid}/ids?queue=420&count={Config.MAX_MATCHES_PER_PLAYER}"
+        return self.get_json(url, "match")
+
+    def get_match_details(self, match_id: str, region: str) -> Optional[Dict]:
+        match_region = Config.MATCH_REGION_MAP[region]
+        url = f"https://{match_region}.api.riotgames.com/lol/match/v5/matches/{match_id}"
+        return self.get_json(url, "match")
+
+# ========================
+# Main Scraper
+# ========================
+class LeagueScraper:
+    """Main scraper"""
+    def __init__(self):
+        self.rate_limiter = PrecisionRateLimiter()
+        self.api = RiotAPI(self.rate_limiter)
+        self.region_data = defaultdict(dict)
+        self.start_time = time.time()
+        self.processed_players = 0
+        self.skipped_players = 0
+        self.failed_summoner_lookups = 0
+
+    def run(self) -> None:
+        """Execute the scraping process"""
+        logger.info("🚀 Starting data collection with fixed ID handling")
         
         try:
-            response = requests.get(
-                url,
-                headers={"X-Riot-Token": Config.API_KEY},
-                timeout=10
-            )
+            for region in Config.REGIONS:
+                self.process_region(region)
             
-            if response.status_code == 403:
-                logging.error(f"403 Forbidden - Check API key permissions for: {url}")
-                return None
-            response.raise_for_status()
-            return response.json()
+            self.save_data()
             
-        except requests.exceptions.RequestException as e:
-            logging.error(f"Request failed: {str(e)}")
-            return None
+        except KeyboardInterrupt:
+            logger.info("🛑 Received interrupt. Saving data...")
+            self.save_data()
+        except Exception as e:
+            logger.critical(f"💥 Fatal error: {str(e)}", exc_info=True)
+            raise
+        finally:
+            self.log_final_stats()
 
-# ========================
-# Data Processing
-# ========================
-class DataProcessor:
-    @staticmethod
-    def process_region(api_client, region):
-        league_data = api_client.get_challenger_league(region)
-        if not league_data:
-            return None
+    def process_region(self, region: str) -> None:
+        """Process a single region"""
+        logger.info(f"🏆 Processing {region.upper()}")
+        
+        ladder = self.api.get_challenger_league(region)
+        if not ladder or not isinstance(ladder, dict) or "entries" not in ladder:
+            logger.error(f"Invalid ladder data for {region}")
+            return
+            
+        players = ladder["entries"]
+        logger.info(f"Found {len(players)} players in {region.upper()}")
+        
+        for i, player in enumerate(players):
+            
+            logger.info(f"⏳ Processing player {i+1}/{len(players)} in {region.upper()}")
+            result = self.process_player(region, player["summonerId"])
+            status = "✅ Processed" if result[0] else f"❌ Skipped: {result[1]}"
+            logger.info(f"Status: {status}")
+            
+            if result[0]:
+                self.processed_players += 1
+            else:
+                self.skipped_players += 1
+                if "summoner not found" in result[1].lower():
+                    self.failed_summoner_lookups += 1
+            
+            time.sleep(0.1)
 
-        stats = []
-        for player in league_data["entries"][:50]:  # Top 50 players
-            stats.append({
-                "summoner_id": player["summonerId"],
-                "league_points": player["leaguePoints"],
-                "wins": player["wins"],
-                "losses": player["losses"],
-                "veteran": player["veteran"],
-                "inactive": player["inactive"],
-                "hot_streak": player["hotStreak"],
-                "last_updated": datetime.now().strftime("%Y-%m-%d %H:%M")
-            })
-            time.sleep(0.2)
+    def process_player(self, region: str, summoner_id: str) -> Tuple[bool, str]:
+        """Process a single player"""
+        # Step 1: Get summoner by summonerId
+        summoner = self.api.get_summoner_by_id(region, summoner_id)
+        if not summoner:
+            skip_reason = f"Summoner not found by ID {summoner_id[:6]}"
+            logger.debug(f"❌ {skip_reason}")
+            return (False, skip_reason)
+        
+        # Step 2: Verify we have PUUID
+        puuid = summoner.get("puuid")
+        if not puuid:
+            skip_reason = f"Summoner {summoner_id[:6]} has no PUUID"
+            logger.debug(f"❌ {skip_reason}")
+            return (False, skip_reason)
+        
+        # Step 3: Get match history by PUUID
+        match_ids = self.api.get_match_history(puuid, region)
+        
+        if not match_ids:
+            skip_reason = f"No match history for {summoner_id[:6]} (PUUID: {puuid[:8]}...)"
+            logger.debug(f"❌ {skip_reason}")
+            return (False, skip_reason)
+        
+        # Step 4: Process matches with detailed validation tracking
+        valid_matches = []
+        skip_details = {
+            "invalid_id": 0,
+            "match_not_found": 0,
+            "player_not_in_match": 0,
+            "validation_error": 0
+        }
+        
+        for match_id in match_ids[:Config.MAX_MATCHES_PER_PLAYER]:
+            
+            # logger.warning(f"Match IDs for {puuid}: {match_id}")
+            # Validate match ID
+            if not self.validate_match_id(match_id, region):
+                skip_details["invalid_id"] += 1
+                logger.debug(f"Invalid match ID format: {match_id}")
+                continue
+                
+            # Get match details
+            match = self.api.get_match_details(match_id, region)
+            if not match:
+                skip_details["match_not_found"] += 1
+                logger.debug(f"Match not found: {match_id}")
+                continue
+                
+            # Validate match data
+            try:
+                if not any(p["puuid"] == puuid for p in match["info"]["participants"]):
+                    skip_details["player_not_in_match"] += 1
+                    logger.debug(f"Player {puuid[:8]} not in match {match_id}")
+                    continue
+            except Exception as e:
+                skip_details["validation_error"] += 1
+                logger.debug(f"Match validation error: {str(e)}")
+                continue
+                
+            valid_matches.append(match)
+        
+        # Handle no valid matches case
+        if not valid_matches:
+            skip_reason = self._format_skip_reason(skip_details, summoner_id[:6], puuid[:8])
+            logger.debug(f"❌ Player {summoner_id[:6]} skipped - {skip_reason}")
+            return (False, skip_reason)
+        
+        # Step 5: Process stats
+        try:
+            stats = self.process_matches(summoner, valid_matches)
+            self.aggregate_stats(region, stats)
+            logger.debug(f"✅ Player {summoner_id[:6]} processed - {len(valid_matches)} valid matches")
+            return (True, f"Processed {len(valid_matches)} matches")
+        except Exception as e:
+            skip_reason = f"Processing error: {str(e)}"
+            logger.debug(f"❌ Player {summoner_id[:6]} skipped - {skip_reason}")
+            return (False, skip_reason)
+
+    def _format_skip_reason(self, skip_details: Dict, player_id: str, puuid: str) -> str:
+        """Format detailed skip reason message"""
+        reasons = []
+        if skip_details["invalid_id"] > 0:
+            reasons.append(f"{skip_details['invalid_id']} invalid match IDs")
+        if skip_details["match_not_found"] > 0:
+            reasons.append(f"{skip_details['match_not_found']} matches not found")
+        if skip_details["player_not_in_match"] > 0:
+            reasons.append(f"{skip_details['player_not_in_match']} matches without player")
+        if skip_details["validation_error"] > 0:
+            reasons.append(f"{skip_details['validation_error']} validation errors")
+        
+        if not reasons:
+            return f"No valid matches for {player_id} (PUUID: {puuid}...)"
+        
+        return f"No valid matches - Reasons: {', '.join(reasons)}"
+
+    def validate_match_id(self, match_id: str, region: str) -> bool:
+        """Validate match ID structure and region"""
+        try:
+            parts = match_id.split('_')
+            return (len(parts) == 2 
+                    and parts[0] == region.upper()
+                    and parts[1].isdigit()
+                    and len(parts[1]) == 10)
+        except Exception:
+            return False
+
+    def validate_match_data(self, match: Dict, puuid: str) -> bool:
+        """Validate match contains the player"""
+        try:
+            return any(p["puuid"] == puuid for p in match["info"]["participants"])
+        except Exception:
+            return False
+
+    def process_matches(self, summoner: Dict, matches: List[Dict]) -> Dict[str, ChampionStats]:
+        """Process validated matches into stats"""
+        stats = defaultdict(ChampionStats)
+        puuid = summoner["puuid"]
+        
+        for match in matches:
+            try:
+                participants = match["info"]["participants"]
+                player = next(p for p in participants if p["puuid"] == puuid)
+                opponent = self.get_lane_opponent(player, participants)
+                
+                stats[player["championName"]].add_game(
+                    win=player["win"],
+                    kills=player["kills"],
+                    deaths=player["deaths"],
+                    assists=player["assists"],
+                    opponent_champ=opponent
+                )
+            except Exception as e:
+                logger.debug(f"Match processing error: {str(e)}")
+                continue
+                
         return stats
 
-    @classmethod
-    def save_to_csv(cls, data, region):
-        os.makedirs(Config.OUTPUT_DIR, exist_ok=True)
-        filename = f"{Config.OUTPUT_DIR}/{region}_challenger_players.csv"
-        pd.DataFrame(data).to_csv(filename, index=False)
+    def get_lane_opponent(self, player: Dict, participants: List[Dict]) -> Optional[str]:
+        """Identify lane opponent"""
+        try:
+            position = player["teamPosition"]
+            if position in ["TOP", "MID", "JUNGLE", "BOTTOM", "UTILITY"]:
+                opponents = [p for p in participants 
+                            if p["teamId"] != player["teamId"] 
+                            and p.get("teamPosition") == position]
+                return opponents[0]["championName"] if opponents else None
+        except Exception:
+            return None
+        return None
+
+    def aggregate_stats(self, region: str, stats: Dict[str, ChampionStats]) -> None:
+        """Aggregate champion stats for the region"""
+        for champion, champion_stats in stats.items():
+            if champion not in self.region_data[region]:
+                self.region_data[region][champion] = ChampionStats()
+            
+            # Merge the stats
+            existing = self.region_data[region][champion]
+            existing.games += champion_stats.games
+            existing.wins += champion_stats.wins
+            existing.kills += champion_stats.kills
+            existing.deaths += champion_stats.deaths
+            existing.assists += champion_stats.assists
+            
+            # Merge matchups
+            for opponent, matchup in champion_stats.matchups.items():
+                if opponent not in existing.matchups:
+                    existing.matchups[opponent] = {
+                        "games": 0,
+                        "wins": 0,
+                        "kills": 0,
+                        "deaths": 0,
+                        "assists": 0
+                    }
+                existing.matchups[opponent]["games"] += matchup["games"]
+                existing.matchups[opponent]["wins"] += matchup["wins"]
+                existing.matchups[opponent]["kills"] += matchup["kills"]
+                existing.matchups[opponent]["deaths"] += matchup["deaths"]
+                existing.matchups[opponent]["assists"] += matchup["assists"]
+
+    def save_data(self) -> None:
+        """Save all collected data"""
+        self.save_global_stats()
+        self.save_matchup_stats()
+
+    def save_global_stats(self) -> None:
+        """Save global champion statistics"""
+        global_stats = []
+        
+        for region, stats in self.region_data.items():
+            for champ, champ_stats in stats.items():
+                if champ_stats.games >= Config.MIN_GAMES_THRESHOLD:
+                    global_stats.append({
+                        "champion": champ,
+                        "region": region,
+                        "games": champ_stats.games,
+                        "wins": champ_stats.wins,
+                        "win_rate": round(champ_stats.win_rate, 2),
+                        "avg_kills": round(champ_stats.kills / champ_stats.games, 2),
+                        "avg_deaths": round(champ_stats.deaths / champ_stats.games, 2),
+                        "avg_assists": round(champ_stats.assists / champ_stats.games, 2),
+                        "kda": round(champ_stats.kda, 2),
+                        "last_updated": datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+                    })
+        
+        df = pd.DataFrame(global_stats)
+        output_path = os.path.join(Config.OUTPUT_DIR, "winrate_stats.csv")
+        df.to_csv(output_path, index=False)
+        logger.info(f"💾 Saved global stats with {len(df)} entries")
+
+    def save_matchup_stats(self) -> None:
+        """Save per-champion matchup statistics"""
+        matchup_count = 0
+        
+        for region, stats in self.region_data.items():
+            for champ, champ_stats in stats.items():
+                if champ_stats.games >= Config.MIN_GAMES_THRESHOLD:
+                    matchups = champ_stats.get_matchup_stats()
+                    if matchups:
+                        filename = f"{champ.lower()}_{region}_matchups.csv"
+                        filepath = os.path.join(Config.MATCHUP_DIR, filename)
+                        
+                        matchups.sort(key=lambda x: x["win_rate"])
+                        pd.DataFrame(matchups).to_csv(filepath, index=False)
+                        matchup_count += len(matchups)
+        
+        logger.info(f"💾 Saved matchup data for {matchup_count} champion pairs")
+
+    def log_final_stats(self) -> None:
+        """Log detailed final statistics"""
+        total_time = (time.time() - self.start_time) / 60
+        logger.info("\n📊 Final Statistics:")
+        logger.info(f"⏱️  Total runtime: {total_time:.1f} minutes")
+        logger.info(f"✅ Players processed: {self.processed_players}")
+        logger.info(f"⚠️  Players skipped: {self.skipped_players}")
+        logger.info(f"🔍 Failed summoner lookups: {self.failed_summoner_lookups}")
+        logger.info(f"📡 API requests: {self.api.total_requests}")
+        logger.info(f"❌ Failed requests: {self.api.failed_requests}")
+        logger.info(f"🏁 Script completed")
+
+# ========================
+# Logging Setup
+# ========================
+def setup_logging():
+    """Configure comprehensive logging"""
+    logger = logging.getLogger()
+    logger.setLevel(logging.INFO)
+    
+    formatter = logging.Formatter(
+        "%(asctime)s [%(levelname)s] %(message)s",
+        datefmt="%Y-%m-%d %H:%M:%S"
+    )
+    
+    ch = logging.StreamHandler()
+    ch.setFormatter(formatter)
+    logger.addHandler(ch)
+    
+    fh = logging.FileHandler("scraper.log")
+    fh.setLevel(logging.DEBUG)
+    fh.setFormatter(formatter)
+    logger.addHandler(fh)
+    
+    return logger
 
 # ========================
 # Main Execution
 # ========================
-def main():
-    """Clean main function"""
-    # Setup
-    Config.validate()
-    logging.basicConfig(
-        level=logging.INFO,
-        format="%(asctime)s [%(levelname)s] %(message)s",
-        handlers=[
-            logging.FileHandler("scraper.log"),
-            logging.StreamHandler()
-        ]
-    )
-
-    # Initialize components
-    rate_limiter = RateLimiter()
-    api_client = RiotAPI(rate_limiter)
-    processor = DataProcessor()
-
-    # Process all regions
-    for region in Config.REGIONS:
-        try:
-            region_stats = processor.process_region(api_client, region)
-            if region_stats:
-                processor.save_to_csv(region_stats, region)
-        except Exception as e:
-            logging.error(f"Failed processing {region}: {str(e)}")
-
-    logging.info("✨ All regions processed!")
-
 if __name__ == "__main__":
-    main()
+    logger = setup_logging()
+    Config.validate()
+    
+    try:
+        scraper = LeagueScraper()
+        scraper.run()
+    except Exception as e:
+        logger.critical(f"💥 Fatal error: {str(e)}", exc_info=True)
+        raise
