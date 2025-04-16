@@ -1,10 +1,6 @@
-#!/usr/bin/env python3
+
 """
-Ultimate Riot API Scraper - Enhanced Debugging Edition
-- Detailed skip reason logging
-- Maintains original rate limiting
-- Strict validation preserved
-- Polished and modular
+Riot API Scraper - ITS WORKING HAHAHA
 """
 
 import os
@@ -22,11 +18,12 @@ from typing import Dict, List, Optional, Tuple
 class Config:
     """Centralized configuration with validation"""
     # API Settings
+    # Only Idan has the API key obv
     API_KEY = os.getenv("RIOT_API_KEY")
     BASE_URL = "https://{region}.api.riotgames.com/lol"
     
     # Data Collection Parameters
-    REGIONS = ["na1", "euw1", "kr", "eun1", "br1", "la1", "la2", "oc1", "ru", "tr1", "jp1"]
+    REGIONS = ["na1", "euw1", "kr", "eun1", "br1", "la1"]
     MATCH_REGION_MAP = {
         region: "americas" if region in ["na1", "br1", "la1", "la2", "oc1"] 
         else "europe" if region in ["euw1", "eun1", "tr1", "ru"] 
@@ -251,7 +248,7 @@ class RiotAPI:
 # Main Scraper
 # ========================
 class LeagueScraper:
-    """Main scraper with enhanced skip reason logging"""
+    """Main scraper"""
     def __init__(self):
         self.rate_limiter = PrecisionRateLimiter()
         self.api = RiotAPI(self.rate_limiter)
@@ -281,7 +278,7 @@ class LeagueScraper:
             self.log_final_stats()
 
     def process_region(self, region: str) -> None:
-        """Process a single region with proper ID handling"""
+        """Process a single region"""
         logger.info(f"🏆 Processing {region.upper()}")
         
         ladder = self.api.get_challenger_league(region)
@@ -309,7 +306,7 @@ class LeagueScraper:
             time.sleep(0.1)
 
     def process_player(self, region: str, summoner_id: str) -> Tuple[bool, str]:
-        """Process a single player with detailed skip reasons"""
+        """Process a single player"""
         # Step 1: Get summoner by summonerId
         summoner = self.api.get_summoner_by_id(region, summoner_id)
         if not summoner:
@@ -447,7 +444,7 @@ class LeagueScraper:
         return stats
 
     def get_lane_opponent(self, player: Dict, participants: List[Dict]) -> Optional[str]:
-        """Identify lane opponent if possible"""
+        """Identify lane opponent"""
         try:
             position = player["teamPosition"]
             if position in ["TOP", "MID", "JUNGLE", "BOTTOM", "UTILITY"]:
@@ -515,7 +512,7 @@ class LeagueScraper:
                     })
         
         df = pd.DataFrame(global_stats)
-        output_path = os.path.join(Config.OUTPUT_DIR, "global_stats.csv")
+        output_path = os.path.join(Config.OUTPUT_DIR, "winrate_stats.csv")
         df.to_csv(output_path, index=False)
         logger.info(f"💾 Saved global stats with {len(df)} entries")
 
