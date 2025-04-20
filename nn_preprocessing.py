@@ -188,6 +188,16 @@ def load_player_data() -> dict[str, pd.DataFrame]:
 def load_pickban_data() -> dict[str, pd.DataFrame]:
     return pickle.load(open("processed_data_files/pickban_df.pkl", "rb"))
 
+def load_champ_matchup_info() -> dict[str, pd.DataFrame]:
+    return pickle.load(open("processed_data_files/champ_matchup_info.pkl", "rb"))
+
+def clean_matchup_info():
+    d = load_champ_matchup_info()
+    for champ, df in d.items():
+        df.drop("last_updated", axis=1, inplace=True)
+
+    return d
+
 def get_unique_players(df: pd.DataFrame) -> list[str]:
     """
     Returns a list of unique player names from the entire draft data.
@@ -277,24 +287,91 @@ def collect_player_data(df: pd.DataFrame) -> dict[str, pd.DataFrame]:
             player_data[player]["games"] += 1
     return player_data
 
+def collect_champ_matchup_info():
+    champ_matchup_info = {}
+    for file in os.listdir("soloq_stats/aggregated_matchups"):
+        with open(f"soloq_stats/aggregated_matchups/{file}") as f:
+            if file == "drmundo_matchups.csv":
+                champ_matchup_info["Dr. Mundo"] = pd.read_csv(f)
+            elif file == "renata_matchups.csv":
+                champ_matchup_info["Renata Glasc"] = pd.read_csv(f)
+            elif file == "ksante_matchups.csv":
+                champ_matchup_info["KSante"] = pd.read_csv(f)
+            elif file == "xinzhao_matchups.csv":
+                champ_matchup_info["Xin Zhao"] = pd.read_csv(f)
+            elif file == "leesin_matchups.csv":
+                champ_matchup_info["Lee Sin"] = pd.read_csv(f)
+            elif file == "kogmaw_matchups.csv":
+                champ_matchup_info["KogMaw"] = pd.read_csv(f)
+            elif file == "tahmkench_matchups.csv":
+                champ_matchup_info["Tahm Kench"] = pd.read_csv(f)
+            elif file == "aurelionsol_matchups.csv":
+                champ_matchup_info["Aurelion Sol"] = pd.read_csv(f)
+            elif file == "jarvaniv_matchups.csv":
+                champ_matchup_info["Jarvan IV"] = pd.read_csv(f)
+            elif file == "missfortune_matchups.csv":
+                champ_matchup_info["Miss Fortune"] = pd.read_csv(f)
+            elif file == "khazix_matchups.csv":
+                champ_matchup_info["KhaZix"] = pd.read_csv(f)
+            else:
+                champ_matchup_info[file.split("_")[0].capitalize()] = pd.read_csv(f)
+    return champ_matchup_info
+
+def clean_time():
+    for file in os.listdir("soloq_stats/aggregated_matchups"):
+        with open(f"soloq_stats/aggregated_matchups/{file}", 'r') as f:
+            filedata = f.read()
+        flag = False
+        if ("Renata" in filedata and not "Renata Glasc" in filedata):
+            filedata = filedata.replace("Renata", "Renata Glasc")
+            flag = True
+        if ("KSante" in filedata):
+            filedata = filedata.replace("KSante", "KSante")
+            flag = True
+        if ("Xinzhao" in filedata):
+            filedata = filedata.replace("Xinzhao", "Xin Zhao")
+            flag = True
+        if ("Leesin" in filedata):
+            filedata = filedata.replace("Leesin", "Lee Sin")
+            flag = True
+        if ("Kogmaw" in filedata):
+            filedata = filedata.replace("Kogmaw", "KogMaw")
+            flag = True
+        if ("Tahmkench" in filedata):
+            filedata = filedata.replace("Tahmkench", "Tahm Kench")
+            flag = True
+        if ("Aurelionsol" in filedata):
+            filedata = filedata.replace("Aurelionsol", "Aurelion Sol")
+            flag = True
+        if ("Jarvaniv" in filedata):
+            filedata = filedata.replace("Jarvaniv", "Jarvan IV")
+            flag = True
+        if ("Missfortune" in filedata):
+            filedata = filedata.replace("Missfortune", "Miss Fortune")
+            flag = True
+        if ("Khazix" in filedata):
+            filedata = filedata.replace("Khazix", "KhaZix")
+            flag = True
+        if (flag):
+            with open(f"soloq_stats/aggregated_matchups/{file}", 'w') as f:
+                f.write(filedata)
+
+
 def main():
     """
     Main function to build pickban and draft dataframes.
     """
+    # champ_matchup_info = collect_champ_matchup_info()
+    # with open("processed_data_files/champ_matchup_info.pkl", "wb") as f:
+    #     pickle.dump(champ_matchup_info, f)
+    clean_time()
+    champ_info = collect_champ_matchup_info()
+    with open("processed_data_files/champ_matchup_info.pkl", "wb") as f:
+        pickle.dump(champ_info, f)
+    print(champ_info["Dr. Mundo"])
+    print(champ_info["Draven"])
 
-    draft_df = load_full_draft_data()
-    # player_data = load_player_data()
-    # pickban_df = load_pickban_data()
-    player_data = collect_player_data(draft_df)
-    with open("processed_data_files/player_data.pkl", "wb") as f:
-        pickle.dump(player_data, f)
-    
-
-    print(draft_df)
-    # print(player_data)
-    # print(pickban_df)
-    print(draft_df.columns)
-
+                
 
 
 if __name__ == "__main__":
