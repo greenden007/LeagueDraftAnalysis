@@ -2,6 +2,7 @@
 Neural Network Preprocessing, Training, and Construction for utilization
 """
 import os
+import re
 import pickle
 import pandas as pd
 import numpy as np
@@ -313,6 +314,8 @@ def collect_champ_matchup_info():
                 champ_matchup_info["Miss Fortune"] = pd.read_csv(f)
             elif file == "khazix_matchups.csv":
                 champ_matchup_info["KhaZix"] = pd.read_csv(f)
+            elif file == "reksai_matchups.csv":
+                champ_matchup_info["RekSai"] = pd.read_csv(f)
             else:
                 champ_matchup_info[file.split("_")[0].capitalize()] = pd.read_csv(f)
     return champ_matchup_info
@@ -352,10 +355,25 @@ def clean_time():
         if ("Khazix" in filedata):
             filedata = filedata.replace("Khazix", "KhaZix")
             flag = True
+        if ("Reksai" in filedata):
+            filedata = filedata.replace("Reksai", "RekSai")
+            flag = True
         if (flag):
             with open(f"soloq_stats/aggregated_matchups/{file}", 'w') as f:
                 f.write(filedata)
 
+def clean_pickban_more():
+    temps = ["TwistedFate", "XinZhao", "MissFortune", "LeeSin", "AurelionSol", "JarvanIV", "MasterYi", "RenataGlasc", "TahmKench", "Dr.Mundo"]
+    rpl = ["Twisted Fate", "Xin Zhao", "Miss Fortune", "Lee Sin", "Aurelion Sol", "Jarvan IV", "Master Yi", "Renata Glasc", "Tahm Kench", "Dr. Mundo"]
+    for file in os.listdir("PickBan_CSVs"):
+        with open(f"PickBan_CSVs/{file}", 'r') as f:
+            filedata = f.read()
+        
+        for i in range(len(temps)):
+            filedata = re.sub(temps[i], rpl[i], filedata)
+        
+        with open(f"PickBan_CSVs/{file}", 'w') as f:
+            f.write(filedata)
 
 def main():
     """
@@ -364,12 +382,30 @@ def main():
     # champ_matchup_info = collect_champ_matchup_info()
     # with open("processed_data_files/champ_matchup_info.pkl", "wb") as f:
     #     pickle.dump(champ_matchup_info, f)
-    clean_time()
-    champ_info = collect_champ_matchup_info()
-    with open("processed_data_files/champ_matchup_info.pkl", "wb") as f:
-        pickle.dump(champ_info, f)
-    print(champ_info["Dr. Mundo"])
-    print(champ_info["Draven"])
+    clean_pickban_more()
+    with open("processed_data_files/pickban_df.pkl", "rb") as f:
+        pb = pickle.load(f)
+    s = set()
+    for key, value in pb.items():
+        for x in value["name"]:
+            s.add(x)
+    s2 = set()
+    draft = load_full_draft_data()
+    for _, row in draft.iterrows():
+        for x in row["blue_side"]:
+            s2.add(x)
+        for x in row["red_side"]:
+            s2.add(x)
+        for x in row["blue_fs_bans"]:
+            s2.add(x)
+        for x in row["red_fs_bans"]:
+            s2.add(x)
+        for x in row["blue_ss_bans"]:
+            s2.add(x)
+        for x in row["red_ss_bans"]:
+            s2.add(x)
+    print(s.difference(s2))
+    print(s2.difference(s))
 
                 
 
