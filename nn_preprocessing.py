@@ -9,6 +9,9 @@ import numpy as np
 import tensorflow as tf
 from tensorflow.keras import layers, Model
 from sklearn.model_selection import train_test_split
+from collections import defaultdict
+import ast
+
 
 
 def get_csv_tournament(file: str):
@@ -257,35 +260,56 @@ def organize_by_player_performance(df: pd.DataFrame) -> dict[str, pd.DataFrame]:
     return player_data
 
 def collect_player_data(df: pd.DataFrame) -> dict[str, pd.DataFrame]:
-    """
-    Aggregates per-player, per-champion stats (wins, games, win_rate) from blue/red_picks and blue/red_players arrays, using the winner field.
-    Returns dict[player][champion] = pd.DataFrame([stats])
-    """
-    player_data = {}
+    stats_cols = [
+        "champion", "wins", "games", "win_rate",
+        "blue_wins", "red_wins", "blue_games", "red_games"
+    ]
+    player_data: dict[str, pd.DataFrame] = {}
+
     for _, row in df.iterrows():
-        # Blue side
-        for idx in range(len(row["blue_players"])):
-            champion = row["blue_picks"][idx]
-            player = row["blue_players"][idx]
-            if player not in player_data:
-                player_data[player] = pd.DataFrame(columns=["champion", "wins", "games", "win_rate", "blue_wins", "red_wins", "blue_games", "red_games"])
-            if champion not in player_data[player]["champion"].values:
-                player_data[player] = pd.concat([player_data[player], pd.DataFrame({"champion": [champion], "wins": [0], "games": [0], "win_rate": [0], "blue_wins": [0], "red_wins": [0], "blue_games": [0], "red_games": [0]})], ignore_index=True)
-            if row["winner"] == 1.0:
-                player_data[player][player_data[player]["champion"] == champion]["blue_wins"] += 1
-                player_data[player][player_data[player]["champion"] == champion]["wins"] += 1
-            player_data[player]["blue_games"] += 1
-        # Red side
-        for idx in range(len(row["red_players"])):
-            champion = row["red_picks"][idx]
-            player = row["red_players"][idx]
-            if player not in player_data:
-                player_data[player] = pd.DataFrame(columns=["champion", "wins", "games", "win_rate"])
-            if champion not in player_data[player]["champion"].values:
-                player_data[player] = pd.concat([player_data[player], pd.DataFrame({"champion": [champion], "wins": [0], "games": [0], "win_rate": [0]})], ignore_index=True)
-            if row["winner"] == 0.0:
-                player_data[player][player_data[player]["champion"] == champion]["wins"] += 1
-            player_data[player]["games"] += 1
+        # loop once for blue side, once for red side
+        for side in ("blue", "red"):
+            picks_col   = f"{side}_picks"
+            players_col = f"{side}_players"
+            win_flag    = 1.0 if side == "blue" else 0.0
+            win_col     = f"{side}_wins"
+            games_col   = f"{side}_games"
+
+            for champion, player in zip(row[picks_col], row[players_col]):
+                # ensure there's a DataFrame for this player
+                if player not in player_data:
+                    player_data[player] = pd.DataFrame(columns=stats_cols)
+
+                # fetch & mutate via a local reference
+                p_df = player_data[player]
+
+                # add a row for a new champion
+                if champion not in p_df["champion"].values:
+                    new_row = {col: 0 for col in stats_cols}
+                    new_row["champion"] = champion
+                    p_df = pd.concat([p_df, pd.DataFrame([new_row])], ignore_index=True)
+
+                # write it back so .loc won’t get lost on a copy
+                player_data[player] = p_df
+
+                # build mask & update
+                mask = p_df["champion"] == champion
+
+                # this side’s game
+                player_data[player].loc[mask, games_col] += 1
+                player_data[player].loc[mask, "games"]    += 1
+
+                # did they win?
+                if row["winner"] == win_flag:
+                    player_data[player].loc[mask, win_col]  += 1
+                    player_data[player].loc[mask, "wins"]   += 1
+
+    # finally compute win rates
+    for player, p_df in player_data.items():
+        played = p_df["games"] > 0
+        p_df.loc[played, "win_rate"] = p_df.loc[played, "wins"] / p_df.loc[played, "games"]
+        player_data[player] = p_df
+
     return player_data
 
 def collect_champ_matchup_info():
@@ -379,35 +403,15 @@ def main():
     """
     Main function to build pickban and draft dataframes.
     """
-    # champ_matchup_info = collect_champ_matchup_info()
-    # with open("processed_data_files/champ_matchup_info.pkl", "wb") as f:
-    #     pickle.dump(champ_matchup_info, f)
-    clean_pickban_more()
-    with open("processed_data_files/pickban_df.pkl", "rb") as f:
-        pb = pickle.load(f)
-    s = set()
-    for key, value in pb.items():
-        for x in value["name"]:
-            s.add(x)
-    s2 = set()
-    draft = load_full_draft_data()
-    for _, row in draft.iterrows():
-        for x in row["blue_side"]:
-            s2.add(x)
-        for x in row["red_side"]:
-            s2.add(x)
-        for x in row["blue_fs_bans"]:
-            s2.add(x)
-        for x in row["red_fs_bans"]:
-            s2.add(x)
-        for x in row["blue_ss_bans"]:
-            s2.add(x)
-        for x in row["red_ss_bans"]:
-            s2.add(x)
-    print(s.difference(s2))
-    print(s2.difference(s))
+    
+    # match_data = load_full_draft_data()
+    # ff = collect_player_data(match_data)
 
-                
+    # with open("processed_data_files/player_data.pkl", "wb") as f:
+    #     pickle.dump(ff, f)
+
+    df = load_player_data()
+    print(df["Deft"])
 
 
 if __name__ == "__main__":
