@@ -33,6 +33,9 @@ VOCAB_SIZE = len(champ2idx) + 1  # include padding
 
 # Encode draft into fixed-length sequence of champ indices
 def encode_sequence(row):
+    if (len(row.blue_fs_bans) < 3 or len(row.red_fs_bans) < 3):
+        row.blue_fs_bans = row.blue_fs_bans + [PAD_IDX] * (3 - len(row.blue_fs_bans))
+        row.red_fs_bans = row.red_fs_bans + [PAD_IDX] * (3 - len(row.red_fs_bans))
     seq = []
     
     # phase1 bans
@@ -42,18 +45,30 @@ def encode_sequence(row):
     seq.append(champ2idx.get(row.red_fs_bans[1], PAD_IDX))
     seq.append(champ2idx.get(row.blue_fs_bans[2], PAD_IDX))
     seq.append(champ2idx.get(row.red_fs_bans[2], PAD_IDX))
+
+    if (len(row.blue_picks) < 3 or len(row.red_picks) < 3):
+        row.blue_picks = row.blue_picks + [PAD_IDX] * (3 - len(row.blue_picks))
+        row.red_picks = row.red_picks + [PAD_IDX] * (3 - len(row.red_picks))
     
     # phase1 picks (B1, R2, B2, R1)
     seq.append(champ2idx.get(row.blue_picks[0], PAD_IDX))
     seq.extend(champ2idx.get(x, PAD_IDX) for x in row.red_picks[:2])
     seq.extend(champ2idx.get(x, PAD_IDX) for x in row.blue_picks[1:3])
     seq.append(champ2idx.get(row.red_picks[2], PAD_IDX))
+
+    if (len(row.blue_ss_bans) < 2 or len(row.red_ss_bans) < 2):
+        row.blue_ss_bans = row.blue_ss_bans + [PAD_IDX] * (2 - len(row.blue_ss_bans))
+        row.red_ss_bans = row.red_ss_bans + [PAD_IDX] * (2 - len(row.red_ss_bans))
     
     # phase2 bans
     seq.append(champ2idx.get(row.red_ss_bans[0], PAD_IDX))
     seq.append(champ2idx.get(row.blue_ss_bans[0], PAD_IDX))
     seq.append(champ2idx.get(row.red_ss_bans[1], PAD_IDX))
     seq.append(champ2idx.get(row.blue_ss_bans[1], PAD_IDX))
+
+    if (len(row.blue_picks) < 5 or len(row.red_picks) < 5):
+        row.blue_picks = row.blue_picks + [PAD_IDX] * (5 - len(row.blue_picks))
+        row.red_picks = row.red_picks + [PAD_IDX] * (5 - len(row.red_picks))
 
     # phase2 picks (R1, B2, R1)
     seq.append(champ2idx.get(row.red_picks[3], PAD_IDX))
@@ -85,7 +100,7 @@ def compute_comfort(players):
             idx = champ2idx.get(r['champion'])
             if idx:
                 vec[idx] += float(r.get('win_rate', 0)) * 0.5
-    if not players.empty:
+    if len(players) > 0:
         vec /= len(players)
     return torch.tensor(vec, dtype=torch.float)
 
@@ -127,6 +142,11 @@ class MLPDraftModel(nn.Module):
         h = F.relu(h)
         h = self.dropout(h)
         return self.fc2(h)
+    def forward_logits(self, x, meta, comfort):
+        """
+        Returns raw logits tensor for all champion indices.
+        """
+        return self(x, meta, comfort)
     def predict_next(self, seq, meta, comfort):
         self.eval()
         with torch.no_grad():
@@ -134,7 +154,9 @@ class MLPDraftModel(nn.Module):
             m = meta.unsqueeze(0)
             c = comfort.unsqueeze(0)
             logits = self(inp, m, c)
-            return idx2champ[int(torch.argmax(logits, dim=1).item())]
+            logits[:, 0] = float('-inf')            # ban PAD
+            pred = torch.argmax(logits, dim=1).item()
+            return idx2champ[pred]
 
 # RNN model accepts meta and comfort
 class RNNDraftModel(nn.Module):
@@ -152,6 +174,11 @@ class RNNDraftModel(nn.Module):
         h = h + self.meta_fc(meta) + self.comfort_fc(comfort)
         h = F.relu(h)
         return self.fc(h)
+    def forward_logits(self, x, meta, comfort):
+        """
+        Returns raw logits tensor for all champion indices.
+        """
+        return self(x, meta, comfort)
     def predict_next(self, seq, meta, comfort):
         self.eval()
         with torch.no_grad():
@@ -159,7 +186,9 @@ class RNNDraftModel(nn.Module):
             m = meta.unsqueeze(0)
             c = comfort.unsqueeze(0)
             logits = self(inp, m, c)
-            return idx2champ[int(torch.argmax(logits, dim=1).item())]
+            logits[:, 0] = float('-inf')            # ban PAD
+            pred = torch.argmax(logits, dim=1).item()
+            return idx2champ[pred]
 
 # Update training to unpack features
 def train_model(model, train_loader, val_loader, epochs=10, lr=1e-3):
