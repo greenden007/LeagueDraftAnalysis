@@ -46,15 +46,16 @@ def encode_sequence(row):
     seq.append(champ2idx.get(row.blue_fs_bans[2], PAD_IDX))
     seq.append(champ2idx.get(row.red_fs_bans[2], PAD_IDX))
 
-    if (len(row.blue_picks) < 3 or len(row.red_picks) < 3):
-        row.blue_picks = row.blue_picks + [PAD_IDX] * (3 - len(row.blue_picks))
-        row.red_picks = row.red_picks + [PAD_IDX] * (3 - len(row.red_picks))
-    
-    # phase1 picks (B1, R2, B2, R1)
-    seq.append(champ2idx.get(row.blue_picks[0], PAD_IDX))
-    seq.extend(champ2idx.get(x, PAD_IDX) for x in row.red_picks[:2])
-    seq.extend(champ2idx.get(x, PAD_IDX) for x in row.blue_picks[1:3])
-    seq.append(champ2idx.get(row.red_picks[2], PAD_IDX))
+    # prepare sorted picks, ignore game pick order for encoding
+    b_sorted = sorted(row.blue_picks)
+    if len(b_sorted) < 5:
+        b_sorted += [None] * (5 - len(b_sorted))
+    r_sorted = sorted(row.red_picks)
+    if len(r_sorted) < 5:
+        r_sorted += [None] * (5 - len(r_sorted))
+    # phase1 sorted picks: first 3 Blues then 3 Reds
+    seq.extend(champ2idx.get(p, PAD_IDX) for p in b_sorted[:3])
+    seq.extend(champ2idx.get(p, PAD_IDX) for p in r_sorted[:3])
 
     if (len(row.blue_ss_bans) < 2 or len(row.red_ss_bans) < 2):
         row.blue_ss_bans = row.blue_ss_bans + [PAD_IDX] * (2 - len(row.blue_ss_bans))
@@ -66,14 +67,9 @@ def encode_sequence(row):
     seq.append(champ2idx.get(row.red_ss_bans[1], PAD_IDX))
     seq.append(champ2idx.get(row.blue_ss_bans[1], PAD_IDX))
 
-    if (len(row.blue_picks) < 5 or len(row.red_picks) < 5):
-        row.blue_picks = row.blue_picks + [PAD_IDX] * (5 - len(row.blue_picks))
-        row.red_picks = row.red_picks + [PAD_IDX] * (5 - len(row.red_picks))
-
-    # phase2 picks (R1, B2, R1)
-    seq.append(champ2idx.get(row.red_picks[3], PAD_IDX))
-    seq.extend(champ2idx.get(x, PAD_IDX) for x in row.blue_picks[3:5])
-    seq.append(champ2idx.get(row.red_picks[4], PAD_IDX))
+    # phase2 sorted picks: remaining 2 Blues then 2 Reds
+    seq.extend(champ2idx.get(p, PAD_IDX) for p in b_sorted[3:5])
+    seq.extend(champ2idx.get(p, PAD_IDX) for p in r_sorted[3:5])
     return seq
 
 # Precompute pick/ban meta relevance per patch
@@ -99,25 +95,31 @@ def compute_comfort(players):
         for _, r in df_p.iterrows():
             idx = champ2idx.get(r['champion'])
             if idx:
-                vec[idx] += float(r.get('win_rate', 0)) * 0.5
+                vec[idx] += float(r.get('win_rate', 0))
     if len(players) > 0:
         vec /= len(players)
     return torch.tensor(vec, dtype=torch.float)
 
-# Dataset now yields sequence, meta, comfort, target
+# Dataset now yields sequence, bag, meta, comfort, target
 class DraftDataset(Dataset):
     def __init__(self, df):
         self.samples = []
         for _, row in df.iterrows():
             seq = encode_sequence(row)
+            # bag-of-picks feature: which champs have been picked so far
+            bag = torch.zeros(VOCAB_SIZE)
+            for p in row.blue_picks + row.red_picks:
+                idx = champ2idx.get(p)
+                if idx:
+                    bag[idx] = 1.0
             meta = meta_vectors.get(row.patch, torch.zeros(VOCAB_SIZE))
-            # using blue team comfort; adjust as needed
             comfort = compute_comfort(row.blue_players)
             for t in range(1, len(seq)):
                 inp = seq[:t] + [PAD_IDX] * (DRAFT_LENGTH - t)
                 tgt = seq[t]
                 self.samples.append((
                     torch.tensor(inp, dtype=torch.long),
+                    bag.clone(),
                     meta,
                     comfort,
                     torch.tensor(tgt, dtype=torch.long)
@@ -133,27 +135,29 @@ class MLPDraftModel(nn.Module):
         self.fc1 = nn.Linear(DRAFT_LENGTH * embedding_dim, hidden_dim)
         self.meta_fc = nn.Linear(VOCAB_SIZE, hidden_dim)
         self.comfort_fc = nn.Linear(VOCAB_SIZE, hidden_dim)
+        self.picks_fc = nn.Linear(VOCAB_SIZE, hidden_dim)
         self.dropout = nn.Dropout(0.5)
         self.fc2 = nn.Linear(hidden_dim, vocab_size)
-    def forward(self, x, meta, comfort):
+    def forward(self, x, meta, comfort, picks):
         emb = self.embedding(x)
         flat = emb.view(emb.size(0), -1)
-        h = self.fc1(flat) + self.meta_fc(meta) + self.comfort_fc(comfort)
+        h = self.fc1(flat) + self.meta_fc(meta) + self.comfort_fc(comfort) + self.picks_fc(picks)
         h = F.relu(h)
         h = self.dropout(h)
         return self.fc2(h)
-    def forward_logits(self, x, meta, comfort):
+    def forward_logits(self, x, meta, comfort, picks):
         """
         Returns raw logits tensor for all champion indices.
         """
-        return self(x, meta, comfort)
-    def predict_next(self, seq, meta, comfort):
+        return self(x, meta, comfort, picks)
+    def predict_next(self, seq, meta, comfort, picks):
         self.eval()
         with torch.no_grad():
             inp = torch.tensor(seq, dtype=torch.long).unsqueeze(0)
             m = meta.unsqueeze(0)
             c = comfort.unsqueeze(0)
-            logits = self(inp, m, c)
+            p = picks.unsqueeze(0)
+            logits = self(inp, m, c, p)
             logits[:, 0] = float('-inf')            # ban PAD
             pred = torch.argmax(logits, dim=1).item()
             return idx2champ[pred]
@@ -166,26 +170,28 @@ class RNNDraftModel(nn.Module):
         self.lstm = nn.LSTM(embedding_dim, hidden_dim, batch_first=True)
         self.meta_fc = nn.Linear(VOCAB_SIZE, hidden_dim)
         self.comfort_fc = nn.Linear(VOCAB_SIZE, hidden_dim)
+        self.picks_fc = nn.Linear(VOCAB_SIZE, hidden_dim)
         self.fc = nn.Linear(hidden_dim, vocab_size)
-    def forward(self, x, meta, comfort):
+    def forward(self, x, meta, comfort, picks):
         emb = self.embedding(x)
         out, _ = self.lstm(emb)
         h = out[:, -1, :]
-        h = h + self.meta_fc(meta) + self.comfort_fc(comfort)
+        h = h + self.meta_fc(meta) + self.comfort_fc(comfort) + self.picks_fc(picks)
         h = F.relu(h)
         return self.fc(h)
-    def forward_logits(self, x, meta, comfort):
+    def forward_logits(self, x, meta, comfort, picks):
         """
         Returns raw logits tensor for all champion indices.
         """
-        return self(x, meta, comfort)
-    def predict_next(self, seq, meta, comfort):
+        return self(x, meta, comfort, picks)
+    def predict_next(self, seq, meta, comfort, picks):
         self.eval()
         with torch.no_grad():
             inp = torch.tensor(seq, dtype=torch.long).unsqueeze(0)
             m = meta.unsqueeze(0)
             c = comfort.unsqueeze(0)
-            logits = self(inp, m, c)
+            p = picks.unsqueeze(0)
+            logits = self(inp, m, c, p)
             logits[:, 0] = float('-inf')            # ban PAD
             pred = torch.argmax(logits, dim=1).item()
             return idx2champ[pred]
@@ -197,9 +203,9 @@ def train_model(model, train_loader, val_loader, epochs=10, lr=1e-3):
     for epoch in range(1, epochs + 1):
         model.train()
         total_loss = 0.0
-        for x, meta, comfort, y in train_loader:
+        for x, bag, meta, comfort, y in train_loader:
             optimizer.zero_grad()
-            logits = model(x, meta, comfort)
+            logits = model(x, meta, comfort, bag)
             loss = criterion(logits, y)
             loss.backward()
             optimizer.step()
@@ -211,8 +217,8 @@ def evaluate_model(model, loader):
     model.eval()
     preds, trues = [], []
     with torch.no_grad():
-        for x, meta, comfort, y in loader:
-            logits = model(x, meta, comfort)
+        for x, bag, meta, comfort, y in loader:
+            logits = model(x, meta, comfort, bag)
             pred = torch.argmax(logits, dim=1).cpu().numpy().tolist()
             trues += y.cpu().numpy().tolist()
             preds += pred
@@ -229,8 +235,8 @@ if __name__ == "__main__":
     mlp = MLPDraftModel()
     rnn = RNNDraftModel()
     print("Training MLP model...")
-    train_model(mlp, train_loader, val_loader, epochs=10)
+    train_model(mlp, train_loader, val_loader, epochs=15)
     print("Training RNN model...")
-    train_model(rnn, train_loader, val_loader, epochs=10)
+    train_model(rnn, train_loader, val_loader, epochs=15)
     torch.save(mlp.state_dict(), 'mlp_model.pt')
     torch.save(rnn.state_dict(), 'rnn_model.pt')

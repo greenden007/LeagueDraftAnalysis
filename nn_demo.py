@@ -1,8 +1,10 @@
 import pandas as pd
 import torch
+import argparse
 from nn_learn import (
     PAD_IDX, DRAFT_LENGTH, MLPDraftModel, RNNDraftModel, encode_sequence, champ2idx, meta_vectors, compute_comfort, idx2champ
 )
+
 # Initialize models
 vocab_size = len(champ2idx) + 1
 mlp = MLPDraftModel(vocab_size=vocab_size)
@@ -21,25 +23,40 @@ EVENT_ORDER = [
 ]
 
 # Simulation function
-def simulate_full(model, patch, blue_players, red_players):
+def simulate_full(model, patch, blue_players, red_players, extra_bans=None):
     # Initialize empty draft state
     state = {
         'patch': patch,
         'blue_players': blue_players,
         'red_players': red_players,
         'blue_fs_bans': [], 'red_fs_bans': [],
-        'blue_picks': [], 'red_picks': [],
+        'blue_picks': [], 'blue_picks_players': [],
+        'red_picks': [], 'red_picks_players': [],
         'blue_ss_bans': [], 'red_ss_bans': []
     }
     # enforce uniqueness and dynamic pick ordering
     used_idxs = set()
+    # apply fearless bans from prior games
+    if extra_bans:
+        for ch in extra_bans:
+            idx = champ2idx.get(ch)
+            if idx:
+                used_idxs.add(idx)
     # remaining players per side for dynamic picks
     rem_blue = list(blue_players)
     rem_red = list(red_players)
     for event in EVENT_ORDER:
         row = pd.Series(state)
-        seq = encode_sequence(row) + [PAD_IDX] * (DRAFT_LENGTH - len(encode_sequence(row)))
+        # bag-of-picks feature: champs already picked
         meta = meta_vectors[patch]
+        bag = torch.zeros_like(meta)
+        for ch in state['blue_picks'] + state['red_picks']:
+            idx = champ2idx.get(ch)
+            if idx:
+                bag[idx] = 1.0
+        picks_tensor = bag.unsqueeze(0)
+        # input sequence
+        seq = encode_sequence(row) + [PAD_IDX] * (DRAFT_LENGTH - len(encode_sequence(row)))
         inp_tensor = torch.tensor(seq, dtype=torch.long).unsqueeze(0)
         m = meta.unsqueeze(0)
         # dynamic selection for picks vs static for bans
@@ -51,7 +68,7 @@ def simulate_full(model, patch, blue_players, red_players):
             pool = rem_blue if side == 'blue' else rem_red
             for i, player in enumerate(pool):
                 c_vec = compute_comfort([player])
-                logits = model.forward_logits(inp_tensor, m, c_vec.unsqueeze(0))
+                logits = model.forward_logits(inp_tensor, m, c_vec.unsqueeze(0), picks_tensor)
                 for ui in used_idxs | {PAD_IDX}:
                     logits[0, ui] = float('-inf')
                 pred_i = torch.argmax(logits, dim=1).item()
@@ -61,33 +78,95 @@ def simulate_full(model, patch, blue_players, red_players):
             pred_idx = best_pred_idx
             pick = idx2champ[pred_idx]
             used_idxs.add(pred_idx)
-            # remove selected player
+            # record and remove selected player
+            selected_player = rem_blue[best_player_idx] if side == 'blue' else rem_red[best_player_idx]
             if side == 'blue': del rem_blue[best_player_idx]
             else: del rem_red[best_player_idx]
         else:
             # bans: no comfort
-            logits = model.forward_logits(inp_tensor, m, torch.zeros_like(meta).unsqueeze(0))
+            logits = model.forward_logits(inp_tensor, m, torch.zeros_like(meta).unsqueeze(0), picks_tensor)
             for ui in used_idxs | {PAD_IDX}:
                 logits[0, ui] = float('-inf')
             pred_idx = torch.argmax(logits, dim=1).item()
             pick = idx2champ[pred_idx]
             used_idxs.add(pred_idx)
         state[event].append(pick)
+        # log intended player for picks
+        if 'picks' in event:
+            state[event + '_players'].append(selected_player)
     return state
 
-# Run full draft simulation
-def run():
-    patch = 14.10
+def predict_winner(state):
+    # sum player comfort scores for picked champs
+    b_score = sum(
+        compute_comfort([player])[champ2idx.get(champ, PAD_IDX)].item()
+        for player, champ in zip(state['blue_picks_players'], state['blue_picks'])
+        if champ in champ2idx
+    )
+    r_score = sum(
+        compute_comfort([player])[champ2idx.get(champ, PAD_IDX)].item()
+        for player, champ in zip(state['red_picks_players'], state['red_picks'])
+        if champ in champ2idx
+    )
+    return 'blue' if b_score >= r_score else 'red'
+
+def simulate_series(model, patch, blue_players, red_players, best_of=3):
+    series = []
+    extra_bans = []
+    wins = {'blue': 0, 'red': 0}
+    games_needed = best_of // 2 + 1
+    for i in range(best_of):
+        # swap sides each game
+        if i % 2 == 1:
+            b, r = red_players, blue_players
+        else:
+            b, r = blue_players, red_players
+        state = simulate_full(model, patch, b, r, extra_bans)
+        state['game_number'] = i + 1
+        winner = predict_winner(state)
+        state['winner'] = winner
+        wins[winner] += 1
+        series.append(state)
+        # add all played champs to future bans
+        for ev in EVENT_ORDER:
+            for c in state[ev]:
+                if c not in extra_bans:
+                    extra_bans.append(c)
+        if wins['blue'] == games_needed or wins['red'] == games_needed:
+            break
+    return series, wins
+
+def run(best_of=3):
+    patch = 12.18
     blue_players = ['Zeus','Peanut','Faker','Deft','Beryl']
-    red_players =  ['Doran','Oner','Chovy','Viper','Busio']
-    mlp_state = simulate_full(mlp, patch, blue_players, red_players)
-    rnn_state = simulate_full(rnn, patch, blue_players, red_players)
-    print("=== MLP Full Draft Simulation ===")
-    for phase, champs in mlp_state.items():
-        if isinstance(champs, list): print(f"{phase}: {champs}")
-    print("\n=== RNN Full Draft Simulation ===")
-    for phase, champs in rnn_state.items():
-        if isinstance(champs, list): print(f"{phase}: {champs}")
+    red_players =  ['Kiin','Oner','Chovy','Viper','Keria']
+    mlp_series, mlp_wins = simulate_series(mlp, patch, blue_players, red_players, best_of)
+    rnn_series, rnn_wins = simulate_series(rnn, patch, blue_players, red_players, best_of)
+    print(f"=== MLP Best-of{best_of} Series ===")
+    for game in mlp_series:
+        print(f"\nGame {game['game_number']} (Winner: {game['winner']})")
+        print("  Phase 1 Bans  – Blue:", game['blue_fs_bans'], "Red:", game['red_fs_bans'])
+        print("  Phase 1 Picks – Blue:", list(zip(game['blue_picks_players'][:3], game['blue_picks'][:3])))
+        print("                  Red:",  list(zip(game['red_picks_players'][:3], game['red_picks'][:3])))
+        print("  Phase 2 Bans  – Blue:", game['blue_ss_bans'], "Red:", game['red_ss_bans'])
+        print("  Phase 2 Picks – Blue:", list(zip(game['blue_picks_players'][3:], game['blue_picks'][3:])))
+        print("                  Red:",  list(zip(game['red_picks_players'][3:], game['red_picks'][3:])))
+    print(f"\nSeries result: Blue {mlp_wins['blue']} – {mlp_wins['red']} Red\n")
+
+    print(f"=== RNN Best-of{best_of} Series ===")
+    for game in rnn_series:
+        print(f"\nGame {game['game_number']} (Winner: {game['winner']})")
+        print("  Phase 1 Bans  – Blue:", game['blue_fs_bans'], "Red:", game['red_fs_bans'])
+        print("  Phase 1 Picks – Blue:", list(zip(game['blue_picks_players'][:3], game['blue_picks'][:3])))
+        print("                  Red:",  list(zip(game['red_picks_players'][:3], game['red_picks'][:3])))
+        print("  Phase 2 Bans  – Blue:", game['blue_ss_bans'], "Red:", game['red_ss_bans'])
+        print("  Phase 2 Picks – Blue:", list(zip(game['blue_picks_players'][3:], game['blue_picks'][3:])))
+        print("                  Red:",  list(zip(game['red_picks_players'][3:], game['red_picks'][3:])))
+    print(f"Series result: Blue {rnn_wins['blue']} – {rnn_wins['red']} Red")
 
 if __name__ == "__main__":
-    run()
+    parser = argparse.ArgumentParser(description="Simulate a best-of-series draft")
+    parser.add_argument('-b', '--best-of', type=int, default=3, choices=[1,3,5],
+                        help='Series length (best-of): 1, 3, or 5')
+    args = parser.parse_args()
+    run(best_of=args.best_of)
