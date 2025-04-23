@@ -1,0 +1,498 @@
+{
+  "Aatrox": [
+    "Top"
+  ],
+  "Camille": [
+    "Top"
+  ],
+  "Cho'Gath": [
+    "Top"
+  ],
+  "Darius": [
+    "Top"
+  ],
+  "Dr. Mundo": [
+    "Top"
+  ],
+  "Fiora": [
+    "Top"
+  ],
+  "Garen": [
+    "Top"
+  ],
+  "Gnar": [
+    "Top"
+  ],
+  "Gragas": [
+    "Top",
+    "Jungle",
+    "Mid"
+  ],
+  "Gwen": [
+    "Top"
+  ],
+  "Illaoi": [
+    "Top"
+  ],
+  "Irelia": [
+    "Top",
+    "Mid"
+  ],
+  "Jax": [
+    "Top",
+    "Jungle"
+  ],
+  "Jayce": [
+    "Top",
+    "Mid"
+  ],
+  "K'Sante": [
+    "Top"
+  ],
+  "Kayle": [
+    "Top"
+  ],
+  "Kennen": [
+    "Top"
+  ],
+  "Malphite": [
+    "Top"
+  ],
+  "Maokai": [
+    "Top",
+    "Jungle"
+  ],
+  "Mordekaiser": [
+    "Top"
+  ],
+  "Nasus": [
+    "Top"
+  ],
+  "Ornn": [
+    "Top"
+  ],
+  "Pantheon": [
+    "Top",
+    "Mid",
+    "Support"
+  ],
+  "Poppy": [
+    "Top",
+    "Jungle"
+  ],
+  "Quinn": [
+    "Top"
+  ],
+  "Renekton": [
+    "Top"
+  ],
+  "Rumble": [
+    "Top"
+  ],
+  "Sett": [
+    "Top"
+  ],
+  "Shen": [
+    "Top"
+  ],
+  "Singed": [
+    "Top"
+  ],
+  "Sion": [
+    "Top"
+  ],
+  "Tahm Kench": [
+    "Top",
+    "Support"
+  ],
+  "Teemo": [
+    "Top"
+  ],
+  "Trundle": [
+    "Top",
+    "Jungle"
+  ],
+  "Tryndamere": [
+    "Top"
+  ],
+  "Urgot": [
+    "Top"
+  ],
+  "Volibear": [
+    "Top",
+    "Jungle"
+  ],
+  "Warwick": [
+    "Top",
+    "Jungle"
+  ],
+  "Wukong": [
+    "Top",
+    "Jungle"
+  ],
+  "Yorick": [
+    "Top"
+  ],
+  "Yone": [
+    "Top",
+    "Mid"
+  ],
+  "Amumu": [
+    "Jungle",
+    "Support"
+  ],
+  "Bel'Veth": [
+    "Jungle"
+  ],
+  "Briar": [
+    "Jungle"
+  ],
+  "Diana": [
+    "Jungle",
+    "Mid"
+  ],
+  "Ekko": [
+    "Jungle",
+    "Mid"
+  ],
+  "Elise": [
+    "Jungle"
+  ],
+  "Evelynn": [
+    "Jungle"
+  ],
+  "Fiddlesticks": [
+    "Jungle"
+  ],
+  "Hecarim": [
+    "Jungle"
+  ],
+  "Ivern": [
+    "Jungle"
+  ],
+  "Jarvan IV": [
+    "Jungle"
+  ],
+  "Karthus": [
+    "Jungle"
+  ],
+  "Kayn": [
+    "Jungle"
+  ],
+  "Kindred": [
+    "Jungle"
+  ],
+  "Kha'Zix": [
+    "Jungle"
+  ],
+  "Lee Sin": [
+    "Jungle"
+  ],
+  "Lillia": [
+    "Jungle"
+  ],
+  "Master Yi": [
+    "Jungle"
+  ],
+  "Nidalee": [
+    "Jungle"
+  ],
+  "Nocturne": [
+    "Jungle"
+  ],
+  "Nunu & Willump": [
+    "Jungle"
+  ],
+  "Rammus": [
+    "Jungle"
+  ],
+  "Rek'Sai": [
+    "Jungle"
+  ],
+  "Rengar": [
+    "Jungle"
+  ],
+  "Sejuani": [
+    "Jungle"
+  ],
+  "Shaco": [
+    "Jungle"
+  ],
+  "Shyvana": [
+    "Jungle"
+  ],
+  "Skarner": [
+    "Jungle"
+  ],
+  "Taliyah": [
+    "Jungle",
+    "Mid"
+  ],
+  "Udyr": [
+    "Jungle"
+  ],
+  "Vi": [
+    "Jungle"
+  ],
+  "Viego": [
+    "Jungle"
+  ],
+  "Zac": [
+    "Jungle"
+  ],
+  "Ahri": [
+    "Mid"
+  ],
+  "Akali": [
+    "Mid"
+  ],
+  "Anivia": [
+    "Mid"
+  ],
+  "Annie": [
+    "Mid"
+  ],
+  "Aurelion Sol": [
+    "Mid"
+  ],
+  "Azir": [
+    "Mid"
+  ],
+  "Brand": [
+    "Mid",
+    "Support"
+  ],
+  "Cassiopeia": [
+    "Mid"
+  ],
+  "Corki": [
+    "Mid"
+  ],
+  "Fizz": [
+    "Mid"
+  ],
+  "Galio": [
+    "Mid"
+  ],
+  "Karma": [
+    "Mid",
+    "Support"
+  ],
+  "Kassadin": [
+    "Mid"
+  ],
+  "Katarina": [
+    "Mid"
+  ],
+  "LeBlanc": [
+    "Mid"
+  ],
+  "Lissandra": [
+    "Mid"
+  ],
+  "Lux": [
+    "Mid",
+    "Support"
+  ],
+  "Malzahar": [
+    "Mid"
+  ],
+  "Naafiri": [
+    "Mid"
+  ],
+  "Neeko": [
+    "Mid"
+  ],
+  "Orianna": [
+    "Mid"
+  ],
+  "Qiyana": [
+    "Mid"
+  ],
+  "Ryze": [
+    "Mid"
+  ],
+  "Seraphine": [
+    "Mid",
+    "Support"
+  ],
+  "Swain": [
+    "Mid",
+    "Support"
+  ],
+  "Sylas": [
+    "Mid"
+  ],
+  "Syndra": [
+    "Mid"
+  ],
+  "Talon": [
+    "Mid"
+  ],
+  "Tristana": [
+    "Mid",
+    "ADC"
+  ],
+  "Twisted Fate": [
+    "Mid"
+  ],
+  "Veigar": [
+    "Mid"
+  ],
+  "Vel'Koz": [
+    "Mid",
+    "Support"
+  ],
+  "Vex": [
+    "Mid"
+  ],
+  "Viktor": [
+    "Mid"
+  ],
+  "Vladimir": [
+    "Mid"
+  ],
+  "Xerath": [
+    "Mid",
+    "Support"
+  ],
+  "Yasuo": [
+    "Mid"
+  ],
+  "Zed": [
+    "Mid"
+  ],
+  "Zoe": [
+    "Mid"
+  ],
+  "Aphelios": [
+    "ADC"
+  ],
+  "Ashe": [
+    "ADC"
+  ],
+  "Caitlyn": [
+    "ADC"
+  ],
+  "Draven": [
+    "ADC"
+  ],
+  "Ezreal": [
+    "ADC"
+  ],
+  "Jhin": [
+    "ADC"
+  ],
+  "Jinx": [
+    "ADC"
+  ],
+  "Kai'Sa": [
+    "ADC"
+  ],
+  "Kalista": [
+    "ADC"
+  ],
+  "Kog'Maw": [
+    "ADC"
+  ],
+  "Lucian": [
+    "ADC"
+  ],
+  "Miss Fortune": [
+    "ADC"
+  ],
+  "Nilah": [
+    "ADC"
+  ],
+  "Samira": [
+    "ADC"
+  ],
+  "Senna": [
+    "ADC",
+    "Support"
+  ],
+  "Sivir": [
+    "ADC"
+  ],
+  "Twitch": [
+    "ADC"
+  ],
+  "Varus": [
+    "ADC"
+  ],
+  "Vayne": [
+    "ADC"
+  ],
+  "Xayah": [
+    "ADC"
+  ],
+  "Zeri": [
+    "ADC"
+  ],
+  "Alistar": [
+    "Support"
+  ],
+  "Bard": [
+    "Support"
+  ],
+  "Blitzcrank": [
+    "Support"
+  ],
+  "Braum": [
+    "Support"
+  ],
+  "Heimerdinger": [
+    "Support"
+  ],
+  "Janna": [
+    "Support"
+  ],
+  "Leona": [
+    "Support"
+  ],
+  "Lulu": [
+    "Support"
+  ],
+  "Milio": [
+    "Support"
+  ],
+  "Morgana": [
+    "Support"
+  ],
+  "Nami": [
+    "Support"
+  ],
+  "Nautilus": [
+    "Support"
+  ],
+  "Pyke": [
+    "Support"
+  ],
+  "Rakan": [
+    "Support"
+  ],
+  "Rell": [
+    "Support"
+  ],
+  "Renata Glasc": [
+    "Support"
+  ],
+  "Sona": [
+    "Support"
+  ],
+  "Taric": [
+    "Support"
+  ],
+  "Thresh": [
+    "Support"
+  ],
+  "Yuumi": [
+    "Support"
+  ],
+  "Zilean": [
+    "Support"
+  ],
+  "Zyra": [
+    "Support"
+  ]
+}

@@ -1,6 +1,20 @@
 import pandas as pd
 import torch
 import argparse
+import json
+
+# Load and normalize champion->roles mapping
+with open('champion_roles.json') as f:
+    raw_roles = json.load(f)
+def _normalize(name: str) -> str:
+    return name.lower().replace("'", "").replace(".", "").replace(" ", "")
+NORM_ROLES = { _normalize(champ): roles for champ, roles in raw_roles.items() }
+def get_roles(champ: str):
+    return NORM_ROLES.get(_normalize(champ), [])
+
+# Define roster order roles for dynamic mapping
+ROLES_ORDER = ['Top','Jungle','Mid','ADC','Support']
+
 from nn_learn import (
     PAD_IDX, DRAFT_LENGTH, MLPDraftModel, RNNDraftModel, encode_sequence, champ2idx, meta_vectors, compute_comfort, idx2champ
 )
@@ -36,6 +50,9 @@ def simulate_full(model, patch, blue_players, red_players, extra_bans=None):
     }
     # enforce uniqueness and dynamic pick ordering
     used_idxs = set()
+    # classification: map players to roles
+    roles_map_blue = dict(zip(blue_players, ROLES_ORDER))
+    roles_map_red = dict(zip(red_players, ROLES_ORDER))
     # apply fearless bans from prior games
     if extra_bans:
         for ch in extra_bans:
@@ -69,8 +86,15 @@ def simulate_full(model, patch, blue_players, red_players, extra_bans=None):
             for i, player in enumerate(pool):
                 c_vec = compute_comfort([player])
                 logits = model.forward_logits(inp_tensor, m, c_vec.unsqueeze(0), picks_tensor)
+                # mask used indices
                 for ui in used_idxs | {PAD_IDX}:
                     logits[0, ui] = float('-inf')
+                # mask out champions not matching player's role
+                player_role = roles_map_blue[player] if side == 'blue' else roles_map_red[player]
+                for j in range(logits.size(1)):
+                    champ_j = idx2champ.get(j)
+                    if champ_j is None or player_role not in get_roles(champ_j):
+                        logits[0, j] = float('-inf')
                 pred_i = torch.argmax(logits, dim=1).item()
                 score_i = logits[0, pred_i].item()
                 if score_i > best_score:
@@ -144,24 +168,48 @@ def run(best_of=3):
     rnn_series, rnn_wins = simulate_series(rnn, patch, blue_players, red_players, best_of)
     print(f"=== MLP Best-of{best_of} Series ===")
     for game in mlp_series:
+        roles_map_blue = dict(zip(game['blue_players'], ROLES_ORDER))
+        roles_map_red = dict(zip(game['red_players'], ROLES_ORDER))
         print(f"\nGame {game['game_number']} (Winner: {game['winner']})")
         print("  Phase 1 Bans  – Blue:", game['blue_fs_bans'], "Red:", game['red_fs_bans'])
-        print("  Phase 1 Picks – Blue:", list(zip(game['blue_picks_players'][:3], game['blue_picks'][:3])))
-        print("                  Red:",  list(zip(game['red_picks_players'][:3], game['red_picks'][:3])))
+        # annotate Phase 1 picks with roles and check off-role
+        blue_phase1 = [(p, c, get_roles(c), roles_map_blue.get(p) in get_roles(c))
+                       for p, c in zip(game['blue_picks_players'][:3], game['blue_picks'][:3])]
+        red_phase1 = [(p, c, get_roles(c), roles_map_red.get(p) in get_roles(c))
+                      for p, c in zip(game['red_picks_players'][:3], game['red_picks'][:3])]
+        print("  Phase 1 Picks – Blue:", blue_phase1)
+        print("                  Red:", red_phase1)
         print("  Phase 2 Bans  – Blue:", game['blue_ss_bans'], "Red:", game['red_ss_bans'])
-        print("  Phase 2 Picks – Blue:", list(zip(game['blue_picks_players'][3:], game['blue_picks'][3:])))
-        print("                  Red:",  list(zip(game['red_picks_players'][3:], game['red_picks'][3:])))
+        # annotate Phase 2 picks with roles and check off-role
+        blue_phase2 = [(p, c, get_roles(c), roles_map_blue.get(p) in get_roles(c))
+                       for p, c in zip(game['blue_picks_players'][3:], game['blue_picks'][3:])]
+        red_phase2 = [(p, c, get_roles(c), roles_map_red.get(p) in get_roles(c))
+                      for p, c in zip(game['red_picks_players'][3:], game['red_picks'][3:])]
+        print("  Phase 2 Picks – Blue:", blue_phase2)
+        print("                  Red:", red_phase2)
     print(f"\nSeries result: Blue {mlp_wins['blue']} – {mlp_wins['red']} Red\n")
 
     print(f"=== RNN Best-of{best_of} Series ===")
     for game in rnn_series:
+        roles_map_blue = dict(zip(game['blue_players'], ROLES_ORDER))
+        roles_map_red = dict(zip(game['red_players'], ROLES_ORDER))
         print(f"\nGame {game['game_number']} (Winner: {game['winner']})")
         print("  Phase 1 Bans  – Blue:", game['blue_fs_bans'], "Red:", game['red_fs_bans'])
-        print("  Phase 1 Picks – Blue:", list(zip(game['blue_picks_players'][:3], game['blue_picks'][:3])))
-        print("                  Red:",  list(zip(game['red_picks_players'][:3], game['red_picks'][:3])))
+        # annotate Phase 1 picks with roles and check off-role
+        blue_phase1 = [(p, c, get_roles(c), roles_map_blue.get(p) in get_roles(c))
+                       for p, c in zip(game['blue_picks_players'][:3], game['blue_picks'][:3])]
+        red_phase1 = [(p, c, get_roles(c), roles_map_red.get(p) in get_roles(c))
+                      for p, c in zip(game['red_picks_players'][:3], game['red_picks'][:3])]
+        print("  Phase 1 Picks – Blue:", blue_phase1)
+        print("                  Red:", red_phase1)
         print("  Phase 2 Bans  – Blue:", game['blue_ss_bans'], "Red:", game['red_ss_bans'])
-        print("  Phase 2 Picks – Blue:", list(zip(game['blue_picks_players'][3:], game['blue_picks'][3:])))
-        print("                  Red:",  list(zip(game['red_picks_players'][3:], game['red_picks'][3:])))
+        # annotate Phase 2 picks with roles and check off-role
+        blue_phase2 = [(p, c, get_roles(c), roles_map_blue.get(p) in get_roles(c))
+                       for p, c in zip(game['blue_picks_players'][3:], game['blue_picks'][3:])]
+        red_phase2 = [(p, c, get_roles(c), roles_map_red.get(p) in get_roles(c))
+                      for p, c in zip(game['red_picks_players'][3:], game['red_picks'][3:])]
+        print("  Phase 2 Picks – Blue:", blue_phase2)
+        print("                  Red:", red_phase2)
     print(f"Series result: Blue {rnn_wins['blue']} – {rnn_wins['red']} Red")
 
 if __name__ == "__main__":
