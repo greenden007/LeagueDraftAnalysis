@@ -166,7 +166,7 @@ def run(best_of=3):
     red_players =  ['Kiin','Oner','Chovy','Viper','Keria']
     mlp_series, mlp_wins = simulate_series(mlp, patch, blue_players, red_players, best_of)
     rnn_series, rnn_wins = simulate_series(rnn, patch, blue_players, red_players, best_of)
-    print(f"=== MLP Best-of{best_of} Series ===")
+    print(f"=== MLP Best-of-{best_of} Series ===")
     for game in mlp_series:
         roles_map_blue = dict(zip(game['blue_players'], ROLES_ORDER))
         roles_map_red = dict(zip(game['red_players'], ROLES_ORDER))
@@ -189,7 +189,7 @@ def run(best_of=3):
         print("                  Red:", red_phase2)
     print(f"\nSeries result: Blue {mlp_wins['blue']} – {mlp_wins['red']} Red\n")
 
-    print(f"=== RNN Best-of{best_of} Series ===")
+    print(f"=== RNN Best-of-{best_of} Series ===")
     for game in rnn_series:
         roles_map_blue = dict(zip(game['blue_players'], ROLES_ORDER))
         roles_map_red = dict(zip(game['red_players'], ROLES_ORDER))
