@@ -132,7 +132,22 @@ def predict_winner(state):
         for player, champ in zip(state['red_picks_players'], state['red_picks'])
         if champ in champ2idx
     )
-    return 'blue' if b_score >= r_score else 'red'
+    # incorporate meta vector based on patch
+    meta = meta_vectors[state['patch']]
+    b_meta = sum(
+        meta[champ2idx.get(champ, PAD_IDX)].item()
+        for champ in state['blue_picks']
+        if champ in champ2idx
+    )
+    r_meta = sum(
+        meta[champ2idx.get(champ, PAD_IDX)].item()
+        for champ in state['red_picks']
+        if champ in champ2idx
+    )
+    # total score combining comfort and meta influence
+    b_total = b_score + b_meta
+    r_total = r_score + r_meta
+    return 'blue' if b_total >= r_total else 'red'
 
 def simulate_series(model, patch, blue_players, red_players, best_of=3):
     series = []
@@ -161,9 +176,9 @@ def simulate_series(model, patch, blue_players, red_players, best_of=3):
     return series, wins
 
 def run(best_of=3):
-    patch = 12.18
+    patch = 13.5
     blue_players = ['Zeus','Peanut','Faker','Deft','Beryl']
-    red_players =  ['Kiin','Oner','Chovy','Viper','Keria']
+    red_players =  ['Kiin','Oner','Knight','Ruler','Keria']
     mlp_series, mlp_wins = simulate_series(mlp, patch, blue_players, red_players, best_of)
     rnn_series, rnn_wins = simulate_series(rnn, patch, blue_players, red_players, best_of)
     print(f"=== MLP Best-of-{best_of} Series ===")
