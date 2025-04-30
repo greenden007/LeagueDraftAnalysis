@@ -21,11 +21,37 @@ class Config:
     API_KEY = os.getenv("RIOT_API_KEY")
     BASE_URL = "https://{region}.api.riotgames.com/lol"
     
-    REGIONS = ["na1", "euw1", "kr", "eun1", "br1", "la1"]
+    REGIONS = [
+        # Americas
+        "na1",   # North America
+        "br1",   # Brazil
+        "la1",   # Latin America North
+        "la2",   # Latin America South
+        
+        # Europe
+        "euw1",  # Europe West
+        "eun1",  # Europe Nordic & East (includes Russia)
+        "tr1",   # Turkey
+        
+        # Asia
+        "kr",    # South Korea
+        "jp1",   # Japan
+        
+        # SEA
+        "oc1",   # Oceania
+        "ph2",   # Philippines
+        "sg2",   # Singapore
+        "th2",   # Thailand
+        "tw2",   # Taiwan
+        "vn2"    # Vietnam
+    ]
+
     MATCH_REGION_MAP = {
-        region: "americas" if region in ["na1", "br1", "la1", "la2", "oc1"] 
-        else "europe" if region in ["euw1", "eun1", "tr1", "ru"] 
-        else "asia" 
+        region: 
+            "americas" if region in ["na1", "br1", "la1", "la2"] else
+            "europe" if region in ["euw1", "eun1", "tr1"] else
+            "asia" if region in ["kr", "jp1"] else
+            "sea"  # For all SEA regions
         for region in REGIONS
     }
     
