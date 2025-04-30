@@ -51,7 +51,7 @@ class Config:
             "americas" if region in ["na1", "br1", "la1", "la2"] else
             "europe" if region in ["euw1", "eun1", "tr1"] else
             "asia" if region in ["kr", "jp1"] else
-            "sea"  # For all SEA regions
+            "sea"  
         for region in REGIONS
     }
     
@@ -234,16 +234,14 @@ class RiotAPI:
         self.total_requests = 0
         self.failed_requests = 0
         self.connectivity_checked = False
-        self.last_connection_state = True  # Track connection state changes
+        self.last_connection_state = True
 
     def check_connectivity(self) -> None:
         """Monitor internet connection with state-aware logging"""
         while True:
             try:
-                # Test connection to Cloudflare DNS
                 socket.create_connection(("1.1.1.1", 53), timeout=5)
                 
-                # Only log restoration if state changed
                 if not self.last_connection_state:
                     logger.info("🌐✅ Internet connection restored! Resuming data collection...")
                     self.last_connection_state = True
@@ -252,12 +250,10 @@ class RiotAPI:
                 return
             
             except OSError:
-                # Log initial disconnection
                 if self.last_connection_state:
                     logger.warning("🌐❌ Internet connection lost! Pausing until restored...")
                     self.last_connection_state = False
                 else:
-                    # Periodic waiting message
                     logger.info("🌐⏳ Still waiting for internet connection...")
                 
                 time.sleep(10)
@@ -289,7 +285,7 @@ class RiotAPI:
             except requests.exceptions.ConnectionError as e:
                 self.failed_requests += 1
                 logger.debug(f"🌐🔌 Connection error: {str(e)}")
-                self.check_connectivity()  # Re-check connectivity
+                self.check_connectivity() 
                 continue
             except requests.exceptions.RequestException as e:
                 self.failed_requests += 1
@@ -299,7 +295,6 @@ class RiotAPI:
         logger.warning(f"⚠️ Failed after {Config.MAX_RETRIES} attempts for {url}")
         return None
 
-    # Keep existing API methods unchanged below
     def get_challenger_league(self, region: str) -> Optional[Dict]:
         url = f"{Config.BASE_URL.format(region=region)}/league/v4/challengerleagues/by-queue/RANKED_SOLO_5x5"
         return self.get_json(url, "league")
