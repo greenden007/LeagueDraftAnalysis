@@ -50,7 +50,7 @@ Galio,9,25,13.1
 Leona,9,48,13.1
 Kindred,9,127,13.1
 Viego,9,154,13.1
-RenataGlasc,9,159,13.1
+Renata Glasc,9,159,13.1
 Ahri,8,2,13.1
 Amumu,8,5,13.1
 Graves,8,29,13.1
@@ -67,7 +67,7 @@ Kaisa,6,140,13.1
 Pyke,6,141,13.1
 Seraphine,6,152,13.1
 Aatrox,5,1,13.1
-LeeSin,5,47,13.1
+Lee Sin,5,47,13.1
 Swain,5,87,13.1
 Samira,5,151,13.1
 Alistar,4,4,13.1
@@ -75,10 +75,10 @@ Lissandra,4,49,13.1
 Soraka,4,86,13.1
 Aphelios,4,147,13.1
 Rell,4,153,13.1
-JarvanIV,3,34,13.1
+Jarvan IV,3,34,13.1
 Kennen,3,43,13.1
-MissFortune,3,57,13.1
-XinZhao,3,110,13.1
+Miss Fortune,3,57,13.1
+Xin Zhao,3,110,13.1
 Yasuo,3,111,13.1
 Ziggs,3,115,13.1
 Zoe,3,139,13.1
@@ -89,7 +89,7 @@ Nidalee,2,63,13.1
 Riven,2,74,13.1
 Rumble,2,75,13.1
 Sona,2,85,13.1
-TahmKench,2,126,13.1
+Tahm Kench,2,126,13.1
 Lillia,2,149,13.1
 Corki,1,14,13.1
 Diana,1,16,13.1
@@ -102,7 +102,7 @@ Taric,1,90,13.1
 Thresh,1,92,13.1
 Trundle,1,94,13.1
 Tryndamere,1,95,13.1
-TwistedFate,1,96,13.1
+Twisted Fate,1,96,13.1
 Twitch,1,97,13.1
 Veigar,1,102,13.1
 Volibear,1,106,13.1
@@ -123,7 +123,7 @@ Anivia,0,6,13.1
 Annie,0,7,13.1
 Brand,0,10,13.1
 Chogath,0,13,13.1
-Dr.Mundo,0,17,13.1
+Dr. Mundo,0,17,13.1
 Fiddlesticks,0,22,13.1
 Fizz,0,24,13.1
 Hecarim,0,30,13.1
@@ -134,7 +134,7 @@ Kayle,0,42,13.1
 KhaZix,0,44,13.1
 KogMaw,0,45,13.1
 Malzahar,0,54,13.1
-MasterYi,0,56,13.1
+Master Yi,0,56,13.1
 Morgana,0,59,13.1
 Nasus,0,61,13.1
 Nunu,0,65,13.1
@@ -150,7 +150,7 @@ Warwick,0,107,13.1
 Yorick,0,112,13.1
 Zed,0,114,13.1
 Ekko,0,125,13.1
-AurelionSol,0,130,13.1
+Aurelion Sol,0,130,13.1
 Ivern,0,133,13.1
 Akshan,0,156,13.1
 Maokai,95,55,13.3
@@ -183,11 +183,11 @@ Rakan,27,136,13.3
 Draven,25,18,13.3
 Syndra,24,88,13.3
 Tristana,24,93,13.3
-LeeSin,22,47,13.3
+Lee Sin,22,47,13.3
 Viktor,22,104,13.3
 Ezreal,21,21,13.3
 Sivir,20,83,13.3
-JarvanIV,19,34,13.3
+Jarvan IV,19,34,13.3
 Heimerdinger,18,31,13.3
 Nami,18,60,13.3
 Ryze,18,76,13.3
@@ -208,7 +208,7 @@ LeBlanc,9,46,13.3
 Lux,9,52,13.3
 Camille,9,134,13.3
 Aphelios,9,147,13.3
-RenataGlasc,9,159,13.3
+Renata Glasc,9,159,13.3
 Amumu,8,5,13.3
 Ziggs,8,115,13.3
 Cassiopeia,7,12,13.3
@@ -236,7 +236,7 @@ Aatrox,3,1,13.3
 Blitzcrank,3,9,13.3
 Chogath,3,13,13.3
 Lissandra,3,49,13.3
-MissFortune,3,57,13.3
+Miss Fortune,3,57,13.3
 Rumble,3,75,13.3
 Kled,3,132,13.3
 Sett,3,148,13.3
@@ -248,8 +248,8 @@ Kennen,2,43,13.3
 Malphite,2,53,13.3
 Trundle,2,94,13.3
 Udyr,2,98,13.3
-XinZhao,2,110,13.3
-TahmKench,2,126,13.3
+Xin Zhao,2,110,13.3
+Tahm Kench,2,126,13.3
 Illaoi,2,128,13.3
 Corki,1,14,13.3
 Diana,1,16,13.3
@@ -270,13 +270,13 @@ Vex,1,157,13.3
 Belveth,1,160,13.3
 Nilah,1,161,13.3
 Anivia,0,6,13.3
-Dr.Mundo,0,17,13.3
+Dr. Mundo,0,17,13.3
 Fiddlesticks,0,22,13.3
 Kayle,0,42,13.3
 KhaZix,0,44,13.3
 KogMaw,0,45,13.3
 Malzahar,0,54,13.3
-MasterYi,0,56,13.3
+Master Yi,0,56,13.3
 Mordekaiser,0,58,13.3
 Morgana,0,59,13.3
 Nasus,0,61,13.3
@@ -288,7 +288,7 @@ Shen,0,79,13.3
 Shyvana,0,80,13.3
 Singed,0,81,13.3
 Sona,0,85,13.3
-TwistedFate,0,96,13.3
+Twisted Fate,0,96,13.3
 Vayne,0,101,13.3
 Warwick,0,107,13.3
 Xerath,0,109,13.3
@@ -310,7 +310,7 @@ Jayce,58,36,13.4
 Vi,58,103,13.4
 Rakan,53,136,13.4
 Wukong,52,108,13.4
-LeeSin,50,47,13.4
+Lee Sin,50,47,13.4
 Elise,48,19,13.4
 Zeri,46,158,13.4
 Jax,45,35,13.4
@@ -336,16 +336,16 @@ Draven,21,18,13.4
 Syndra,21,88,13.4
 Heimerdinger,19,31,13.4
 Veigar,19,102,13.4
-AurelionSol,18,130,13.4
+Aurelion Sol,18,130,13.4
 Ryze,17,76,13.4
 Gwen,17,155,13.4
-JarvanIV,16,34,13.4
+Jarvan IV,16,34,13.4
 LeBlanc,16,46,13.4
 Maokai,16,55,13.4
 Tristana,16,93,13.4
 Viktor,15,104,13.4
 Yone,15,150,13.4
-RenataGlasc,15,159,13.4
+Renata Glasc,15,159,13.4
 Nami,13,60,13.4
 Chogath,11,13,13.4
 Ezreal,11,21,13.4
@@ -385,14 +385,14 @@ Kassadin,3,40,13.4
 Nidalee,3,63,13.4
 Soraka,3,86,13.4
 Swain,3,87,13.4
-XinZhao,3,110,13.4
-TahmKench,3,126,13.4
+Xin Zhao,3,110,13.4
+Tahm Kench,3,126,13.4
 Zoe,3,139,13.4
 Samira,3,151,13.4
 Corki,2,14,13.4
 Garen,2,27,13.4
 Karthus,2,39,13.4
-MissFortune,2,57,13.4
+Miss Fortune,2,57,13.4
 Illaoi,2,128,13.4
 Pyke,2,141,13.4
 Sett,2,148,13.4
@@ -409,7 +409,7 @@ Rengar,1,73,13.4
 Taric,1,90,13.4
 Trundle,1,94,13.4
 Tryndamere,1,95,13.4
-TwistedFate,1,96,13.4
+Twisted Fate,1,96,13.4
 Twitch,1,97,13.4
 Udyr,1,98,13.4
 Urgot,1,99,13.4
@@ -427,7 +427,7 @@ Fizz,0,24,13.4
 Hecarim,0,30,13.4
 KhaZix,0,44,13.4
 Malzahar,0,54,13.4
-MasterYi,0,56,13.4
+Master Yi,0,56,13.4
 Nasus,0,61,13.4
 Quinn,0,70,13.4
 Riven,0,74,13.4
@@ -451,7 +451,7 @@ Wukong,68,108,13.5
 Zeri,65,158,13.5
 Sejuani,64,77,13.5
 Gragas,59,28,13.5
-LeeSin,52,47,13.5
+Lee Sin,52,47,13.5
 KSante,51,162,13.5
 Varus,48,100,13.5
 Ahri,46,2,13.5
@@ -481,7 +481,7 @@ Viego,21,154,13.5
 Gwen,21,155,13.5
 Lissandra,20,49,13.5
 Tristana,19,93,13.5
-RenataGlasc,19,159,13.5
+Renata Glasc,19,159,13.5
 Blitzcrank,17,9,13.5
 Akali,16,3,13.5
 Fiora,16,23,13.5
@@ -493,15 +493,15 @@ Nami,14,60,13.5
 Orianna,14,67,13.5
 Yone,14,150,13.5
 Heimerdinger,13,31,13.5
-XinZhao,13,110,13.5
-JarvanIV,12,34,13.5
-AurelionSol,12,130,13.5
+Xin Zhao,13,110,13.5
+Jarvan IV,12,34,13.5
+Aurelion Sol,12,130,13.5
 Cassiopeia,11,12,13.5
 Rumble,11,75,13.5
 Ryze,11,76,13.5
 Karma,10,38,13.5
 Chogath,9,13,13.5
-TahmKench,8,126,13.5
+Tahm Kench,8,126,13.5
 Ornn,8,138,13.5
 Kaisa,8,140,13.5
 Braum,7,118,13.5
@@ -546,7 +546,7 @@ Nunu,1,65,13.5
 Taric,1,90,13.5
 Trundle,1,94,13.5
 Tryndamere,1,95,13.5
-TwistedFate,1,96,13.5
+Twisted Fate,1,96,13.5
 Twitch,1,97,13.5
 Vladimir,1,105,13.5
 Zac,1,113,13.5
@@ -565,7 +565,7 @@ Fiddlesticks,0,22,13.5
 KhaZix,0,44,13.5
 KogMaw,0,45,13.5
 Malzahar,0,54,13.5
-MissFortune,0,57,13.5
+Miss Fortune,0,57,13.5
 Nasus,0,61,13.5
 Rengar,0,73,13.5
 Riven,0,74,13.5
@@ -598,7 +598,7 @@ Malphite,52,53,13.6
 Varus,48,100,13.6
 Maokai,46,55,13.6
 Kennen,44,43,13.6
-LeeSin,43,47,13.6
+Lee Sin,43,47,13.6
 Olaf,41,66,13.6
 Lissandra,36,49,13.6
 Sion,36,82,13.6
@@ -609,7 +609,7 @@ Jax,27,35,13.6
 Sylas,27,143,13.6
 Aphelios,27,147,13.6
 Cassiopeia,26,12,13.6
-RenataGlasc,26,159,13.6
+Renata Glasc,26,159,13.6
 Gwen,25,155,13.6
 Lulu,24,51,13.6
 Tristana,24,93,13.6
@@ -625,11 +625,11 @@ Yone,18,150,13.6
 Draven,16,18,13.6
 Veigar,16,102,13.6
 Fiora,15,23,13.6
-JarvanIV,15,34,13.6
+Jarvan IV,15,34,13.6
 Lucian,13,50,13.6
 Viktor,13,104,13.6
 Leona,12,48,13.6
-XinZhao,12,110,13.6
+Xin Zhao,12,110,13.6
 Chogath,11,13,13.6
 Orianna,11,67,13.6
 Elise,10,19,13.6
@@ -641,7 +641,7 @@ Caitlyn,7,11,13.6
 Nami,7,60,13.6
 Renekton,7,72,13.6
 Kalista,7,121,13.6
-TahmKench,7,126,13.6
+Tahm Kench,7,126,13.6
 Zoe,7,139,13.6
 Pyke,7,141,13.6
 Akali,6,3,13.6
@@ -674,7 +674,7 @@ Trundle,2,94,13.6
 Yasuo,2,111,13.6
 Ekko,2,125,13.6
 Illaoi,2,128,13.6
-AurelionSol,2,130,13.6
+Aurelion Sol,2,130,13.6
 Senna,2,146,13.6
 Samira,2,151,13.6
 Belveth,2,160,13.6
@@ -685,7 +685,7 @@ Malzahar,1,54,13.6
 Morgana,1,59,13.6
 Sona,1,85,13.6
 Taric,1,90,13.6
-TwistedFate,1,96,13.6
+Twisted Fate,1,96,13.6
 Udyr,1,98,13.6
 Vladimir,1,105,13.6
 Zed,1,114,13.6
@@ -693,7 +693,7 @@ Jhin,1,129,13.6
 Akshan,1,156,13.6
 Aatrox,0,1,13.6
 Kassadin,0,40,13.6
-MissFortune,0,57,13.6
+Miss Fortune,0,57,13.6
 Nunu,0,65,13.6
 Riven,0,74,13.6
 Talon,0,89,13.6
@@ -774,13 +774,13 @@ Fiora,16,23,13.8
 Rumble,16,75,13.8
 Sejuani,16,77,13.8
 Braum,16,118,13.8
-TahmKench,16,126,13.8
+Tahm Kench,16,126,13.8
 Leona,13,48,13.8
 Cassiopeia,12,12,13.8
 Nami,12,60,13.8
 Taliyah,12,131,13.8
 Elise,11,19,13.8
-LeeSin,11,47,13.8
+Lee Sin,11,47,13.8
 Varus,11,100,13.8
 Ornn,11,138,13.8
 Galio,9,25,13.8
@@ -788,8 +788,8 @@ Nocturne,9,64,13.8
 Yasuo,9,111,13.8
 Darius,8,15,13.8
 Renekton,8,72,13.8
-AurelionSol,8,130,13.8
-RenataGlasc,8,159,13.8
+Aurelion Sol,8,130,13.8
+Renata Glasc,8,159,13.8
 Rell,7,153,13.8
 Alistar,5,4,13.8
 Ezreal,5,21,13.8
@@ -798,19 +798,19 @@ Pyke,4,141,13.8
 Belveth,4,160,13.8
 Karma,3,38,13.8
 Swain,3,87,13.8
-XinZhao,3,110,13.8
+Xin Zhao,3,110,13.8
 Sett,3,148,13.8
 Aatrox,1,1,13.8
 Amumu,1,5,13.8
 Heimerdinger,1,31,13.8
 Irelia,1,32,13.8
-JarvanIV,1,34,13.8
+Jarvan IV,1,34,13.8
 Morgana,1,59,13.8
 Orianna,1,67,13.8
 Rengar,1,73,13.8
 Ryze,1,76,13.8
 Soraka,1,86,13.8
-TwistedFate,1,96,13.8
+Twisted Fate,1,96,13.8
 Vayne,1,101,13.8
 Kaisa,1,140,13.8
 Yone,1,150,13.8
