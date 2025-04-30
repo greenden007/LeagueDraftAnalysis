@@ -73,7 +73,8 @@ def simulate_full(model, patch, blue_players, red_players, extra_bans=None):
                 bag[idx] = 1.0
         picks_tensor = bag.unsqueeze(0)
         # input sequence
-        seq = encode_sequence(row) + [PAD_IDX] * (DRAFT_LENGTH - len(encode_sequence(row)))
+        encoded_row = encode_sequence(row)
+        seq = encoded_row + [PAD_IDX] * (DRAFT_LENGTH - len(encoded_row))
         inp_tensor = torch.tensor(seq, dtype=torch.long).unsqueeze(0)
         m = meta.unsqueeze(0)
         # dynamic selection for picks vs static for bans
