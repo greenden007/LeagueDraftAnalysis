@@ -132,7 +132,7 @@ st = """
 
     KhaZix
 
-    Kindered
+    Kindred
 
     Kled
 
