@@ -335,15 +335,27 @@ class LeagueScraper:
             
             self.log_final_stats()
         except KeyboardInterrupt:
-            logger.info("🛑 Interrupt received. Finalizing data...")
-            self.save_data()
+            logger.info("\n🛑 Manual interrupt received")
+            if self._has_data():
+                logger.info("⏳ Finalizing data...")
+                self.save_data()
+            else:
+                logger.info("🚫 No data to save - exiting immediately")
             self.log_final_stats()
             sys.exit(0)
         except Exception as e:
             logger.critical(f"💥 Fatal error: {str(e)}", exc_info=True)
             raise
         finally:
-            self.save_data()
+            if self._has_data():
+                self.save_data()
+
+    def _has_data(self) -> bool:
+        """Check if any meaningful data exists"""
+        return any(
+            champ_stats.games > 0
+            for champ_stats in self.global_stats.values()
+        )
 
     def process_region(self, region: str) -> None:
         logger.info(f"🏆 Processing {region.upper()}")
@@ -445,12 +457,10 @@ class LeagueScraper:
                 participants = match["info"]["participants"]
                 player = next(p for p in participants if p["puuid"] == puuid)
                 
-                # Process both player and their opponent's perspective
                 player_champ = Config.normalize_champion_name(player["championName"])
                 opponent = self.get_lane_opponent(player, participants)
                 
                 if opponent:
-                    # Add matchup from player's perspective
                     stats[player_champ].add_game(
                         win=player["win"],
                         kills=player["kills"],
@@ -459,13 +469,11 @@ class LeagueScraper:
                         opponent_champ=opponent
                     )
                     
-                    # Find opponent participant and add reciprocal matchup
                     opponent_participant = next(
                         p for p in participants 
                         if Config.normalize_champion_name(p["championName"]) == opponent
                     )
                     
-                    # Add matchup from opponent's perspective
                     stats[opponent].add_game(
                         win=opponent_participant["win"],
                         kills=opponent_participant["kills"],
@@ -509,9 +517,14 @@ class LeagueScraper:
                 existing.matchups[opponent]["assists"] += matchup["assists"]
 
     def save_data(self) -> None:
-        self.save_global_stats()
-        self.save_matchup_stats()
-        self.global_stats.clear()
+        """Safe save with empty data check"""
+        if self._has_data():
+            self.save_global_stats()
+            self.save_matchup_stats()
+            self.global_stats.clear()
+            logger.info("💾 Data saved successfully")
+        else:
+            logger.warning("🔄 No data to save - skipping file writes")
 
     def save_global_stats(self) -> None:
         file_path = os.path.join(Config.OUTPUT_DIR, "global_stats.csv")
@@ -521,41 +534,36 @@ class LeagueScraper:
             existing_df = pd.read_csv(file_path)
             stats_list = existing_df.to_dict('records')
 
-        for champ_name, champ_stats in self.global_stats.items():
-            normalized_name = Config.normalize_champion_name(champ_name)
-            entry = next((x for x in stats_list if x["champion"] == normalized_name), None)
-            
-            if not entry:
-                stats_list.append({
-                    "champion": normalized_name,
-                    "games": champ_stats.games,
-                    "wins": champ_stats.wins,
-                    "win_rate": round(champ_stats.win_rate, 2),
-                    "avg_kills": round(champ_stats.kills / champ_stats.games, 2),
-                    "avg_deaths": round(champ_stats.deaths / champ_stats.games, 2),
-                    "avg_assists": round(champ_stats.assists / champ_stats.games, 2),
-                    "kda": round(champ_stats.kda, 2),
-                    "last_updated": datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-                })
-            else:
-                total_games = entry["games"] + champ_stats.games
-                entry["games"] = total_games
-                entry["wins"] += champ_stats.wins
-                entry["avg_kills"] = round(
-                    (entry["avg_kills"] * entry["games"] + champ_stats.kills) / total_games, 2)
-                entry["avg_deaths"] = round(
-                    (entry["avg_deaths"] * entry["games"] + champ_stats.deaths) / total_games, 2)
-                entry["avg_assists"] = round(
-                    (entry["avg_assists"] * entry["games"] + champ_stats.assists) / total_games, 2)
-                entry["win_rate"] = round((entry["wins"] / total_games) * 100, 2)
-                entry["kda"] = round((entry["avg_kills"] + entry["avg_assists"]) / max(1, entry["avg_deaths"]), 2)
-                entry["last_updated"] = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+        new_entries = [
+            {
+                "champion": Config.normalize_champion_name(champ_name),
+                "games": champ_stats.games,
+                "wins": champ_stats.wins,
+                "win_rate": round(champ_stats.win_rate, 2),
+                "avg_kills": round(champ_stats.kills / champ_stats.games, 2),
+                "avg_deaths": round(champ_stats.deaths / champ_stats.games, 2),
+                "avg_assists": round(champ_stats.assists / champ_stats.games, 2),
+                "kda": round(champ_stats.kda, 2),
+                "last_updated": datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+            }
+            for champ_name, champ_stats in self.global_stats.items()
+            if champ_stats.games > 0
+        ]
 
-        pd.DataFrame(stats_list).to_csv(file_path, index=False)
-        logger.info(f"💾 Updated global stats with {len(stats_list)} champions")
+        if not new_entries and not stats_list:
+            logger.debug("💤 No global stats to update")
+            return
+
+        combined_stats = stats_list + new_entries
+        pd.DataFrame(combined_stats).to_csv(file_path, index=False)
+        logger.info(f"💾 Updated global stats with {len(new_entries)} new entries")
 
     def save_matchup_stats(self) -> None:
+        matchup_count = 0
         for champ_name, champ_stats in self.global_stats.items():
+            if champ_stats.games == 0:
+                continue
+
             normalized_name = Config.normalize_champion_name(champ_name)
             file_path = os.path.join(Config.MATCHUP_DIR, f"{normalized_name}.csv")
             
@@ -597,11 +605,18 @@ class LeagueScraper:
 
             if matchup_list:
                 pd.DataFrame(matchup_list).to_csv(file_path, index=False)
-                logger.debug(f"💾 Updated matchups for {normalized_name} ({len(matchup_list)} matchups)")
+                matchup_count += len(matchup_list)
+        
+        logger.info(f"💾 Saved matchup data for {matchup_count} champion pairs")
 
     def log_final_stats(self) -> None:
         total_time = (time.time() - self.start_time) / 60
         logger.info("\n📊 Final Statistics:")
+        
+        if self.processed_players == 0:
+            logger.warning("🌧️  No players processed - check API key/network")
+            return
+            
         logger.info(f"⏱️  Total runtime: {total_time:.1f} minutes")
         logger.info(f"✅ Players processed: {self.processed_players}")
         logger.info(f"⚠️  Players skipped: {self.skipped_players}")
