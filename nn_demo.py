@@ -2,6 +2,7 @@ import pandas as pd
 import torch
 import argparse
 import json
+from collections import defaultdict
 
 # Load and normalize champion->roles mapping
 with open('champion_roles.json') as f:
@@ -228,9 +229,175 @@ def run(best_of=3):
         print("                  Red:", red_phase2)
     print(f"Series result: Blue {rnn_wins['blue']} – {rnn_wins['red']} Red")
 
+def simulate_matchups(num_simulations=500, series_lengths=[1,3,5]):
+    # Initialize models
+    vocab_size = len(champ2idx) + 1
+    mlp = MLPDraftModel(vocab_size=vocab_size)
+    rnn = RNNDraftModel(vocab_size=vocab_size)
+    mlp.load_state_dict(torch.load("mlp_model.pt"))
+    rnn.load_state_dict(torch.load("rnn_model.pt"))
+    mlp.eval()
+    rnn.eval()
+
+    # Initialize results storage
+    results = {
+        'MLP_vs_MLP': {
+            'blue': {'picks': defaultdict(int), 'bans': defaultdict(int), 'wins': 0, 'game_wins': 0},
+            'red': {'picks': defaultdict(int), 'bans': defaultdict(int), 'wins': 0, 'game_wins': 0}
+        },
+        'MLP_vs_RNN': {
+            'blue': {'picks': defaultdict(int), 'bans': defaultdict(int), 'wins': 0, 'game_wins': 0},
+            'red': {'picks': defaultdict(int), 'bans': defaultdict(int), 'wins': 0, 'game_wins': 0}
+        },
+        'RNN_vs_MLP': {
+            'blue': {'picks': defaultdict(int), 'bans': defaultdict(int), 'wins': 0, 'game_wins': 0},
+            'red': {'picks': defaultdict(int), 'bans': defaultdict(int), 'wins': 0, 'game_wins': 0}
+        },
+        'RNN_vs_RNN': {
+            'blue': {'picks': defaultdict(int), 'bans': defaultdict(int), 'wins': 0, 'game_wins': 0},
+            'red': {'picks': defaultdict(int), 'bans': defaultdict(int), 'wins': 0, 'game_wins': 0}
+        },
+        'series_results': {length: {
+            'MLP_vs_MLP': {'blue': 0, 'red': 0},
+            'MLP_vs_RNN': {'blue': 0, 'red': 0},
+            'RNN_vs_MLP': {'blue': 0, 'red': 0},
+            'RNN_vs_RNN': {'blue': 0, 'red': 0}
+        } for length in series_lengths}
+    }
+
+    # Sample players for simulations
+    blue_players = ['Zeus','Peanut','Faker','Deft','Beryl']
+    red_players = ['Kiin','Oner','Knight','Ruler','Keria']
+
+    # Run simulations
+    for _ in range(num_simulations):
+        # Run individual games
+        for matchup in ['MLP_vs_MLP', 'MLP_vs_RNN', 'RNN_vs_MLP', 'RNN_vs_RNN']:
+            model1 = mlp if 'MLP' in matchup.split('_')[0] else rnn
+            model2 = mlp if 'MLP' in matchup.split('_')[2] else rnn
+            
+            # Run single game
+            state = simulate_full(model1, 13.10, blue_players, red_players)
+            winner = predict_winner(state)
+            results[matchup][winner]['wins'] += 1
+            for champ in state['blue_picks']:
+                results[matchup]['blue']['picks'][champ] += 1
+            for champ in state['red_picks']:
+                results[matchup]['red']['picks'][champ] += 1
+
+        # Run series simulations
+        for length in series_lengths:
+            for matchup in ['MLP_vs_MLP', 'MLP_vs_RNN', 'RNN_vs_MLP', 'RNN_vs_RNN']:
+                model1 = mlp if 'MLP' in matchup.split('_')[0] else rnn
+                model2 = mlp if 'MLP' in matchup.split('_')[2] else rnn
+                
+                # Run series with proper ban carryover and track individual games
+                series_bans = []
+                series_result = simulate_series(model1, 13.10, blue_players, red_players, best_of=length)
+                series_states = series_result[0]  # List of game states
+                wins = series_result[1]  # Wins count
+                
+                # Track individual game results
+                for game_state in series_states:
+                    # Track picks and bans
+                    # First track bans
+                    for team, bans in [('blue', game_state['blue_fs_bans'] + game_state['blue_ss_bans']),
+                                      ('red', game_state['red_fs_bans'] + game_state['red_ss_bans'])]:
+                        for champ in bans:
+                            results[matchup][team]['bans'][champ] += 1
+                    
+                    # Then track picks
+                    for champ in game_state['blue_picks']:
+                        results[matchup]['blue']['picks'][champ] += 1
+                    for champ in game_state['red_picks']:
+                        results[matchup]['red']['picks'][champ] += 1
+                    
+                    # Track game winner
+                    game_winner = predict_winner(game_state)
+                    results[matchup][game_winner]['game_wins'] += 1
+                    
+                    # Add bans for next game
+                    for ev in EVENT_ORDER:
+                        if 'picks' in ev:
+                            for champ in game_state[ev]:
+                                if champ not in series_bans:
+                                    series_bans.append(champ)
+                
+                # Determine series winner
+                series_winner = 'blue' if wins['blue'] > wins['red'] else 'red'
+                results['series_results'][length][matchup][series_winner] += 1
+
+    return results
+
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Simulate a best-of-series draft")
     parser.add_argument('-b', '--best-of', type=int, default=3, choices=[1,3,5],
                         help='Series length (best-of): 1, 3, or 5')
+    parser.add_argument('--matchups', action='store_true',
+                        help='Run matchup simulations')
+    parser.add_argument('--num-sims', type=int, default=1,
+                        help='Number of simulations to run')
+    args = parser.parse_args()
+
+    if args.matchups:
+        results = simulate_matchups(num_simulations=args.num_sims)
+        
+        # Write results to file
+        with open('matchup_results.json', 'w') as f:
+            json.dump(results, f, indent=2)
+        
+        # Print matchup results
+        print("\nMatchup Simulation Results:\n")
+        for matchup, data in results.items():
+            if matchup == 'series_results':
+                print("Series Results:")
+                for length, length_data in data.items():
+                    print(f"\nBest-of-{length}:")
+                    for matchup_type, matchup_data in length_data.items():
+                        print(f"  {matchup_type}:")
+                        print(f"    Blue wins: {matchup_data['blue']}")
+                        print(f"    Red wins: {matchup_data['red']}")
+            else:
+                print(f"{matchup}:")
+                print(f"  Blue wins: {data['blue']['wins']}")
+                print(f"  Red wins: {data['red']['wins']}")
+                print("  Top 5 picks for each team:")
+                for team, team_data in data.items():
+                    print(f"    {team} team:")
+                    top_picks = sorted(team_data['picks'].items(), key=lambda x: x[1], reverse=True)[:5]
+                    for champ, count in top_picks:
+                        print(f"      {champ}: {count} picks")
+                print()
+    else:
+        run(best_of=args.best_of)
+    args = parser.parse_args()
+
+    if args.matchups:
+        results = simulate_matchups()
+        
+        # Print matchup results
+        print("\nMatchup Simulation Results:\n")
+        for matchup, data in results.items():
+            print(f"{matchup}:")
+            print(f"  Blue wins: {data['blue']['wins']} (Game wins: {data['blue']['game_wins']})")
+            print(f"  Red wins: {data['red']['wins']} (Game wins: {data['red']['game_wins']})")
+            print("  Top picks and bans for each team:")
+            for team, team_data in data.items():
+                print(f"    {team} team:")
+                
+                # Print top picks
+                print("      Top picks:")
+                top_picks = sorted(team_data['picks'].items(), key=lambda x: x[1], reverse=True)[:5]
+                for champ, count in top_picks:
+                    print(f"        {champ}: {count} picks")
+                
+                # Print top bans
+                print("      Top bans:")
+                top_bans = sorted(team_data['bans'].items(), key=lambda x: x[1], reverse=True)[:5]
+                for champ, count in top_bans:
+                    print(f"        {champ}: {count} bans")
+            print()
+    else:
+        run(best_of=args.best_of)
     args = parser.parse_args()
     run(best_of=args.best_of)
