@@ -66,6 +66,7 @@ htmlcov/
 # Sensitive information (e.g., environment variables)
 .env
 .env.*
+.venv
 
 # macOS system files
 .DS_Store
