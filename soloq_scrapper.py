@@ -570,36 +570,43 @@ class LeagueScraper:
             existing_data = {}
             if os.path.exists(file_path):
                 existing_df = pd.read_csv(file_path)
+                # Handle legacy files missing columns
+                for col in ['wins', 'kills', 'deaths', 'assists']:
+                    if col not in existing_df.columns:
+                        existing_df[col] = 0
                 existing_data = existing_df.set_index('opponent').to_dict('index')
 
             for opponent, data in champ_stats.matchups.items():
                 norm_opponent = Config.normalize_champion_name(opponent)
-                if norm_opponent in existing_data:
-                    existing_data[norm_opponent]["games"] += data["games"]
-                    existing_data[norm_opponent]["wins"] += data["wins"]
-                    existing_data[norm_opponent]["kills"] += data["kills"]
-                    existing_data[norm_opponent]["deaths"] += data["deaths"]
-                    existing_data[norm_opponent]["assists"] += data["assists"]
-                else:
-                    existing_data[norm_opponent] = {
-                        "games": data["games"],
-                        "wins": data["wins"],
-                        "kills": data["kills"],
-                        "deaths": data["deaths"],
-                        "assists": data["assists"],
-                        "last_updated": datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-                    }
+                
+                # Initialize with defaults if missing
+                target = existing_data.setdefault(norm_opponent, {
+                    "games": 0,
+                    "wins": 0,
+                    "kills": 0,
+                    "deaths": 0,
+                    "assists": 0,
+                    "last_updated": datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+                })
+                
+                # Safe increment
+                target["games"] += data.get("games", 0)
+                target["wins"] += data.get("wins", 0)
+                target["kills"] += data.get("kills", 0)
+                target["deaths"] += data.get("deaths", 0)
+                target["assists"] += data.get("assists", 0)
+                target["last_updated"] = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
 
             matchup_list = []
             for opponent, data in existing_data.items():
                 matchup_list.append({
                     "opponent": opponent,
                     "games": data["games"],
-                    "win_rate": round((data["wins"] / data["games"]) * 100, 2),
+                    "win_rate": round((data["wins"] / data["games"]) * 100, 2) if data["games"] > 0 else 0.0,
                     "kda": round((data["kills"] + data["assists"]) / max(1, data["deaths"]), 2),
-                    "avg_kills": round(data["kills"] / data["games"], 2),
-                    "avg_deaths": round(data["deaths"] / data["games"], 2),
-                    "avg_assists": round(data["assists"] / data["games"], 2),
+                    "avg_kills": round(data["kills"] / data["games"], 2) if data["games"] > 0 else 0.0,
+                    "avg_deaths": round(data["deaths"] / data["games"], 2) if data["games"] > 0 else 0.0,
+                    "avg_assists": round(data["assists"] / data["games"], 2) if data["games"] > 0 else 0.0,
                     "last_updated": data.get("last_updated", datetime.now().strftime("%Y-%m-%d %H:%M:%S"))
                 })
 
