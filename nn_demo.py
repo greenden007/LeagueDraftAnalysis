@@ -262,7 +262,13 @@ def simulate_matchups(num_simulations=500, series_lengths=[1,3,5]):
             'MLP_vs_RNN': {'blue': 0, 'red': 0},
             'RNN_vs_MLP': {'blue': 0, 'red': 0},
             'RNN_vs_RNN': {'blue': 0, 'red': 0}
-        } for length in series_lengths}
+        } for length in series_lengths},
+        'draft_sequences': {
+            'MLP_vs_MLP': [],
+            'MLP_vs_RNN': [],
+            'RNN_vs_MLP': [],
+            'RNN_vs_RNN': []
+        }
     }
 
     # Sample players for simulations
@@ -311,6 +317,21 @@ def simulate_matchups(num_simulations=500, series_lengths=[1,3,5]):
                         results[matchup]['blue']['picks'][champ] += 1
                     for champ in game_state['red_picks']:
                         results[matchup]['red']['picks'][champ] += 1
+
+                    # Track draft sequence
+                    draft_seq = {
+                        'blue': {
+                            'fs_bans': game_state['blue_fs_bans'],
+                            'ss_bans': game_state['blue_ss_bans'],
+                            'picks': game_state['blue_picks']
+                        },
+                        'red': {
+                            'fs_bans': game_state['red_fs_bans'],
+                            'ss_bans': game_state['red_ss_bans'],
+                            'picks': game_state['red_picks']
+                        }
+                    }
+                    results['draft_sequences'][matchup].append(draft_seq)
                     
                     # Track game winner
                     game_winner = predict_winner(game_state)
@@ -372,31 +393,55 @@ if __name__ == "__main__":
         run(best_of=args.best_of)
     args = parser.parse_args()
 
+    with open('matchup_results.json', 'w') as f:
+        json.dump(results, f, indent=2)
+    
+    # Print results
     if args.matchups:
-        results = simulate_matchups()
-        
-        # Print matchup results
-        print("\nMatchup Simulation Results:\n")
-        for matchup, data in results.items():
+        print("Matchup Simulation Results:\n")
+        # Handle non-series results
+        for matchup in ['MLP_vs_MLP', 'MLP_vs_RNN', 'RNN_vs_MLP', 'RNN_vs_RNN']:
             print(f"{matchup}:")
-            print(f"  Blue wins: {data['blue']['wins']} (Game wins: {data['blue']['game_wins']})")
-            print(f"  Red wins: {data['red']['wins']} (Game wins: {data['red']['game_wins']})")
-            print("  Top picks and bans for each team:")
-            for team, team_data in data.items():
+            print(f"  Blue wins: {results[matchup]['blue']['wins']} (Game wins: {results[matchup]['blue']['game_wins']})")
+            print(f"  Red wins: {results[matchup]['red']['wins']} (Game wins: {results[matchup]['red']['game_wins']})")
+            print("  Top 5 picks for each team:")
+            for team in ['blue', 'red']:
                 print(f"    {team} team:")
                 
                 # Print top picks
                 print("      Top picks:")
-                top_picks = sorted(team_data['picks'].items(), key=lambda x: x[1], reverse=True)[:5]
+                top_picks = sorted(results[matchup][team]['picks'].items(), key=lambda x: x[1], reverse=True)[:5]
                 for champ, count in top_picks:
                     print(f"        {champ}: {count} picks")
                 
                 # Print top bans
                 print("      Top bans:")
-                top_bans = sorted(team_data['bans'].items(), key=lambda x: x[1], reverse=True)[:5]
+                top_bans = sorted(results[matchup][team]['bans'].items(), key=lambda x: x[1], reverse=True)[:5]
                 for champ, count in top_bans:
                     print(f"        {champ}: {count} bans")
+            
+            # Print sample draft sequence
+            if results['draft_sequences'][matchup]:
+                print("\n  Sample Draft Sequence:")
+                sample_draft = results['draft_sequences'][matchup][0]  # Show first draft sequence
+                print("    Blue Team:")
+                print(f"      First String Bans: {sample_draft['blue']['fs_bans']}")
+                print(f"      Second String Bans: {sample_draft['blue']['ss_bans']}")
+                print(f"      Picks: {sample_draft['blue']['picks']}")
+                print("    Red Team:")
+                print(f"      First String Bans: {sample_draft['red']['fs_bans']}")
+                print(f"      Second String Bans: {sample_draft['red']['ss_bans']}")
+                print(f"      Picks: {sample_draft['red']['picks']}")
             print()
+        
+        # Handle series results
+        print("\nSeries Results:")
+        for length in results['series_results']:
+            print(f"\nBest-of-{length}:")
+            for matchup in ['MLP_vs_MLP', 'MLP_vs_RNN', 'RNN_vs_MLP', 'RNN_vs_RNN']:
+                print(f"  {matchup}:")
+                print(f"    Blue wins: {results['series_results'][length][matchup]['blue']}")
+                print(f"    Red wins: {results['series_results'][length][matchup]['red']}")
     else:
         run(best_of=args.best_of)
     args = parser.parse_args()
