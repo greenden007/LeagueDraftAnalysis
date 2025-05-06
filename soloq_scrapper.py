@@ -17,6 +17,9 @@ from typing import Dict, List, Optional, Tuple
 # Configuration
 # ========================
 class Config:
+    
+    # Idan has the API key locally chill my brotha
+    
     """Centralized configuration with validation"""
     API_KEY = os.getenv("RIOT_API_KEY")
     BASE_URL = "https://{region}.api.riotgames.com/lol"
@@ -565,6 +568,9 @@ class LeagueScraper:
                 "champion": champ,
                 "games": games,
                 "wins": data['wins'],
+                "total_kills": data['total_kills'],
+                "total_deaths": data['total_deaths'],
+                "total_assists": data['total_assists'],
                 "win_rate": round((data['wins'] / games) * 100, 2),
                 "avg_kills": round(data['total_kills'] / games, 2),
                 "avg_deaths": round(data['total_deaths'] / games, 2),
