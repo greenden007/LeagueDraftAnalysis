@@ -528,35 +528,58 @@ class LeagueScraper:
 
     def save_global_stats(self) -> None:
         file_path = os.path.join(Config.OUTPUT_DIR, "global_stats.csv")
-        stats_list = []
-
+        
+        existing_data = {}
         if os.path.exists(file_path):
             existing_df = pd.read_csv(file_path)
-            stats_list = existing_df.to_dict('records')
+            existing_data = existing_df.set_index('champion').to_dict('index')
 
-        new_entries = [
-            {
-                "champion": Config.normalize_champion_name(champ_name),
-                "games": champ_stats.games,
-                "wins": champ_stats.wins,
-                "win_rate": round(champ_stats.win_rate, 2),
-                "avg_kills": round(champ_stats.kills / champ_stats.games, 2),
-                "avg_deaths": round(champ_stats.deaths / champ_stats.games, 2),
-                "avg_assists": round(champ_stats.assists / champ_stats.games, 2),
-                "kda": round(champ_stats.kda, 2),
+        for champ_name, champ_stats in self.global_stats.items():
+            if champ_stats.games <= 0:
+                continue
+                
+            champ = Config.normalize_champion_name(champ_name)
+            
+            if champ not in existing_data:
+                existing_data[champ] = {
+                    'games': 0,
+                    'wins': 0,
+                    'total_kills': 0,
+                    'total_deaths': 0,
+                    'total_assists': 0
+                }
+
+            existing_data[champ]['games'] += champ_stats.games
+            existing_data[champ]['wins'] += champ_stats.wins
+            existing_data[champ]['total_kills'] += champ_stats.kills
+            existing_data[champ]['total_deaths'] += champ_stats.deaths
+            existing_data[champ]['total_assists'] += champ_stats.assists
+
+        stats_list = []
+        for champ, data in existing_data.items():
+            games = data['games']
+            if games == 0:
+                continue 
+                
+            stats_list.append({
+                "champion": champ,
+                "games": games,
+                "wins": data['wins'],
+                "win_rate": round((data['wins'] / games) * 100, 2),
+                "avg_kills": round(data['total_kills'] / games, 2),
+                "avg_deaths": round(data['total_deaths'] / games, 2),
+                "avg_assists": round(data['total_assists'] / games, 2),
+                "kda": round((data['total_kills'] + data['total_assists']) / data['total_deaths'], 2) 
+                        if data['total_deaths'] > 0 else (data['total_kills'] + data['total_assists']),
                 "last_updated": datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-            }
-            for champ_name, champ_stats in self.global_stats.items()
-            if champ_stats.games > 0
-        ]
+            })
 
-        if not new_entries and not stats_list:
+        if not stats_list:
             logger.debug("💤 No global stats to update")
             return
 
-        combined_stats = stats_list + new_entries
-        pd.DataFrame(combined_stats).to_csv(file_path, index=False)
-        logger.info(f"💾 Updated global stats with {len(new_entries)} new entries")
+        pd.DataFrame(stats_list).to_csv(file_path, index=False)
+        logger.info(f"💾 Updated global stats with {len(stats_list)} entries")
 
     def save_matchup_stats(self) -> None:
         matchup_count = 0
@@ -570,7 +593,6 @@ class LeagueScraper:
             existing_data = {}
             if os.path.exists(file_path):
                 existing_df = pd.read_csv(file_path)
-                # Handle legacy files missing columns
                 for col in ['wins', 'kills', 'deaths', 'assists']:
                     if col not in existing_df.columns:
                         existing_df[col] = 0
