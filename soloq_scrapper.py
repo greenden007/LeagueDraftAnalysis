@@ -1,5 +1,5 @@
 """
-Riot API Scraper - Global Aggregated Stats with Matchups
+Riot API Scraper - Global Aggregated Stats with Matchups (Patch-Based)
 """
 
 import os
@@ -7,6 +7,8 @@ import time
 import logging
 import socket
 import sys
+import re
+import shutil
 from datetime import datetime
 from collections import defaultdict, deque
 import pandas as pd
@@ -17,12 +19,10 @@ from typing import Dict, List, Optional, Tuple
 # Configuration
 # ========================
 class Config:
-    
-    # Idan has the API key locally chill my brotha
-    
     """Centralized configuration with validation"""
     API_KEY = os.getenv("RIOT_API_KEY")
     BASE_URL = "https://{region}.api.riotgames.com/lol"
+    STATUS_URL = "https://{region}.api.riotgames.com/lol/status/v3/shard-data"
     
     REGIONS = [
         # Americas
@@ -33,7 +33,7 @@ class Config:
         
         # Europe
         "euw1",  # Europe West
-        "eun1",  # Europe Nordic & East (includes Russia)
+        "eun1",  # Europe Nordic & East
         "tr1",   # Turkey
         
         # Asia
@@ -107,10 +107,6 @@ class Config:
         "zoe": "Zoe", "zyra": "Zyra"
     }
 
-    @classmethod
-    def normalize_champion_name(cls, name: str) -> str:
-        return cls.CHAMPION_MAPPING.get(name.lower(), name.title())
-
     RATE_LIMITS = {
         "app": {"per_two_minutes": 95, "window_seconds": 120},
         "endpoints": {
@@ -122,18 +118,79 @@ class Config:
     
     MAX_MATCHES_PER_PLAYER = 100
     MIN_GAMES_THRESHOLD = 1
-    OUTPUT_DIR = "soloq_stats"
-    MATCHUP_DIR = os.path.join(OUTPUT_DIR, "matchups")
+    BASE_OUTPUT_DIR = "soloq_stats"
+    PATCH_VERSIONS_TO_KEEP = 3  # Keep data for current patch + 2 previous
     REQUEST_TIMEOUT = 15
     MAX_RETRIES = 3
     RETRY_DELAYS = [1, 2, 3]
 
     @classmethod
-    def validate(cls):
+    def normalize_champion_name(cls, name: str) -> str:
+        return cls.CHAMPION_MAPPING.get(name.lower(), name.title())
+
+    @classmethod
+    def get_patch_version(cls, game_version: str) -> str:
+        """Extract patch version from full game version string"""
+        try:
+            parts = game_version.split('.')
+            return f"{parts[0]}.{parts[1]}"
+        except:
+            return "0.0"
+
+    @classmethod
+    def get_current_patch(cls, api: 'RiotAPI') -> str:
+        """Get current patch version from Riot API"""
+        for region in cls.REGIONS:
+            try:
+                data = api.get_json(cls.STATUS_URL.format(region=region), "status")
+                if data and 'services' in data:
+                    for service in data['services']:
+                        if service['name'] == 'Game':
+                            version = service['version'].split('.')[:2]
+                            return f"{version[0]}.{version[1]}"
+            except:
+                continue
+        return "0.0"
+
+    @classmethod
+    def validate(cls, api: 'RiotAPI'):
+        """Validate configuration and setup directories"""
         if not cls.API_KEY:
             raise ValueError("RIOT_API_KEY environment variable not set")
-        os.makedirs(cls.OUTPUT_DIR, exist_ok=True)
-        os.makedirs(cls.MATCHUP_DIR, exist_ok=True)
+        
+        os.makedirs(cls.BASE_OUTPUT_DIR, exist_ok=True)
+        cls.cleanup_old_patches()
+
+    @classmethod
+    def get_patch_output_dir(cls, patch: str) -> str:
+        """Get output directory path for a specific patch"""
+        patch_dir = os.path.join(cls.BASE_OUTPUT_DIR, f"patch_{patch}")
+        os.makedirs(patch_dir, exist_ok=True)
+        os.makedirs(os.path.join(patch_dir, "matchups"), exist_ok=True)
+        return patch_dir
+
+    @classmethod
+    def cleanup_old_patches(cls):
+        """Remove data for patches older than PATCH_VERSIONS_TO_KEEP"""
+        try:
+            dirs = [d for d in os.listdir(cls.BASE_OUTPUT_DIR) 
+                    if os.path.isdir(os.path.join(cls.BASE_OUTPUT_DIR, d))]
+            
+            patches = []
+            for d in dirs:
+                match = re.match(r'patch_(\d+\.\d+)', d)
+                if match:
+                    major, minor = map(int, match.group(1).split('.'))
+                    patches.append((major, minor, d))
+            
+            patches.sort(reverse=True, key=lambda x: (x[0], x[1]))
+            
+            for patch in patches[cls.PATCH_VERSIONS_TO_KEEP:]:
+                shutil.rmtree(os.path.join(cls.BASE_OUTPUT_DIR, patch[2]))
+                logger.info(f"Cleaned up old patch: {patch[2]}")
+                
+        except Exception as e:
+            logger.error(f"Patch cleanup failed: {str(e)}")
 
 # ========================
 # Data Models
@@ -323,14 +380,15 @@ class LeagueScraper:
     def __init__(self):
         self.rate_limiter = PrecisionRateLimiter()
         self.api = RiotAPI(self.rate_limiter)
-        self.global_stats = defaultdict(ChampionStats)
+        self.global_stats = defaultdict(lambda: defaultdict(ChampionStats))  # {patch: {champ: stats}}
         self.start_time = time.time()
         self.processed_players = 0
         self.skipped_players = 0
         self.failed_summoner_lookups = 0
+        self.current_patch = Config.get_current_patch(self.api)
 
     def run(self) -> None:
-        logger.info("🌍 Starting global data collection")
+        logger.info(f"🌍 Starting global data collection for patch {self.current_patch}")
         try:
             for region in Config.REGIONS:
                 self.process_region(region)
@@ -357,7 +415,8 @@ class LeagueScraper:
         """Check if any meaningful data exists"""
         return any(
             champ_stats.games > 0
-            for champ_stats in self.global_stats.values()
+            for patch_stats in self.global_stats.values()
+            for champ_stats in patch_stats.values()
         )
 
     def process_region(self, region: str) -> None:
@@ -425,8 +484,8 @@ class LeagueScraper:
             return (False, self._format_skip_reason(skip_details, summoner_id[:6], puuid[:8]))
         
         try:
-            stats = self.process_matches(summoner, valid_matches)
-            self.aggregate_stats(stats)
+            patch_stats = self.process_matches(summoner, valid_matches)
+            self.aggregate_stats(patch_stats)
             return (True, f"Processed {len(valid_matches)} matches")
         except Exception as e:
             return (False, f"Processing error: {str(e)}")
@@ -451,12 +510,16 @@ class LeagueScraper:
         except Exception:
             return False
 
-    def process_matches(self, summoner: Dict, matches: List[Dict]) -> Dict[str, ChampionStats]:
-        stats = defaultdict(ChampionStats)
+    def process_matches(self, summoner: Dict, matches: List[Dict]) -> Dict[str, Dict[str, ChampionStats]]:
+        """Process matches and return stats organized by patch"""
+        stats_by_patch = defaultdict(lambda: defaultdict(ChampionStats))
         puuid = summoner["puuid"]
         
         for match in matches:
             try:
+                game_version = match["info"]["gameVersion"]
+                patch = Config.get_patch_version(game_version)
+                
                 participants = match["info"]["participants"]
                 player = next(p for p in participants if p["puuid"] == puuid)
                 
@@ -464,7 +527,7 @@ class LeagueScraper:
                 opponent = self.get_lane_opponent(player, participants)
                 
                 if opponent:
-                    stats[player_champ].add_game(
+                    stats_by_patch[patch][player_champ].add_game(
                         win=player["win"],
                         kills=player["kills"],
                         deaths=player["deaths"],
@@ -477,7 +540,7 @@ class LeagueScraper:
                         if Config.normalize_champion_name(p["championName"]) == opponent
                     )
                     
-                    stats[opponent].add_game(
+                    stats_by_patch[patch][opponent].add_game(
                         win=opponent_participant["win"],
                         kills=opponent_participant["kills"],
                         deaths=opponent_participant["deaths"],
@@ -489,7 +552,7 @@ class LeagueScraper:
                 logger.debug(f"Match processing error: {str(e)}")
                 continue
                 
-        return stats
+        return stats_by_patch
 
     def get_lane_opponent(self, player: Dict, participants: List[Dict]) -> Optional[str]:
         try:
@@ -503,41 +566,49 @@ class LeagueScraper:
             return None
         return None
 
-    def aggregate_stats(self, stats: Dict[str, ChampionStats]) -> None:
-        for champion, champion_stats in stats.items():
-            existing = self.global_stats[champion]
-            existing.games += champion_stats.games
-            existing.wins += champion_stats.wins
-            existing.kills += champion_stats.kills
-            existing.deaths += champion_stats.deaths
-            existing.assists += champion_stats.assists
-            
-            for opponent, matchup in champion_stats.matchups.items():
-                existing.matchups[opponent]["games"] += matchup["games"]
-                existing.matchups[opponent]["wins"] += matchup["wins"]
-                existing.matchups[opponent]["kills"] += matchup["kills"]
-                existing.matchups[opponent]["deaths"] += matchup["deaths"]
-                existing.matchups[opponent]["assists"] += matchup["assists"]
+    def aggregate_stats(self, stats_by_patch: Dict[str, Dict[str, ChampionStats]]) -> None:
+        """Aggregate stats from multiple patches"""
+        for patch, patch_stats in stats_by_patch.items():
+            for champion, champion_stats in patch_stats.items():
+                existing = self.global_stats[patch][champion]
+                existing.games += champion_stats.games
+                existing.wins += champion_stats.wins
+                existing.kills += champion_stats.kills
+                existing.deaths += champion_stats.deaths
+                existing.assists += champion_stats.assists
+                
+                for opponent, matchup in champion_stats.matchups.items():
+                    existing.matchups[opponent]["games"] += matchup["games"]
+                    existing.matchups[opponent]["wins"] += matchup["wins"]
+                    existing.matchups[opponent]["kills"] += matchup["kills"]
+                    existing.matchups[opponent]["deaths"] += matchup["deaths"]
+                    existing.matchups[opponent]["assists"] += matchup["assists"]
 
     def save_data(self) -> None:
         """Safe save with empty data check"""
         if self._has_data():
-            self.save_global_stats()
-            self.save_matchup_stats()
+            for patch in self.global_stats:
+                self.save_patch_data(patch)
             self.global_stats.clear()
             logger.info("💾 Data saved successfully")
         else:
             logger.warning("🔄 No data to save - skipping file writes")
 
-    def save_global_stats(self) -> None:
-        file_path = os.path.join(Config.OUTPUT_DIR, "global_stats.csv")
+    def save_patch_data(self, patch: str) -> None:
+        """Save all data for a specific patch"""
+        patch_dir = Config.get_patch_output_dir(patch)
+        self.save_global_stats(patch, patch_dir)
+        self.save_matchup_stats(patch, patch_dir)
+
+    def save_global_stats(self, patch: str, patch_dir: str) -> None:
+        file_path = os.path.join(patch_dir, "global_stats.csv")
         
         existing_data = {}
         if os.path.exists(file_path):
             existing_df = pd.read_csv(file_path)
             existing_data = existing_df.set_index('champion').to_dict('index')
 
-        for champ_name, champ_stats in self.global_stats.items():
+        for champ_name, champ_stats in self.global_stats[patch].items():
             if champ_stats.games <= 0:
                 continue
                 
@@ -581,20 +652,20 @@ class LeagueScraper:
             })
 
         if not stats_list:
-            logger.debug("💤 No global stats to update")
+            logger.debug(f"💤 No global stats to update for patch {patch}")
             return
 
         pd.DataFrame(stats_list).to_csv(file_path, index=False)
-        logger.info(f"💾 Updated global stats with {len(stats_list)} entries")
+        logger.info(f"💾 Updated global stats for patch {patch} with {len(stats_list)} entries")
 
-    def save_matchup_stats(self) -> None:
+    def save_matchup_stats(self, patch: str, patch_dir: str) -> None:
         matchup_count = 0
-        for champ_name, champ_stats in self.global_stats.items():
+        for champ_name, champ_stats in self.global_stats[patch].items():
             if champ_stats.games == 0:
                 continue
 
             normalized_name = Config.normalize_champion_name(champ_name)
-            file_path = os.path.join(Config.MATCHUP_DIR, f"{normalized_name}.csv")
+            file_path = os.path.join(patch_dir, "matchups", f"{normalized_name}.csv")
             
             existing_data = {}
             if os.path.exists(file_path):
@@ -688,7 +759,10 @@ def setup_logging():
 # ========================
 if __name__ == "__main__":
     logger = setup_logging()
-    Config.validate()
+    
+    rate_limiter = PrecisionRateLimiter()
+    api = RiotAPI(rate_limiter)
+    Config.validate(api=api)
     
     try:
         scraper = LeagueScraper()
