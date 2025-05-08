@@ -14,7 +14,6 @@ from collections import defaultdict, deque
 import pandas as pd
 import requests
 from typing import Dict, List, Optional, Tuple, Set
-import datetime
 
 # ========================
 # Configuration
@@ -120,7 +119,7 @@ class Config:
     MAX_MATCHES_PER_PLAYER = 10
     MIN_GAMES_THRESHOLD = 1
     BASE_OUTPUT_DIR = "soloq_stats"
-    PATCH_VERSIONS_TO_KEEP = 3  # Keep data for current patch + 2 previous
+    PATCH_VERSIONS_TO_KEEP = 5  # Keep data for current patch + 2 previous
     REQUEST_TIMEOUT = 15
     MAX_RETRIES = 3
     RETRY_DELAYS = [1, 2, 3]
@@ -600,7 +599,7 @@ class LeagueScraper:
                         kills=player["kills"],
                         deaths=player["deaths"],
                         assists=player["assists"],
-                        opponent_champ=opponent
+                        opponent=opponent
                     )
                     
                     opponent_participant = next(
@@ -613,9 +612,9 @@ class LeagueScraper:
                         kills=opponent_participant["kills"],
                         deaths=opponent_participant["deaths"],
                         assists=opponent_participant["assists"],
-                        opponent_champ=player_champ
+                        opponent=player_champ
                     )
-                    
+                            
             except Exception as e:
                 logger.debug(f"Match processing error: {str(e)}")
                 continue
@@ -639,6 +638,7 @@ class LeagueScraper:
         for patch, patch_stats in stats_by_patch.items():
             for champion, champion_stats in patch_stats.items():
                 existing = self.global_stats[patch][champion]
+                
                 existing.games += champion_stats.games
                 existing.wins += champion_stats.wins
                 existing.kills += champion_stats.kills
