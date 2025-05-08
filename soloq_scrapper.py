@@ -13,7 +13,8 @@ from datetime import datetime
 from collections import defaultdict, deque
 import pandas as pd
 import requests
-from typing import Dict, List, Optional, Tuple
+from typing import Dict, List, Optional, Tuple, Set
+import datetime
 
 # ========================
 # Configuration
@@ -22,7 +23,7 @@ class Config:
     """Centralized configuration with validation"""
     API_KEY = os.getenv("RIOT_API_KEY")
     BASE_URL = "https://{region}.api.riotgames.com/lol"
-    STATUS_URL = "https://{region}.api.riotgames.com/lol/status/v3/shard-data"
+    DATA_DRAGON_URL = "https://ddragon.leagueoflegends.com/realms/{region}.json"
     
     REGIONS = [
         # Americas
@@ -116,7 +117,7 @@ class Config:
         }
     }
     
-    MAX_MATCHES_PER_PLAYER = 100
+    MAX_MATCHES_PER_PLAYER = 10
     MIN_GAMES_THRESHOLD = 1
     BASE_OUTPUT_DIR = "soloq_stats"
     PATCH_VERSIONS_TO_KEEP = 3  # Keep data for current patch + 2 previous
@@ -129,28 +130,22 @@ class Config:
         return cls.CHAMPION_MAPPING.get(name.lower(), name.title())
 
     @classmethod
-    def get_patch_version(cls, game_version: str) -> str:
-        """Extract patch version from full game version string"""
+    def get_current_patch(cls) -> str:
+        """Get current patch version from Data Dragon with year-based format"""
         try:
-            parts = game_version.split('.')
-            return f"{parts[0]}.{parts[1]}"
-        except:
-            return "0.0"
-
-    @classmethod
-    def get_current_patch(cls, api: 'RiotAPI') -> str:
-        """Get current patch version from Riot API"""
-        for region in cls.REGIONS:
-            try:
-                data = api.get_json(cls.STATUS_URL.format(region=region), "status")
-                if data and 'services' in data:
-                    for service in data['services']:
-                        if service['name'] == 'Game':
-                            version = service['version'].split('.')[:2]
-                            return f"{version[0]}.{version[1]}"
-            except:
-                continue
-        return "0.0"
+            response = requests.get(cls.DATA_DRAGON_URL.format(region="na"), timeout=5)
+            response.raise_for_status()
+            full_version = response.json()['v']  # Example: "25.9.1"
+            
+            # Extract year and patch number from first two parts
+            year, patch_num = full_version.split('.')[:2]
+            return f"{year}.{patch_num}"  # Directly returns "25.9"
+            
+        except Exception as e:
+            logger.error(f"Failed to get current patch: {str(e)}")
+            # Fallback to current date-based version
+            current_year = datetime.datetime.now().year % 100  # Last 2 digits
+            return f"{current_year}.9"  # Simulate 25.9 for 2025
 
     @classmethod
     def validate(cls, api: 'RiotAPI'):
@@ -165,7 +160,6 @@ class Config:
     def get_patch_output_dir(cls, patch: str) -> str:
         """Get output directory path for a specific patch"""
         patch_dir = os.path.join(cls.BASE_OUTPUT_DIR, f"patch_{patch}")
-        os.makedirs(patch_dir, exist_ok=True)
         os.makedirs(os.path.join(patch_dir, "matchups"), exist_ok=True)
         return patch_dir
 
@@ -180,8 +174,8 @@ class Config:
             for d in dirs:
                 match = re.match(r'patch_(\d+\.\d+)', d)
                 if match:
-                    major, minor = map(int, match.group(1).split('.'))
-                    patches.append((major, minor, d))
+                    year, num = map(int, match.group(1).split('.'))
+                    patches.append((year, num, d))
             
             patches.sort(reverse=True, key=lambda x: (x[0], x[1]))
             
@@ -206,20 +200,30 @@ class ChampionStats:
             "games": 0, "wins": 0, "kills": 0, "deaths": 0, "assists": 0
         })
 
-    def add_game(self, win: bool, kills: int, deaths: int, assists: int, opponent_champ: Optional[str] = None) -> None:
+    def add_game(self, win: bool, kills: int, deaths: int, assists: int, opponent: Optional[str] = None):
         self.games += 1
         self.wins += int(win)
         self.kills += kills
         self.deaths += deaths
         self.assists += assists
         
-        if opponent_champ:
-            opponent = Config.normalize_champion_name(opponent_champ)
+        if opponent:
+            opponent = Config.normalize_champion_name(opponent)
             self.matchups[opponent]["games"] += 1
             self.matchups[opponent]["wins"] += int(win)
             self.matchups[opponent]["kills"] += kills
             self.matchups[opponent]["deaths"] += deaths
             self.matchups[opponent]["assists"] += assists
+
+    def to_dict(self) -> Dict:
+        return {
+            "games": self.games,
+            "wins": self.wins,
+            "kills": self.kills,
+            "deaths": self.deaths,
+            "assists": self.assists,
+            "matchups": dict(self.matchups)
+        }
 
     @property
     def win_rate(self) -> float:
@@ -320,6 +324,7 @@ class RiotAPI:
 
     def get_json(self, url: str, endpoint_type: str) -> Optional[Dict]:
         """Make API request with connection-aware error handling"""
+        logger.debug(f"🌐 Sending {endpoint_type} request to: {url}")
         if not self.connectivity_checked:
             self.check_connectivity()
 
@@ -335,7 +340,7 @@ class RiotAPI:
                     return None
                 elif response.status_code == 429:
                     retry_after = int(response.headers.get("Retry-After", 10))
-                    logger.warning(f"⏳ Rate limited. Waiting {retry_after}s")
+                    logger.warning(f"⏳🔁 Rate limited on {endpoint_type}. Waiting {retry_after}s")
                     time.sleep(retry_after)
                     continue
                     
@@ -380,36 +385,85 @@ class LeagueScraper:
     def __init__(self):
         self.rate_limiter = PrecisionRateLimiter()
         self.api = RiotAPI(self.rate_limiter)
-        self.global_stats = defaultdict(lambda: defaultdict(ChampionStats))  # {patch: {champ: stats}}
+        self.target_patches = self.get_target_patches()
+        self.existing_patches = self.get_existing_patches()
+        self.active_patches = [p for p in self.target_patches if p not in self.existing_patches]
+        self.global_stats = defaultdict(lambda: defaultdict(ChampionStats))
         self.start_time = time.time()
         self.processed_players = 0
         self.skipped_players = 0
         self.failed_summoner_lookups = 0
-        self.current_patch = Config.get_current_patch(self.api)
+
+        logger.info(f"📂 Existing patches: {', '.join(self.existing_patches) or 'None'}")
+        logger.info(f"🎯 Target patches: {', '.join(self.target_patches)}")
+        logger.info(f"🚀 Active patches to scrape: {', '.join(self.active_patches) or 'None'}")
+
+    def get_target_patches(self) -> List[str]:
+        """Get last 5 patches including current within the current year"""
+        current = Config.get_current_patch()  # Returns string like "25.9"
+        try:
+            year_str, patch_num_str = current.split('.')
+            current_year = int(year_str) + 10
+            current_patch_num = int(patch_num_str)
+        except ValueError:
+            logger.error(f"Invalid current patch format: {current}")
+            return []
+
+        # Generate last 5 patches in the current year
+        patches = []
+        for i in range(4, -1, -1):  # From 4 to 0
+            patch_number = current_patch_num - i
+            if patch_number > 0:  # Only valid patch numbers
+                patches.append(f"{current_year}.{patch_number}")
+
+        # If we don't have 5 patches yet this year, include previous year's final patches
+        if len(patches) < 5:
+            remaining = 5 - len(patches)
+            previous_year = current_year - 1
+            # Assume maximum 12 patches per year (adjust if needed)
+            for patch_number in range(12, 12 - remaining, -1):
+                patches.insert(0, f"{previous_year}.{patch_number}")
+
+        return sorted(patches[-5:])  # Return newest 5
+    
+    def get_existing_patches(self) -> Set[str]:
+        """Get set of existing patch directories"""
+        return {d.split('_')[1] for d in os.listdir(Config.BASE_OUTPUT_DIR)
+                if os.path.isdir(os.path.join(Config.BASE_OUTPUT_DIR, d)) and d.startswith('patch_')}
 
     def run(self) -> None:
-        logger.info(f"🌍 Starting global data collection for patch {self.current_patch}")
+        if not self.active_patches:
+            logger.info("✅ All target patches already exist - nothing to scrape")
+            return
+
         try:
+            # Process all regions first
             for region in Config.REGIONS:
+                logger.info(f"🌍 Starting {region.upper()} processing")
                 self.process_region(region)
-                self.save_data()
+                logger.info(f"✅ Finished {region.upper()} processing")
             
+            # Save once after all regions are processed
+            self.save_data()
+            time.sleep(1)
+            self.global_stats.clear()  # Free memory
             self.log_final_stats()
+
         except KeyboardInterrupt:
-            logger.info("\n🛑 Manual interrupt received")
+            logger.info("🛑 Manual interrupt received")
             if self._has_data():
-                logger.info("⏳ Finalizing data...")
-                self.save_data()
-            else:
-                logger.info("🚫 No data to save - exiting immediately")
+                self.save_data()  # Save everything collected so far
+                time.sleep(1)
+                self.global_stats.clear()
             self.log_final_stats()
             sys.exit(0)
         except Exception as e:
             logger.critical(f"💥 Fatal error: {str(e)}", exc_info=True)
-            raise
-        finally:
             if self._has_data():
-                self.save_data()
+                self.save_data()  # Last-ditch effort to preserve data
+                time.sleep(1)
+                self.global_stats.clear()
+            raise 
 
     def _has_data(self) -> bool:
         """Check if any meaningful data exists"""
@@ -418,77 +472,89 @@ class LeagueScraper:
             for patch_stats in self.global_stats.values()
             for champ_stats in patch_stats.values()
         )
-
+    
+    def is_valid_match(self, match: Dict, puuid: str) -> bool:
+        try:
+            return any(p["puuid"] == puuid for p in match["info"]["participants"])
+        except KeyError:
+            return False
+        
     def process_region(self, region: str) -> None:
-        logger.info(f"🏆 Processing {region.upper()}")
+        logger.info(f"\n🌍🚀 Starting {region.upper()} region processing")
         ladder = self.api.get_challenger_league(region)
-        if not ladder or not isinstance(ladder, dict) or "entries" not in ladder:
-            logger.error(f"Invalid ladder data for {region}")
+        if not ladder or "entries" not in ladder:
+            logger.error(f"❌🚫 Invalid ladder data for {region}, skipping region")
             return
-            
+
         players = ladder["entries"]
-        logger.info(f"Found {len(players)} players in {region.upper()}")
+        logger.info(f"👥🔍 Found {len(players)} players in {region.upper()}")
         
         for i, player in enumerate(players):
-            logger.info(f"⏳ Processing player {i+1}/{len(players)} in {region.upper()}")
+            logger.info(f"👤 Processing player {i+1}/{len(players)}")
+            logger.debug(f"📇 Summoner ID: {player['summonerId'][:6]}...")
             result = self.process_player(region, player["summonerId"])
-            status = "✅ Processed" if result[0] else f"❌ Skipped: {result[1]}"
-            logger.info(f"Status: {status}")
             
             if result[0]:
+                logger.success(f"✅ Success: {result[1]}")
                 self.processed_players += 1
             else:
+                logger.warning(f"⚠️ Skip: {result[1]}")
                 self.skipped_players += 1
                 if "summoner not found" in result[1].lower():
                     self.failed_summoner_lookups += 1
-            
-            time.sleep(0.1)
-
+    
     def process_player(self, region: str, summoner_id: str) -> Tuple[bool, str]:
+        logger.debug("🔍 Looking up summoner...")
         summoner = self.api.get_summoner_by_id(region, summoner_id)
-        if not summoner:
-            return (False, f"Summoner not found by ID {summoner_id[:6]}")
         
-        puuid = summoner.get("puuid")
-        if not puuid:
-            return (False, f"Summoner {summoner_id[:6]} has no PUUID")
+        if not summoner or not summoner.get("puuid"):
+            logger.debug("❌ Summoner lookup failed")
+            return (False, f"Summoner {summoner_id[:6]} not found")
         
-        match_ids = self.api.get_match_history(puuid, region)
+        logger.debug(f"📨 Found PUUID: {summoner['puuid'][:8]}...")
+        logger.info("🔍 Fetching match history...")
+        match_ids = self.api.get_match_history(summoner["puuid"], region)
+        
         if not match_ids:
-            return (False, f"No match history for {summoner_id[:6]}")
+            logger.info("📭 No matches found for summoner")
+            return (False, f"No matches for {summoner_id[:6]}")
 
         valid_matches = []
-        skip_details = {"invalid_id": 0, "match_not_found": 0, "player_not_in_match": 0, "validation_error": 0}
+        logger.info(f"🔍 Analyzing {len(match_ids)} matches...")
         
-        for match_id in match_ids[:Config.MAX_MATCHES_PER_PLAYER]:
-            if not self.validate_match_id(match_id, region):
-                skip_details["invalid_id"] += 1
-                continue
-                
+        for idx, match_id in enumerate(match_ids[:Config.MAX_MATCHES_PER_PLAYER]):
+            logger.debug(f"📦 Processing match {idx+1}/{len(match_ids)}")
             match = self.api.get_match_details(match_id, region)
+            
             if not match:
-                skip_details["match_not_found"] += 1
+                logger.debug("❌ Match details not found")
                 continue
                 
-            try:
-                if not any(p["puuid"] == puuid for p in match["info"]["participants"]):
-                    skip_details["player_not_in_match"] += 1
-                    continue
-            except Exception:
-                skip_details["validation_error"] += 1
+            if not self.is_valid_match(match, summoner["puuid"]):
+                logger.debug("⚠️ Invalid match (player not participating)")
                 continue
+            
+            patch_data = match["info"]["gameVersion"].split('.')[:2]
+            patch_data[0] = str(int(patch_data[0]) + 10)
+            patch = '.'.join(patch_data)
+            
+            if patch not in self.active_patches:
+                logger.info(f"⏩ Reached outdated patch {patch}, stopping processing")
+                break
                 
             valid_matches.append(match)
-        
+            logger.debug(f"✅ Added valid match from patch {patch}")
+
         if not valid_matches:
-            return (False, self._format_skip_reason(skip_details, summoner_id[:6], puuid[:8]))
-        
-        try:
-            patch_stats = self.process_matches(summoner, valid_matches)
-            self.aggregate_stats(patch_stats)
-            return (True, f"Processed {len(valid_matches)} matches")
-        except Exception as e:
-            return (False, f"Processing error: {str(e)}")
+            logger.info("📭 No valid matches remaining after filtering")
+            return (False, f"No valid matches for {summoner_id[:6]}")
+            
+        logger.info(f"📊 Processing {len(valid_matches)} valid matches")
+        stats_by_patch = self.process_matches(summoner, valid_matches)
+        if stats_by_patch:
+            self.aggregate_stats(stats_by_patch)
+        return (True, f"Processed {len(valid_matches)} matches")
+
 
     def _format_skip_reason(self, skip_details: Dict, player_id: str, puuid: str) -> str:
         reasons = []
@@ -518,7 +584,9 @@ class LeagueScraper:
         for match in matches:
             try:
                 game_version = match["info"]["gameVersion"]
-                patch = Config.get_patch_version(game_version)
+                patch_data = game_version.split('.')[:2]
+                patch_data[0] = str(int(patch_data[0]) + 10)
+                patch = '.'.join(patch_data)
                 
                 participants = match["info"]["participants"]
                 player = next(p for p in participants if p["puuid"] == puuid)
@@ -553,18 +621,18 @@ class LeagueScraper:
                 continue
                 
         return stats_by_patch
-
+    
     def get_lane_opponent(self, player: Dict, participants: List[Dict]) -> Optional[str]:
         try:
             position = player["teamPosition"]
-            if position in ["TOP", "MID", "JUNGLE", "BOTTOM", "UTILITY"]:
-                opponents = [p for p in participants 
-                            if p["teamId"] != player["teamId"] 
-                            and p.get("teamPosition") == position]
-                return Config.normalize_champion_name(opponents[0]["championName"]) if opponents else None
+            opponents = [p for p in participants 
+                        if p["teamId"] != player["teamId"] 
+                        and p.get("teamPosition") == position]
+            if not opponents:
+                logger.debug(f"No lane opponent for {player['championName']}")
+            return Config.normalize_champion_name(opponents[0]["championName"]) if opponents else None
         except Exception:
             return None
-        return None
 
     def aggregate_stats(self, stats_by_patch: Dict[str, Dict[str, ChampionStats]]) -> None:
         """Aggregate stats from multiple patches"""
@@ -583,16 +651,12 @@ class LeagueScraper:
                     existing.matchups[opponent]["kills"] += matchup["kills"]
                     existing.matchups[opponent]["deaths"] += matchup["deaths"]
                     existing.matchups[opponent]["assists"] += matchup["assists"]
-
+    
     def save_data(self) -> None:
-        """Safe save with empty data check"""
-        if self._has_data():
-            for patch in self.global_stats:
-                self.save_patch_data(patch)
-            self.global_stats.clear()
-            logger.info("💾 Data saved successfully")
-        else:
-            logger.warning("🔄 No data to save - skipping file writes")
+        """Save data for all patches with atomic writes"""
+        logger.info(f"🔄 Saving data for {len(self.active_patches)} patches")
+        for patch in self.active_patches:
+            self.save_patch_data(patch)
 
     def save_patch_data(self, patch: str) -> None:
         """Save all data for a specific patch"""
@@ -600,130 +664,155 @@ class LeagueScraper:
         self.save_global_stats(patch, patch_dir)
         self.save_matchup_stats(patch, patch_dir)
 
+
     def save_global_stats(self, patch: str, patch_dir: str) -> None:
+        """Merge-and-replace strategy for global stats"""
         file_path = os.path.join(patch_dir, "global_stats.csv")
         
+        # Read existing data
         existing_data = {}
         if os.path.exists(file_path):
             existing_df = pd.read_csv(file_path)
             existing_data = existing_df.set_index('champion').to_dict('index')
 
+        # Merge new stats
         for champ_name, champ_stats in self.global_stats[patch].items():
             if champ_stats.games <= 0:
                 continue
                 
             champ = Config.normalize_champion_name(champ_name)
             
+            # Initialize if new champion
             if champ not in existing_data:
                 existing_data[champ] = {
                     'games': 0,
                     'wins': 0,
-                    'total_kills': 0,
-                    'total_deaths': 0,
-                    'total_assists': 0
+                    'kills': 0,
+                    'deaths': 0,
+                    'assists': 0
                 }
 
+            # Aggregate
             existing_data[champ]['games'] += champ_stats.games
             existing_data[champ]['wins'] += champ_stats.wins
-            existing_data[champ]['total_kills'] += champ_stats.kills
-            existing_data[champ]['total_deaths'] += champ_stats.deaths
-            existing_data[champ]['total_assists'] += champ_stats.assists
+            existing_data[champ]['kills'] += champ_stats.kills
+            existing_data[champ]['deaths'] += champ_stats.deaths
+            existing_data[champ]['assists'] += champ_stats.assists
 
+        # Convert to list of records
         stats_list = []
         for champ, data in existing_data.items():
             games = data['games']
             if games == 0:
-                continue 
+                continue
                 
             stats_list.append({
                 "champion": champ,
                 "games": games,
                 "wins": data['wins'],
-                "total_kills": data['total_kills'],
-                "total_deaths": data['total_deaths'],
-                "total_assists": data['total_assists'],
+                "kills": data['kills'],
+                "deaths": data['deaths'],
+                "assists": data['assists'],
                 "win_rate": round((data['wins'] / games) * 100, 2),
-                "avg_kills": round(data['total_kills'] / games, 2),
-                "avg_deaths": round(data['total_deaths'] / games, 2),
-                "avg_assists": round(data['total_assists'] / games, 2),
-                "kda": round((data['total_kills'] + data['total_assists']) / data['total_deaths'], 2) 
-                        if data['total_deaths'] > 0 else (data['total_kills'] + data['total_assists']),
+                "kda": round((data['kills'] + data['assists']) / max(1, data['deaths']), 2),
+                "avg_kills": round(data['kills'] / games, 2),
+                "avg_deaths": round(data['deaths'] / games, 2),
+                "avg_assists": round(data['assists'] / games, 2),
                 "last_updated": datetime.now().strftime("%Y-%m-%d %H:%M:%S")
             })
 
-        if not stats_list:
-            logger.debug(f"💤 No global stats to update for patch {patch}")
-            return
-
-        pd.DataFrame(stats_list).to_csv(file_path, index=False)
-        logger.info(f"💾 Updated global stats for patch {patch} with {len(stats_list)} entries")
+        if stats_list:
+            pd.DataFrame(stats_list).to_csv(file_path, index=False)
+            logger.info(f"💾 Updated global stats for patch {patch}")
 
     def save_matchup_stats(self, patch: str, patch_dir: str) -> None:
+        """Merge-and-replace strategy for matchups"""
         matchup_count = 0
+        
         for champ_name, champ_stats in self.global_stats[patch].items():
-            if champ_stats.games == 0:
+            if champ_stats.games < Config.MIN_GAMES_THRESHOLD:
                 continue
 
             normalized_name = Config.normalize_champion_name(champ_name)
             file_path = os.path.join(patch_dir, "matchups", f"{normalized_name}.csv")
             
+            # Read existing data
             existing_data = {}
             if os.path.exists(file_path):
                 existing_df = pd.read_csv(file_path)
-                for col in ['wins', 'kills', 'deaths', 'assists']:
-                    if col not in existing_df.columns:
-                        existing_df[col] = 0
                 existing_data = existing_df.set_index('opponent').to_dict('index')
 
-            for opponent, data in champ_stats.matchups.items():
-                norm_opponent = Config.normalize_champion_name(opponent)
+            # Merge new matchups
+            for opponent, matchup in champ_stats.matchups.items():
+                norm_opp = Config.normalize_champion_name(opponent)
                 
-                # Initialize with defaults if missing
-                target = existing_data.setdefault(norm_opponent, {
-                    "games": 0,
-                    "wins": 0,
-                    "kills": 0,
-                    "deaths": 0,
-                    "assists": 0,
-                    "last_updated": datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-                })
-                
-                # Safe increment
-                target["games"] += data.get("games", 0)
-                target["wins"] += data.get("wins", 0)
-                target["kills"] += data.get("kills", 0)
-                target["deaths"] += data.get("deaths", 0)
-                target["assists"] += data.get("assists", 0)
-                target["last_updated"] = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+                if norm_opp not in existing_data:
+                    existing_data[norm_opp] = {
+                        "games": 0,
+                        "wins": 0,
+                        "kills": 0,
+                        "deaths": 0,
+                        "assists": 0
+                    }
 
+                existing_data[norm_opp]["games"] += matchup["games"]
+                existing_data[norm_opp]["wins"] += matchup["wins"]
+                existing_data[norm_opp]["kills"] += matchup["kills"]
+                existing_data[norm_opp]["deaths"] += matchup["deaths"]
+                existing_data[norm_opp]["assists"] += matchup["assists"]
+
+            # Convert to records
             matchup_list = []
             for opponent, data in existing_data.items():
+                games = data["games"]
+                if games == 0:
+                    continue
+                    
                 matchup_list.append({
                     "opponent": opponent,
-                    "games": data["games"],
-                    "win_rate": round((data["wins"] / data["games"]) * 100, 2) if data["games"] > 0 else 0.0,
+                    "games": games,
+                    "wins": data["wins"],
+                    "kills": data["kills"],
+                    "deaths": data["deaths"],
+                    "assists": data["assists"],
+                    "win_rate": round((data["wins"] / games) * 100, 2),
                     "kda": round((data["kills"] + data["assists"]) / max(1, data["deaths"]), 2),
-                    "avg_kills": round(data["kills"] / data["games"], 2) if data["games"] > 0 else 0.0,
-                    "avg_deaths": round(data["deaths"] / data["games"], 2) if data["games"] > 0 else 0.0,
-                    "avg_assists": round(data["assists"] / data["games"], 2) if data["games"] > 0 else 0.0,
-                    "last_updated": data.get("last_updated", datetime.now().strftime("%Y-%m-%d %H:%M:%S"))
+                    "avg_kills": round(data["kills"] / games, 2),
+                    "avg_deaths": round(data["deaths"] / games, 2),
+                    "avg_assists": round(data["assists"] / games, 2),
+                    "last_updated": datetime.now().strftime("%Y-%m-%d %H:%M:%S")
                 })
 
             if matchup_list:
                 pd.DataFrame(matchup_list).to_csv(file_path, index=False)
                 matchup_count += len(matchup_list)
         
-        logger.info(f"💾 Saved matchup data for {matchup_count} champion pairs")
+        logger.info(f"💾 Updated {matchup_count} matchups for patch {patch}")
 
     def log_final_stats(self) -> None:
         total_time = (time.time() - self.start_time) / 60
-        logger.info("\n📊 Final Statistics:")
+        logger.info("📊 Final Statistics:")
         
+        # New patch information section
+        logger.info(f"📦 Patch Overview:")
+        logger.info(f"  - Target patches: {len(self.target_patches)}")
+        for patch in sorted(self.target_patches):
+            year, num = patch.split('.')
+            logger.info(f"    ▪ 20{year} Season Patch {num}")
+        
+        logger.info(f"  - Existing patches: {len(self.existing_patches)}")
+        logger.info(f"  - Newly scraped patches: {len(self.active_patches)}")
+        if self.active_patches:
+            for patch in sorted(self.active_patches):
+                year, num = patch.split('.')
+                logger.info(f"    ✨ 20{year} Season Patch {num} (fresh data)")
+        
+        # Original statistics
         if self.processed_players == 0:
             logger.warning("🌧️  No players processed - check API key/network")
             return
             
-        logger.info(f"⏱️  Total runtime: {total_time:.1f} minutes")
+        logger.info(f"\n⏱️  Total runtime: {total_time:.1f} minutes")
         logger.info(f"✅ Players processed: {self.processed_players}")
         logger.info(f"⚠️  Players skipped: {self.skipped_players}")
         logger.info(f"🔍 Failed summoner lookups: {self.failed_summoner_lookups}")
@@ -743,16 +832,22 @@ def setup_logging():
         datefmt="%Y-%m-%d %H:%M:%S"
     )
     
-    ch = logging.StreamHandler()
-    ch.setFormatter(formatter)
-    logger.addHandler(ch)
+    console = logging.StreamHandler()
+    console.setFormatter(formatter)
     
-    fh = logging.FileHandler("scraper.log")
-    fh.setLevel(logging.DEBUG)
-    fh.setFormatter(formatter)
-    logger.addHandler(fh)
+    logging.addLevelName(25, "SUCCESS")
+    logger.success = lambda msg, *args: logger._log(25, msg, args)
+    
+    file = logging.FileHandler("scraper.log")
+    file.setLevel(logging.DEBUG)
+    file.setFormatter(formatter)
+    
+    logger.addHandler(console)
+    logger.addHandler(file)
     
     return logger
+
+
 
 # ========================
 # Main Execution
