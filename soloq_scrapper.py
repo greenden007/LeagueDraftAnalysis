@@ -116,7 +116,7 @@ class Config:
         }
     }
     
-    MAX_MATCHES_PER_PLAYER = 10
+    MAX_MATCHES_PER_PLAYER = 100
     MIN_GAMES_THRESHOLD = 1
     BASE_OUTPUT_DIR = "soloq_stats"
     PATCH_VERSIONS_TO_KEEP = 5  # Keep data for current patch + 2 previous
