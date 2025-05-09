@@ -19,6 +19,9 @@ from typing import Dict, List, Optional, Tuple, Set
 # Configuration
 # ========================
 class Config:
+    
+    # Only Idan has the API key saved locally
+    
     """Centralized configuration with validation"""
     API_KEY = os.getenv("RIOT_API_KEY")
     BASE_URL = "https://{region}.api.riotgames.com/lol"
