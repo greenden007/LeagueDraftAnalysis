@@ -19,26 +19,26 @@ from typing import Dict, List, Optional, Tuple, Set
 # Configuration
 # ========================
 class Config:
-    
+
     # Only Idan has the API key saved locally
-    
+
     """Centralized configuration with validation"""
     API_KEY = os.getenv("RIOT_API_KEY")
     BASE_URL = "https://{region}.api.riotgames.com/lol"
     DATA_DRAGON_URL = "https://ddragon.leagueoflegends.com/realms/{region}.json"
-    
+
     REGIONS = [
         # Americas
         "na1",   # North America
         "br1",   # Brazil
         "la1",   # Latin America North
         "la2",   # Latin America South
-        
+
         # Europe
         "euw1",  # Europe West
         "eun1",  # Europe Nordic & East
         "tr1",   # Turkey
-        
+
         # Asia
         "kr",    # South Korea
         "jp1",   # Japan
@@ -60,7 +60,7 @@ class Config:
             "sea"  
         for region in REGIONS
     }
-    
+
     CHAMPION_MAPPING = {
         "aatrox": "Aatrox", "ahri": "Ahri", "akali": "Akali", "akshan": "Akshan",
         "alistar": "Alistar", "amumu": "Amumu", "anivia": "Anivia", "annie": "Annie",
@@ -118,7 +118,7 @@ class Config:
             "summoner": {"per_two_minutes": 85, "window_seconds": 120}
         }
     }
-    
+
     MAX_MATCHES_PER_PLAYER = 100
     MIN_GAMES_THRESHOLD = 1
     BASE_OUTPUT_DIR = "soloq_stats"
@@ -138,14 +138,14 @@ class Config:
             response = requests.get(cls.DATA_DRAGON_URL.format(region="na"), timeout=5)
             response.raise_for_status()
             full_version = response.json()['v']
-            
-            
+
+
             year, patch_num = full_version.split('.')[:2]
             return f"{year}.{patch_num}"  
-            
+
         except Exception as e:
             logger.error(f"Failed to get current patch: {str(e)}")
-            
+
             current_year = datetime.datetime.now().year % 100  
             return f"{current_year}.9"  
 
@@ -154,7 +154,7 @@ class Config:
         """Validate configuration and setup directories"""
         if not cls.API_KEY:
             raise ValueError("RIOT_API_KEY environment variable not set")
-        
+
         os.makedirs(cls.BASE_OUTPUT_DIR, exist_ok=True)
         cls.cleanup_old_patches()
 
@@ -171,14 +171,14 @@ class Config:
         try:
             dirs = [d for d in os.listdir(cls.BASE_OUTPUT_DIR) 
                     if os.path.isdir(os.path.join(cls.BASE_OUTPUT_DIR, d))]
-            
+
             patches = []
             for d in dirs:
                 match = re.match(r'patch_(\d+\.\d+)', d)
                 if match:
                     year, num = map(int, match.group(1).split('.'))
                     patches.append((year, num, d))
-            
+
             patches.sort(reverse=True, key=lambda x: (x[0], x[1]))
             
             for patch in patches[cls.PATCH_VERSIONS_TO_KEEP:]:
