@@ -1,7 +1,7 @@
 name,percentage,id,patch
 Renekton,87,72,11.10
 Gwen,82,155,11.10
-LeeSin,79,47,11.10
+Lee Sin,79,47,11.10
 Rumble,79,75,11.10
 Thresh,75,92,11.10
 Varus,75,100,11.10
@@ -22,13 +22,13 @@ Braum,37,118,11.10
 Gnar,36,119,11.10
 Sion,28,82,11.10
 Viktor,28,104,11.10
-XinZhao,28,110,11.10
+Xin Zhao,28,110,11.10
 KogMaw,27,45,11.10
 Alistar,25,4,11.10
 Nidalee,24,63,11.10
 Viego,24,154,11.10
 Malphite,22,53,11.10
-TahmKench,22,126,11.10
+Tahm Kench,22,126,11.10
 Akali,21,3,11.10
 Ezreal,21,21,11.10
 Lulu,21,51,11.10
@@ -48,7 +48,7 @@ Rakan,12,136,11.10
 Ornn,12,138,11.10
 Aatrox,10,1,11.10
 Olaf,10,66,11.10
-TwistedFate,9,96,11.10
+Twisted Fate,9,96,11.10
 Zac,9,113,11.10
 Lillia,9,149,11.10
 Ahri,7,2,11.10
@@ -93,7 +93,7 @@ Jax,1,35,11.10
 Kayle,1,42,11.10
 Lux,1,52,11.10
 Maokai,1,55,11.10
-MissFortune,1,57,11.10
+Miss Fortune,1,57,11.10
 Mordekaiser,1,58,11.10
 Shaco,1,78,11.10
 Shen,1,79,11.10
@@ -104,7 +104,7 @@ Zilean,1,116,11.10
 Taliyah,1,131,11.10
 Renekton,90,72,11.11
 Rumble,87,75,11.11
-LeeSin,86,47,11.11
+Lee Sin,86,47,11.11
 Gwen,78,155,11.11
 Udyr,76,98,11.11
 Ezreal,75,21,11.11
@@ -123,10 +123,10 @@ Senna,41,146,11.11
 Jayce,39,36,11.11
 Gnar,39,119,11.11
 Lulu,37,51,11.11
-XinZhao,36,110,11.11
+Xin Zhao,36,110,11.11
 Sylas,34,143,11.11
 Tristana,33,93,11.11
-TahmKench,32,126,11.11
+Tahm Kench,32,126,11.11
 Volibear,29,106,11.11
 Braum,27,118,11.11
 Orianna,26,67,11.11
@@ -136,7 +136,7 @@ Jinx,19,37,11.11
 Zoe,19,139,11.11
 Alistar,18,4,11.11
 Nidalee,18,63,11.11
-TwistedFate,18,96,11.11
+Twisted Fate,18,96,11.11
 Viktor,17,104,11.11
 Kalista,16,121,11.11
 Rell,16,153,11.11
@@ -194,10 +194,10 @@ Elise,1,19,11.11
 Evelynn,1,20,11.11
 Fiora,1,23,11.11
 Graves,1,29,11.11
-JarvanIV,1,34,11.11
+Jarvan IV,1,34,11.11
 Katarina,1,41,11.11
 Lux,1,52,11.11
-MissFortune,1,57,11.11
+Miss Fortune,1,57,11.11
 Nunu,1,65,11.11
 Poppy,1,69,11.11
 Riven,1,74,11.11
@@ -234,8 +234,8 @@ Kayn,0,137,11.11
 Pyke,0,141,11.11
 Akali,88,3,11.12
 Ezreal,84,21,11.12
-XinZhao,82,110,11.12
-LeeSin,81,47,11.12
+Xin Zhao,82,110,11.12
+Lee Sin,81,47,11.12
 Karma,80,38,11.12
 Gwen,79,155,11.12
 Nocturne,77,64,11.12
@@ -258,7 +258,7 @@ Senna,36,146,11.12
 Tristana,31,93,11.12
 Sylas,30,143,11.12
 Jayce,28,36,11.12
-TahmKench,24,126,11.12
+Tahm Kench,24,126,11.12
 LeBlanc,23,46,11.12
 Rakan,23,136,11.12
 Gnar,22,119,11.12
@@ -279,7 +279,7 @@ Aphelios,10,147,11.12
 Ziggs,9,115,11.12
 Seraphine,9,152,11.12
 Hecarim,8,30,11.12
-TwistedFate,7,96,11.12
+Twisted Fate,7,96,11.12
 Udyr,7,98,11.12
 Azir,7,120,11.12
 Gangplank,6,26,11.12
@@ -306,7 +306,7 @@ Taric,3,90,11.12
 Ornn,3,138,11.12
 Samira,3,151,11.12
 Blitzcrank,2,9,11.12
-Dr.Mundo,2,17,11.12
+Dr. Mundo,2,17,11.12
 Fiora,2,23,11.12
 Heimerdinger,2,31,11.12
 Jax,2,35,11.12
@@ -324,12 +324,12 @@ Caitlyn,1,11,11.12
 Chogath,1,13,11.12
 Darius,1,15,11.12
 Elise,1,19,11.12
-JarvanIV,1,34,11.12
+Jarvan IV,1,34,11.12
 Kassadin,1,40,11.12
 Katarina,1,41,11.12
 Kayle,1,42,11.12
 Lissandra,1,49,11.12
-MissFortune,1,57,11.12
+Miss Fortune,1,57,11.12
 Mordekaiser,1,58,11.12
 Morgana,1,59,11.12
 Poppy,1,69,11.12
@@ -369,13 +369,13 @@ Veigar,0,102,11.12
 Warwick,0,107,11.12
 Kayn,0,137,11.12
 Neeko,0,142,11.12
-XinZhao,97,110,11.13
+Xin Zhao,97,110,11.13
 Nocturne,96,64,11.13
 Gwen,91,155,11.13
 Viego,89,154,11.13
 Akali,83,3,11.13
 Thresh,81,92,11.13
-LeeSin,71,47,11.13
+Lee Sin,71,47,11.13
 Varus,63,100,11.13
 Renekton,62,72,11.13
 Diana,58,16,11.13
@@ -399,7 +399,7 @@ Kaisa,25,140,11.13
 Ryze,24,76,11.13
 Camille,24,134,11.13
 Gnar,20,119,11.13
-Dr.Mundo,19,17,11.13
+Dr. Mundo,19,17,11.13
 Rakan,19,136,11.13
 Alistar,18,4,11.13
 Galio,17,25,11.13
@@ -407,7 +407,7 @@ Orianna,16,67,11.13
 Rumble,16,75,11.13
 Olaf,14,66,11.13
 KogMaw,12,45,11.13
-TwistedFate,12,96,11.13
+Twisted Fate,12,96,11.13
 Viktor,11,104,11.13
 Senna,11,146,11.13
 Jinx,10,37,11.13
@@ -464,10 +464,10 @@ Caitlyn,1,11,11.13
 Darius,1,15,11.13
 Elise,1,19,11.13
 Graves,1,29,11.13
-JarvanIV,1,34,11.13
+Jarvan IV,1,34,11.13
 Katarina,1,41,11.13
 Malzahar,1,54,11.13
-MissFortune,1,57,11.13
+Miss Fortune,1,57,11.13
 Morgana,1,59,11.13
 Poppy,1,69,11.13
 Shen,1,79,11.13
@@ -478,7 +478,7 @@ Xerath,1,109,11.13
 Zed,1,114,11.13
 Zilean,1,116,11.13
 Ekko,1,125,11.13
-TahmKench,1,126,11.13
+Tahm Kench,1,126,11.13
 Taliyah,1,131,11.13
 Kled,1,132,11.13
 Ivern,1,133,11.13
@@ -498,13 +498,13 @@ Skarner,0,84,11.13
 Soraka,0,86,11.13
 Urgot,0,99,11.13
 Vi,0,103,11.13
-AurelionSol,0,130,11.13
+Aurelion Sol,0,130,11.13
 Qiyana,0,145,11.13
 Viego,99,154,11.14
-XinZhao,92,110,11.14
+Xin Zhao,92,110,11.14
 Gwen,92,155,11.14
 Thresh,77,92,11.14
-LeeSin,74,47,11.14
+Lee Sin,74,47,11.14
 LeBlanc,69,46,11.14
 Renekton,65,72,11.14
 Ziggs,65,115,11.14
@@ -525,13 +525,13 @@ Sylas,35,143,11.14
 Volibear,34,106,11.14
 Ezreal,30,21,11.14
 Tristana,30,93,11.14
-Dr.Mundo,24,17,11.14
+Dr. Mundo,24,17,11.14
 Karma,24,38,11.14
 Olaf,23,66,11.14
 Orianna,21,67,11.14
 Lulu,20,51,11.14
 Gnar,20,119,11.14
-TahmKench,20,126,11.14
+Tahm Kench,20,126,11.14
 Alistar,19,4,11.14
 Rakan,19,136,11.14
 Trundle,18,94,11.14
@@ -544,7 +544,7 @@ Wukong,12,108,11.14
 Zoe,12,139,11.14
 Ashe,11,8,11.14
 Syndra,10,88,11.14
-TwistedFate,10,96,11.14
+Twisted Fate,10,96,11.14
 Viktor,10,104,11.14
 Draven,9,18,11.14
 Nidalee,9,63,11.14
@@ -597,11 +597,11 @@ Brand,1,10,11.14
 Chogath,1,13,11.14
 Darius,1,15,11.14
 Elise,1,19,11.14
-JarvanIV,1,34,11.14
+Jarvan IV,1,34,11.14
 Katarina,1,41,11.14
 Kayle,1,42,11.14
 Malzahar,1,54,11.14
-MissFortune,1,57,11.14
+Miss Fortune,1,57,11.14
 Mordekaiser,1,58,11.14
 Morgana,1,59,11.14
 Nasus,1,61,11.14
@@ -643,10 +643,10 @@ Yorick,0,112,11.14
 Zyra,0,117,11.14
 VelKoz,0,123,11.14
 Illaoi,0,128,11.14
-AurelionSol,0,130,11.14
-XinZhao,83,110,11.15
+Aurelion Sol,0,130,11.14
+Xin Zhao,83,110,11.15
 Viego,80,154,11.15
-LeeSin,73,47,11.15
+Lee Sin,73,47,11.15
 Thresh,73,92,11.15
 LeBlanc,68,46,11.15
 Varus,68,100,11.15
@@ -665,7 +665,7 @@ Ryze,41,76,11.15
 Ezreal,38,21,11.15
 Nautilus,38,62,11.15
 Lucian,37,50,11.15
-TahmKench,37,126,11.15
+Tahm Kench,37,126,11.15
 Kalista,35,121,11.15
 Tristana,31,93,11.15
 Rakan,31,136,11.15
@@ -673,7 +673,7 @@ Gnar,29,119,11.15
 Orianna,28,67,11.15
 Gwen,27,155,11.15
 Sett,25,148,11.15
-TwistedFate,24,96,11.15
+Twisted Fate,24,96,11.15
 Ashe,23,8,11.15
 Gangplank,22,26,11.15
 Olaf,21,66,11.15
@@ -681,7 +681,7 @@ Sylas,21,143,11.15
 Kennen,20,43,11.15
 Alistar,19,4,11.15
 Galio,18,25,11.15
-Dr.Mundo,17,17,11.15
+Dr. Mundo,17,17,11.15
 Volibear,15,106,11.15
 Viktor,14,104,11.15
 Lulu,13,51,11.15
@@ -744,10 +744,10 @@ Ahri,1,2,11.15
 Chogath,1,13,11.15
 Darius,1,15,11.15
 Evelynn,1,20,11.15
-JarvanIV,1,34,11.15
+Jarvan IV,1,34,11.15
 Kayle,1,42,11.15
 Malzahar,1,54,11.15
-MissFortune,1,57,11.15
+Miss Fortune,1,57,11.15
 Nasus,1,61,11.15
 Poppy,1,69,11.15
 Shaco,1,78,11.15
@@ -766,7 +766,7 @@ Fizz,0,24,11.15
 Katarina,0,41,11.15
 Lux,0,52,11.15
 Maokai,0,55,11.15
-MasterYi,0,56,11.15
+Master Yi,0,56,11.15
 Nami,0,60,11.15
 Pantheon,0,68,11.15
 Quinn,0,70,11.15
@@ -780,10 +780,10 @@ Twitch,0,97,11.15
 Veigar,0,102,11.15
 Vladimir,0,105,11.15
 VelKoz,0,123,11.15
-AurelionSol,0,130,11.15
+Aurelion Sol,0,130,11.15
 Ivern,0,133,11.15
 Akshan,0,156,11.15
-LeeSin,89,47,11.16
+Lee Sin,89,47,11.16
 Viego,79,154,11.16
 Leona,70,48,11.16
 LeBlanc,69,46,11.16
@@ -795,7 +795,7 @@ Camille,62,134,11.16
 Jayce,59,36,11.16
 Irelia,58,32,11.16
 Varus,58,100,11.16
-XinZhao,57,110,11.16
+Xin Zhao,57,110,11.16
 Renekton,56,72,11.16
 Rakan,52,136,11.16
 Kennen,51,43,11.16
@@ -803,7 +803,7 @@ Ziggs,48,115,11.16
 Braum,48,118,11.16
 Trundle,44,94,11.16
 Syndra,42,88,11.16
-TwistedFate,40,96,11.16
+Twisted Fate,40,96,11.16
 Gnar,37,119,11.16
 Ashe,34,8,11.16
 Nidalee,31,63,11.16
@@ -812,7 +812,7 @@ Sylas,31,143,11.16
 Tristana,30,93,11.16
 Sett,30,148,11.16
 Diana,26,16,11.16
-JarvanIV,25,34,11.16
+Jarvan IV,25,34,11.16
 Azir,24,120,11.16
 Alistar,23,4,11.16
 Galio,21,25,11.16
@@ -823,7 +823,7 @@ Rell,19,153,11.16
 Ornn,15,138,11.16
 Nautilus,14,62,11.16
 Wukong,13,108,11.16
-TahmKench,13,126,11.16
+Tahm Kench,13,126,11.16
 Gwen,13,155,11.16
 Seraphine,12,152,11.16
 Yasuo,10,111,11.16
@@ -852,7 +852,7 @@ Poppy,4,69,11.16
 Volibear,4,106,11.16
 Zed,4,114,11.16
 Illaoi,4,128,11.16
-Dr.Mundo,3,17,11.16
+Dr. Mundo,3,17,11.16
 Draven,3,18,11.16
 KogMaw,3,45,11.16
 Nocturne,3,64,11.16
@@ -903,9 +903,9 @@ Kayn,0,137,11.16
 Qiyana,0,145,11.16
 Ryze,95,76,11.17
 Thresh,91,92,11.17
-LeeSin,85,47,11.17
+Lee Sin,85,47,11.17
 Varus,81,100,11.17
-TwistedFate,76,96,11.17
+Twisted Fate,76,96,11.17
 Aphelios,76,147,11.17
 Trundle,74,94,11.17
 Ziggs,73,115,11.17
@@ -914,7 +914,7 @@ Rakan,70,136,11.17
 Jayce,69,36,11.17
 LeBlanc,66,46,11.17
 Renekton,66,72,11.17
-XinZhao,62,110,11.17
+Xin Zhao,62,110,11.17
 Irelia,60,32,11.17
 Braum,59,118,11.17
 Leona,41,48,11.17
@@ -924,7 +924,7 @@ Ornn,38,138,11.17
 Viego,35,154,11.17
 Gnar,30,119,11.17
 Gangplank,29,26,11.17
-JarvanIV,28,34,11.17
+Jarvan IV,28,34,11.17
 Graves,27,29,11.17
 Orianna,27,67,11.17
 Tristana,27,93,11.17
@@ -952,7 +952,7 @@ Jax,8,35,11.17
 Jinx,8,37,11.17
 Lulu,7,51,11.17
 Wukong,7,108,11.17
-AurelionSol,7,130,11.17
+Aurelion Sol,7,130,11.17
 Gwen,7,155,11.17
 Caitlyn,6,11,11.17
 Fiora,6,23,11.17
@@ -963,7 +963,7 @@ Nidalee,5,63,11.17
 Riven,5,74,11.17
 Sejuani,5,77,11.17
 Urgot,5,99,11.17
-TahmKench,5,126,11.17
+Tahm Kench,5,126,11.17
 Rell,5,153,11.17
 Aatrox,3,1,11.17
 Akali,3,3,11.17
@@ -990,14 +990,14 @@ Ekko,1,125,11.17
 Kaisa,1,140,11.17
 Pyke,1,141,11.17
 Seraphine,1,152,11.17
-LeeSin,100,47,11.18
+Lee Sin,100,47,11.18
 LeBlanc,94,46,11.18
 Thresh,94,92,11.18
-JarvanIV,83,34,11.18
+Jarvan IV,83,34,11.18
 Camille,78,134,11.18
 Ryze,72,76,11.18
-XinZhao,72,110,11.18
-Dr.Mundo,67,17,11.18
+Xin Zhao,72,110,11.18
+Dr. Mundo,67,17,11.18
 Tristana,67,93,11.18
 Rakan,67,136,11.18
 Amumu,61,5,11.18
@@ -1015,7 +1015,7 @@ Ezreal,39,21,11.18
 Orianna,39,67,11.18
 Draven,33,18,11.18
 Leona,33,48,11.18
-TwistedFate,33,96,11.18
+Twisted Fate,33,96,11.18
 Wukong,33,108,11.18
 Corki,28,14,11.18
 Syndra,28,88,11.18
@@ -1027,7 +1027,7 @@ Aatrox,17,1,11.18
 Ashe,17,8,11.18
 Gangplank,17,26,11.18
 Jinx,17,37,11.18
-MissFortune,17,57,11.18
+Miss Fortune,17,57,11.18
 Jhin,17,129,11.18
 Akali,11,3,11.18
 Alistar,11,4,11.18
@@ -1052,19 +1052,19 @@ Kalista,6,121,11.18
 Xayah,6,135,11.18
 Ornn,6,138,11.18
 Aphelios,6,147,11.18
-LeeSin,94,47,11.19
+Lee Sin,94,47,11.19
 LeBlanc,81,46,11.19
 Lucian,81,50,11.19
-MissFortune,78,57,11.19
-TwistedFate,73,96,11.19
-XinZhao,71,110,11.19
+Miss Fortune,78,57,11.19
+Twisted Fate,73,96,11.19
+Xin Zhao,71,110,11.19
 Irelia,70,32,11.19
 Leona,69,48,11.19
 Ryze,62,76,11.19
 Aphelios,60,147,11.19
 Kennen,58,43,11.19
 Yuumi,58,144,11.19
-JarvanIV,55,34,11.19
+Jarvan IV,55,34,11.19
 Graves,53,29,11.19
 Rakan,51,136,11.19
 Jayce,49,36,11.19
@@ -1145,7 +1145,7 @@ Pyke,2,141,11.19
 Vex,2,157,11.19
 Ashe,1,8,11.19
 Darius,1,15,11.19
-Dr.Mundo,1,17,11.19
+Dr. Mundo,1,17,11.19
 Heimerdinger,1,31,11.19
 Maokai,1,55,11.19
 Mordekaiser,1,58,11.19
@@ -1156,16 +1156,16 @@ Vayne,1,101,11.19
 Vladimir,1,105,11.19
 Zac,1,113,11.19
 Bard,1,124,11.19
-TahmKench,1,126,11.19
+Tahm Kench,1,126,11.19
 Kindred,1,127,11.19
 Senna,1,146,11.19
 Yuumi,91,144,11.20
-MissFortune,86,57,11.20
+Miss Fortune,86,57,11.20
 LeBlanc,83,46,11.20
-LeeSin,74,47,11.20
+Lee Sin,74,47,11.20
 Camille,74,134,11.20
-XinZhao,71,110,11.20
-TwistedFate,66,96,11.20
+Xin Zhao,71,110,11.20
+Twisted Fate,66,96,11.20
 Graves,60,29,11.20
 Lucian,54,50,11.20
 Talon,49,89,11.20
@@ -1183,7 +1183,7 @@ Ryze,34,76,11.20
 Syndra,34,88,11.20
 Viego,34,154,11.20
 Jayce,31,36,11.20
-JarvanIV,29,34,11.20
+Jarvan IV,29,34,11.20
 Trundle,29,94,11.20
 Aatrox,26,1,11.20
 Kennen,26,43,11.20
@@ -1229,7 +1229,7 @@ KogMaw,6,45,11.20
 Renekton,6,72,11.20
 Zac,6,113,11.20
 Bard,6,124,11.20
-TahmKench,6,126,11.20
+Tahm Kench,6,126,11.20
 Kaisa,6,140,11.20
 Pyke,6,141,11.20
 Alistar,3,4,11.20
@@ -1237,7 +1237,7 @@ Amumu,3,5,11.20
 Annie,3,7,11.20
 Blitzcrank,3,9,11.20
 Corki,3,14,11.20
-Dr.Mundo,3,17,11.20
+Dr. Mundo,3,17,11.20
 Draven,3,18,11.20
 Fizz,3,24,11.20
 KhaZix,3,44,11.20
@@ -1252,12 +1252,12 @@ Xayah,3,135,11.20
 Lillia,3,149,11.20
 Samira,3,151,11.20
 LeBlanc,85,46,11.21
-TwistedFate,80,96,11.21
+Twisted Fate,80,96,11.21
 Graves,72,29,11.21
 Lucian,72,50,11.21
-XinZhao,69,110,11.21
+Xin Zhao,69,110,11.21
 Leona,67,48,11.21
-LeeSin,65,47,11.21
+Lee Sin,65,47,11.21
 Camille,63,134,11.21
 Yuumi,60,144,11.21
 Syndra,57,88,11.21
@@ -1265,10 +1265,10 @@ Xayah,57,135,11.21
 Jhin,53,129,11.21
 Aphelios,53,147,11.21
 Kennen,52,43,11.21
-JarvanIV,48,34,11.21
+Jarvan IV,48,34,11.21
 Rakan,48,136,11.21
 Jayce,44,36,11.21
-MissFortune,41,57,11.21
+Miss Fortune,41,57,11.21
 Irelia,39,32,11.21
 Vex,37,157,11.21
 Galio,35,25,11.21
@@ -1307,7 +1307,7 @@ Sion,10,82,11.21
 Rell,10,153,11.21
 Draven,9,18,11.21
 Orianna,9,67,11.21
-TahmKench,9,126,11.21
+Tahm Kench,9,126,11.21
 Fiora,8,23,11.21
 Zilean,8,116,11.21
 Corki,6,14,11.21
@@ -1350,7 +1350,7 @@ Amumu,1,5,11.21
 Chogath,1,13,11.21
 Darius,1,15,11.21
 Diana,1,16,11.21
-Dr.Mundo,1,17,11.21
+Dr. Mundo,1,17,11.21
 Nasus,1,61,11.21
 Rumble,1,75,11.21
 Sejuani,1,77,11.21
@@ -1365,10 +1365,10 @@ Neeko,1,142,11.21
 LeBlanc,94,46,11.22
 Rakan,84,136,11.22
 Yuumi,84,144,11.22
-JarvanIV,77,34,11.22
+Jarvan IV,77,34,11.22
 Xayah,77,135,11.22
 Viego,68,154,11.22
-XinZhao,65,110,11.22
+Xin Zhao,65,110,11.22
 Camille,65,134,11.22
 Vex,65,157,11.22
 Jhin,61,129,11.22
@@ -1379,7 +1379,7 @@ Zoe,48,139,11.22
 Sett,48,148,11.22
 Ryze,42,76,11.22
 Thresh,42,92,11.22
-LeeSin,39,47,11.22
+Lee Sin,39,47,11.22
 Leona,39,48,11.22
 Sion,39,82,11.22
 Sylas,32,143,11.22
@@ -1389,7 +1389,7 @@ Orianna,29,67,11.22
 Akali,26,3,11.22
 Ezreal,26,21,11.22
 Jax,26,35,11.22
-MissFortune,26,57,11.22
+Miss Fortune,26,57,11.22
 Ziggs,26,115,11.22
 Rell,26,153,11.22
 Gwen,26,155,11.22
@@ -1426,7 +1426,7 @@ Kassadin,6,40,11.22
 Nami,6,60,11.22
 Nasus,6,61,11.22
 Darius,3,15,11.22
-Dr.Mundo,3,17,11.22
+Dr. Mundo,3,17,11.22
 Galio,3,25,11.22
 Gragas,3,28,11.22
 Karthus,3,39,11.22
@@ -1435,13 +1435,13 @@ Malzahar,3,54,11.22
 Mordekaiser,3,58,11.22
 Nidalee,3,63,11.22
 Nocturne,3,64,11.22
-TwistedFate,3,96,11.22
+Twisted Fate,3,96,11.22
 Vayne,3,101,11.22
 Viktor,3,104,11.22
 Zed,3,114,11.22
 Kaisa,3,140,11.22
 Pyke,3,141,11.22
-TwistedFate,93,96,11.23
+Twisted Fate,93,96,11.23
 Syndra,82,88,11.23
 Caitlyn,76,11,11.23
 Thresh,76,92,11.23
@@ -1453,8 +1453,8 @@ Jinx,58,37,11.23
 Gwen,58,155,11.23
 Ryze,56,76,11.23
 Irelia,53,32,11.23
-XinZhao,51,110,11.23
-LeeSin,49,47,11.23
+Xin Zhao,51,110,11.23
+Lee Sin,49,47,11.23
 Jax,47,35,11.23
 Kennen,47,43,11.23
 Vex,47,157,11.23
@@ -1463,7 +1463,7 @@ Leona,42,48,11.23
 Nidalee,42,63,11.23
 Camille,38,134,11.23
 Viego,38,154,11.23
-JarvanIV,33,34,11.23
+Jarvan IV,33,34,11.23
 Talon,29,89,11.23
 Jhin,29,129,11.23
 Alistar,27,4,11.23
@@ -1500,17 +1500,17 @@ Yasuo,7,111,11.23
 Rakan,7,136,11.23
 Zoe,7,139,11.23
 Diana,4,16,11.23
-Dr.Mundo,4,17,11.23
+Dr. Mundo,4,17,11.23
 KhaZix,4,44,11.23
 Udyr,4,98,11.23
 Kalista,4,121,11.23
-TahmKench,4,126,11.23
+Tahm Kench,4,126,11.23
 Aatrox,2,1,11.23
 Cassiopeia,2,12,11.23
 Draven,2,18,11.23
 Ezreal,2,21,11.23
 Hecarim,2,30,11.23
-MissFortune,2,57,11.23
+Miss Fortune,2,57,11.23
 Taric,2,90,11.23
 Twitch,2,97,11.23
 Wukong,2,108,11.23
@@ -1523,24 +1523,24 @@ Pyke,2,141,11.23
 Yuumi,2,144,11.23
 Lillia,2,149,11.23
 Caitlyn,80,11,11.24
-LeeSin,80,47,11.24
+Lee Sin,80,47,11.24
 Viktor,77,104,11.24
 Renekton,74,72,11.24
 Thresh,71,92,11.24
-TwistedFate,71,96,11.24
+Twisted Fate,71,96,11.24
 Syndra,60,88,11.24
 Leona,57,48,11.24
 Kaisa,54,140,11.24
 Alistar,51,4,11.24
 LeBlanc,51,46,11.24
-XinZhao,51,110,11.24
+Xin Zhao,51,110,11.24
 Rell,51,153,11.24
 Talon,49,89,11.24
 Gwen,49,155,11.24
 Ryze,46,76,11.24
 Graves,43,29,11.24
 Viego,40,154,11.24
-JarvanIV,37,34,11.24
+Jarvan IV,37,34,11.24
 Jhin,37,129,11.24
 Jinx,34,37,11.24
 Tristana,34,93,11.24
@@ -1552,7 +1552,7 @@ Aphelios,29,147,11.24
 Corki,26,14,11.24
 Kennen,23,43,11.24
 Gnar,23,119,11.24
-TahmKench,23,126,11.24
+Tahm Kench,23,126,11.24
 Ahri,20,2,11.24
 Akali,20,3,11.24
 Amumu,20,5,11.24
@@ -1578,14 +1578,14 @@ Annie,9,7,11.24
 Ashe,9,8,11.24
 Ezreal,9,21,11.24
 Lux,9,52,11.24
-MissFortune,9,57,11.24
+Miss Fortune,9,57,11.24
 Orianna,9,67,11.24
 Kalista,9,121,11.24
-AurelionSol,9,130,11.24
+Aurelion Sol,9,130,11.24
 Rakan,9,136,11.24
 Anivia,6,6,11.24
 Chogath,6,13,11.24
-Dr.Mundo,6,17,11.24
+Dr. Mundo,6,17,11.24
 Lissandra,6,49,11.24
 Lulu,6,51,11.24
 Malphite,6,53,11.24
@@ -1605,7 +1605,7 @@ Gangplank,3,26,11.24
 Janna,3,33,11.24
 Karma,3,38,11.24
 Kayle,3,42,11.24
-MasterYi,3,56,11.24
+Master Yi,3,56,11.24
 Morgana,3,59,11.24
 Olaf,3,66,11.24
 Poppy,3,69,11.24

@@ -1,0 +1,1716 @@
+{
+  "MLP_vs_MLP": {
+    "blue": {
+      "picks": {
+        "Azir": 4,
+        "Jinx": 4,
+        "Maokai": 4,
+        "Viego": 4,
+        "Zilean": 4,
+        "Amumu": 2,
+        "Leona": 2,
+        "Sylas": 2,
+        "Xayah": 2,
+        "Yone": 2,
+        "Alistar": 2,
+        "Orianna": 2,
+        "Poppy": 2,
+        "Zeri": 2,
+        "Zac": 2,
+        "Annie": 1,
+        "Jhin": 1,
+        "Lillia": 1,
+        "Sion": 1,
+        "Tahm Kench": 1,
+        "Diana": 1,
+        "Kayle": 1,
+        "Samira": 1,
+        "Swain": 1,
+        "KhaZix": 1
+      },
+      "bans": {
+        "LeBlanc": 3,
+        "Varus": 3,
+        "Thresh": 3,
+        "Jax": 3,
+        "Lee Sin": 3,
+        "Ashe": 2,
+        "Twisted Fate": 2,
+        "Renekton": 2,
+        "Gangplank": 2,
+        "Volibear": 2,
+        "Xin Zhao": 2,
+        "Sejuani": 2,
+        "Akali": 2,
+        "Blitzcrank": 2,
+        "Miss Fortune": 2,
+        "Sett": 1,
+        "Ahri": 1,
+        "Syndra": 1,
+        "Renata Glasc": 1,
+        "Ornn": 1,
+        "Ivern": 1,
+        "Irelia": 1,
+        "Fiora": 1,
+        "Aatrox": 1,
+        "Qiyana": 1
+      },
+      "wins": 1,
+      "game_wins": 4
+    },
+    "red": {
+      "picks": {
+        "Braum": 4,
+        "KSante": 4,
+        "Draven": 4,
+        "Taliyah": 4,
+        "Tristana": 4,
+        "Gwen": 2,
+        "Kaisa": 2,
+        "Lissandra": 2,
+        "Wukong": 2,
+        "Yuumi": 2,
+        "Corki": 2,
+        "Kennen": 2,
+        "Ezreal": 2,
+        "Nocturne": 2,
+        "Rell": 2,
+        "Gnar": 1,
+        "Gragas": 1,
+        "Lulu": 1,
+        "Nilah": 1,
+        "Udyr": 1,
+        "Janna": 1,
+        "Jarvan IV": 1,
+        "Kassadin": 1,
+        "Twitch": 1,
+        "Tryndamere": 1
+      },
+      "bans": {
+        "Kalista": 3,
+        "Aphelios": 3,
+        "Vi": 3,
+        "Rumble": 3,
+        "Rakan": 3,
+        "Lucian": 2,
+        "Caitlyn": 2,
+        "Jayce": 2,
+        "Ryze": 2,
+        "Trundle": 2,
+        "Elise": 2,
+        "Karma": 2,
+        "Aurora": 2,
+        "Senna": 2,
+        "Nidalee": 2,
+        "Camille": 1,
+        "Graves": 1,
+        "Nautilus": 1,
+        "Skarner": 1,
+        "Sivir": 1,
+        "Shyvana": 1,
+        "Seraphine": 1,
+        "Olaf": 1,
+        "Viktor": 1,
+        "Vex": 1
+      },
+      "wins": 0,
+      "game_wins": 5
+    }
+  },
+  "MLP_vs_RNN": {
+    "blue": {
+      "picks": {
+        "Azir": 4,
+        "Jinx": 4,
+        "Maokai": 4,
+        "Viego": 4,
+        "Zilean": 4,
+        "Amumu": 2,
+        "Leona": 2,
+        "Sylas": 2,
+        "Xayah": 2,
+        "Yone": 2,
+        "Alistar": 2,
+        "Orianna": 2,
+        "Poppy": 2,
+        "Zeri": 2,
+        "Zac": 2,
+        "Annie": 1,
+        "Jhin": 1,
+        "Lillia": 1,
+        "Sion": 1,
+        "Tahm Kench": 1,
+        "Diana": 1,
+        "Kayle": 1,
+        "Samira": 1,
+        "Swain": 1,
+        "KhaZix": 1
+      },
+      "bans": {
+        "LeBlanc": 3,
+        "Varus": 3,
+        "Thresh": 3,
+        "Jax": 3,
+        "Lee Sin": 3,
+        "Ashe": 2,
+        "Twisted Fate": 2,
+        "Renekton": 2,
+        "Gangplank": 2,
+        "Volibear": 2,
+        "Xin Zhao": 2,
+        "Sejuani": 2,
+        "Akali": 2,
+        "Blitzcrank": 2,
+        "Miss Fortune": 2,
+        "Sett": 1,
+        "Ahri": 1,
+        "Syndra": 1,
+        "Renata Glasc": 1,
+        "Ornn": 1,
+        "Ivern": 1,
+        "Irelia": 1,
+        "Fiora": 1,
+        "Aatrox": 1,
+        "Qiyana": 1
+      },
+      "wins": 1,
+      "game_wins": 4
+    },
+    "red": {
+      "picks": {
+        "Braum": 4,
+        "KSante": 4,
+        "Draven": 4,
+        "Taliyah": 4,
+        "Tristana": 4,
+        "Gwen": 2,
+        "Kaisa": 2,
+        "Lissandra": 2,
+        "Wukong": 2,
+        "Yuumi": 2,
+        "Corki": 2,
+        "Kennen": 2,
+        "Ezreal": 2,
+        "Nocturne": 2,
+        "Rell": 2,
+        "Gnar": 1,
+        "Gragas": 1,
+        "Lulu": 1,
+        "Nilah": 1,
+        "Udyr": 1,
+        "Janna": 1,
+        "Jarvan IV": 1,
+        "Kassadin": 1,
+        "Twitch": 1,
+        "Tryndamere": 1
+      },
+      "bans": {
+        "Kalista": 3,
+        "Aphelios": 3,
+        "Vi": 3,
+        "Rumble": 3,
+        "Rakan": 3,
+        "Lucian": 2,
+        "Caitlyn": 2,
+        "Jayce": 2,
+        "Ryze": 2,
+        "Trundle": 2,
+        "Elise": 2,
+        "Karma": 2,
+        "Aurora": 2,
+        "Senna": 2,
+        "Nidalee": 2,
+        "Camille": 1,
+        "Graves": 1,
+        "Nautilus": 1,
+        "Skarner": 1,
+        "Sivir": 1,
+        "Shyvana": 1,
+        "Seraphine": 1,
+        "Olaf": 1,
+        "Viktor": 1,
+        "Vex": 1
+      },
+      "wins": 0,
+      "game_wins": 5
+    }
+  },
+  "RNN_vs_MLP": {
+    "blue": {
+      "picks": {
+        "Gragas": 4,
+        "Azir": 4,
+        "Kaisa": 4,
+        "Wukong": 4,
+        "Yuumi": 4,
+        "Ahri": 2,
+        "Draven": 2,
+        "Lee Sin": 2,
+        "Sion": 2,
+        "Tahm Kench": 2,
+        "Aatrox": 1,
+        "Kassadin": 1,
+        "Jax": 1,
+        "Xayah": 1,
+        "Swain": 1,
+        "Diana": 1,
+        "Pantheon": 1,
+        "Ryze": 1,
+        "Volibear": 1,
+        "Samira": 1
+      },
+      "bans": {
+        "Varus": 3,
+        "Renekton": 3,
+        "Lillia": 3,
+        "Gnar": 3,
+        "Ornn": 3,
+        "Rumble": 2,
+        "Kalista": 2,
+        "Ezreal": 2,
+        "Sejuani": 2,
+        "Maokai": 2,
+        "Senna": 1,
+        "Caitlyn": 1,
+        "Karma": 1,
+        "Camille": 1,
+        "Leona": 1,
+        "Akali": 1,
+        "Graves": 1,
+        "Sylas": 1,
+        "Galio": 1,
+        "Sivir": 1
+      },
+      "wins": 1,
+      "game_wins": 6
+    },
+    "red": {
+      "picks": {
+        "Jinx": 4,
+        "Blitzcrank": 4,
+        "KhaZix": 4,
+        "Neeko": 4,
+        "Yone": 4,
+        "Cassiopeia": 2,
+        "Alistar": 2,
+        "Jayce": 2,
+        "Nidalee": 2,
+        "Tristana": 2,
+        "Braum": 1,
+        "Jarvan IV": 1,
+        "Jhin": 1,
+        "Qiyana": 1,
+        "Poppy": 1,
+        "KSante": 1,
+        "Lulu": 1,
+        "KogMaw": 1,
+        "Skarner": 1,
+        "Zoe": 1
+      },
+      "bans": {
+        "Lucian": 3,
+        "LeBlanc": 3,
+        "Rell": 3,
+        "Kennen": 3,
+        "Rakan": 3,
+        "Aphelios": 2,
+        "Zeri": 2,
+        "Thresh": 2,
+        "Miss Fortune": 2,
+        "Nautilus": 2,
+        "Ashe": 1,
+        "Elise": 1,
+        "Orianna": 1,
+        "Nocturne": 1,
+        "Syndra": 1,
+        "Udyr": 1,
+        "Gwen": 1,
+        "Hecarim": 1,
+        "Olaf": 1,
+        "Xin Zhao": 1
+      },
+      "wins": 0,
+      "game_wins": 1
+    }
+  },
+  "RNN_vs_RNN": {
+    "blue": {
+      "picks": {
+        "Gragas": 4,
+        "Azir": 4,
+        "Kaisa": 4,
+        "Wukong": 4,
+        "Yuumi": 4,
+        "Ahri": 2,
+        "Draven": 2,
+        "Lee Sin": 2,
+        "Sion": 2,
+        "Tahm Kench": 2,
+        "Aatrox": 1,
+        "Kassadin": 1,
+        "Jax": 1,
+        "Xayah": 1,
+        "Swain": 1,
+        "Diana": 1,
+        "Pantheon": 1,
+        "Ryze": 1,
+        "Volibear": 1,
+        "Samira": 1
+      },
+      "bans": {
+        "Varus": 3,
+        "Renekton": 3,
+        "Lillia": 3,
+        "Gnar": 3,
+        "Ornn": 3,
+        "Rumble": 2,
+        "Kalista": 2,
+        "Ezreal": 2,
+        "Sejuani": 2,
+        "Maokai": 2,
+        "Senna": 1,
+        "Caitlyn": 1,
+        "Karma": 1,
+        "Camille": 1,
+        "Leona": 1,
+        "Akali": 1,
+        "Graves": 1,
+        "Sylas": 1,
+        "Galio": 1,
+        "Sivir": 1
+      },
+      "wins": 1,
+      "game_wins": 6
+    },
+    "red": {
+      "picks": {
+        "Jinx": 4,
+        "Blitzcrank": 4,
+        "KhaZix": 4,
+        "Neeko": 4,
+        "Yone": 4,
+        "Cassiopeia": 2,
+        "Alistar": 2,
+        "Jayce": 2,
+        "Nidalee": 2,
+        "Tristana": 2,
+        "Braum": 1,
+        "Jarvan IV": 1,
+        "Jhin": 1,
+        "Qiyana": 1,
+        "Poppy": 1,
+        "KSante": 1,
+        "Lulu": 1,
+        "KogMaw": 1,
+        "Skarner": 1,
+        "Zoe": 1
+      },
+      "bans": {
+        "Lucian": 3,
+        "LeBlanc": 3,
+        "Rell": 3,
+        "Kennen": 3,
+        "Rakan": 3,
+        "Aphelios": 2,
+        "Zeri": 2,
+        "Thresh": 2,
+        "Miss Fortune": 2,
+        "Nautilus": 2,
+        "Ashe": 1,
+        "Elise": 1,
+        "Orianna": 1,
+        "Nocturne": 1,
+        "Syndra": 1,
+        "Udyr": 1,
+        "Gwen": 1,
+        "Hecarim": 1,
+        "Olaf": 1,
+        "Xin Zhao": 1
+      },
+      "wins": 0,
+      "game_wins": 1
+    }
+  },
+  "series_results": {
+    "1": {
+      "MLP_vs_MLP": {
+        "blue": 1,
+        "red": 0
+      },
+      "MLP_vs_RNN": {
+        "blue": 1,
+        "red": 0
+      },
+      "RNN_vs_MLP": {
+        "blue": 1,
+        "red": 0
+      },
+      "RNN_vs_RNN": {
+        "blue": 1,
+        "red": 0
+      }
+    },
+    "3": {
+      "MLP_vs_MLP": {
+        "blue": 0,
+        "red": 1
+      },
+      "MLP_vs_RNN": {
+        "blue": 0,
+        "red": 1
+      },
+      "RNN_vs_MLP": {
+        "blue": 1,
+        "red": 0
+      },
+      "RNN_vs_RNN": {
+        "blue": 1,
+        "red": 0
+      }
+    },
+    "5": {
+      "MLP_vs_MLP": {
+        "blue": 0,
+        "red": 1
+      },
+      "MLP_vs_RNN": {
+        "blue": 0,
+        "red": 1
+      },
+      "RNN_vs_MLP": {
+        "blue": 1,
+        "red": 0
+      },
+      "RNN_vs_RNN": {
+        "blue": 1,
+        "red": 0
+      }
+    }
+  },
+  "draft_sequences": {
+    "MLP_vs_MLP": [
+      {
+        "blue": {
+          "fs_bans": [
+            "LeBlanc",
+            "Varus",
+            "Thresh"
+          ],
+          "ss_bans": [
+            "Jax",
+            "Lee Sin"
+          ],
+          "picks": [
+            "Azir",
+            "Jinx",
+            "Maokai",
+            "Viego",
+            "Zilean"
+          ]
+        },
+        "red": {
+          "fs_bans": [
+            "Kalista",
+            "Aphelios",
+            "Vi"
+          ],
+          "ss_bans": [
+            "Rumble",
+            "Rakan"
+          ],
+          "picks": [
+            "Braum",
+            "KSante",
+            "Draven",
+            "Taliyah",
+            "Tristana"
+          ]
+        }
+      },
+      {
+        "blue": {
+          "fs_bans": [
+            "LeBlanc",
+            "Varus",
+            "Thresh"
+          ],
+          "ss_bans": [
+            "Jax",
+            "Lee Sin"
+          ],
+          "picks": [
+            "Azir",
+            "Jinx",
+            "Maokai",
+            "Viego",
+            "Zilean"
+          ]
+        },
+        "red": {
+          "fs_bans": [
+            "Kalista",
+            "Aphelios",
+            "Vi"
+          ],
+          "ss_bans": [
+            "Rumble",
+            "Rakan"
+          ],
+          "picks": [
+            "Braum",
+            "KSante",
+            "Draven",
+            "Taliyah",
+            "Tristana"
+          ]
+        }
+      },
+      {
+        "blue": {
+          "fs_bans": [
+            "Ashe",
+            "Twisted Fate",
+            "Renekton"
+          ],
+          "ss_bans": [
+            "Gangplank",
+            "Volibear"
+          ],
+          "picks": [
+            "Amumu",
+            "Leona",
+            "Sylas",
+            "Xayah",
+            "Yone"
+          ]
+        },
+        "red": {
+          "fs_bans": [
+            "Lucian",
+            "Caitlyn",
+            "Jayce"
+          ],
+          "ss_bans": [
+            "Ryze",
+            "Trundle"
+          ],
+          "picks": [
+            "Gwen",
+            "Kaisa",
+            "Lissandra",
+            "Wukong",
+            "Yuumi"
+          ]
+        }
+      },
+      {
+        "blue": {
+          "fs_bans": [
+            "Xin Zhao",
+            "Sejuani",
+            "Akali"
+          ],
+          "ss_bans": [
+            "Blitzcrank",
+            "Miss Fortune"
+          ],
+          "picks": [
+            "Alistar",
+            "Orianna",
+            "Poppy",
+            "Zeri",
+            "Zac"
+          ]
+        },
+        "red": {
+          "fs_bans": [
+            "Elise",
+            "Karma",
+            "Aurora"
+          ],
+          "ss_bans": [
+            "Senna",
+            "Nidalee"
+          ],
+          "picks": [
+            "Corki",
+            "Kennen",
+            "Ezreal",
+            "Nocturne",
+            "Rell"
+          ]
+        }
+      },
+      {
+        "blue": {
+          "fs_bans": [
+            "LeBlanc",
+            "Varus",
+            "Thresh"
+          ],
+          "ss_bans": [
+            "Jax",
+            "Lee Sin"
+          ],
+          "picks": [
+            "Azir",
+            "Jinx",
+            "Maokai",
+            "Viego",
+            "Zilean"
+          ]
+        },
+        "red": {
+          "fs_bans": [
+            "Kalista",
+            "Aphelios",
+            "Vi"
+          ],
+          "ss_bans": [
+            "Rumble",
+            "Rakan"
+          ],
+          "picks": [
+            "Braum",
+            "KSante",
+            "Draven",
+            "Taliyah",
+            "Tristana"
+          ]
+        }
+      },
+      {
+        "blue": {
+          "fs_bans": [
+            "Ashe",
+            "Twisted Fate",
+            "Renekton"
+          ],
+          "ss_bans": [
+            "Gangplank",
+            "Volibear"
+          ],
+          "picks": [
+            "Amumu",
+            "Leona",
+            "Sylas",
+            "Xayah",
+            "Yone"
+          ]
+        },
+        "red": {
+          "fs_bans": [
+            "Lucian",
+            "Caitlyn",
+            "Jayce"
+          ],
+          "ss_bans": [
+            "Ryze",
+            "Trundle"
+          ],
+          "picks": [
+            "Gwen",
+            "Kaisa",
+            "Lissandra",
+            "Wukong",
+            "Yuumi"
+          ]
+        }
+      },
+      {
+        "blue": {
+          "fs_bans": [
+            "Xin Zhao",
+            "Sejuani",
+            "Akali"
+          ],
+          "ss_bans": [
+            "Blitzcrank",
+            "Miss Fortune"
+          ],
+          "picks": [
+            "Alistar",
+            "Orianna",
+            "Poppy",
+            "Zeri",
+            "Zac"
+          ]
+        },
+        "red": {
+          "fs_bans": [
+            "Elise",
+            "Karma",
+            "Aurora"
+          ],
+          "ss_bans": [
+            "Senna",
+            "Nidalee"
+          ],
+          "picks": [
+            "Corki",
+            "Kennen",
+            "Ezreal",
+            "Nocturne",
+            "Rell"
+          ]
+        }
+      },
+      {
+        "blue": {
+          "fs_bans": [
+            "Sett",
+            "Ahri",
+            "Syndra"
+          ],
+          "ss_bans": [
+            "Renata Glasc",
+            "Ornn"
+          ],
+          "picks": [
+            "Annie",
+            "Jhin",
+            "Lillia",
+            "Sion",
+            "Tahm Kench"
+          ]
+        },
+        "red": {
+          "fs_bans": [
+            "Camille",
+            "Graves",
+            "Nautilus"
+          ],
+          "ss_bans": [
+            "Skarner",
+            "Sivir"
+          ],
+          "picks": [
+            "Gnar",
+            "Gragas",
+            "Lulu",
+            "Nilah",
+            "Udyr"
+          ]
+        }
+      },
+      {
+        "blue": {
+          "fs_bans": [
+            "Ivern",
+            "Irelia",
+            "Fiora"
+          ],
+          "ss_bans": [
+            "Aatrox",
+            "Qiyana"
+          ],
+          "picks": [
+            "Diana",
+            "Kayle",
+            "Samira",
+            "Swain",
+            "KhaZix"
+          ]
+        },
+        "red": {
+          "fs_bans": [
+            "Shyvana",
+            "Seraphine",
+            "Olaf"
+          ],
+          "ss_bans": [
+            "Viktor",
+            "Vex"
+          ],
+          "picks": [
+            "Janna",
+            "Jarvan IV",
+            "Kassadin",
+            "Twitch",
+            "Tryndamere"
+          ]
+        }
+      }
+    ],
+    "MLP_vs_RNN": [
+      {
+        "blue": {
+          "fs_bans": [
+            "LeBlanc",
+            "Varus",
+            "Thresh"
+          ],
+          "ss_bans": [
+            "Jax",
+            "Lee Sin"
+          ],
+          "picks": [
+            "Azir",
+            "Jinx",
+            "Maokai",
+            "Viego",
+            "Zilean"
+          ]
+        },
+        "red": {
+          "fs_bans": [
+            "Kalista",
+            "Aphelios",
+            "Vi"
+          ],
+          "ss_bans": [
+            "Rumble",
+            "Rakan"
+          ],
+          "picks": [
+            "Braum",
+            "KSante",
+            "Draven",
+            "Taliyah",
+            "Tristana"
+          ]
+        }
+      },
+      {
+        "blue": {
+          "fs_bans": [
+            "LeBlanc",
+            "Varus",
+            "Thresh"
+          ],
+          "ss_bans": [
+            "Jax",
+            "Lee Sin"
+          ],
+          "picks": [
+            "Azir",
+            "Jinx",
+            "Maokai",
+            "Viego",
+            "Zilean"
+          ]
+        },
+        "red": {
+          "fs_bans": [
+            "Kalista",
+            "Aphelios",
+            "Vi"
+          ],
+          "ss_bans": [
+            "Rumble",
+            "Rakan"
+          ],
+          "picks": [
+            "Braum",
+            "KSante",
+            "Draven",
+            "Taliyah",
+            "Tristana"
+          ]
+        }
+      },
+      {
+        "blue": {
+          "fs_bans": [
+            "Ashe",
+            "Twisted Fate",
+            "Renekton"
+          ],
+          "ss_bans": [
+            "Gangplank",
+            "Volibear"
+          ],
+          "picks": [
+            "Amumu",
+            "Leona",
+            "Sylas",
+            "Xayah",
+            "Yone"
+          ]
+        },
+        "red": {
+          "fs_bans": [
+            "Lucian",
+            "Caitlyn",
+            "Jayce"
+          ],
+          "ss_bans": [
+            "Ryze",
+            "Trundle"
+          ],
+          "picks": [
+            "Gwen",
+            "Kaisa",
+            "Lissandra",
+            "Wukong",
+            "Yuumi"
+          ]
+        }
+      },
+      {
+        "blue": {
+          "fs_bans": [
+            "Xin Zhao",
+            "Sejuani",
+            "Akali"
+          ],
+          "ss_bans": [
+            "Blitzcrank",
+            "Miss Fortune"
+          ],
+          "picks": [
+            "Alistar",
+            "Orianna",
+            "Poppy",
+            "Zeri",
+            "Zac"
+          ]
+        },
+        "red": {
+          "fs_bans": [
+            "Elise",
+            "Karma",
+            "Aurora"
+          ],
+          "ss_bans": [
+            "Senna",
+            "Nidalee"
+          ],
+          "picks": [
+            "Corki",
+            "Kennen",
+            "Ezreal",
+            "Nocturne",
+            "Rell"
+          ]
+        }
+      },
+      {
+        "blue": {
+          "fs_bans": [
+            "LeBlanc",
+            "Varus",
+            "Thresh"
+          ],
+          "ss_bans": [
+            "Jax",
+            "Lee Sin"
+          ],
+          "picks": [
+            "Azir",
+            "Jinx",
+            "Maokai",
+            "Viego",
+            "Zilean"
+          ]
+        },
+        "red": {
+          "fs_bans": [
+            "Kalista",
+            "Aphelios",
+            "Vi"
+          ],
+          "ss_bans": [
+            "Rumble",
+            "Rakan"
+          ],
+          "picks": [
+            "Braum",
+            "KSante",
+            "Draven",
+            "Taliyah",
+            "Tristana"
+          ]
+        }
+      },
+      {
+        "blue": {
+          "fs_bans": [
+            "Ashe",
+            "Twisted Fate",
+            "Renekton"
+          ],
+          "ss_bans": [
+            "Gangplank",
+            "Volibear"
+          ],
+          "picks": [
+            "Amumu",
+            "Leona",
+            "Sylas",
+            "Xayah",
+            "Yone"
+          ]
+        },
+        "red": {
+          "fs_bans": [
+            "Lucian",
+            "Caitlyn",
+            "Jayce"
+          ],
+          "ss_bans": [
+            "Ryze",
+            "Trundle"
+          ],
+          "picks": [
+            "Gwen",
+            "Kaisa",
+            "Lissandra",
+            "Wukong",
+            "Yuumi"
+          ]
+        }
+      },
+      {
+        "blue": {
+          "fs_bans": [
+            "Xin Zhao",
+            "Sejuani",
+            "Akali"
+          ],
+          "ss_bans": [
+            "Blitzcrank",
+            "Miss Fortune"
+          ],
+          "picks": [
+            "Alistar",
+            "Orianna",
+            "Poppy",
+            "Zeri",
+            "Zac"
+          ]
+        },
+        "red": {
+          "fs_bans": [
+            "Elise",
+            "Karma",
+            "Aurora"
+          ],
+          "ss_bans": [
+            "Senna",
+            "Nidalee"
+          ],
+          "picks": [
+            "Corki",
+            "Kennen",
+            "Ezreal",
+            "Nocturne",
+            "Rell"
+          ]
+        }
+      },
+      {
+        "blue": {
+          "fs_bans": [
+            "Sett",
+            "Ahri",
+            "Syndra"
+          ],
+          "ss_bans": [
+            "Renata Glasc",
+            "Ornn"
+          ],
+          "picks": [
+            "Annie",
+            "Jhin",
+            "Lillia",
+            "Sion",
+            "Tahm Kench"
+          ]
+        },
+        "red": {
+          "fs_bans": [
+            "Camille",
+            "Graves",
+            "Nautilus"
+          ],
+          "ss_bans": [
+            "Skarner",
+            "Sivir"
+          ],
+          "picks": [
+            "Gnar",
+            "Gragas",
+            "Lulu",
+            "Nilah",
+            "Udyr"
+          ]
+        }
+      },
+      {
+        "blue": {
+          "fs_bans": [
+            "Ivern",
+            "Irelia",
+            "Fiora"
+          ],
+          "ss_bans": [
+            "Aatrox",
+            "Qiyana"
+          ],
+          "picks": [
+            "Diana",
+            "Kayle",
+            "Samira",
+            "Swain",
+            "KhaZix"
+          ]
+        },
+        "red": {
+          "fs_bans": [
+            "Shyvana",
+            "Seraphine",
+            "Olaf"
+          ],
+          "ss_bans": [
+            "Viktor",
+            "Vex"
+          ],
+          "picks": [
+            "Janna",
+            "Jarvan IV",
+            "Kassadin",
+            "Twitch",
+            "Tryndamere"
+          ]
+        }
+      }
+    ],
+    "RNN_vs_MLP": [
+      {
+        "blue": {
+          "fs_bans": [
+            "Varus",
+            "Renekton",
+            "Lillia"
+          ],
+          "ss_bans": [
+            "Gnar",
+            "Ornn"
+          ],
+          "picks": [
+            "Gragas",
+            "Azir",
+            "Kaisa",
+            "Wukong",
+            "Yuumi"
+          ]
+        },
+        "red": {
+          "fs_bans": [
+            "Lucian",
+            "LeBlanc",
+            "Rell"
+          ],
+          "ss_bans": [
+            "Kennen",
+            "Rakan"
+          ],
+          "picks": [
+            "Jinx",
+            "Blitzcrank",
+            "KhaZix",
+            "Neeko",
+            "Yone"
+          ]
+        }
+      },
+      {
+        "blue": {
+          "fs_bans": [
+            "Varus",
+            "Renekton",
+            "Lillia"
+          ],
+          "ss_bans": [
+            "Gnar",
+            "Ornn"
+          ],
+          "picks": [
+            "Gragas",
+            "Azir",
+            "Kaisa",
+            "Wukong",
+            "Yuumi"
+          ]
+        },
+        "red": {
+          "fs_bans": [
+            "Lucian",
+            "LeBlanc",
+            "Rell"
+          ],
+          "ss_bans": [
+            "Kennen",
+            "Rakan"
+          ],
+          "picks": [
+            "Jinx",
+            "Blitzcrank",
+            "KhaZix",
+            "Neeko",
+            "Yone"
+          ]
+        }
+      },
+      {
+        "blue": {
+          "fs_bans": [
+            "Rumble",
+            "Kalista",
+            "Ezreal"
+          ],
+          "ss_bans": [
+            "Sejuani",
+            "Maokai"
+          ],
+          "picks": [
+            "Ahri",
+            "Draven",
+            "Lee Sin",
+            "Sion",
+            "Tahm Kench"
+          ]
+        },
+        "red": {
+          "fs_bans": [
+            "Aphelios",
+            "Zeri",
+            "Thresh"
+          ],
+          "ss_bans": [
+            "Miss Fortune",
+            "Nautilus"
+          ],
+          "picks": [
+            "Cassiopeia",
+            "Alistar",
+            "Jayce",
+            "Nidalee",
+            "Tristana"
+          ]
+        }
+      },
+      {
+        "blue": {
+          "fs_bans": [
+            "Varus",
+            "Renekton",
+            "Lillia"
+          ],
+          "ss_bans": [
+            "Gnar",
+            "Ornn"
+          ],
+          "picks": [
+            "Gragas",
+            "Azir",
+            "Kaisa",
+            "Wukong",
+            "Yuumi"
+          ]
+        },
+        "red": {
+          "fs_bans": [
+            "Lucian",
+            "LeBlanc",
+            "Rell"
+          ],
+          "ss_bans": [
+            "Kennen",
+            "Rakan"
+          ],
+          "picks": [
+            "Jinx",
+            "Blitzcrank",
+            "KhaZix",
+            "Neeko",
+            "Yone"
+          ]
+        }
+      },
+      {
+        "blue": {
+          "fs_bans": [
+            "Rumble",
+            "Kalista",
+            "Ezreal"
+          ],
+          "ss_bans": [
+            "Sejuani",
+            "Maokai"
+          ],
+          "picks": [
+            "Ahri",
+            "Draven",
+            "Lee Sin",
+            "Sion",
+            "Tahm Kench"
+          ]
+        },
+        "red": {
+          "fs_bans": [
+            "Aphelios",
+            "Zeri",
+            "Thresh"
+          ],
+          "ss_bans": [
+            "Miss Fortune",
+            "Nautilus"
+          ],
+          "picks": [
+            "Cassiopeia",
+            "Alistar",
+            "Jayce",
+            "Nidalee",
+            "Tristana"
+          ]
+        }
+      },
+      {
+        "blue": {
+          "fs_bans": [
+            "Senna",
+            "Caitlyn",
+            "Karma"
+          ],
+          "ss_bans": [
+            "Camille",
+            "Leona"
+          ],
+          "picks": [
+            "Aatrox",
+            "Kassadin",
+            "Jax",
+            "Xayah",
+            "Swain"
+          ]
+        },
+        "red": {
+          "fs_bans": [
+            "Ashe",
+            "Elise",
+            "Orianna"
+          ],
+          "ss_bans": [
+            "Nocturne",
+            "Syndra"
+          ],
+          "picks": [
+            "Braum",
+            "Jarvan IV",
+            "Jhin",
+            "Qiyana",
+            "Poppy"
+          ]
+        }
+      },
+      {
+        "blue": {
+          "fs_bans": [
+            "Akali",
+            "Graves",
+            "Sylas"
+          ],
+          "ss_bans": [
+            "Galio",
+            "Sivir"
+          ],
+          "picks": [
+            "Diana",
+            "Pantheon",
+            "Ryze",
+            "Volibear",
+            "Samira"
+          ]
+        },
+        "red": {
+          "fs_bans": [
+            "Udyr",
+            "Gwen",
+            "Hecarim"
+          ],
+          "ss_bans": [
+            "Olaf",
+            "Xin Zhao"
+          ],
+          "picks": [
+            "KSante",
+            "Lulu",
+            "KogMaw",
+            "Skarner",
+            "Zoe"
+          ]
+        }
+      }
+    ],
+    "RNN_vs_RNN": [
+      {
+        "blue": {
+          "fs_bans": [
+            "Varus",
+            "Renekton",
+            "Lillia"
+          ],
+          "ss_bans": [
+            "Gnar",
+            "Ornn"
+          ],
+          "picks": [
+            "Gragas",
+            "Azir",
+            "Kaisa",
+            "Wukong",
+            "Yuumi"
+          ]
+        },
+        "red": {
+          "fs_bans": [
+            "Lucian",
+            "LeBlanc",
+            "Rell"
+          ],
+          "ss_bans": [
+            "Kennen",
+            "Rakan"
+          ],
+          "picks": [
+            "Jinx",
+            "Blitzcrank",
+            "KhaZix",
+            "Neeko",
+            "Yone"
+          ]
+        }
+      },
+      {
+        "blue": {
+          "fs_bans": [
+            "Varus",
+            "Renekton",
+            "Lillia"
+          ],
+          "ss_bans": [
+            "Gnar",
+            "Ornn"
+          ],
+          "picks": [
+            "Gragas",
+            "Azir",
+            "Kaisa",
+            "Wukong",
+            "Yuumi"
+          ]
+        },
+        "red": {
+          "fs_bans": [
+            "Lucian",
+            "LeBlanc",
+            "Rell"
+          ],
+          "ss_bans": [
+            "Kennen",
+            "Rakan"
+          ],
+          "picks": [
+            "Jinx",
+            "Blitzcrank",
+            "KhaZix",
+            "Neeko",
+            "Yone"
+          ]
+        }
+      },
+      {
+        "blue": {
+          "fs_bans": [
+            "Rumble",
+            "Kalista",
+            "Ezreal"
+          ],
+          "ss_bans": [
+            "Sejuani",
+            "Maokai"
+          ],
+          "picks": [
+            "Ahri",
+            "Draven",
+            "Lee Sin",
+            "Sion",
+            "Tahm Kench"
+          ]
+        },
+        "red": {
+          "fs_bans": [
+            "Aphelios",
+            "Zeri",
+            "Thresh"
+          ],
+          "ss_bans": [
+            "Miss Fortune",
+            "Nautilus"
+          ],
+          "picks": [
+            "Cassiopeia",
+            "Alistar",
+            "Jayce",
+            "Nidalee",
+            "Tristana"
+          ]
+        }
+      },
+      {
+        "blue": {
+          "fs_bans": [
+            "Varus",
+            "Renekton",
+            "Lillia"
+          ],
+          "ss_bans": [
+            "Gnar",
+            "Ornn"
+          ],
+          "picks": [
+            "Gragas",
+            "Azir",
+            "Kaisa",
+            "Wukong",
+            "Yuumi"
+          ]
+        },
+        "red": {
+          "fs_bans": [
+            "Lucian",
+            "LeBlanc",
+            "Rell"
+          ],
+          "ss_bans": [
+            "Kennen",
+            "Rakan"
+          ],
+          "picks": [
+            "Jinx",
+            "Blitzcrank",
+            "KhaZix",
+            "Neeko",
+            "Yone"
+          ]
+        }
+      },
+      {
+        "blue": {
+          "fs_bans": [
+            "Rumble",
+            "Kalista",
+            "Ezreal"
+          ],
+          "ss_bans": [
+            "Sejuani",
+            "Maokai"
+          ],
+          "picks": [
+            "Ahri",
+            "Draven",
+            "Lee Sin",
+            "Sion",
+            "Tahm Kench"
+          ]
+        },
+        "red": {
+          "fs_bans": [
+            "Aphelios",
+            "Zeri",
+            "Thresh"
+          ],
+          "ss_bans": [
+            "Miss Fortune",
+            "Nautilus"
+          ],
+          "picks": [
+            "Cassiopeia",
+            "Alistar",
+            "Jayce",
+            "Nidalee",
+            "Tristana"
+          ]
+        }
+      },
+      {
+        "blue": {
+          "fs_bans": [
+            "Senna",
+            "Caitlyn",
+            "Karma"
+          ],
+          "ss_bans": [
+            "Camille",
+            "Leona"
+          ],
+          "picks": [
+            "Aatrox",
+            "Kassadin",
+            "Jax",
+            "Xayah",
+            "Swain"
+          ]
+        },
+        "red": {
+          "fs_bans": [
+            "Ashe",
+            "Elise",
+            "Orianna"
+          ],
+          "ss_bans": [
+            "Nocturne",
+            "Syndra"
+          ],
+          "picks": [
+            "Braum",
+            "Jarvan IV",
+            "Jhin",
+            "Qiyana",
+            "Poppy"
+          ]
+        }
+      },
+      {
+        "blue": {
+          "fs_bans": [
+            "Akali",
+            "Graves",
+            "Sylas"
+          ],
+          "ss_bans": [
+            "Galio",
+            "Sivir"
+          ],
+          "picks": [
+            "Diana",
+            "Pantheon",
+            "Ryze",
+            "Volibear",
+            "Samira"
+          ]
+        },
+        "red": {
+          "fs_bans": [
+            "Udyr",
+            "Gwen",
+            "Hecarim"
+          ],
+          "ss_bans": [
+            "Olaf",
+            "Xin Zhao"
+          ],
+          "picks": [
+            "KSante",
+            "Lulu",
+            "KogMaw",
+            "Skarner",
+            "Zoe"
+          ]
+        }
+      }
+    ]
+  }
+}
