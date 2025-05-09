@@ -1,0 +1,45 @@
+{
+    "Top": [
+        "Aatrox", "Akali", "Akshan", "Ambessa", "Camille", "Chogath", "Darius", "Drmundo",
+        "Fiora", "Gangplank", "Garen", "Gnar", "Gragas", "Gwen", "Illaoi", "Irelia", "Jax",
+        "Jayce", "Kayle", "Kennen", "Kled", "KSante", "Malphite", "Mordekaiser", "Nasus",
+        "Olaf", "Ornn", "Pantheon", "Poppy", "Quinn", "Renekton", "Rengar", "Riven", "Rumble",
+        "Ryze", "Sejuani", "Sett", "Shen", "Singed", "Sion", "Swain", "TahmKench", "Trundle",
+        "Tryndamere", "Urgot", "Vayne", "Vladimir", "Volibear", "Warwick", "Yone", "Yorick",
+        "Zac", "Zed", "Yasuo", "Wukong", "Karma", "Lillia"
+    ],
+    
+    "Jungle": [
+        "Amumu", "Belveth", "Briar", "Diana", "Ekko", "Elise", "Evelynn", "Fiddlesticks",
+        "Graves", "Hecarim", "Ivern", "JarvanIV", "Kayn", "Khazix", "Kindred", "LeeSin",
+        "Lillia", "Maokai", "MasterYi", "Nidalee", "Nocturne", "Nunu", "Pantheon", "Poppy",
+        "Rammus", "RekSai", "Rell", "Sejuani", "Shaco", "Shyvana", "Skarner", "Taliyah",
+        "Trundle", "Udyr", "Vi", "Viego", "Volibear", "Warwick", "XinZhao", "Zac", "Zed",
+        "KSante", "Morgana", "Twitch", "Drmundo", "Gragas", "Teemo", "Zeri", "Qiyana"
+    ],
+    
+    "Mid": [
+        "Ahri", "Akali", "Akshan", "Anivia", "AurelionSol", "Azir", "Cassiopeia", "Corki",
+        "Diana", "Ekko", "Fizz", "Galio", "Hwei", "Irelia", "Jayce", "Kassadin", "Katarina",
+        "Leblanc", "Lissandra", "Lux", "Malzahar", "Naafiri", "Neeko", "Orianna", "Pantheon",
+        "Qiyana", "Ryze", "Sylas", "Syndra", "Talon", "TwistedFate", "Veigar", "Velkoz", "Vex",
+        "Viktor", "Vladimir", "Xerath", "Yasuo", "Yone", "Zed", "Ziggs", "Zoe", "Seraphine",
+        "Karthus", "Swain", "Zeri", "Mel", "Viego", "KSante", "Zoe", "Tristana"
+    ],
+    
+    "ADC": [
+        "Aphelios", "Ashe", "Caitlyn", "Draven", "Ezreal", "Jhin", "Jinx", "Kaisa", "Kalista",
+        "Karthus", "KogMaw", "Lucian", "MissFortune", "Nilah", "Samira", "Senna", "Sivir",
+        "Tristana", "Twitch", "Varus", "Vayne", "Xayah", "Yasuo", "Zeri", "Ziggs", "Kennen",
+        "Teemo", "Heimerdinger", "Seraphine", "Swain", "Mel", "Veigar", "Zoe", "KSante"
+    ],
+    
+    "Support": [
+        "Alistar", "Bard", "Blitzcrank", "Braum", "Galio", "Janna", "Karma", "Leona", "Lulu",
+        "Lux", "Maokai", "Milio", "Morgana", "Nami", "Nautilus", "Pantheon", "Pyke", "Rakan",
+        "Rell", "Renata", "Senna", "Seraphine", "Sona", "Soraka", "Swain", "TahmKench", "Taric",
+        "Thresh", "Velkoz", "Xerath", "Yuumi", "Zilean", "Zyra", "Shaco", "Ashe", "Brand",
+        "TwistedFate", "Poppy", "Sion", "Zac", "Mel", "Senna", "Xerath", "Neeko", "Twitch",
+        "Pantheon", "Ziggs", "Trundle"
+    ]
+}
