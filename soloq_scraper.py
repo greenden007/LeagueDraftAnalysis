@@ -122,7 +122,7 @@ class Config:
     MAX_MATCHES_PER_PLAYER = 100
     MIN_GAMES_THRESHOLD = 1
     BASE_OUTPUT_DIR = "soloq_stats"
-    PATCH_VERSIONS_TO_KEEP = 5  # Keep data for current patch + 2 previous
+    PATCH_VERSIONS_TO_KEEP = 5 
     REQUEST_TIMEOUT = 15
     MAX_RETRIES = 3
     RETRY_DELAYS = [1, 2, 3]
@@ -137,17 +137,17 @@ class Config:
         try:
             response = requests.get(cls.DATA_DRAGON_URL.format(region="na"), timeout=5)
             response.raise_for_status()
-            full_version = response.json()['v']  # Example: "25.9.1"
+            full_version = response.json()['v']
             
-            # Extract year and patch number from first two parts
+            
             year, patch_num = full_version.split('.')[:2]
-            return f"{year}.{patch_num}"  # Directly returns "25.9"
+            return f"{year}.{patch_num}"  
             
         except Exception as e:
             logger.error(f"Failed to get current patch: {str(e)}")
-            # Fallback to current date-based version
-            current_year = datetime.datetime.now().year % 100  # Last 2 digits
-            return f"{current_year}.9"  # Simulate 25.9 for 2025
+            
+            current_year = datetime.datetime.now().year % 100  
+            return f"{current_year}.9"  
 
     @classmethod
     def validate(cls, api: 'RiotAPI'):
@@ -402,7 +402,7 @@ class LeagueScraper:
 
     def get_target_patches(self) -> List[str]:
         """Get last 5 patches including current within the current year"""
-        current = Config.get_current_patch()  # Returns string like "25.9"
+        current = Config.get_current_patch()  
         try:
             year_str, patch_num_str = current.split('.')
             current_year = int(year_str) + 10
@@ -411,22 +411,20 @@ class LeagueScraper:
             logger.error(f"Invalid current patch format: {current}")
             return []
 
-        # Generate last 5 patches in the current year
         patches = []
-        for i in range(4, -1, -1):  # From 4 to 0
+        for i in range(4, -1, -1):  
             patch_number = current_patch_num - i
-            if patch_number > 0:  # Only valid patch numbers
+            if patch_number > 0:  
                 patches.append(f"{current_year}.{patch_number}")
 
-        # If we don't have 5 patches yet this year, include previous year's final patches
+        
         if len(patches) < 5:
             remaining = 5 - len(patches)
             previous_year = current_year - 1
-            # Assume maximum 12 patches per year (adjust if needed)
             for patch_number in range(12, 12 - remaining, -1):
                 patches.insert(0, f"{previous_year}.{patch_number}")
 
-        return sorted(patches[-5:])  # Return newest 5
+        return sorted(patches[-5:])  
     
     def get_existing_patches(self) -> Set[str]:
         """Get set of existing patch directories"""
@@ -445,16 +443,15 @@ class LeagueScraper:
                 self.process_region(region)
                 logger.info(f"✅ Finished {region.upper()} processing")
             
-            # Save once after all regions are processed
             self.save_data()
             time.sleep(1)
-            self.global_stats.clear()  # Free memory
+            self.global_stats.clear()  
             self.log_final_stats()
 
         except KeyboardInterrupt:
             logger.info("🛑 Manual interrupt received")
             if self._has_data():
-                self.save_data()  # Save everything collected so far
+                self.save_data()  
                 time.sleep(1)
                 self.global_stats.clear()
             self.log_final_stats()
@@ -462,7 +459,7 @@ class LeagueScraper:
         except Exception as e:
             logger.critical(f"💥 Fatal error: {str(e)}", exc_info=True)
             if self._has_data():
-                self.save_data()  # Last-ditch effort to preserve data
+                self.save_data()  
                 time.sleep(1)
                 self.global_stats.clear()
             raise 
@@ -672,20 +669,17 @@ class LeagueScraper:
         """Merge-and-replace strategy for global stats"""
         file_path = os.path.join(patch_dir, "global_stats.csv")
         
-        # Read existing data
         existing_data = {}
         if os.path.exists(file_path):
             existing_df = pd.read_csv(file_path)
             existing_data = existing_df.set_index('champion').to_dict('index')
 
-        # Merge new stats
         for champ_name, champ_stats in self.global_stats[patch].items():
             if champ_stats.games <= 0:
                 continue
                 
             champ = Config.normalize_champion_name(champ_name)
             
-            # Initialize if new champion
             if champ not in existing_data:
                 existing_data[champ] = {
                     'games': 0,
@@ -695,14 +689,12 @@ class LeagueScraper:
                     'assists': 0
                 }
 
-            # Aggregate
             existing_data[champ]['games'] += champ_stats.games
             existing_data[champ]['wins'] += champ_stats.wins
             existing_data[champ]['kills'] += champ_stats.kills
             existing_data[champ]['deaths'] += champ_stats.deaths
             existing_data[champ]['assists'] += champ_stats.assists
 
-        # Convert to list of records
         stats_list = []
         for champ, data in existing_data.items():
             games = data['games']
@@ -739,13 +731,11 @@ class LeagueScraper:
             normalized_name = Config.normalize_champion_name(champ_name)
             file_path = os.path.join(patch_dir, "matchups", f"{normalized_name}.csv")
             
-            # Read existing data
             existing_data = {}
             if os.path.exists(file_path):
                 existing_df = pd.read_csv(file_path)
                 existing_data = existing_df.set_index('opponent').to_dict('index')
 
-            # Merge new matchups
             for opponent, matchup in champ_stats.matchups.items():
                 norm_opp = Config.normalize_champion_name(opponent)
                 
@@ -764,7 +754,6 @@ class LeagueScraper:
                 existing_data[norm_opp]["deaths"] += matchup["deaths"]
                 existing_data[norm_opp]["assists"] += matchup["assists"]
 
-            # Convert to records
             matchup_list = []
             for opponent, data in existing_data.items():
                 games = data["games"]
@@ -796,7 +785,6 @@ class LeagueScraper:
         total_time = (time.time() - self.start_time) / 60
         logger.info("📊 Final Statistics:")
         
-        # New patch information section
         logger.info(f"📦 Patch Overview:")
         logger.info(f"  - Target patches: {len(self.target_patches)}")
         for patch in sorted(self.target_patches):
@@ -810,7 +798,6 @@ class LeagueScraper:
                 year, num = patch.split('.')
                 logger.info(f"    ✨ 20{year} Season Patch {num} (fresh data)")
         
-        # Original statistics
         if self.processed_players == 0:
             logger.warning("🌧️  No players processed - check API key/network")
             return
