@@ -10,12 +10,77 @@ from datetime import datetime
 import lightgbm as lgb
 from sklearn.preprocessing import MinMaxScaler
 from collections import defaultdict
+import json
 
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.INFO)
 handler = logging.StreamHandler()
 handler.setFormatter(logging.Formatter('%(asctime)s [%(levelname)s] %(message)s'))
 logger.addHandler(handler)
+
+class Config:
+    CHAMPION_MAPPING = {
+        "aatrox": "Aatrox", "ahri": "Ahri", "akali": "Akali", "akshan": "Akshan",
+        "alistar": "Alistar", "amumu": "Amumu", "anivia": "Anivia", "annie": "Annie",
+        "aphelios": "Aphelios", "ashe": "Ashe", "aurelionsol": "Aurelion Sol",
+        "azir": "Azir", "bard": "Bard", "belveth": "Belveth", "blitzcrank": "Blitzcrank",
+        "brand": "Brand", "braum": "Braum", "briar": "Briar", "caitlyn": "Caitlyn",
+        "camille": "Camille", "cassiopeia": "Cassiopeia", "chogath": "Chogath",
+        "corki": "Corki", "darius": "Darius", "diana": "Diana", "drmundo": "Dr. Mundo",
+        "draven": "Draven", "ekko": "Ekko", "elise": "Elise", "evelynn": "Evelynn",
+        "ezreal": "Ezreal", "fiddlesticks": "Fiddlesticks", "fiora": "Fiora",
+        "fizz": "Fizz", "galio": "Galio", "gangplank": "Gangplank", "garen": "Garen",
+        "gnar": "Gnar", "gragas": "Gragas", "graves": "Graves", "gwen": "Gwen",
+        "hecarim": "Hecarim", "heimerdinger": "Heimerdinger", "hwei": "Hwei",
+        "illaoi": "Illaoi", "irelia": "Irelia", "ivern": "Ivern", "janna": "Janna",
+        "jarvaniv": "Jarvan IV", "jax": "Jax", "jayce": "Jayce", "jhin": "Jhin",
+        "jinx": "Jinx", "kaisa": "Kaisa", "kalista": "Kalista", "karma": "Karma",
+        "karthus": "Karthus", "kassadin": "Kassadin", "katarina": "Katarina",
+        "kayle": "Kayle", "kayn": "Kayn", "kennen": "Kennen", "khazix": "KhaZix",
+        "kindred": "Kindred", "kled": "Kled", "kogmaw": "KogMaw", "ksante": "KSante",
+        "leblanc": "LeBlanc", "leesin": "Lee Sin", "leona": "Leona", "lillia": "Lillia",
+        "lissandra": "Lissandra", "lucian": "Lucian", "lulu": "Lulu", "lux": "Lux",
+        "malphite": "Malphite", "malzahar": "Malzahar", "maokai": "Maokai",
+        "masteryi": "Master Yi", "milio": "Milio", "missfortune": "Miss Fortune",
+        "mordekaiser": "Mordekaiser", "morgana": "Morgana", "naafiri": "Naafiri",
+        "nami": "Nami", "nasus": "Nasus", "nautilus": "Nautilus", "neeko": "Neeko",
+        "nidalee": "Nidalee", "nilah": "Nilah", "nocturne": "Nocturne",
+        "nunu": "Nunu & Willump", "olaf": "Olaf", "orianna": "Orianna", "ornn": "Ornn",
+        "pantheon": "Pantheon", "poppy": "Poppy", "pyke": "Pyke", "qiyana": "Qiyana",
+        "quinn": "Quinn", "rakan": "Rakan", "rammus": "Rammus", "reksai": "Reksai",
+        "rell": "Rell", "renataglasc": "Renata Glasc", "renekton": "Renekton",
+        "rengar": "Rengar", "riven": "Riven", "rumble": "Rumble", "ryze": "Ryze",
+        "samira": "Samira", "sejuani": "Sejuani", "senna": "Senna",
+        "seraphine": "Seraphine", "sett": "Sett", "shaco": "Shaco", "shen": "Shen",
+        "shyvana": "Shyvana", "singed": "Singed", "sion": "Sion", "sivir": "Sivir",
+        "skarner": "Skarner", "sona": "Sona", "soraka": "Soraka", "swain": "Swain",
+        "sylas": "Sylas", "syndra": "Syndra", "tahmkench": "Tahm Kench",
+        "taliyah": "Taliyah", "talon": "Talon", "taric": "Taric", "teemo": "Teemo",
+        "thresh": "Thresh", "tristana": "Tristana", "trundle": "Trundle",
+        "tryndamere": "Tryndamere", "twistedfate": "Twisted Fate", "twitch": "Twitch",
+        "udyr": "Udyr", "urgot": "Urgot", "varus": "Varus", "vayne": "Vayne",
+        "veigar": "Veigar", "velkoz": "VelKoz", "vex": "Vex", "vi": "Vi",
+        "viego": "Viego", "viktor": "Viktor", "vladimir": "Vladimir",
+        "volibear": "Volibear", "warwick": "Warwick", "monkeyking": "Wukong",
+        "xayah": "Xayah", "xerath": "Xerath", "xinzhao": "Xin Zhao", "yasuo": "Yasuo",
+        "yone": "Yone", "yorick": "Yorick", "yuumi": "Yuumi", "zac": "Zac",
+        "zed": "Zed", "zeri": "Zeri", "ziggs": "Ziggs", "zilean": "Zilean",
+        "zoe": "Zoe", "zyra": "Zyra"
+    }
+        
+    @classmethod
+    def normalize_champion_name(cls, name: str) -> str:
+        """Convert any champion name format to filename-safe version"""
+        # Reverse mapping lookup
+        inverse_mapping = {v.lower(): k for k, v in cls.CHAMPION_MAPPING.items()}
+        
+        # Normalize input
+        clean_name = name.strip().lower().replace("'", "").replace(" ", "").replace(".", "")
+        if clean_name in inverse_mapping:
+            return inverse_mapping[clean_name].title()
+        
+        # Fallback for unknown names
+        return name.title().replace("'", "").replace(" ", "").replace(".", "")
 
 class DraftAnalyst:
     def __init__(self, data_dir: str = "soloq_stats"):
@@ -31,36 +96,14 @@ class DraftAnalyst:
         self._train_model()
 
     def _init_role_data(self):
-        """Comprehensive role viability database"""
-        self.role_viability = {
-            'Top': ['Aatrox', 'Camille', 'Darius', 'Garen', 'Malphite', 'Shen', 'Kennen',
-                   'Fiora', 'Jax', 'Ornn', 'Gangplank', 'Mordekaiser', 'Sion', 'Yone',
-                   'Tryndamere', 'Illaoi', 'Riven', 'Gnar', 'Kayle', 'Sett', 'Urgot',
-                   'Vladimir', 'Yorick', 'ChoGath', 'Nasus', 'Tahm Kench', 'Poppy'],
-            
-            'Jungle': ['Lee Sin', 'Elise', 'Zac', 'Jarvan IV', 'Sejuani', 'Nocturne',
-                      'Viego', 'Hecarim', 'Xin Zhao', 'Kayn', 'RekSai', 'Ekko', 'Graves',
-                      'Nidalee', 'KhaZix', 'Evelynn', 'Rammus', 'Shyvana', 'Master Yi',
-                      'Warwick', 'Trundle', 'Volibear', 'Diana', 'Kindred', 'Fiddlesticks',
-                      'Ivern', 'Zed', 'Qiyana', 'Pantheon'],
-            
-            'Mid': ['Ahri', 'Syndra', 'Orianna', 'Zed', 'Yasuo', 'Azir', 'LeBlanc',
-                   'Viktor', 'Akshan', 'Qiyana', 'Akali', 'Corki', 'Lux', 'Veigar',
-                   'Katarina', 'Talon', 'Twisted Fate', 'Anivia', 'Ryze', 'Kassadin',
-                   'Malzahar', 'VelKoz', 'Xerath', 'Zoe', 'Vex', 'Galio', 'Jayce',
-                   'Aurelion Sol', 'Swain', 'Seraphine'],
-            
-            'ADC': ['Jinx', 'KogMaw', 'Vayne', 'Lucian', 'Draven', 'Ezreal', 'Zeri',
-                   'Samira', 'Xayah', 'Kaisa', 'Aphelios', 'Sivir', 'Varus', 'Twitch',
-                   'Ashe', 'Miss Fortune', 'Tristana', 'Kalista', 'Jhin', 'Caitlyn',
-                   'Karthus', 'Senna', 'Nilah', 'Yasuo', 'Swain', 'Seraphine'],
-            
-            'Support': ['Lulu', 'Thresh', 'Leona', 'Janna', 'Braum', 'Yuumi', 'Nami',
-                       'Renata', 'Bard', 'Pyke', 'Blitzcrank', 'Rakan', 'Alistar', 'Morgana',
-                       'Soraka', 'Senna', 'Taric', 'Sona', 'Zyra', 'Brand', 'VelKoz',
-                       'Xerath', 'Maokai', 'Pantheon', 'Swain', 'Seraphine', 'Ashe',
-                       'Shaco', 'Twitch']
-        }
+        """Load role viability from JSON file"""
+        try:
+            with open(f"{self.data_dir}/role_viability.json", 'r') as f:
+                self.role_viability = json.load(f)
+            logger.info("Loaded role viability data")
+        except Exception as e:
+            logger.error("Failed to load role data: %s", str(e))
+            raise
 
     def _init_synergy_data(self):
         """Role-based synergy matrix"""
@@ -146,7 +189,9 @@ class DraftAnalyst:
             
             for champ in self.global_stats['champion'].unique():
                 try:
-                    df = pd.read_csv(f"{self.data_dir}/matchups/{champ}.csv")
+                    # Use normalized name for file lookup
+                    normalized = Config.normalize_champion_name(champ)
+                    df = pd.read_csv(f"{self.data_dir}/matchups/{normalized}.csv")
                     self.matchup_data[champ] = df.set_index('opponent')['win_rate'].to_dict()
                 except FileNotFoundError:
                     continue
