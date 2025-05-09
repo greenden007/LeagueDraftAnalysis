@@ -1,4 +1,3 @@
-# File: agent.py
 import os
 from typing import List, Tuple, Dict
 from heuristic import DraftAnalyst
@@ -12,10 +11,9 @@ class DraftAgent:
         """
         self.side = side
         self.current_bans: List[str] = []
-        self.current_picks: List[Tuple[str, str, str]] = []  # (champion, role, team)
+        self.current_picks: List[Tuple[str, str, str]] = []  
         self.phase_history: List[str] = []
         
-        # Find the appropriate data directory
         if patch == "latest":
             self.data_dir = self._find_latest_patch()
         else:
@@ -73,23 +71,19 @@ class DraftAgent:
         """Convert suggestion dictionary to human-readable format"""
         output = []
         
-        # Draft score
         score = suggestion['draft_score']
         output.append(f"Current Draft Score: {score:.2f} ({'Favorable' if score > 0 else 'Unfavorable'})")
         
-        # Bans
         if suggestion['recommended_bans']:
             output.append("\nRecommended Bans:")
             output.extend([f"- {ban}" for ban in suggestion['recommended_bans']])
         
-        # Picks
         if suggestion['recommended_picks']:
             output.append("\nRecommended Picks:")
             for role, champs in suggestion['recommended_picks'].items():
                 output.append(f"{role}:")
                 output.extend([f"  - {champ}" for champ in champs[:3]])
                 
-        # Counters
         if suggestion['counters']:
             output.append("\nEnemy Counters:")
             for enemy, counters in suggestion['counters'].items():
