@@ -62,11 +62,15 @@ class DraftAgent:
             phase=self.phase_history[-1] if self.phase_history else "Ban 1"
         )
         
+        recs = analysis.get('recommendations', {})
+        bans = recs.get('bans', [])
+        picks = recs.get('picks', {})
+        counters = recs.get('counters', {})
         return {
-            'recommended_bans': analysis['recommendations']['bans'][:3],
-            'recommended_picks': analysis['recommendations']['picks'],
-            'counters': analysis['recommendations']['counters'],
-            'draft_score': analysis['score']
+            'recommended_bans': bans[:3],
+            'recommended_picks': picks,
+            'counters': counters,
+            'draft_score': analysis.get('score', 0)
         }
 
     def format_suggestion(self, suggestion: Dict) -> str:

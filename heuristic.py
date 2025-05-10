@@ -71,14 +71,10 @@ class Config:
     @classmethod
     def normalize_champion_name(cls, name: str) -> str:
         """Convert any champion name format to filename-safe version"""
-        # Reverse mapping lookup
-        inverse_mapping = {v.lower(): k for k, v in cls.CHAMPION_MAPPING.items()}
-        
-        # Normalize input
+        # Normalize input to mapping key
         clean_name = name.strip().lower().replace("'", "").replace(" ", "").replace(".", "")
-        if clean_name in inverse_mapping:
-            return inverse_mapping[clean_name].title()
-        
+        if clean_name in cls.CHAMPION_MAPPING:
+            return cls.CHAMPION_MAPPING[clean_name]
         # Fallback for unknown names
         return name.title().replace("'", "").replace(" ", "").replace(".", "")
 
@@ -87,18 +83,18 @@ class DraftAnalyst:
         self.data_dir = data_dir
         self.global_stats = None
         self.matchup_data = {}
+        self.scaler = MinMaxScaler(feature_range=(-1, 1))
         self._init_role_data()
         self._init_synergy_data()
         self._load_matchup_data()
         self.model = None
-        self.scaler = MinMaxScaler(feature_range=(-1, 1))
         self.phase_weights = self._init_phase_weights()
         self._train_model()
 
     def _init_role_data(self):
         """Load role viability from JSON file"""
         try:
-            with open(f"{self.data_dir}/role_viability.json", 'r') as f:
+            with open("role_viability.json", 'r') as f:
                 self.role_viability = json.load(f)
             logger.info("Loaded role viability data")
         except Exception as e:
@@ -183,9 +179,11 @@ class DraftAnalyst:
     def _load_matchup_data(self):
         try:
             self.global_stats = pd.read_csv(f"{self.data_dir}/global_stats.csv")
-            self.global_stats['meta_score'] = self.scaler.fit_transform(
+            # Scale win_rate and kda, then combine into single meta_score
+            scaled = self.scaler.fit_transform(
                 self.global_stats[['win_rate', 'kda']].values
             )
+            self.global_stats['meta_score'] = np.mean(scaled, axis=1)
             
             for champ in self.global_stats['champion'].unique():
                 try:
@@ -209,7 +207,9 @@ class DraftAnalyst:
 
     def _train_model(self):
         self.model = lgb.LGBMRegressor(num_leaves=31, learning_rate=0.05, n_estimators=100)
-        X = np.random.rand(1000, 10)
+        # Match feature dimension to number of components (phase_weights length)
+        dim = len(self.phase_weights)
+        X = np.random.rand(1000, dim)
         y = np.random.rand(1000) * 2 - 1
         self.model.fit(X, y)
 
@@ -270,7 +270,9 @@ class DraftAnalyst:
         return ally_meta - enemy_meta
 
     def _predict_future_strength(self, ally_picks: list, enemy_picks: list, phase: str) -> float:
-        remaining_phases = list(self.phase_weights.keys()).index(phase)
+        # Determine remaining phases index, default to 0 if unknown phase
+        phases = list(self.phase_weights.keys())
+        remaining_phases = phases.index(phase) if phase in phases else 0
         predicted_ally = self._predict_optimal_picks(ally_picks, enemy_picks, remaining_phases)
         predicted_enemy = self._predict_optimal_picks(enemy_picks, ally_picks, remaining_phases)
         return self._get_meta_score(predicted_ally) - self._get_meta_score(predicted_enemy)
@@ -304,9 +306,20 @@ class DraftAnalyst:
         return score / max(len(ally_picks)*len(enemy_picks), 1)
 
     def _ban_efficiency(self, bans: list, enemy_picks: list) -> float:
-        banned_meta = sum(1 for b in bans if b in self.global_stats['champion'].values)
-        banned_counters = sum(1 for b in bans if self._is_counter_to_team(b, enemy_picks))
-        return (banned_meta * 0.1) + (banned_counters * 0.2)
+        enemy_roles = [p[1] for p in enemy_picks]
+        candidates = []
+        
+        for role in set(enemy_roles):
+            role_champs = self.role_viability.get(role, [])
+            for c in role_champs:
+                counter_score = sum(
+                    self.matchup_data.get(c, {}).get(a[0], 50) - 50
+                    for a in enemy_picks
+                )
+                if counter_score > 20:
+                    candidates.append((c, counter_score))
+                    
+        return (len(candidates) * 0.1) + (sum(c[1] for c in candidates) * 0.2)
 
     def _role_viability_score(self, picks: list) -> float:
         valid = sum(1 for p in picks if p[0] in self.role_viability.get(p[1], []))
@@ -410,8 +423,3 @@ class DraftAnalyst:
             self.matchup_data.get(champion, {}).get(p[0], 50) > 55
             for p in picks
         )
-
-class Config:
-    @staticmethod
-    def normalize_champion_name(name: str) -> str:
-        return name.title().replace("'", "").replace(" ", "")

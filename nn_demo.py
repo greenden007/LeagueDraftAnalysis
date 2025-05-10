@@ -3,6 +3,7 @@ import torch
 import argparse
 import json
 from collections import defaultdict
+from heuristic_agent import DraftAgent
 
 # Load and normalize champion->roles mapping
 with open('champion_roles.json') as f:
@@ -64,6 +65,52 @@ def simulate_full(model, patch, blue_players, red_players, extra_bans=None):
     rem_blue = list(blue_players)
     rem_red = list(red_players)
     for event in EVENT_ORDER:
+        # Heuristic agent path
+        if isinstance(model, DraftAgent):
+            # build current bans and picks for heuristic
+            bans = state['blue_fs_bans'] + state['red_fs_bans'] + state['blue_ss_bans'] + state['red_ss_bans']
+            picks = [(p, roles_map_blue[player], 'blue') for p, player in zip(state['blue_picks'], state['blue_picks_players'])]
+            picks += [(p, roles_map_red[player], 'red') for p, player in zip(state['red_picks'], state['red_picks_players'])]
+            phase = 'Pick' if 'picks' in event else 'Ban'
+            model.update_draft_state(bans=bans, picks=picks, phase=phase)
+            suggestion = model.get_suggestion()
+            if 'bans' in event:
+                bans_list = suggestion.get('recommended_bans', [])
+                if bans_list:
+                    pick = bans_list[0]
+                else:
+                    # fallback to first unused champion
+                    pick = next((c for c, idx in champ2idx.items() if idx not in used_idxs), None)
+                selected_player = None
+            else:
+                recs = suggestion.get('recommended_picks', {})
+                pick = None; selected_player = None
+                # choose first role recommendation matching available players
+                for role in ROLES_ORDER:
+                    if recs.get(role):
+                        candidate = recs[role][0]
+                        pool = rem_blue if event.startswith('blue') else rem_red
+                        roles_map = roles_map_blue if event.startswith('blue') else roles_map_red
+                        # find player for this role
+                        for pl in list(pool):
+                            if roles_map[pl] == role:
+                                pick = candidate
+                                selected_player = pl
+                                pool.remove(pl)
+                                break
+                        if pick:
+                            break
+                # fallback to first unused champ if no recommendation
+                if not pick:
+                    pick = next((c for c, idx in champ2idx.items() if idx not in used_idxs), None)
+                    selected_player = None
+            idx = champ2idx.get(pick)
+            if idx is not None:
+                used_idxs.add(idx)
+            state[event].append(pick)
+            if selected_player:
+                state[event + '_players'].append(selected_player)
+            continue
         row = pd.Series(state)
         # bag-of-picks feature: champs already picked
         meta = meta_vectors[patch]
@@ -257,18 +304,50 @@ def simulate_matchups(num_simulations=500, series_lengths=[1,3,5]):
             'blue': {'picks': defaultdict(int), 'bans': defaultdict(int), 'wins': 0, 'game_wins': 0},
             'red': {'picks': defaultdict(int), 'bans': defaultdict(int), 'wins': 0, 'game_wins': 0}
         },
+        'MLP_vs_Heuristic': {
+            'blue': {'picks': defaultdict(int), 'bans': defaultdict(int), 'wins': 0, 'game_wins': 0},
+            'red': {'picks': defaultdict(int), 'bans': defaultdict(int), 'wins': 0, 'game_wins': 0}
+        },
+        'Heuristic_vs_MLP': {
+            'blue': {'picks': defaultdict(int), 'bans': defaultdict(int), 'wins': 0, 'game_wins': 0},
+            'red': {'picks': defaultdict(int), 'bans': defaultdict(int), 'wins': 0, 'game_wins': 0}
+        },
+        'RNN_vs_Heuristic': {
+            'blue': {'picks': defaultdict(int), 'bans': defaultdict(int), 'wins': 0, 'game_wins': 0},
+            'red': {'picks': defaultdict(int), 'bans': defaultdict(int), 'wins': 0, 'game_wins': 0}
+        },
+        'Heuristic_vs_RNN': {
+            'blue': {'picks': defaultdict(int), 'bans': defaultdict(int), 'wins': 0, 'game_wins': 0},
+            'red': {'picks': defaultdict(int), 'bans': defaultdict(int), 'wins': 0, 'game_wins': 0}
+        },
+        'Heuristic_vs_Heuristic': {
+            'blue': {'picks': defaultdict(int), 'bans': defaultdict(int), 'wins': 0, 'game_wins': 0},
+            'red': {'picks': defaultdict(int), 'bans': defaultdict(int), 'wins': 0, 'game_wins': 0}
+        },
         'series_results': {length: {
             'MLP_vs_MLP': {'blue': 0, 'red': 0},
             'MLP_vs_RNN': {'blue': 0, 'red': 0},
             'RNN_vs_MLP': {'blue': 0, 'red': 0},
-            'RNN_vs_RNN': {'blue': 0, 'red': 0}
+            'RNN_vs_RNN': {'blue': 0, 'red': 0},
+            'MLP_vs_Heuristic': {'blue': 0, 'red': 0},
+            'Heuristic_vs_MLP': {'blue': 0, 'red': 0},
+            'RNN_vs_Heuristic': {'blue': 0, 'red': 0},
+            'Heuristic_vs_RNN': {'blue': 0, 'red': 0},
+            'Heuristic_vs_Heuristic': {'blue': 0, 'red': 0}
         } for length in series_lengths},
         'draft_sequences': {
             'MLP_vs_MLP': [],
             'MLP_vs_RNN': [],
             'RNN_vs_MLP': [],
-            'RNN_vs_RNN': []
-        }
+            'RNN_vs_RNN': [],
+            'MLP_vs_Heuristic': [],
+            'Heuristic_vs_MLP': [],
+            'RNN_vs_Heuristic': [],
+            'Heuristic_vs_RNN': [],
+            'Heuristic_vs_Heuristic': []
+        },
+        # Initialize per-series-length game win breakdown
+        'series_game_breakdown': {length: [] for length in series_lengths}
     }
 
     # Sample players for simulations
@@ -278,12 +357,37 @@ def simulate_matchups(num_simulations=500, series_lengths=[1,3,5]):
     # Run simulations
     for _ in range(num_simulations):
         # Run individual games
-        for matchup in ['MLP_vs_MLP', 'MLP_vs_RNN', 'RNN_vs_MLP', 'RNN_vs_RNN']:
-            model1 = mlp if 'MLP' in matchup.split('_')[0] else rnn
-            model2 = mlp if 'MLP' in matchup.split('_')[2] else rnn
-            
+        all_matchups = [
+            'MLP_vs_MLP', 'MLP_vs_RNN', 'RNN_vs_MLP', 'RNN_vs_RNN',
+            'MLP_vs_Heuristic', 'Heuristic_vs_MLP', 'RNN_vs_Heuristic', 'Heuristic_vs_RNN', 'Heuristic_vs_Heuristic'
+        ]
+        for matchup in all_matchups:
+            # Determine agent types
+            blue_agent = None
+            red_agent = None
+            if matchup.startswith('MLP_vs_'):
+                blue_agent = mlp
+            elif matchup.startswith('RNN_vs_'):
+                blue_agent = rnn
+            elif matchup.startswith('Heuristic_vs_'):
+                blue_agent = DraftAgent(side='blue', patch='25.5')
+            if matchup.endswith('_vs_MLP'):
+                red_agent = mlp
+            elif matchup.endswith('_vs_RNN'):
+                red_agent = rnn
+            elif matchup.endswith('_vs_Heuristic'):
+                red_agent = DraftAgent(side='red', patch='25.5')
+            # Heuristic vs Heuristic
+            if matchup == 'Heuristic_vs_Heuristic':
+                blue_agent = DraftAgent(side='blue', patch='25.5')
+                red_agent = DraftAgent(side='red', patch='25.5')
+            # Fallback to mlp/rnn if not set
+            if blue_agent is None:
+                blue_agent = mlp
+            if red_agent is None:
+                red_agent = rnn
             # Run single game
-            state = simulate_full(model1, 13.10, blue_players, red_players)
+            state = simulate_full(blue_agent, 13.10, blue_players, red_players)
             winner = predict_winner(state)
             results[matchup][winner]['wins'] += 1
             for champ in state['blue_picks']:
@@ -293,13 +397,32 @@ def simulate_matchups(num_simulations=500, series_lengths=[1,3,5]):
 
         # Run series simulations
         for length in series_lengths:
-            for matchup in ['MLP_vs_MLP', 'MLP_vs_RNN', 'RNN_vs_MLP', 'RNN_vs_RNN']:
-                model1 = mlp if 'MLP' in matchup.split('_')[0] else rnn
-                model2 = mlp if 'MLP' in matchup.split('_')[2] else rnn
-                
+            for matchup in all_matchups:
+                # Determine agent types
+                blue_agent = None
+                red_agent = None
+                if matchup.startswith('MLP_vs_'):
+                    blue_agent = mlp
+                elif matchup.startswith('RNN_vs_'):
+                    blue_agent = rnn
+                elif matchup.startswith('Heuristic_vs_'):
+                    blue_agent = DraftAgent(side='blue', patch='25.5')
+                if matchup.endswith('_vs_MLP'):
+                    red_agent = mlp
+                elif matchup.endswith('_vs_RNN'):
+                    red_agent = rnn
+                elif matchup.endswith('_vs_Heuristic'):
+                    red_agent = DraftAgent(side='red', patch='25.5')
+                if matchup == 'Heuristic_vs_Heuristic':
+                    blue_agent = DraftAgent(side='blue', patch='25.5')
+                    red_agent = DraftAgent(side='red', patch='25.5')
+                if blue_agent is None:
+                    blue_agent = mlp
+                if red_agent is None:
+                    red_agent = rnn
                 # Run series with proper ban carryover and track individual games
                 series_bans = []
-                series_result = simulate_series(model1, 13.10, blue_players, red_players, best_of=length)
+                series_result = simulate_series(blue_agent, 13.10, blue_players, red_players, best_of=length)
                 series_states = series_result[0]  # List of game states
                 wins = series_result[1]  # Wins count
                 
@@ -347,6 +470,16 @@ def simulate_matchups(num_simulations=500, series_lengths=[1,3,5]):
                 # Determine series winner
                 series_winner = 'blue' if wins['blue'] > wins['red'] else 'red'
                 results['series_results'][length][matchup][series_winner] += 1
+                
+                # Record this series' winner sequence as model names
+                series_winners = []
+                for gs in series_states:
+                    side = predict_winner(gs)
+                    model_name = matchup.split('_vs_')[0] if side == 'blue' else matchup.split('_vs_')[1]
+                    if model_name == 'Heuristic':
+                        model_name = 'HSTC'
+                    series_winners.append(model_name)
+                results['series_game_breakdown'][length].append(series_winners)
 
     return results
 
@@ -378,17 +511,61 @@ if __name__ == "__main__":
                         print(f"  {matchup_type}:")
                         print(f"    Blue wins: {matchup_data['blue']}")
                         print(f"    Red wins: {matchup_data['red']}")
+            elif matchup == 'series_game_breakdown' or matchup == 'draft_sequences':
+                # skip breakdown keys
+                continue
             else:
+                blue_model, red_model = matchup.split('_vs_')
                 print(f"{matchup}:")
-                print(f"  Blue wins: {data['blue']['wins']}")
-                print(f"  Red wins: {data['red']['wins']}")
+                print(f"  {blue_model} wins: {data['blue']['wins']} (Game wins: {data['blue']['game_wins']})")
+                print(f"  {red_model} wins: {data['red']['wins']} (Game wins: {data['red']['game_wins']})")
                 print("  Top 5 picks for each team:")
                 for team, team_data in data.items():
                     print(f"    {team} team:")
+                    
+                    # Print top picks
+                    print("      Top picks:")
                     top_picks = sorted(team_data['picks'].items(), key=lambda x: x[1], reverse=True)[:5]
                     for champ, count in top_picks:
-                        print(f"      {champ}: {count} picks")
+                        print(f"        {champ}: {count} picks")
+                    
+                    # Print top bans
+                    print("      Top bans:")
+                    top_bans = sorted(team_data['bans'].items(), key=lambda x: x[1], reverse=True)[:5]
+                    for champ, count in top_bans:
+                        print(f"        {champ}: {count} bans")
+            
+                # Print sample draft sequence
+                if results['draft_sequences'][matchup]:
+                    print("\n  Sample Draft Sequence:")
+                    sample_draft = results['draft_sequences'][matchup][0]  # Show first draft sequence
+                    print("    Blue Team:")
+                    print(f"      First String Bans: {sample_draft['blue']['fs_bans']}")
+                    print(f"      Second String Bans: {sample_draft['blue']['ss_bans']}")
+                    print(f"      Picks: {sample_draft['blue']['picks']}")
+                    print("    Red Team:")
+                    print(f"      First String Bans: {sample_draft['red']['fs_bans']}")
+                    print(f"      Second String Bans: {sample_draft['red']['ss_bans']}")
+                    print(f"      Picks: {sample_draft['red']['picks']}")
                 print()
+        
+        # Handle series results
+        print("\nSeries Results:")
+        for length in results['series_results']:
+            print(f"\nBest-of-{length}:")
+            for matchup in ['MLP_vs_MLP', 'MLP_vs_RNN', 'RNN_vs_MLP', 'RNN_vs_RNN',
+                            'MLP_vs_Heuristic', 'Heuristic_vs_MLP', 'RNN_vs_Heuristic', 'Heuristic_vs_RNN', 'Heuristic_vs_Heuristic']:
+                print(f"  {matchup}:")
+                print(f"    Blue wins: {results['series_results'][length][matchup]['blue']}")
+                print(f"    Red wins: {results['series_results'][length][matchup]['red']}")
+        
+        # Print series_game_breakdown
+        if 'series_game_breakdown' in results:
+            print("\nSeries Game Winner Sequences:")
+            for length, sequences in results['series_game_breakdown'].items():
+                print(f"Best-of-{length}:")
+                for seq in sequences:
+                    print(f"  {seq}")
     else:
         run(best_of=args.best_of)
     args = parser.parse_args()
@@ -400,23 +577,25 @@ if __name__ == "__main__":
     if args.matchups:
         print("Matchup Simulation Results:\n")
         # Handle non-series results
-        for matchup in ['MLP_vs_MLP', 'MLP_vs_RNN', 'RNN_vs_MLP', 'RNN_vs_RNN']:
+        for matchup in ['MLP_vs_MLP', 'MLP_vs_RNN', 'RNN_vs_MLP', 'RNN_vs_RNN',
+                        'MLP_vs_Heuristic', 'Heuristic_vs_MLP', 'RNN_vs_Heuristic', 'Heuristic_vs_RNN', 'Heuristic_vs_Heuristic']:
+            blue_model, red_model = matchup.split('_vs_')
             print(f"{matchup}:")
-            print(f"  Blue wins: {results[matchup]['blue']['wins']} (Game wins: {results[matchup]['blue']['game_wins']})")
-            print(f"  Red wins: {results[matchup]['red']['wins']} (Game wins: {results[matchup]['red']['game_wins']})")
+            print(f"  {blue_model} wins: {results[matchup]['blue']['wins']} (Game wins: {results[matchup]['blue']['game_wins']})")
+            print(f"  {red_model} wins: {results[matchup]['red']['wins']} (Game wins: {results[matchup]['red']['game_wins']})")
             print("  Top 5 picks for each team:")
-            for team in ['blue', 'red']:
+            for team, team_data in results[matchup].items():
                 print(f"    {team} team:")
                 
                 # Print top picks
                 print("      Top picks:")
-                top_picks = sorted(results[matchup][team]['picks'].items(), key=lambda x: x[1], reverse=True)[:5]
+                top_picks = sorted(team_data['picks'].items(), key=lambda x: x[1], reverse=True)[:5]
                 for champ, count in top_picks:
                     print(f"        {champ}: {count} picks")
                 
                 # Print top bans
                 print("      Top bans:")
-                top_bans = sorted(results[matchup][team]['bans'].items(), key=lambda x: x[1], reverse=True)[:5]
+                top_bans = sorted(team_data['bans'].items(), key=lambda x: x[1], reverse=True)[:5]
                 for champ, count in top_bans:
                     print(f"        {champ}: {count} bans")
             
@@ -438,10 +617,19 @@ if __name__ == "__main__":
         print("\nSeries Results:")
         for length in results['series_results']:
             print(f"\nBest-of-{length}:")
-            for matchup in ['MLP_vs_MLP', 'MLP_vs_RNN', 'RNN_vs_MLP', 'RNN_vs_RNN']:
+            for matchup in ['MLP_vs_MLP', 'MLP_vs_RNN', 'RNN_vs_MLP', 'RNN_vs_RNN',
+                            'MLP_vs_Heuristic', 'Heuristic_vs_MLP', 'RNN_vs_Heuristic', 'Heuristic_vs_RNN', 'Heuristic_vs_Heuristic']:
                 print(f"  {matchup}:")
                 print(f"    Blue wins: {results['series_results'][length][matchup]['blue']}")
                 print(f"    Red wins: {results['series_results'][length][matchup]['red']}")
+        
+        # Print series_game_breakdown
+        if 'series_game_breakdown' in results:
+            print("\nSeries Game Winner Sequences:")
+            for length, sequences in results['series_game_breakdown'].items():
+                print(f"Best-of-{length}:")
+                for seq in sequences:
+                    print(f"  {seq}")
     else:
         run(best_of=args.best_of)
     args = parser.parse_args()
