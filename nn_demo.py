@@ -481,6 +481,22 @@ def simulate_matchups(num_simulations=500, series_lengths=[1,3,5]):
                     series_winners.append(model_name)
                 results['series_game_breakdown'][length].append(series_winners)
 
+    # Count most common champion picks by model type
+    model_picks = {
+        'MLP': defaultdict(int),
+        'RNN': defaultdict(int),
+        'Heuristic': defaultdict(int)
+    }
+    for matchup, data in results.items():
+        if matchup in ['series_results','draft_sequences','series_game_breakdown']:
+            continue
+        blue_model, red_model = matchup.split('_vs_')
+        for champ, cnt in data['blue']['picks'].items():
+            model_picks[blue_model][champ] += cnt
+        for champ, cnt in data['red']['picks'].items():
+            model_picks[red_model][champ] += cnt
+    results['model_picks'] = { model: dict(picks) for model, picks in model_picks.items() }
+    
     return results
 
 if __name__ == "__main__":
