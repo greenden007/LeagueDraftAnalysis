@@ -3,16 +3,20 @@
     "Top"
   ],
   "Camille": [
-    "Top"
+    "Top",
+    "Support"
   ],
   "Cho'Gath": [
-    "Top"
+    "Top",
+    "Mid"
   ],
   "Darius": [
-    "Top"
+    "Top",
+    "Jungle"
   ],
   "Dr. Mundo": [
-    "Top"
+    "Top",
+    "Jungle"
   ],
   "Fiora": [
     "Top"
@@ -26,10 +30,12 @@
   "Gragas": [
     "Top",
     "Jungle",
-    "Mid"
+    "Mid",
+    "Support"
   ],
   "Gwen": [
-    "Top"
+    "Top",
+    "Jungle"
   ],
   "Illaoi": [
     "Top"
@@ -50,17 +56,20 @@
     "Top"
   ],
   "Kayle": [
-    "Top"
+    "Top",
+    "Mid"
   ],
   "Kennen": [
     "Top"
   ],
   "Malphite": [
-    "Top"
+    "Top",
+    "Support"
   ],
   "Maokai": [
     "Top",
-    "Jungle"
+    "Jungle",
+    "Support"
   ],
   "Mordekaiser": [
     "Top"
@@ -74,11 +83,13 @@
   "Pantheon": [
     "Top",
     "Mid",
-    "Support"
+    "Support",
+    "Jungle"
   ],
   "Poppy": [
     "Top",
-    "Jungle"
+    "Jungle",
+    "Support"
   ],
   "Quinn": [
     "Top"
@@ -93,34 +104,39 @@
     "Top"
   ],
   "Shen": [
-    "Top"
+    "Top",
+    "Support"
   ],
   "Singed": [
     "Top"
   ],
   "Sion": [
-    "Top"
+    "Top",
+    "Mid"
   ],
   "Tahm Kench": [
     "Top",
     "Support"
   ],
   "Teemo": [
-    "Top"
+    "Top",
+    "Support"
   ],
   "Trundle": [
     "Top",
     "Jungle"
   ],
   "Tryndamere": [
-    "Top"
+    "Top",
+    "Jungle"
   ],
   "Urgot": [
     "Top"
   ],
   "Volibear": [
     "Top",
-    "Jungle"
+    "Jungle",
+    "Support"
   ],
   "Warwick": [
     "Top",
@@ -131,7 +147,8 @@
     "Jungle"
   ],
   "Yorick": [
-    "Top"
+    "Top",
+    "Jungle"
   ],
   "Yone": [
     "Top",
@@ -156,13 +173,17 @@
     "Mid"
   ],
   "Elise": [
-    "Jungle"
+    "Jungle",
+    "Support"
   ],
   "Evelynn": [
     "Jungle"
   ],
   "Fiddlesticks": [
-    "Jungle"
+    "Jungle",
+    "Top",
+    "Support",
+    "Mid"
   ],
   "Hecarim": [
     "Jungle"
@@ -174,10 +195,12 @@
     "Jungle"
   ],
   "Karthus": [
-    "Jungle"
+    "Jungle",
+    "Support"
   ],
   "Kayn": [
-    "Jungle"
+    "Jungle",
+    "Top"
   ],
   "Kindred": [
     "Jungle"
@@ -186,16 +209,19 @@
     "Jungle"
   ],
   "Lee Sin": [
-    "Jungle"
+    "Jungle",
+    "Support"
   ],
   "Lillia": [
     "Jungle"
   ],
   "Master Yi": [
-    "Jungle"
+    "Jungle",
+    "Mid"
   ],
   "Nidalee": [
-    "Jungle"
+    "Jungle",
+    "Top"
   ],
   "Nocturne": [
     "Jungle"
@@ -216,7 +242,8 @@
     "Jungle"
   ],
   "Shaco": [
-    "Jungle"
+    "Jungle",
+    "Support"
   ],
   "Shyvana": [
     "Jungle"
@@ -244,10 +271,12 @@
     "Mid"
   ],
   "Akali": [
-    "Mid"
+    "Mid",
+    "Top"
   ],
   "Anivia": [
-    "Mid"
+    "Mid",
+    "Top"
   ],
   "Annie": [
     "Mid"
@@ -260,19 +289,23 @@
   ],
   "Brand": [
     "Mid",
-    "Support"
+    "Support",
+    "Jungle"
   ],
   "Cassiopeia": [
     "Mid"
   ],
   "Corki": [
-    "Mid"
+    "Mid",
+    "ADC"
   ],
   "Fizz": [
     "Mid"
   ],
   "Galio": [
-    "Mid"
+    "Mid",
+    "Top",
+    "Support"
   ],
   "Karma": [
     "Mid",
@@ -285,23 +318,28 @@
     "Mid"
   ],
   "LeBlanc": [
-    "Mid"
+    "Mid",
+    "Support"
   ],
   "Lissandra": [
     "Mid"
   ],
   "Lux": [
     "Mid",
-    "Support"
+    "Support",
+    "ADC"
   ],
   "Malzahar": [
-    "Mid"
+    "Mid",
+    "Top"
   ],
   "Naafiri": [
-    "Mid"
+    "Mid",
+    "Jungle"
   ],
   "Neeko": [
-    "Mid"
+    "Mid",
+    "Support"
   ],
   "Orianna": [
     "Mid"
@@ -310,7 +348,8 @@
     "Mid"
   ],
   "Ryze": [
-    "Mid"
+    "Mid",
+    "Top"
   ],
   "Seraphine": [
     "Mid",
@@ -318,16 +357,20 @@
   ],
   "Swain": [
     "Mid",
-    "Support"
+    "Support",
+    "Top"
   ],
   "Sylas": [
-    "Mid"
+    "Mid",
+    "Top",
+    "Jungle"
   ],
   "Syndra": [
     "Mid"
   ],
   "Talon": [
-    "Mid"
+    "Mid",
+    "Jungle"
   ],
   "Tristana": [
     "Mid",
@@ -350,17 +393,20 @@
     "Mid"
   ],
   "Vladimir": [
-    "Mid"
+    "Mid",
+    "Top"
   ],
   "Xerath": [
     "Mid",
     "Support"
   ],
   "Yasuo": [
-    "Mid"
+    "Mid",
+    "Top"
   ],
   "Zed": [
-    "Mid"
+    "Mid",
+    "Top"
   ],
   "Zoe": [
     "Mid"
@@ -418,7 +464,8 @@
     "ADC"
   ],
   "Varus": [
-    "ADC"
+    "ADC",
+    "Top"
   ],
   "Vayne": [
     "ADC"
@@ -442,7 +489,9 @@
     "Support"
   ],
   "Heimerdinger": [
-    "Support"
+    "Support",
+    "Mid",
+    "Top"
   ],
   "Janna": [
     "Support"
@@ -457,13 +506,15 @@
     "Support"
   ],
   "Morgana": [
-    "Support"
+    "Support",
+    "Jungle"
   ],
   "Nami": [
     "Support"
   ],
   "Nautilus": [
-    "Support"
+    "Support",
+    "Top"
   ],
   "Pyke": [
     "Support"
