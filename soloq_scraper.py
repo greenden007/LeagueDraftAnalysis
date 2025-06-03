@@ -809,6 +809,9 @@ class LeagueScraper:
         logger.info(f"📡 API requests: {self.api.total_requests}")
         logger.info(f"❌ Failed requests: {self.api.failed_requests}")
         logger.info(f"🏁 Script completed")
+        logger.info(f"")
+        logger.info(f"---------------------")
+        logger.info(f"")
 
 # ========================
 # Logging Setup
