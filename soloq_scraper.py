@@ -186,33 +186,31 @@ class Config:
 # ========================
 class ChampionStats:
     def __init__(self):
-        self.games = 0
-        self.wins = 0
-        self.kills = 0
-        self.deaths = 0
-        self.assists = 0
-        self.matchups = defaultdict(lambda: {
+        self.roles = defaultdict(lambda: {
             "games": 0, "wins": 0, "kills": 0, "deaths": 0, "assists": 0
         })
-        self.roles = set()
+        self.matchups = defaultdict(lambda: defaultdict(lambda: {
+            "games": 0, "wins": 0, "kills": 0, "deaths": 0, "assists": 0
+        }))
 
     def add_game(self, win: bool, kills: int, deaths: int, assists: int, 
-                 opponent: Optional[str] = None, role: Optional[str] = None):
-        self.games += 1
-        self.wins += int(win)
-        self.kills += kills
-        self.deaths += deaths
-        self.assists += assists
-        if role:
-            self.roles.add(role)
+                 role: str, opponent: Optional[str] = None):
+        
+        role_stats = self.roles[role]
+        role_stats["games"] += 1
+        role_stats["wins"] += int(win)
+        role_stats["kills"] += kills
+        role_stats["deaths"] += deaths
+        role_stats["assists"] += assists
         
         if opponent:
             opponent = Config.normalize_champion_name(opponent)
-            self.matchups[opponent]["games"] += 1
-            self.matchups[opponent]["wins"] += int(win)
-            self.matchups[opponent]["kills"] += kills
-            self.matchups[opponent]["deaths"] += deaths
-            self.matchups[opponent]["assists"] += assists
+            matchup = self.matchups[role][opponent]
+            matchup["games"] += 1
+            matchup["wins"] += int(win)
+            matchup["kills"] += kills
+            matchup["deaths"] += deaths
+            matchup["assists"] += assists
 
 class SynergyStats:
     def __init__(self):
@@ -368,35 +366,43 @@ class DataStore:
         self.load_existing_data()
     
     def load_existing_data(self):
-        # Load global stats
-        global_path = os.path.join(Config.BASE_OUTPUT_DIR, "global_stats.csv")
-        if os.path.exists(global_path):
-            df = pd.read_csv(global_path)
-            for _, row in df.iterrows():
-                champ = row['champion']
-                stats = self.global_stats[champ]
-                stats.games = row['games']
-                stats.wins = row['wins']
-                stats.kills = row['kills']
-                stats.deaths = row['deaths']
-                stats.assists = row['assists']
-        
-        # Load matchups
-        matchup_dir = os.path.join(Config.BASE_OUTPUT_DIR, "matchups")
-        if os.path.exists(matchup_dir):
-            for file in os.listdir(matchup_dir):
+        # Load global stats per role
+        global_dir = os.path.join(Config.BASE_OUTPUT_DIR, "global_stats")
+        if os.path.exists(global_dir):
+            for file in os.listdir(global_dir):
                 if file.endswith('.csv'):
-                    champ = file.replace('.csv', '')
-                    df = pd.read_csv(os.path.join(matchup_dir, file))
+                    role = file.replace('.csv', '')
+                    df = pd.read_csv(os.path.join(global_dir, file))
                     for _, row in df.iterrows():
-                        opponent = row['opponent']
-                        self.global_stats[champ].matchups[opponent] = {
+                        champ = row['champion']
+                        stats = self.global_stats[champ]
+                        stats.roles[role] = {
                             "games": row['games'],
                             "wins": row['wins'],
                             "kills": row['kills'],
                             "deaths": row['deaths'],
                             "assists": row['assists']
                         }
+        
+        # Load matchups per champion per role
+        matchup_dir = os.path.join(Config.BASE_OUTPUT_DIR, "matchups")
+        if os.path.exists(matchup_dir):
+            for champ_folder in os.listdir(matchup_dir):
+                champ_dir = os.path.join(matchup_dir, champ_folder)
+                if os.path.isdir(champ_dir):
+                    for file in os.listdir(champ_dir):
+                        if file.endswith('.csv'):
+                            role = file.replace('.csv', '')
+                            df = pd.read_csv(os.path.join(champ_dir, file))
+                            for _, row in df.iterrows():
+                                opponent = row['opponent']
+                                self.global_stats[champ_folder].matchups[role][opponent] = {
+                                    "games": row['games'],
+                                    "wins": row['wins'],
+                                    "kills": row['kills'],
+                                    "deaths": row['deaths'],
+                                    "assists": row['assists']
+                                }
         
         # Load synergies
         synergy_dir = os.path.join(Config.BASE_OUTPUT_DIR, "synergies")
@@ -417,60 +423,73 @@ class DataStore:
                         self.synergies[combo][key] = stats
     
     def save_data(self):
-        # Save global stats
-        global_stats = []
-        for champ, stats in self.global_stats.items():
-            if stats.games > 0:
-                global_stats.append({
-                    "champion": champ,
-                    "games": stats.games,
-                    "wins": stats.wins,
-                    "kills": stats.kills,
-                    "deaths": stats.deaths,
-                    "assists": stats.assists,
-                    "win_rate": round((stats.wins / stats.games) * 100, 2),
-                    "kda": round((stats.kills + stats.assists) / max(1, stats.deaths), 2),
-                    "avg_kills": round(stats.kills / stats.games, 2),
-                    "avg_deaths": round(stats.deaths / stats.games, 2),
-                    "avg_assists": round(stats.assists / stats.games, 2)
-                })
-        if global_stats:
-            pd.DataFrame(global_stats).to_csv(
-                os.path.join(Config.BASE_OUTPUT_DIR, "global_stats.csv"), 
-                index=False
-            )
         
-        # Save matchups
+        # Create output directories
+        global_dir = os.path.join(Config.BASE_OUTPUT_DIR, "global_stats")
         matchup_dir = os.path.join(Config.BASE_OUTPUT_DIR, "matchups")
+        synergy_dir = os.path.join(Config.BASE_OUTPUT_DIR, "synergies")
+        os.makedirs(global_dir, exist_ok=True)
         os.makedirs(matchup_dir, exist_ok=True)
-        for champ, stats in self.global_stats.items():
-            if stats.games < Config.MIN_GAMES_THRESHOLD:
-                continue
-            matchups = []
-            for opponent, data in stats.matchups.items():
-                if data["games"] > 0:
-                    matchups.append({
-                        "opponent": opponent,
-                        "games": data["games"],
-                        "wins": data["wins"],
-                        "kills": data["kills"],
-                        "deaths": data["deaths"],
-                        "assists": data["assists"],
-                        "win_rate": round((data["wins"] / data["games"]) * 100, 2),
-                        "kda": round((data["kills"] + data["assists"]) / max(1, data["deaths"]), 2),
-                        "avg_kills": round(data["kills"] / data["games"], 2),
-                        "avg_deaths": round(data["deaths"] / data["games"], 2),
-                        "avg_assists": round(data["assists"] / data["games"], 2)
+        os.makedirs(synergy_dir, exist_ok=True)
+
+        # Save global stats per role
+        for role in ["Top", "Jungle", "Mid", "ADC", "Support"]:
+            role_stats = []
+            for champ, stats in self.global_stats.items():
+                role_data = stats.roles.get(role, {})
+                if role_data.get("games", 0) > 0:
+                    games = role_data["games"]
+                    wins = role_data["wins"]
+                    role_stats.append({
+                        "champion": champ,
+                        "games": games,
+                        "wins": wins,
+                        "kills": role_data["kills"],
+                        "deaths": role_data["deaths"],
+                        "assists": role_data["assists"],
+                        "win_rate": round((wins / games) * 100, 2) if games > 0 else 0,
+                        "kda": round((role_data["kills"] + role_data["assists"]) / max(1, role_data["deaths"]), 2),
+                        "avg_kills": round(role_data["kills"] / games, 2),
+                        "avg_deaths": round(role_data["deaths"] / games, 2),
+                        "avg_assists": round(role_data["assists"] / games, 2)
                     })
-            if matchups:
-                pd.DataFrame(matchups).to_csv(
-                    os.path.join(matchup_dir, f"{champ}.csv"), 
+            
+            if role_stats:
+                pd.DataFrame(role_stats).to_csv(
+                    os.path.join(global_dir, f"{role}.csv"), 
                     index=False
                 )
         
+        # Save matchups per champion per role
+        for champ, stats in self.global_stats.items():
+            champ_dir = os.path.join(matchup_dir, champ)
+            os.makedirs(champ_dir, exist_ok=True)
+            
+            for role, matchups in stats.matchups.items():
+                matchup_data = []
+                for opponent, data in matchups.items():
+                    if data["games"] > 0:
+                        matchup_data.append({
+                            "opponent": opponent,
+                            "games": data["games"],
+                            "wins": data["wins"],
+                            "kills": data["kills"],
+                            "deaths": data["deaths"],
+                            "assists": data["assists"],
+                            "win_rate": round((data["wins"] / data["games"]) * 100, 2),
+                            "kda": round((data["kills"] + data["assists"]) / max(1, data["deaths"]), 2),
+                            "avg_kills": round(data["kills"] / data["games"], 2),
+                            "avg_deaths": round(data["deaths"] / data["games"], 2),
+                            "avg_assists": round(data["assists"] / data["games"], 2)
+                        })
+                
+                if matchup_data:
+                    pd.DataFrame(matchup_data).to_csv(
+                        os.path.join(champ_dir, f"{role}.csv"), 
+                        index=False
+                    )
+        
         # Save synergies
-        synergy_dir = os.path.join(Config.BASE_OUTPUT_DIR, "synergies")
-        os.makedirs(synergy_dir, exist_ok=True)
         for combo, stats_dict in self.synergies.items():
             synergies = []
             for champs, stats in stats_dict.items():
@@ -501,15 +520,23 @@ class DataStore:
         # Save champion roles
         champion_roles = {}
         for champ, stats in self.global_stats.items():
-            if stats.games > 0 and stats.roles:
-                champion_roles[champ] = sorted(stats.roles)
-        with open("champion_roles.json", "w") as f:
-            json.dump(champion_roles, f, indent=2)
+            if any(role_data.get("games", 0) > 0 for role_data in stats.roles.values()):
+                roles_played = [role for role, role_data in stats.roles.items() 
+                                if role_data.get("games", 0) > 0]
+                if roles_played:
+                    champion_roles[champ] = sorted(roles_played)
+        
+        if champion_roles:
+            with open("champion_roles.json", "w") as f:
+                json.dump(champion_roles, f, indent=2)
 
 
 
 # ========================
 # Patch Tracker
+# ========================
+# ========================
+# Patch Tracker (with match ID tracking)
 # ========================
 class PatchTracker:
     def __init__(self):
@@ -546,7 +573,7 @@ class PatchTracker:
         with open(self.file_path, "w") as f:
             json.dump(data, f, indent=2)
     
-    def update_target_patches(self, current_patch: str):
+    def update_target_patches(self, current_patch: str) -> List[str]:
         try:
             year_str, patch_num_str = current_patch.split('.')
             current_year = int(year_str)
@@ -592,6 +619,16 @@ class PatchTracker:
         
         return self.target_patches
 
+    def add_processed_match(self, match_id: str, patch: str):
+        if match_id in self.all_processed_match_ids:
+            logger.warning(f"⚠️ Attempted to add duplicate match: {match_id}")
+            return
+            
+        self.processed_match_ids[patch].add(match_id)
+        self.all_processed_match_ids.add(match_id)
+        self.scraped_counts[patch] += 1
+        logger.debug(f"➕ Added match {match_id[:8]} for patch {patch}")
+
 
 # ========================
 # Main Scraper
@@ -608,7 +645,10 @@ class LeagueScraper:
         self.processed_players = 0
         self.skipped_players = 0
         self.failed_summoner_lookups = 0
-
+        self.processed_match_ids = set()  # Track processed match IDs in memory
+        self.processed_players_for_match = defaultdict(set)
+        self.new_matches_this_run = 0
+        
         logger.info(f"🎯 Target patches: {', '.join(self.target_patches)}")
 
     def run(self) -> None:
@@ -672,34 +712,50 @@ class LeagueScraper:
             return (False, f"No matches for {summoner_id[:6]}")
 
         valid_matches = []
+        new_entries = 0
+        duplicate_entries = 0
+        invalid_patch = 0
+        new_matches = 0
+        
         for match_id in match_ids[:Config.MAX_MATCHES_PER_PLAYER]:
-            if match_id in self.patch_tracker.all_processed_match_ids:
+            # Check if we've already processed this player for this match
+            if puuid in self.processed_players_for_match[match_id]:
+                duplicate_entries += 1
                 continue
                 
             match = self.api.get_match_details(match_id, region)
             if not match:
                 continue
                 
-            if not self.is_valid_match(match, puuid):
-                continue
-                
             patch = self.get_match_patch(match)
             if patch not in self.target_patches:
-                break
+                invalid_patch += 1
+                continue
                 
             valid_matches.append(match)
-            self.patch_tracker.processed_match_ids[patch].add(match_id)
-            self.patch_tracker.all_processed_match_ids.add(match_id)
-            self.patch_tracker.scraped_counts[patch] += 1
+            self.processed_players_for_match[match_id].add(puuid)
+            new_entries += 1
 
+            # Only count the match once per patch, not per player
+            if match_id not in self.patch_tracker.all_processed_match_ids:
+                new_matches += 1
+                self.new_matches_this_run += 1
+                self.patch_tracker.add_processed_match(match_id, patch)
+
+        logger.debug(f"🔍 Player matches: {len(match_ids)} total, "
+                     f"{new_entries} new entries, {duplicate_entries} duplicate entries, "
+                     f"{invalid_patch} wrong patch")
+        
         if not valid_matches:
             return (False, f"No valid matches for {summoner_id[:6]}")
             
-        logger.info(f"📊 Processing {len(valid_matches)} valid matches")
+        logger.info(f"📊 Processing {len(valid_matches)} matches "
+                    f"({new_entries} new player entries, {new_matches} new matches)")
         for match in valid_matches:
             self.process_match(match)
             
-        return (True, f"Processed {len(valid_matches)} matches")
+        return (True, f"Processed {len(valid_matches)} matches "
+                     f"({new_entries} new player entries, {new_matches} new matches)")
 
     def get_match_patch(self, match: Dict) -> str:
         version_str = match["info"]["gameVersion"]
@@ -719,7 +775,6 @@ class LeagueScraper:
                 
                 teams[team_id].append((role, champ, p))
                 
-                # Update champion role
                 stats = self.data_store.global_stats[champ]
                 stats.add_game(
                     win=p["win"],
@@ -741,12 +796,12 @@ class LeagueScraper:
                 if opponent:
                     opp_champ = Config.normalize_champion_name(opponent["championName"])
                     
-                    # Update matchup stats for both champions
                     self.data_store.global_stats[champ].add_game(
                         win=p["win"],
                         kills=p["kills"],
                         deaths=p["deaths"],
                         assists=p["assists"],
+                        role=role,
                         opponent=opp_champ
                     )
                     self.data_store.global_stats[opp_champ].add_game(
@@ -754,6 +809,7 @@ class LeagueScraper:
                         kills=opponent["kills"],
                         deaths=opponent["deaths"],
                         assists=opponent["assists"],
+                        role=role,
                         opponent=champ
                     )
             
@@ -842,7 +898,8 @@ class LeagueScraper:
         logger.info("\n📦 Patch Statistics:")
         for patch in self.target_patches:
             count = self.patch_tracker.scraped_counts.get(patch, 0)
-            logger.info(f"  - Patch {patch}: {count} matches")
+            logger.info(f"  - Patch {patch}: {count} matches (total)")
+        logger.info(f"  + This run added: {self.new_matches_this_run} new matches")
         
         logger.info("🏁 Script completed")
         logger.info("🏁")
