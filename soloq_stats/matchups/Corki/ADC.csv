@@ -1,0 +1,6 @@
+opponent,games,wins,kills,deaths,assists,win_rate,kda,avg_kills,avg_deaths,avg_assists
+Mel,2,2,30,8,20,100.0,6.25,15.0,4.0,10.0
+Draven,4,2,32,28,48,50.0,2.86,8.0,7.0,12.0
+Veigar,2,2,22,8,18,100.0,5.0,11.0,4.0,9.0
+Xayah,2,0,14,14,6,0.0,1.43,7.0,7.0,3.0
+Aphelios,2,0,6,16,12,0.0,1.12,3.0,8.0,6.0

@@ -1,0 +1,7 @@
+opponent,games,wins,kills,deaths,assists,win_rate,kda,avg_kills,avg_deaths,avg_assists
+Bard,2,0,10,14,20,0.0,2.14,5.0,7.0,10.0
+Janna,2,0,12,14,12,0.0,1.71,6.0,7.0,6.0
+Neeko,2,2,18,8,24,100.0,5.25,9.0,4.0,12.0
+Morgana,2,2,18,8,10,100.0,3.5,9.0,4.0,5.0
+Nautilus,2,0,12,16,6,0.0,1.12,6.0,8.0,3.0
+Nami,2,2,12,10,20,100.0,3.2,6.0,5.0,10.0

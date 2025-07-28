@@ -1,0 +1,4 @@
+opponent,games,wins,kills,deaths,assists,win_rate,kda,avg_kills,avg_deaths,avg_assists
+Janna,2,0,2,6,16,0.0,3.0,1.0,3.0,8.0
+Rakan,2,2,0,2,22,100.0,11.0,0.0,1.0,11.0
+Nautilus,2,0,2,16,32,0.0,2.12,1.0,8.0,16.0

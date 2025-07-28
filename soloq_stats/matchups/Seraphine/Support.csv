@@ -1,0 +1,4 @@
+opponent,games,wins,kills,deaths,assists,win_rate,kda,avg_kills,avg_deaths,avg_assists
+Cassiopeia,2,2,0,0,0,100.0,0.0,0.0,0.0,0.0
+Rell,2,2,0,2,16,100.0,8.0,0.0,1.0,8.0
+Lulu,2,2,0,10,42,100.0,4.2,0.0,5.0,21.0

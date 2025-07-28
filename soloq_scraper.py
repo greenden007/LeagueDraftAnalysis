@@ -705,15 +705,11 @@ class LeagueScraper:
                 if "summoner not found" in result[1].lower():
                     self.failed_summoner_lookups += 1
     
-    def process_player(self, region: str, summoner_id: str) -> Tuple[bool, str]:
-        summoner = self.api.get_summoner_by_id(region, summoner_id)
-        if not summoner or not summoner.get("puuid"):
-            return (False, f"Summoner {summoner_id[:6]} not found")
-        
-        puuid = summoner["puuid"]
+    def process_player(self, region: str, puuid: str) -> Tuple[bool, str]:
+        # Directly use puuid instead of summoner lookup
         match_ids = self.api.get_match_history(puuid, region)
         if not match_ids:
-            return (False, f"No matches for {summoner_id[:6]}")
+            return (False, f"No matches for {puuid[:6]}")
 
         valid_matches = []
         new_entries = 0
@@ -722,8 +718,8 @@ class LeagueScraper:
         new_matches = 0
         
         for match_id in match_ids[:Config.MAX_MATCHES_PER_PLAYER]:
-            # Check if we've already processed this player for this match
-            if puuid in self.processed_players_for_match[match_id]:
+            # Skip if we've already processed this player for this match
+            if match_id in self.processed_players_for_match and puuid in self.processed_players_for_match[match_id]:
                 duplicate_entries += 1
                 continue
                 
@@ -737,6 +733,9 @@ class LeagueScraper:
                 continue
                 
             valid_matches.append(match)
+            # Track that we've processed this player for this match
+            if match_id not in self.processed_players_for_match:
+                self.processed_players_for_match[match_id] = set()
             self.processed_players_for_match[match_id].add(puuid)
             new_entries += 1
 
@@ -747,11 +746,11 @@ class LeagueScraper:
                 self.patch_tracker.add_processed_match(match_id, patch)
 
         logger.debug(f"🔍 Player matches: {len(match_ids)} total, "
-                     f"{new_entries} new entries, {duplicate_entries} duplicate entries, "
-                     f"{invalid_patch} wrong patch")
+                    f"{new_entries} new entries, {duplicate_entries} duplicate entries, "
+                    f"{invalid_patch} wrong patch")
         
         if not valid_matches:
-            return (False, f"No valid matches for {summoner_id[:6]}")
+            return (False, f"No valid matches for {puuid[:6]}")
             
         logger.info(f"📊 Processing {len(valid_matches)} matches "
                     f"({new_entries} new player entries, {new_matches} new matches)")
@@ -759,7 +758,7 @@ class LeagueScraper:
             self.process_match(match)
             
         return (True, f"Processed {len(valid_matches)} matches "
-                     f"({new_entries} new player entries, {new_matches} new matches)")
+                    f"({new_entries} new player entries, {new_matches} new matches)")
 
     def get_match_patch(self, match: Dict) -> str:
         version_str = match["info"]["gameVersion"]

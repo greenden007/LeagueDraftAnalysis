@@ -1,0 +1,9 @@
+opponent,games,wins,kills,deaths,assists,win_rate,kda,avg_kills,avg_deaths,avg_assists
+Diana,2,2,6,10,40,100.0,4.6,3.0,5.0,20.0
+Taliyah,2,0,12,6,8,0.0,3.33,6.0,3.0,4.0
+Lissandra,2,0,8,8,14,0.0,2.75,4.0,4.0,7.0
+Twisted Fate,2,0,4,6,12,0.0,2.67,2.0,3.0,6.0
+Kennen,2,2,14,12,22,100.0,3.0,7.0,6.0,11.0
+Nidalee,2,0,4,4,8,0.0,3.0,2.0,2.0,4.0
+Kayle,2,0,2,12,12,0.0,1.17,1.0,6.0,6.0
+Katarina,2,0,16,12,14,0.0,2.5,8.0,6.0,7.0

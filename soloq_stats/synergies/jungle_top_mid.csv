@@ -1,0 +1,198 @@
+champion1,champion2,champion3,games,wins,win_rate
+Zyra,Fiora,Riven,1,1,100.0
+Lee Sin,Chogath,Taliyah,1,0,0.0
+Gwen,Riven,Caitlyn,1,1,100.0
+Lee Sin,Jayce,Viktor,1,0,0.0
+Volibear,Gangplank,Riven,1,0,0.0
+Jarvan IV,Pantheon,Twisted Fate,1,1,100.0
+Poppy,Gragas,Ambessa,1,0,0.0
+Udyr,Jax,Riven,1,1,100.0
+Pantheon,Vayne,Annie,1,0,0.0
+Jarvan IV,Ambessa,Orianna,1,1,100.0
+Zed,Rumble,Aurora,1,1,100.0
+Ekko,Nidalee,Yone,1,0,0.0
+Xin Zhao,Rumble,Corki,1,0,0.0
+Jax,Riven,Ziggs,1,1,100.0
+Lee Sin,Gwen,Sylas,1,0,0.0
+Jarvan IV,Jayce,Galio,1,1,100.0
+Jarvan IV,Ambessa,Galio,1,1,100.0
+Hecarim,Riven,Corki,1,0,0.0
+Reksai,Ambessa,Sylas,1,1,100.0
+Zed,Nidalee,Cassiopeia,1,0,0.0
+Belveth,Jayce,Ryze,1,0,0.0
+Ekko,Ambessa,Riven,1,1,100.0
+Master Yi,Gwen,Morgana,1,0,0.0
+Viego,Riven,Aurora,1,1,100.0
+Wukong,Volibear,Aurora,1,1,100.0
+Pantheon,Jax,Lux,1,0,0.0
+Vi,Vayne,Lux,1,1,100.0
+Mordekaiser,Camille,Morgana,1,0,0.0
+Mordekaiser,Riven,Yasuo,1,1,100.0
+Ambessa,Sion,Lux,1,0,0.0
+Pantheon,Nidalee,Taliyah,1,1,100.0
+Hecarim,Neeko,Orianna,1,0,0.0
+Xin Zhao,Volibear,Azir,1,1,100.0
+Jarvan IV,Riven,Sylas,1,0,0.0
+Vi,Rumble,Yone,1,0,0.0
+Ambessa,Riven,Azir,1,1,100.0
+Jarvan IV,Riven,Annie,1,1,100.0
+Pantheon,Vayne,Akali,1,0,0.0
+Talon,Nidalee,Sylas,1,0,0.0
+Nocturne,Renekton,Orianna,1,1,100.0
+Lee Sin,Jax,Ambessa,1,1,100.0
+Pantheon,Riven,Sylas,2,1,50.0
+Viego,Jax,Aurora,1,0,0.0
+Ekko,Nidalee,Yunara,1,1,100.0
+Vi,Aurora,Orianna,1,1,100.0
+Shyvana,Teemo,Sion,1,0,0.0
+Belveth,Gwen,Viktor,1,0,0.0
+Pantheon,Akali,Annie,1,1,100.0
+Belveth,Riven,Annie,1,1,100.0
+Viego,Fiora,Mel,1,0,0.0
+Viego,Riven,Annie,1,1,100.0
+Belveth,Rumble,Yone,1,0,0.0
+Nocturne,Riven,Aurora,1,1,100.0
+Jarvan IV,Kayle,Azir,1,0,0.0
+Viego,Gwen,Annie,1,1,100.0
+Kindred,Kayle,Viktor,1,0,0.0
+Trundle,Nidalee,Yone,1,1,100.0
+Shaco,Gragas,Smolder,1,0,0.0
+Pantheon,Ambessa,Diana,1,0,0.0
+Ekko,Riven,Zoe,1,1,100.0
+Diana,Riven,Kassadin,1,1,100.0
+Wukong,Neeko,Viktor,1,0,0.0
+Elise,Sejuani,Neeko,1,1,100.0
+Pantheon,Kennen,Riven,1,0,0.0
+Kindred,Nidalee,Orianna,1,0,0.0
+Pantheon,Jax,Ryze,1,1,100.0
+Pantheon,Vayne,Aurora,1,0,0.0
+Jarvan IV,Gragas,Sylas,1,1,100.0
+Belveth,Nidalee,Diana,1,1,100.0
+Trundle,Renekton,Orianna,1,0,0.0
+Viego,Sion,Orianna,1,1,100.0
+Sejuani,Riven,Naafiri,1,0,0.0
+Shaco,Sion,Corki,1,0,0.0
+Jarvan IV,Kayle,Ryze,1,1,100.0
+Viego,Fiora,Gragas,1,1,100.0
+Pantheon,Gnar,Fizz,1,0,0.0
+Viego,Viktor,Riven,1,1,100.0
+Pantheon,Poppy,Akali,1,0,0.0
+Zed,Nidalee,Azir,1,1,100.0
+Xin Zhao,Yorick,Vladimir,1,0,0.0
+Ivern,Yorick,Azir,1,1,100.0
+Xin Zhao,Riven,Viktor,1,0,0.0
+Talon,Riven,Xerath,1,1,100.0
+Graves,Ambessa,Syndra,1,0,0.0
+Wukong,Ambessa,Galio,1,1,100.0
+Lee Sin,Vayne,Lissandra,1,0,0.0
+Pantheon,Rumble,Ambessa,1,1,100.0
+Viego,Chogath,Orianna,1,0,0.0
+Jarvan IV,Nidalee,Ziggs,1,1,100.0
+Vi,Ambessa,Orianna,1,0,0.0
+Qiyana,Illaoi,Orianna,1,1,100.0
+Wukong,Vayne,Zac,1,0,0.0
+Jarvan IV,Riven,Orianna,1,0,0.0
+Pantheon,Malphite,Sylas,1,1,100.0
+Vi,Gwen,Taliyah,1,0,0.0
+Zed,Riven,Aurora,1,1,100.0
+Elise,Riven,Chogath,1,1,100.0
+Viego,Fiora,Ryze,1,0,0.0
+Xin Zhao,Riven,Yone,1,0,0.0
+Viego,Swain,Aurora,1,1,100.0
+Zyra,Nidalee,Zed,1,1,100.0
+Ekko,Irelia,Viktor,1,0,0.0
+Lee Sin,Renekton,Twisted Fate,1,0,0.0
+Lee Sin,Draven,Kayle,1,0,0.0
+Udyr,Vayne,Orianna,1,1,100.0
+Volibear,Riven,Ahri,1,0,0.0
+Kayn,Jayce,Sylas,1,1,100.0
+Ivern,Riven,Caitlyn,2,2,100.0
+Dr. Mundo,Wukong,Kayle,1,0,0.0
+Viego,Shen,Nidalee,1,0,0.0
+Hecarim,Kayle,Riven,1,1,100.0
+Viego,Riven,Ryze,1,1,100.0
+Ivern,Renekton,Azir,1,0,0.0
+Fiddlesticks,Kled,Azir,1,1,100.0
+Taliyah,Yasuo,Yone,1,0,0.0
+Ivern,Riven,Pantheon,1,0,0.0
+Jarvan IV,Quinn,Taliyah,1,1,100.0
+Udyr,Jayce,Ahri,1,1,100.0
+Shaco,Lucian,Aurora,1,0,0.0
+Yuumi,Quinn,Rumble,1,0,0.0
+Gwen,Riven,Vladimir,1,1,100.0
+Gwen,Vayne,Nidalee,1,0,0.0
+Ekko,Sett,Azir,1,1,100.0
+Belveth,Nidalee,Taliyah,1,1,100.0
+Rammus,Gangplank,Zoe,1,0,0.0
+Nunu & Willump,Jax,Taliyah,1,0,0.0
+Graves,Vladimir,Twisted Fate,1,1,100.0
+Nunu & Willump,Riven,Ahri,1,1,100.0
+Volibear,Jax,Karthus,1,0,0.0
+Nunu & Willump,Ambessa,Naafiri,1,0,0.0
+Hecarim,Vayne,Sylas,1,0,0.0
+Jarvan IV,Tryndamere,Naafiri,1,1,100.0
+Talon,Riven,Renekton,1,1,100.0
+Karthus,Rumble,Naafiri,1,0,0.0
+Gragas,Riven,Caitlyn,1,0,0.0
+Talon,Jayce,Twisted Fate,1,1,100.0
+Viego,Corki,Twisted Fate,1,0,0.0
+Volibear,Riven,Lissandra,1,1,100.0
+Nidalee,Gnar,Corki,1,0,0.0
+Lee Sin,Vayne,Taliyah,1,1,100.0
+Lee Sin,Aatrox,Zoe,1,0,0.0
+Hecarim,Riven,Lissandra,1,1,100.0
+Nidalee,Vayne,Kassadin,1,1,100.0
+Karthus,Wukong,Ryze,1,0,0.0
+Nidalee,Camille,Syndra,1,0,0.0
+Ambessa,Vayne,Zac,1,1,100.0
+Ambessa,Nidalee,LeBlanc,1,1,100.0
+Qiyana,Jax,Zac,1,0,0.0
+Jarvan IV,Vayne,Neeko,1,1,100.0
+Nidalee,Jax,Aurora,1,0,0.0
+Volibear,Riven,Twisted Fate,2,1,50.0
+Jax,Quinn,Zoe,1,0,0.0
+Vayne,Riven,Mel,1,1,100.0
+Lee Sin,Camille,Ahri,1,0,0.0
+Pantheon,Ambessa,Hwei,1,1,100.0
+Lee Sin,Kayle,Syndra,1,0,0.0
+Lee Sin,Renekton,Hwei,1,1,100.0
+Jarvan IV,Nidalee,Kennen,1,0,0.0
+Poppy,Vladimir,Zoe,1,1,100.0
+Wukong,Neeko,Zoe,1,0,0.0
+Pantheon,Riven,Nidalee,1,1,100.0
+Talon,Fiora,Hwei,1,1,100.0
+Nunu & Willump,Ambessa,Riven,1,0,0.0
+Zac,Jayce,Riven,1,1,100.0
+Volibear,Ambessa,Ryze,1,0,0.0
+Belveth,Riven,Aurora,1,1,100.0
+Nidalee,Ambessa,Azir,1,0,0.0
+Gwen,Jayce,Varus,1,0,0.0
+Elise,Vladimir,Riven,1,1,100.0
+Nidalee,Nasus,Riven,1,0,0.0
+Lee Sin,Jayce,Twisted Fate,1,1,100.0
+Lee Sin,Gangplank,Zoe,1,0,0.0
+Poppy,Riven,Kayle,1,1,100.0
+Rammus,Jax,Akali,1,1,100.0
+Belveth,Riven,Sylas,1,0,0.0
+Lee Sin,Riven,Zoe,1,0,0.0
+Nidalee,Renekton,Katarina,1,1,100.0
+Nidalee,Sion,Corki,1,1,100.0
+Poppy,Tryndamere,Syndra,1,0,0.0
+Lee Sin,Neeko,Riven,1,1,100.0
+Xin Zhao,Vayne,Ekko,1,0,0.0
+Nidalee,Riven,Vayne,1,0,0.0
+Kindred,Renekton,Taliyah,1,1,100.0
+Graves,Chogath,Kayle,1,0,0.0
+Jarvan IV,Riven,Viktor,1,1,100.0
+Ivern,Riven,Taliyah,1,1,100.0
+Nunu & Willump,Nidalee,Viktor,1,0,0.0
+Pantheon,Riven,Twisted Fate,1,0,0.0
+Viego,Nidalee,Hwei,1,1,100.0
+Ekko,Mordekaiser,Pantheon,1,0,0.0
+Viego,Vayne,Gragas,1,1,100.0
+Lee Sin,Nidalee,Lissandra,1,1,100.0
+Viego,Riven,Xerath,1,0,0.0
+Udyr,Gragas,Riven,1,1,100.0
+Pantheon,Renekton,Vladimir,1,0,0.0
+Fiddlesticks,Warwick,Sion,1,0,0.0
+Talon,Kayle,VelKoz,1,1,100.0

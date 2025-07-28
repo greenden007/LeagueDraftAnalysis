@@ -1,0 +1,4 @@
+opponent,games,wins,kills,deaths,assists,win_rate,kda,avg_kills,avg_deaths,avg_assists
+Annie,2,0,2,8,2,0.0,0.5,1.0,4.0,1.0
+Riven,2,0,16,10,6,0.0,2.2,8.0,5.0,3.0
+Sylas,2,2,20,18,14,100.0,1.89,10.0,9.0,7.0

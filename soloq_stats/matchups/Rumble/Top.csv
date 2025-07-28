@@ -1,0 +1,4 @@
+opponent,games,wins,kills,deaths,assists,win_rate,kda,avg_kills,avg_deaths,avg_assists
+Nidalee,2,2,8,12,30,100.0,3.17,4.0,6.0,15.0
+Riven,8,0,48,46,46,0.0,2.04,6.0,5.75,5.75
+Chogath,2,2,6,2,8,100.0,7.0,3.0,1.0,4.0

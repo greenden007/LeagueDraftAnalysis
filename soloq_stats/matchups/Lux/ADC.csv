@@ -1,0 +1,4 @@
+opponent,games,wins,kills,deaths,assists,win_rate,kda,avg_kills,avg_deaths,avg_assists
+Karthus,2,0,0,2,2,0.0,1.0,0.0,1.0,1.0
+Vayne,2,2,14,12,32,100.0,3.83,7.0,6.0,16.0
+Tristana,2,2,14,4,36,100.0,12.5,7.0,2.0,18.0
