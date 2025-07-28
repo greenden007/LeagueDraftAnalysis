@@ -341,10 +341,6 @@ class RiotAPI:
         url = f"{Config.BASE_URL.format(region=region)}/league/v4/challengerleagues/by-queue/RANKED_SOLO_5x5"
         return self.get_json(url, "league")
 
-    def get_summoner_by_id(self, region: str, summoner_id: str) -> Optional[Dict]:
-        url = f"{Config.BASE_URL.format(region=region)}/summoner/v4/summoners/{summoner_id}"
-        return self.get_json(url, "summoner")
-
     def get_match_history(self, puuid: str, region: str) -> Optional[List[str]]:
         match_region = Config.MATCH_REGION_MAP[region]
         url = f"https://{match_region}.api.riotgames.com/lol/match/v5/matches/by-puuid/{puuid}/ids?queue=420&count={Config.MAX_MATCHES_PER_PLAYER}"
@@ -679,6 +675,7 @@ class LeagueScraper:
         except KeyError:
             return False
 
+   # In the LeagueScraper class, modify the process_region method:
     def process_region(self, region: str) -> None:
         ladder = self.api.get_challenger_league(region)
         if not ladder or "entries" not in ladder:
@@ -689,8 +686,15 @@ class LeagueScraper:
         logger.info(f"👥 Found {len(players)} players in {region.upper()}")
         
         for i, player in enumerate(players):
+            # Check if puuid exists
+            if "puuid" not in player:
+                logger.warning(f"⚠️ Player entry {i+1} missing puuid, skipping")
+                self.skipped_players += 1
+                continue
+                
+            puuid = player["puuid"]
             logger.info(f"👤 Processing player {i+1}/{len(players)}")
-            result = self.process_player(region, player["summonerId"])
+            result = self.process_player(region, puuid)  # Pass puuid directly
             
             if result[0]:
                 logger.info(f"✅ Success: {result[1]}")
