@@ -356,14 +356,15 @@ class RiotAPI:
 # Data Storage Manager
 # ========================
 class DataStore:
-    def __init__(self):
+    def __init__(self, base_dir: str):
         self.global_stats = defaultdict(ChampionStats)
         self.synergies = {combo: defaultdict(SynergyStats) for combo in Config.SYNERGY_COMBOS}
         self.load_existing_data()
+        self.base_dir = base_dir
     
     def load_existing_data(self):
         # Load global stats per role
-        global_dir = os.path.join(Config.BASE_OUTPUT_DIR, "global_stats")
+        global_dir = os.path.join(self.base_dir, "global_stats")
         if os.path.exists(global_dir):
             for file in os.listdir(global_dir):
                 if file.endswith('.csv'):
@@ -421,7 +422,7 @@ class DataStore:
     def save_data(self):
         
         # Create output directories
-        global_dir = os.path.join(Config.BASE_OUTPUT_DIR, "global_stats")
+        global_dir = os.path.join(self.base_dir, "global_stats")
         matchup_dir = os.path.join(Config.BASE_OUTPUT_DIR, "matchups")
         synergy_dir = os.path.join(Config.BASE_OUTPUT_DIR, "synergies")
         os.makedirs(global_dir, exist_ok=True)
@@ -531,12 +532,9 @@ class DataStore:
 # ========================
 # Patch Tracker
 # ========================
-# ========================
-# Patch Tracker (with match ID tracking)
-# ========================
 class PatchTracker:
-    def __init__(self):
-        self.file_path = os.path.join(Config.BASE_OUTPUT_DIR, "patch_tracker.json")
+    def __init__(self, base_dir: str):
+        self.file_path = os.path.join(base_dir, "patch_tracker.json")
         self.target_patches = []
         self.scraped_counts = defaultdict(int)
         self.processed_match_ids = defaultdict(set)
@@ -633,8 +631,10 @@ class LeagueScraper:
     def __init__(self):
         self.rate_limiter = PrecisionRateLimiter()
         self.api = RiotAPI(self.rate_limiter)
-        self.data_store = DataStore()
-        self.patch_tracker = PatchTracker()
+        self.patch_range = self.get_patch_range_name()
+        self.base_dir = os.path.join(Config.BASE_OUTPUT_DIR, self.patch_range)
+        self.patch_tracker = PatchTracker(self.base_dir)
+        self.data_store = DataStore(self.base_dir)
         self.current_patch = Config.get_current_patch()
         self.target_patches = self.patch_tracker.update_target_patches(self.current_patch)
         self.start_time = time.time()
@@ -645,7 +645,24 @@ class LeagueScraper:
         self.processed_players_for_match = defaultdict(set)
         self.new_matches_this_run = 0
         
+        # Check if patch range folder exists
+        if os.path.exists(self.base_dir):
+            logger.info(f"📁 Data for patch range {self.patch_range} already exists. Exiting.")
+            sys.exit(0)
+            
+        os.makedirs(self.base_dir, exist_ok=True)
+        
         logger.info(f"🎯 Target patches: {', '.join(self.target_patches)}")
+
+    
+    def get_patch_range_name(self) -> str:
+        """Generate folder name from patch range (min_patch-max_patch)"""
+        if not self.target_patches:
+            return "unknown_patches"
+        sorted_patches = sorted(
+            self.target_patches,
+            key=lambda x: tuple(map(int, x.split('.'))))
+        return f"{sorted_patches[0]}-{sorted_patches[-1]}"
 
     def run(self) -> None:
         try:
@@ -656,6 +673,7 @@ class LeagueScraper:
             
             self.data_store.save_data()
             self.patch_tracker.save()
+            self.update_champion_roles()
             self.log_final_stats()
         except KeyboardInterrupt:
             logger.info("🛑 Manual interrupt received")
@@ -668,6 +686,7 @@ class LeagueScraper:
             self.data_store.save_data()
             self.patch_tracker.save()
             raise
+
 
     def is_valid_match(self, match: Dict, puuid: str) -> bool:
         try:
