@@ -631,12 +631,12 @@ class LeagueScraper:
     def __init__(self):
         self.rate_limiter = PrecisionRateLimiter()
         self.api = RiotAPI(self.rate_limiter)
+        self.current_patch = Config.get_current_patch()
+        self.target_patches = self.patch_tracker.update_target_patches(self.current_patch)
         self.patch_range = self.get_patch_range_name()
         self.base_dir = os.path.join(Config.BASE_OUTPUT_DIR, self.patch_range)
         self.patch_tracker = PatchTracker(self.base_dir)
         self.data_store = DataStore(self.base_dir)
-        self.current_patch = Config.get_current_patch()
-        self.target_patches = self.patch_tracker.update_target_patches(self.current_patch)
         self.start_time = time.time()
         self.processed_players = 0
         self.skipped_players = 0
