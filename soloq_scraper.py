@@ -357,10 +357,11 @@ class RiotAPI:
 # ========================
 class DataStore:
     def __init__(self, base_dir: str):
+        self.base_dir = base_dir
         self.global_stats = defaultdict(ChampionStats)
         self.synergies = {combo: defaultdict(SynergyStats) for combo in Config.SYNERGY_COMBOS}
         self.load_existing_data()
-        self.base_dir = base_dir
+        
     
     def load_existing_data(self):
         # Load global stats per role
@@ -382,7 +383,7 @@ class DataStore:
                         }
         
         # Load matchups per champion per role
-        matchup_dir = os.path.join(Config.BASE_OUTPUT_DIR, "matchups")
+        matchup_dir = os.path.join(self.base_dir, "matchups")
         if os.path.exists(matchup_dir):
             for champ_folder in os.listdir(matchup_dir):
                 champ_dir = os.path.join(matchup_dir, champ_folder)
@@ -402,7 +403,7 @@ class DataStore:
                                 }
         
         # Load synergies
-        synergy_dir = os.path.join(Config.BASE_OUTPUT_DIR, "synergies")
+        synergy_dir = os.path.join(self.base_dir, "synergies")
         if os.path.exists(synergy_dir):
             for file in os.listdir(synergy_dir):
                 if file.endswith('.csv'):
@@ -423,8 +424,8 @@ class DataStore:
         
         # Create output directories
         global_dir = os.path.join(self.base_dir, "global_stats")
-        matchup_dir = os.path.join(Config.BASE_OUTPUT_DIR, "matchups")
-        synergy_dir = os.path.join(Config.BASE_OUTPUT_DIR, "synergies")
+        matchup_dir = os.path.join(self.base_dir, "matchups")
+        synergy_dir = os.path.join(self.base_dir, "synergies")
         os.makedirs(global_dir, exist_ok=True)
         os.makedirs(matchup_dir, exist_ok=True)
         os.makedirs(synergy_dir, exist_ok=True)
@@ -533,13 +534,13 @@ class DataStore:
 # Patch Tracker
 # ========================
 class PatchTracker:
-    def __init__(self, base_dir: str):
-        self.file_path = os.path.join(base_dir, "patch_tracker.json")
+    def __init__(self):
+        self.file_path = ""
         self.target_patches = []
         self.scraped_counts = defaultdict(int)
         self.processed_match_ids = defaultdict(set)
         self.all_processed_match_ids = set()
-        self.load()
+        
     
     def load(self):
         if os.path.exists(self.file_path):
@@ -632,10 +633,12 @@ class LeagueScraper:
         self.rate_limiter = PrecisionRateLimiter()
         self.api = RiotAPI(self.rate_limiter)
         self.current_patch = Config.get_current_patch()
+        self.patch_tracker = PatchTracker()  # Create without base_dir
         self.target_patches = self.patch_tracker.update_target_patches(self.current_patch)
         self.patch_range = self.get_patch_range_name()
         self.base_dir = os.path.join(Config.BASE_OUTPUT_DIR, self.patch_range)
-        self.patch_tracker = PatchTracker(self.base_dir)
+        self.patch_tracker.file_path = os.path.join(self.base_dir, "patch_tracker.json")
+        self.patch_tracker.load()
         self.data_store = DataStore(self.base_dir)
         self.start_time = time.time()
         self.processed_players = 0
