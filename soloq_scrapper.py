@@ -166,20 +166,6 @@ class Config:
         if not cls.API_KEY:
             raise ValueError("RIOT_API_KEY environment variable not set")
         os.makedirs(cls.BASE_OUTPUT_DIR, exist_ok=True)
-        os.makedirs(os.path.join(cls.BASE_OUTPUT_DIR, "matchups"), exist_ok=True)
-        os.makedirs(os.path.join(cls.BASE_OUTPUT_DIR, "synergies"), exist_ok=True)
-        cls.cleanup_old_data()
-
-    @classmethod
-    def cleanup_old_data(cls):
-        """Remove old synergy files if combo definitions change"""
-        try:
-            existing_files = os.listdir(os.path.join(cls.BASE_OUTPUT_DIR, "synergies"))
-            for file in existing_files:
-                if file.replace('.csv', '') not in cls.SYNERGY_COMBOS:
-                    os.remove(os.path.join(cls.BASE_OUTPUT_DIR, "synergies", file))
-        except Exception as e:
-            logger.error(f"Data cleanup failed: {str(e)}")
 
 # ========================
 # Data Models
