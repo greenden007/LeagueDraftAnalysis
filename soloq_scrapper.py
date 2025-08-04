@@ -8,9 +8,7 @@ import time
 import logging
 import socket
 import sys
-import re
 import json
-import shutil
 from datetime import datetime
 from collections import defaultdict, deque
 import pandas as pd
@@ -350,7 +348,6 @@ class DataStore:
         
     
     def load_existing_data(self):
-        # Load global stats per role
         global_dir = os.path.join(self.base_dir, "global_stats")
         if os.path.exists(global_dir):
             for file in os.listdir(global_dir):
@@ -368,7 +365,6 @@ class DataStore:
                             "assists": row['assists']
                         }
         
-        # Load matchups per champion per role
         matchup_dir = os.path.join(self.base_dir, "matchups")
         if os.path.exists(matchup_dir):
             for champ_folder in os.listdir(matchup_dir):
@@ -388,7 +384,6 @@ class DataStore:
                                     "assists": row['assists']
                                 }
         
-        # Load synergies
         synergy_dir = os.path.join(self.base_dir, "synergies")
         if os.path.exists(synergy_dir):
             for file in os.listdir(synergy_dir):
@@ -408,7 +403,6 @@ class DataStore:
     
     def save_data(self):
         
-        # Create output directories
         global_dir = os.path.join(self.base_dir, "global_stats")
         matchup_dir = os.path.join(self.base_dir, "matchups")
         synergy_dir = os.path.join(self.base_dir, "synergies")
@@ -416,7 +410,6 @@ class DataStore:
         os.makedirs(matchup_dir, exist_ok=True)
         os.makedirs(synergy_dir, exist_ok=True)
 
-        # Save global stats per role
         for role in ["Top", "Jungle", "Mid", "ADC", "Support"]:
             role_stats = []
             for champ, stats in self.global_stats.items():
@@ -444,7 +437,6 @@ class DataStore:
                     index=False
                 )
         
-        # Save matchups per champion per role
         for champ, stats in self.global_stats.items():
             champ_dir = os.path.join(matchup_dir, champ)
             os.makedirs(champ_dir, exist_ok=True)
@@ -473,7 +465,6 @@ class DataStore:
                         index=False
                     )
         
-        # Save synergies
         for combo, stats_dict in self.synergies.items():
             synergies = []
             for champs, stats in stats_dict.items():
@@ -501,7 +492,6 @@ class DataStore:
                     index=False
                 )
         
-        # Save champion roles
         champion_roles = {}
         for champ, stats in self.global_stats.items():
             if any(role_data.get("games", 0) > 0 for role_data in stats.roles.values()):
@@ -578,7 +568,6 @@ class PatchTracker:
         
         self.target_patches = patches[-5:]
         
-        # Clean up old patches
         for patch in list(self.scraped_counts.keys()):
             if patch not in self.target_patches:
                 del self.scraped_counts[patch]
@@ -586,14 +575,12 @@ class PatchTracker:
             if patch not in self.target_patches:
                 del self.processed_match_ids[patch]
         
-        # Initialize new patches
         for patch in self.target_patches:
             if patch not in self.scraped_counts:
                 self.scraped_counts[patch] = 0
             if patch not in self.processed_match_ids:
                 self.processed_match_ids[patch] = set()
         
-        # Rebuild all_processed_match_ids
         self.all_processed_match_ids = set()
         for match_ids_set in self.processed_match_ids.values():
             self.all_processed_match_ids |= match_ids_set
@@ -619,7 +606,7 @@ class LeagueScraper:
         self.rate_limiter = PrecisionRateLimiter()
         self.api = RiotAPI(self.rate_limiter)
         self.current_patch = Config.get_current_patch()
-        self.patch_tracker = PatchTracker()  # Create without base_dir
+        self.patch_tracker = PatchTracker()
         self.target_patches = self.patch_tracker.update_target_patches(self.current_patch)
         self.patch_range = self.get_patch_range_name()
         self.base_dir = os.path.join(Config.BASE_OUTPUT_DIR, self.patch_range)
@@ -630,11 +617,10 @@ class LeagueScraper:
         self.processed_players = 0
         self.skipped_players = 0
         self.failed_summoner_lookups = 0
-        self.processed_match_ids = set()  # Track processed match IDs in memory
+        self.processed_match_ids = set()
         self.processed_players_for_match = defaultdict(set)
         self.new_matches_this_run = 0
         
-        # Check if patch range folder exists
         if os.path.exists(self.base_dir):
             logger.info(f"📁 Data for patch range {self.patch_range} already exists. Exiting.")
             sys.exit(0)
@@ -683,7 +669,6 @@ class LeagueScraper:
         except KeyError:
             return False
 
-   # In the LeagueScraper class, modify the process_region method:
     def process_region(self, region: str) -> None:
         ladder = self.api.get_challenger_league(region)
         if not ladder or "entries" not in ladder:
@@ -694,7 +679,6 @@ class LeagueScraper:
         logger.info(f"👥 Found {len(players)} players in {region.upper()}")
         
         for i, player in enumerate(players):
-            # Check if puuid exists
             if "puuid" not in player:
                 logger.warning(f"⚠️ Player entry {i+1} missing puuid, skipping")
                 self.skipped_players += 1
@@ -702,7 +686,7 @@ class LeagueScraper:
                 
             puuid = player["puuid"]
             logger.info(f"👤 Processing player {i+1}/{len(players)}")
-            result = self.process_player(region, puuid)  # Pass puuid directly
+            result = self.process_player(region, puuid)
             
             if result[0]:
                 logger.info(f"✅ Success: {result[1]}")
@@ -713,8 +697,7 @@ class LeagueScraper:
                 if "summoner not found" in result[1].lower():
                     self.failed_summoner_lookups += 1
     
-    def process_player(self, region: str, puuid: str) -> Tuple[bool, str]:
-        # Directly use puuid instead of summoner lookup
+    def process_player(self, region: str, puuid: str) -> Tuple[bool, str]: # Rohan take a look here
         match_ids = self.api.get_match_history(puuid, region)
         if not match_ids:
             return (False, f"No matches for {puuid[:6]}")
@@ -726,7 +709,6 @@ class LeagueScraper:
         new_matches = 0
         
         for match_id in match_ids[:Config.MAX_MATCHES_PER_PLAYER]:
-            # Skip if we've already processed this player for this match
             if match_id in self.processed_players_for_match and puuid in self.processed_players_for_match[match_id]:
                 duplicate_entries += 1
                 continue
@@ -735,7 +717,6 @@ class LeagueScraper:
             if not match:
                 continue
             
-            # Add validation for gameVersion existence
             if "info" not in match or "gameVersion" not in match["info"]:
                 logger.warning(f"⚠️ Match {match_id} missing version info")
                 continue
@@ -746,13 +727,11 @@ class LeagueScraper:
                 continue
                 
             valid_matches.append(match)
-            # Track that we've processed this player for this match
             if match_id not in self.processed_players_for_match:
                 self.processed_players_for_match[match_id] = set()
             self.processed_players_for_match[match_id].add(puuid)
             new_entries += 1
 
-            # Only count the match once per patch, not per player
             if match_id not in self.patch_tracker.all_processed_match_ids:
                 new_matches += 1
                 self.new_matches_this_run += 1
@@ -788,7 +767,6 @@ class LeagueScraper:
             participants = match["info"]["participants"]
             teams = defaultdict(list)
             
-            # Organize participants by team and role
             for p in participants:
                 team_id = p["teamId"]
                 role = Config.get_role_name(p["teamPosition"])
@@ -805,7 +783,6 @@ class LeagueScraper:
                     role=role
                 )
             
-            # Process lane matchups
             for p in participants:
                 role = Config.get_role_name(p["teamPosition"])
                 if role not in ("Top", "Mid", "ADC", "Support"):
