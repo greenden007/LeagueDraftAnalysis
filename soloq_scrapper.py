@@ -734,6 +734,11 @@ class LeagueScraper:
             match = self.api.get_match_details(match_id, region)
             if not match:
                 continue
+            
+            # Add validation for gameVersion existence
+            if "info" not in match or "gameVersion" not in match["info"]:
+                logger.warning(f"⚠️ Match {match_id} missing version info")
+                continue
                 
             patch = self.get_match_patch(match)
             if patch not in self.target_patches:
@@ -771,6 +776,11 @@ class LeagueScraper:
     def get_match_patch(self, match: Dict) -> str:
         version_str = match["info"]["gameVersion"]
         parts = version_str.split('.')
+        
+        if len(parts) < 2:
+            logger.warning(f"⚠️ Unexpected version format: {version_str}")
+            return "0.0"
+        
         return f"{parts[0]}.{parts[1]}"
 
     def process_match(self, match: Dict) -> None:
