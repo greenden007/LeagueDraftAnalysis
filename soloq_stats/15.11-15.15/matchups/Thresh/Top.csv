@@ -1,0 +1,5 @@
+opponent,games,wins,kills,deaths,assists,win_rate,kda,avg_kills,avg_deaths,avg_assists
+Kled,4,0,20,20,16,0.0,1.8,5.0,5.0,4.0
+Quinn,2,2,6,8,20,100.0,3.25,3.0,4.0,10.0
+Shen,2,2,2,8,44,100.0,5.75,1.0,4.0,22.0
+Aatrox,4,0,32,12,24,0.0,4.67,8.0,3.0,6.0

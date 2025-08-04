@@ -1,0 +1,5 @@
+opponent,games,wins,kills,deaths,assists,win_rate,kda,avg_kills,avg_deaths,avg_assists
+Jax,4,4,24,24,32,100.0,2.33,6.0,6.0,8.0
+Gnar,4,0,4,40,20,0.0,0.6,1.0,10.0,5.0
+Shen,6,6,6,12,42,100.0,4.0,1.0,2.0,7.0
+Kennen,2,0,0,10,10,0.0,1.0,0.0,5.0,5.0

@@ -1,0 +1,6 @@
+opponent,games,wins,kills,deaths,assists,win_rate,kda,avg_kills,avg_deaths,avg_assists
+Tristana,2,2,6,2,2,100.0,4.0,3.0,1.0,1.0
+Tryndamere,4,0,4,24,20,0.0,1.0,1.0,6.0,5.0
+Zyra,2,2,18,8,12,100.0,3.75,9.0,4.0,6.0
+Yone,2,2,28,12,32,100.0,5.0,14.0,6.0,16.0
+Ekko,2,0,8,12,8,0.0,1.33,4.0,6.0,4.0

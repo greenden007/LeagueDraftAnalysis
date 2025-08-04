@@ -1,0 +1,6511 @@
+champion1,champion2,games,wins,win_rate
+Vi,Syndra,142,50,35.21
+Wukong,Annie,238,127,53.36
+Viego,Orianna,591,300,50.76
+Jarvan IV,Galio,317,142,44.79
+Ambessa,Taliyah,51,38,74.51
+Jax,Azir,66,37,56.06
+Gwen,Corki,103,50,48.54
+Tryndamere,Annie,13,1,7.69
+Ambessa,Renekton,10,10,100.0
+Skarner,Viktor,51,16,31.37
+Pantheon,Lux,200,84,42.0
+Trundle,Ryze,232,128,55.17
+Zyra,Riven,4,1,25.0
+Lee Sin,Taliyah,373,219,58.71
+Gwen,Caitlyn,17,13,76.47
+Lee Sin,Viktor,351,162,46.15
+Volibear,Riven,9,3,33.33
+Jarvan IV,Twisted Fate,321,179,55.76
+Poppy,Ambessa,8,1,12.5
+Udyr,Riven,18,18,100.0
+Pantheon,Annie,318,154,48.43
+Jarvan IV,Orianna,598,307,51.34
+Zed,Aurora,336,180,53.57
+Ekko,Yone,540,242,44.81
+Xin Zhao,Corki,62,31,50.0
+Jax,Ziggs,8,8,100.0
+Lee Sin,Sylas,676,376,55.62
+Hecarim,Corki,56,6,10.71
+Reksai,Sylas,92,37,40.22
+Zed,Cassiopeia,80,31,38.75
+Belveth,Ryze,124,73,58.87
+Ekko,Riven,25,20,80.0
+Master Yi,Morgana,13,3,23.08
+Viego,Aurora,611,308,50.41
+Wukong,Aurora,307,162,52.77
+Vi,Lux,94,49,52.13
+Mordekaiser,Morgana,10,0,0.0
+Mordekaiser,Yasuo,26,18,69.23
+Ambessa,Lux,19,9,47.37
+Pantheon,Taliyah,992,555,55.95
+Hecarim,Orianna,221,86,38.91
+Xin Zhao,Azir,422,184,43.6
+Jarvan IV,Sylas,632,363,57.44
+Vi,Yone,145,51,35.17
+Ambessa,Azir,50,33,66.0
+Jarvan IV,Annie,237,109,45.99
+Pantheon,Akali,368,166,45.11
+Talon,Sylas,349,179,51.29
+Nocturne,Orianna,558,293,52.51
+Lee Sin,Ambessa,32,16,50.0
+Pantheon,Sylas,728,381,52.34
+Ekko,Yunara,36,13,36.11
+Vi,Orianna,259,143,55.21
+Shyvana,Sion,8,0,0.0
+Belveth,Viktor,105,55,52.38
+Belveth,Annie,70,45,64.29
+Viego,Mel,311,148,47.59
+Viego,Annie,435,263,60.46
+Belveth,Yone,56,28,50.0
+Nocturne,Aurora,224,114,50.89
+Jarvan IV,Azir,447,267,59.73
+Kindred,Viktor,167,90,53.89
+Trundle,Yone,112,44,39.29
+Shaco,Smolder,31,11,35.48
+Pantheon,Diana,106,45,42.45
+Ekko,Zoe,104,52,50.0
+Diana,Kassadin,34,13,38.24
+Wukong,Viktor,219,113,51.6
+Elise,Neeko,10,7,70.0
+Pantheon,Riven,21,14,66.67
+Kindred,Orianna,86,43,50.0
+Pantheon,Ryze,393,196,49.87
+Pantheon,Aurora,533,236,44.28
+Belveth,Diana,51,37,72.55
+Trundle,Orianna,210,92,43.81
+Sejuani,Naafiri,9,1,11.11
+Shaco,Corki,75,35,46.67
+Jarvan IV,Ryze,374,175,46.79
+Viego,Gragas,103,57,55.34
+Pantheon,Fizz,113,38,33.63
+Viego,Riven,31,21,67.74
+Zed,Azir,356,165,46.35
+Xin Zhao,Vladimir,205,79,38.54
+Ivern,Azir,150,75,50.0
+Xin Zhao,Viktor,259,134,51.74
+Talon,Xerath,75,34,45.33
+Graves,Syndra,72,22,30.56
+Wukong,Galio,96,38,39.58
+Lee Sin,Lissandra,156,83,53.21
+Pantheon,Ambessa,36,25,69.44
+Jarvan IV,Ziggs,70,36,51.43
+Qiyana,Orianna,89,49,55.06
+Wukong,Zac,25,10,40.0
+Vi,Taliyah,557,315,56.55
+Elise,Chogath,8,8,100.0
+Viego,Ryze,548,237,43.25
+Xin Zhao,Yone,156,70,44.87
+Zyra,Zed,70,35,50.0
+Ekko,Viktor,142,49,34.51
+Lee Sin,Twisted Fate,589,286,48.56
+Lee Sin,Kayle,154,83,53.9
+Udyr,Orianna,149,96,64.43
+Volibear,Ahri,163,93,57.06
+Kayn,Sylas,283,129,45.58
+Ivern,Caitlyn,8,8,100.0
+Dr. Mundo,Kayle,85,50,58.82
+Viego,Nidalee,47,18,38.3
+Hecarim,Riven,11,7,63.64
+Fiddlesticks,Azir,35,24,68.57
+Taliyah,Yone,91,37,40.66
+Ivern,Pantheon,11,7,63.64
+Jarvan IV,Taliyah,441,234,53.06
+Udyr,Ahri,101,56,55.45
+Shaco,Aurora,68,25,36.76
+Yuumi,Rumble,2,0,0.0
+Gwen,Vladimir,35,12,34.29
+Gwen,Nidalee,6,0,0.0
+Ekko,Azir,150,100,66.67
+Belveth,Taliyah,144,96,66.67
+Rammus,Zoe,28,11,39.29
+Nunu & Willump,Taliyah,76,35,46.05
+Graves,Twisted Fate,120,73,60.83
+Nunu & Willump,Ahri,74,30,40.54
+Volibear,Karthus,13,4,30.77
+Nunu & Willump,Naafiri,14,10,71.43
+Hecarim,Sylas,256,149,58.2
+Jarvan IV,Naafiri,22,17,77.27
+Talon,Renekton,8,6,75.0
+Karthus,Naafiri,31,18,58.06
+Gragas,Caitlyn,3,2,66.67
+Talon,Twisted Fate,192,105,54.69
+Viego,Twisted Fate,470,209,44.47
+Volibear,Lissandra,46,26,56.52
+Nidalee,Corki,178,88,49.44
+Lee Sin,Zoe,341,190,55.72
+Hecarim,Lissandra,70,35,50.0
+Nidalee,Kassadin,28,10,35.71
+Karthus,Ryze,26,2,7.69
+Nidalee,Syndra,112,70,62.5
+Ambessa,Zac,13,13,100.0
+Ambessa,LeBlanc,25,12,48.0
+Qiyana,Zac,13,1,7.69
+Jarvan IV,Neeko,54,26,48.15
+Nidalee,Aurora,76,33,43.42
+Volibear,Twisted Fate,150,65,43.33
+Jax,Zoe,46,31,67.39
+Vayne,Mel,9,8,88.89
+Lee Sin,Ahri,533,245,45.97
+Pantheon,Hwei,272,147,54.04
+Lee Sin,Syndra,452,221,48.89
+Lee Sin,Hwei,350,175,50.0
+Jarvan IV,Kennen,32,8,25.0
+Poppy,Zoe,40,30,75.0
+Wukong,Zoe,135,59,43.7
+Pantheon,Nidalee,29,15,51.72
+Talon,Hwei,198,103,52.02
+Nunu & Willump,Riven,14,10,71.43
+Zac,Riven,14,13,92.86
+Volibear,Ryze,106,41,38.68
+Belveth,Aurora,131,78,59.54
+Nidalee,Azir,89,51,57.3
+Gwen,Varus,7,0,0.0
+Elise,Riven,5,2,40.0
+Nidalee,Riven,14,9,64.29
+Poppy,Kayle,30,18,60.0
+Rammus,Akali,40,30,75.0
+Belveth,Sylas,156,94,60.26
+Nidalee,Katarina,73,38,52.05
+Poppy,Syndra,110,62,56.36
+Lee Sin,Riven,16,11,68.75
+Xin Zhao,Ekko,134,68,50.75
+Nidalee,Vayne,25,4,16.0
+Kindred,Taliyah,141,92,65.25
+Graves,Kayle,36,7,19.44
+Jarvan IV,Viktor,422,214,50.71
+Mordekaiser,Corki,13,12,92.31
+Nunu & Willump,Aurora,103,19,18.45
+Mordekaiser,Yone,22,12,54.55
+Elise,Yone,255,121,47.45
+Jarvan IV,Aurora,488,284,58.2
+Xin Zhao,Ryze,274,122,44.53
+Skarner,Galio,25,19,76.0
+Jarvan IV,Yone,170,83,48.82
+Hecarim,Azir,208,81,38.94
+Trundle,Ziggs,40,12,30.0
+Vi,Aurora,278,136,48.92
+Shyvana,Orianna,22,4,18.18
+Lee Sin,Annie,342,206,60.23
+Ambessa,Annie,34,14,41.18
+Xin Zhao,Orianna,326,166,50.92
+Nidalee,Sylas,168,112,66.67
+KhaZix,Orianna,162,66,40.74
+Trundle,Viktor,251,129,51.39
+Trundle,Cassiopeia,41,33,80.49
+Sejuani,Yone,149,78,52.35
+Hecarim,Aurora,215,82,38.14
+Udyr,Galio,73,34,46.58
+Lee Sin,Aurora,474,275,58.02
+Nocturne,Azir,187,84,44.92
+Volibear,Taliyah,228,127,55.7
+Trundle,Azir,448,198,44.2
+Xin Zhao,Aurora,366,166,45.36
+Elise,Tristana,79,43,54.43
+Pantheon,Galio,246,118,47.97
+Ekko,Galio,164,91,55.49
+Wukong,Rumble,36,18,50.0
+Pantheon,Cassiopeia,71,43,60.56
+Zac,Tristana,26,21,80.77
+Ekko,Ambessa,103,68,66.02
+Belveth,Galio,93,67,72.04
+Volibear,Annie,69,43,62.32
+Trundle,Taliyah,329,199,60.49
+Master Yi,Viktor,140,73,52.14
+Pantheon,Orianna,586,380,64.85
+Chogath,Ryze,9,9,100.0
+Shaco,Orianna,138,52,37.68
+Viego,LeBlanc,284,128,45.07
+Skarner,Azir,82,43,52.44
+Belveth,Syndra,120,78,65.0
+Xin Zhao,Galio,185,75,40.54
+Fiddlesticks,Yone,166,82,49.4
+Olaf,Syndra,25,12,48.0
+Vi,Annie,146,69,47.26
+Diana,Zed,236,112,47.46
+Karthus,Orianna,39,17,43.59
+Zed,Nunu & Willump,33,10,30.3
+Pantheon,Yone,220,109,49.55
+Vi,Azir,278,151,54.32
+Wukong,Vladimir,154,96,62.34
+Rengar,Galio,113,48,42.48
+Nunu & Willump,Neeko,17,13,76.47
+Skarner,Ziggs,16,10,62.5
+Nunu & Willump,Viktor,62,30,48.39
+Shen,Ekko,5,1,20.0
+KhaZix,Naafiri,15,0,0.0
+Talon,Ekko,95,48,50.53
+Zac,Galio,18,7,38.89
+Udyr,Ryze,104,45,43.27
+Pantheon,Viktor,355,173,48.73
+Trundle,Zoe,126,55,43.65
+Vi,Viktor,154,88,57.14
+Poppy,Galio,27,7,25.93
+Pantheon,Zoe,332,174,52.41
+Trundle,Annie,177,103,58.19
+Qiyana,Ryze,94,68,72.34
+Ambessa,Kennen,17,0,0.0
+Ekko,Tristana,134,57,42.54
+Karthus,Zoe,28,10,35.71
+Ekko,Jayce,140,81,57.86
+Zed,Galio,241,100,41.49
+Naafiri,Galio,129,43,33.33
+Nocturne,Tristana,13,8,61.54
+Volibear,Azir,215,73,33.95
+Wukong,Swain,31,17,54.84
+Zac,Twisted Fate,75,41,54.67
+Kindred,Galio,288,142,49.31
+Taliyah,Cassiopeia,6,0,0.0
+Pantheon,Syndra,459,230,50.11
+Wukong,Zilean,41,20,48.78
+Nidalee,Zoe,73,35,47.95
+Wukong,Azir,282,161,57.09
+Lee Sin,Akali,390,203,52.05
+Vi,Sylas,293,153,52.22
+Lee Sin,Galio,349,168,48.14
+Lee Sin,Vex,63,33,52.38
+Ekko,Kassadin,52,26,50.0
+Talon,Taliyah,198,105,53.03
+Pantheon,Rakan,3,3,100.0
+Viego,Syndra,688,330,47.97
+Nidalee,Yone,301,154,51.16
+Vi,Ahri,533,254,47.65
+Ekko,Aurora,101,42,41.58
+Talon,Annie,136,53,38.97
+Graves,Taliyah,70,29,41.43
+Belveth,Azir,121,54,44.63
+Rengar,Akali,133,63,47.37
+Lee Sin,Yone,165,81,49.09
+Rammus,Zed,43,28,65.12
+Hecarim,Naafiri,19,7,36.84
+Pantheon,Veigar,127,61,48.03
+Hecarim,Veigar,62,29,46.77
+Zed,Sylas,452,206,45.58
+Jarvan IV,Diana,100,45,45.0
+Ekko,Irelia,175,102,58.29
+Aurelion Sol,Yone,7,0,0.0
+Zed,Orianna,316,155,49.05
+Zed,Akali,311,160,51.45
+Fiddlesticks,Taliyah,31,21,67.74
+Jarvan IV,Ahri,371,200,53.91
+Ekko,Naafiri,57,23,40.35
+Gwen,Veigar,34,20,58.82
+Wukong,Veigar,42,9,21.43
+Volibear,Sylas,273,135,49.45
+Graves,Galio,90,36,40.0
+Jarvan IV,Veigar,96,53,55.21
+Ambessa,Sylas,85,54,63.53
+Nunu & Willump,LeBlanc,39,22,56.41
+Reksai,Orianna,30,26,86.67
+Nunu & Willump,Smolder,30,16,53.33
+Hecarim,Zac,28,21,75.0
+Nunu & Willump,Sylas,128,89,69.53
+Vi,LeBlanc,109,45,41.28
+Nunu & Willump,Syndra,63,37,58.73
+Chogath,Yone,20,0,0.0
+Nunu & Willump,Orianna,73,51,69.86
+Belveth,Vladimir,59,35,59.32
+Nunu & Willump,Azir,103,40,38.83
+Elise,Azir,51,17,33.33
+Trundle,Karma,29,5,17.24
+Ekko,Orianna,114,75,65.79
+Kindred,Syndra,136,68,50.0
+Nunu & Willump,Zoe,63,34,53.97
+Qiyana,Lissandra,28,25,89.29
+Xin Zhao,Annie,220,134,60.91
+Qiyana,Kayle,29,18,62.07
+Nunu & Willump,Irelia,46,19,41.3
+Dr. Mundo,Anivia,22,12,54.55
+Nunu & Willump,Annie,21,16,76.19
+Ekko,VelKoz,14,2,14.29
+Kindred,Sion,21,15,71.43
+Ivern,Galio,56,33,58.93
+Nunu & Willump,Kennen,14,12,85.71
+Nunu & Willump,Yone,155,94,60.65
+Xin Zhao,Akali,309,183,59.22
+Nunu & Willump,Twisted Fate,44,23,52.27
+Ambessa,Neeko,4,0,0.0
+Ekko,Lissandra,50,24,48.0
+Nunu & Willump,Hwei,78,35,44.87
+Trundle,Vladimir,139,86,61.87
+Nunu & Willump,Akali,96,54,56.25
+Nunu & Willump,Caitlyn,13,10,76.92
+Qiyana,Azir,74,50,67.57
+Nunu & Willump,Lee Sin,7,3,42.86
+Nunu & Willump,Lissandra,38,30,78.95
+Master Yi,Zoe,60,21,35.0
+Pantheon,Ahri,552,314,56.88
+Viego,Fizz,89,35,39.33
+Shaco,Sion,19,5,26.32
+Fiddlesticks,Lissandra,22,16,72.73
+Nunu & Willump,Olaf,4,0,0.0
+Udyr,Sylas,210,115,54.76
+Nunu & Willump,Veigar,31,9,29.03
+Volibear,Ekko,79,35,44.3
+Nidalee,Viktor,72,41,56.94
+Nunu & Willump,Tryndamere,13,13,100.0
+Naafiri,Sylas,288,139,48.26
+Briar,Twisted Fate,43,21,48.84
+Nunu & Willump,Talon,20,12,60.0
+Gwen,Tristana,26,12,46.15
+Belveth,Ekko,78,38,48.72
+Naafiri,Syndra,132,63,47.73
+Pantheon,Twisted Fate,336,137,40.77
+Vi,Brand,3,0,0.0
+Hecarim,Syndra,127,48,37.8
+Nunu & Willump,Ekko,28,18,64.29
+Zyra,Syndra,10,2,20.0
+Udyr,Talon,37,13,35.14
+Nidalee,Sion,55,22,40.0
+Reksai,Viktor,40,16,40.0
+Nunu & Willump,Vladimir,59,30,50.85
+Evelynn,Sion,8,3,37.5
+Viego,Viktor,477,235,49.27
+Trundle,Diana,23,12,52.17
+Nunu & Willump,Corki,49,19,38.78
+Nidalee,Zac,17,4,23.53
+Sejuani,Diana,10,6,60.0
+Jarvan IV,Yasuo,201,94,46.77
+Nocturne,Galio,182,53,29.12
+KhaZix,Vladimir,130,82,63.08
+Udyr,Taliyah,127,73,57.48
+Morgana,Neeko,8,0,0.0
+KhaZix,Ahri,157,69,43.95
+Trundle,Kennen,19,19,100.0
+Elise,Akshan,77,34,44.16
+Poppy,Kennen,17,7,41.18
+Nocturne,Hwei,98,45,45.92
+Pantheon,Mel,203,88,43.35
+Viego,Zoe,376,191,50.8
+Nocturne,Tryndamere,23,17,73.91
+KhaZix,Chogath,36,21,58.33
+Gwen,Orianna,61,43,70.49
+Nocturne,Sylas,299,139,46.49
+Jarvan IV,Karma,48,25,52.08
+Elise,Zed,173,76,43.93
+Nocturne,Neeko,29,20,68.97
+Sejuani,Aurora,44,1,2.27
+Ambessa,Gwen,7,7,100.0
+KhaZix,Irelia,33,12,36.36
+Pantheon,Karma,71,37,52.11
+Volibear,Aurora,199,94,47.24
+Jarvan IV,Akali,382,168,43.98
+Morgana,Zoe,19,14,73.68
+Rengar,Zoe,113,68,60.18
+Nocturne,Morgana,12,10,83.33
+Lee Sin,Naafiri,45,40,88.89
+Elise,Kled,3,0,0.0
+Viego,Karma,66,33,50.0
+Nocturne,Yunara,21,17,80.95
+Nocturne,Lux,74,47,63.51
+Viego,Anivia,107,57,53.27
+Elise,Jayce,50,22,44.0
+Elise,Corki,106,54,50.94
+Rammus,Lux,29,12,41.38
+Xin Zhao,Taliyah,373,199,53.35
+Nocturne,Ahri,158,87,55.06
+Poppy,Azir,230,121,52.61
+Nocturne,Viktor,188,103,54.79
+Trundle,Fizz,40,31,77.5
+KhaZix,Yone,97,39,40.21
+Jarvan IV,Xerath,98,47,47.96
+Amumu,Orianna,7,5,71.43
+Zac,Ahri,85,33,38.82
+Poppy,Hwei,49,19,38.78
+Poppy,Orianna,68,50,73.53
+Elise,Yasuo,106,51,48.11
+Lee Sin,Ekko,195,82,42.05
+Nocturne,Syndra,157,96,61.15
+Elise,Sejuani,7,7,100.0
+Lillia,Lissandra,22,9,40.91
+Nocturne,Jax,8,8,100.0
+Elise,Tryndamere,11,2,18.18
+Nidalee,Aatrox,9,6,66.67
+Master Yi,Karma,22,7,31.82
+Elise,Smolder,26,23,88.46
+Udyr,Viktor,82,35,42.68
+Mordekaiser,Gwen,10,10,100.0
+Volibear,Orianna,131,64,48.85
+Zed,Neeko,52,16,30.77
+Jarvan IV,Katarina,346,153,44.22
+Belveth,Neeko,26,19,73.08
+Elise,Ahri,54,22,40.74
+Jarvan IV,Hwei,334,169,50.6
+Brand,Jhin,2,0,0.0
+Jarvan IV,Kaisa,14,4,28.57
+Jarvan IV,Aatrox,19,9,47.37
+Belveth,Hwei,57,25,43.86
+Nocturne,Ryze,125,77,61.6
+Xin Zhao,Swain,38,23,60.53
+Nocturne,Gwen,17,6,35.29
+Jarvan IV,Vayne,31,11,35.48
+Belveth,Swain,18,16,88.89
+Xin Zhao,Lux,138,80,57.97
+Jax,LeBlanc,42,21,50.0
+Xin Zhao,LeBlanc,160,67,41.88
+Pantheon,Gwen,35,23,65.71
+KhaZix,Syndra,170,66,38.82
+KhaZix,Aurora,130,74,56.92
+KhaZix,Lux,82,52,63.41
+Viego,Taliyah,614,322,52.44
+Jarvan IV,LeBlanc,168,94,55.95
+Pantheon,Azir,456,248,54.39
+Elise,Ryze,49,32,65.31
+Trundle,Syndra,200,107,53.5
+Gwen,Syndra,58,24,41.38
+Xin Zhao,Sylas,371,218,58.76
+Talon,Karma,35,13,37.14
+Pantheon,Ziggs,65,23,35.38
+Zed,Taliyah,317,145,45.74
+Jarvan IV,Gragas,54,19,35.19
+Xin Zhao,Irelia,47,17,36.17
+Wukong,Orianna,334,183,54.79
+Chogath,Taliyah,11,0,0.0
+Trundle,Galio,121,60,49.59
+KhaZix,LeBlanc,87,58,66.67
+Elise,Taliyah,46,16,34.78
+Jarvan IV,Syndra,310,190,61.29
+Vi,Irelia,42,28,66.67
+Viego,Azir,574,259,45.12
+Trundle,Riven,13,1,7.69
+Nocturne,Rumble,16,14,87.5
+Zac,Karma,16,4,25.0
+Diana,Vladimir,50,30,60.0
+Poppy,Sylas,110,64,58.18
+Fiddlesticks,Quinn,17,5,29.41
+Belveth,Karma,37,33,89.19
+Gwen,Akshan,72,36,50.0
+Xin Zhao,Vex,62,35,56.45
+Taliyah,Twisted Fate,36,8,22.22
+Viego,Nunu & Willump,47,36,76.6
+Corki,Vladimir,24,2,8.33
+Nidalee,Akshan,174,103,59.2
+Nidalee,Smolder,44,23,52.27
+Ambessa,Ekko,26,15,57.69
+Zyra,Aurora,26,12,46.15
+Ambessa,Galio,52,23,44.23
+Pantheon,Neeko,55,33,60.0
+Belveth,Orianna,93,34,36.56
+Vi,Akali,165,80,48.48
+Karthus,Ambessa,44,22,50.0
+Lillia,Jayce,98,49,50.0
+Zac,Orianna,109,68,62.39
+Pantheon,Ekko,251,128,51.0
+Skarner,Zed,29,8,27.59
+Trundle,Aurelion Sol,31,24,77.42
+Skarner,Aurora,42,20,47.62
+Tryndamere,Sylas,7,1,14.29
+Nocturne,Ornn,4,4,100.0
+Vi,Vladimir,154,73,47.4
+Jarvan IV,Zed,190,87,45.79
+Lee Sin,Katarina,381,237,62.2
+Zed,Lissandra,99,68,68.69
+Viego,Ahri,801,409,51.06
+Jarvan IV,Corki,99,60,60.61
+Pantheon,Kayle,163,103,63.19
+Qiyana,Twisted Fate,69,36,52.17
+Gragas,Twisted Fate,24,11,45.83
+Ekko,Lee Sin,11,3,27.27
+Talon,Akali,199,115,57.79
+Trundle,LeBlanc,84,38,45.24
+Trundle,Ahri,234,130,55.56
+Lee Sin,Zac,51,27,52.94
+Ambessa,Akali,24,15,62.5
+Ekko,Taliyah,79,47,59.49
+Karthus,Ahri,45,38,84.44
+Zed,Hwei,211,104,49.29
+Nidalee,Hwei,71,36,50.7
+Lee Sin,Ryze,448,211,47.1
+Ekko,Veigar,56,20,35.71
+Zed,Zoe,213,102,47.89
+Lee Sin,Mel,276,115,41.67
+Qiyana,Taliyah,98,56,57.14
+Lee Sin,Neeko,48,31,64.58
+Talon,Azir,200,102,51.0
+Jax,Annie,20,17,85.0
+Wukong,Gwen,23,0,0.0
+Ambessa,Riven,5,0,0.0
+Wukong,Ekko,114,73,64.04
+Karthus,Jayce,119,76,63.87
+Lee Sin,Corki,77,25,32.47
+Zyra,Vayne,4,1,25.0
+Graves,Aurora,88,46,52.27
+Lee Sin,Heimerdinger,27,4,14.81
+Pantheon,Kled,20,8,40.0
+Gwen,Twisted Fate,55,32,58.18
+Brand,Sylas,8,4,50.0
+Naafiri,Anivia,42,26,61.9
+Udyr,Corki,115,50,43.48
+Evelynn,Kindred,6,0,0.0
+Zyra,Gragas,5,5,100.0
+Qiyana,Akali,78,47,60.26
+Fiddlesticks,Corki,136,51,37.5
+Dr. Mundo,Lucian,11,6,54.55
+Trundle,Aurora,242,130,53.72
+Shaco,Sylas,133,59,44.36
+Taliyah,Akali,14,4,28.57
+Trundle,Corki,60,26,43.33
+Pantheon,Yasuo,161,87,54.04
+Udyr,Gwen,6,0,0.0
+Vi,Mel,107,40,37.38
+Evelynn,Jayce,29,12,41.38
+Naafiri,Ahri,240,104,43.33
+Volibear,Qiyana,83,55,66.27
+Naafiri,Zoe,90,55,61.11
+KhaZix,Sylas,214,101,47.2
+Evelynn,Hwei,29,12,41.38
+Xin Zhao,Heimerdinger,29,10,34.48
+Brand,Zed,23,6,26.09
+Vi,Galio,192,127,66.15
+Talon,Urgot,2,2,100.0
+Ivern,Yone,183,94,51.37
+Diana,Yasuo,619,314,50.73
+Pantheon,Sett,10,8,80.0
+Shaco,Ahri,63,26,41.27
+Trundle,Sylas,313,114,36.42
+Viego,Zac,75,37,49.33
+Gragas,Qiyana,35,17,48.57
+Vi,Ryze,188,84,44.68
+Trundle,Veigar,51,26,50.98
+Zed,Syndra,276,98,35.51
+Naafiri,Riven,3,2,66.67
+Zed,Tristana,18,13,72.22
+Qiyana,Sion,9,3,33.33
+Qiyana,Galio,126,65,51.59
+Rengar,Yunara,10,0,0.0
+Wukong,Anivia,25,16,64.0
+Lee Sin,Azir,470,266,56.6
+Viego,Akali,452,203,44.91
+Trundle,Twisted Fate,111,61,54.95
+Rengar,Aurora,122,57,46.72
+Karthus,Corki,89,30,33.71
+Wukong,Taliyah,233,126,54.08
+Poppy,Akali,47,38,80.85
+Viego,Yone,179,78,43.58
+Zyra,Naafiri,23,13,56.52
+Ivern,Vayne,7,5,71.43
+Nidalee,Lucian,15,1,6.67
+Lee Sin,Vladimir,357,185,51.82
+Nidalee,Ryze,131,67,51.15
+Nidalee,Jayce,181,78,43.09
+Nidalee,Tristana,100,35,35.0
+Poppy,Qiyana,26,15,57.69
+Udyr,Yone,194,80,41.24
+Lee Sin,Orianna,452,251,55.53
+KhaZix,Ryze,160,91,56.88
+Rengar,Twisted Fate,147,95,64.63
+KhaZix,Katarina,98,46,46.94
+Nidalee,Wukong,3,0,0.0
+Naafiri,Veigar,47,21,44.68
+Volibear,Hwei,135,52,38.52
+Sylas,Jhin,2,0,0.0
+Zed,Twisted Fate,246,115,46.75
+Volibear,Syndra,205,138,67.32
+Vi,Diana,49,23,46.94
+Hecarim,Taliyah,146,71,48.63
+Corki,Twisted Fate,9,1,11.11
+Jax,Aurora,81,50,61.73
+Viego,Kennen,48,24,50.0
+Shaco,Jayce,30,21,70.0
+Ivern,Akali,74,39,52.7
+Gragas,Sylas,30,21,70.0
+Rengar,Sylas,215,89,41.4
+Pantheon,Heimerdinger,39,13,33.33
+Viego,Vex,102,64,62.75
+Hecarim,Ryze,137,52,37.96
+Shaco,Taliyah,63,32,50.79
+Rengar,Azir,143,91,63.64
+Evelynn,Ryze,21,7,33.33
+Zed,Vladimir,233,97,41.63
+Jax,Orianna,66,24,36.36
+Xin Zhao,Yasuo,149,63,42.28
+Evelynn,Yasuo,87,44,50.57
+Zed,Vex,82,56,68.29
+Wukong,Ahri,245,80,32.65
+Zyra,Yone,105,53,50.48
+Sejuani,Nasus,2,2,100.0
+Udyr,Xerath,26,15,57.69
+KhaZix,Neeko,27,13,48.15
+Belveth,Lissandra,58,38,65.52
+Master Yi,Diana,60,24,40.0
+KhaZix,Ekko,92,37,40.22
+Zac,Lissandra,40,5,12.5
+Volibear,Viktor,156,86,55.13
+KhaZix,Ezreal,2,2,100.0
+KhaZix,Vex,39,16,41.03
+Fiddlesticks,Yasuo,75,36,48.0
+Shaco,Riven,3,2,66.67
+Zeri,Jayce,4,3,75.0
+Zyra,Camille,3,2,66.67
+Shaco,Ekko,38,16,42.11
+Kayn,Ahri,234,119,50.85
+Belveth,Aurelion Sol,23,12,52.17
+Fiddlesticks,Neeko,6,4,66.67
+Wukong,Corki,43,30,69.77
+Volibear,Yone,155,90,58.06
+Jax,Corki,10,2,20.0
+Lee Sin,Gragas,47,21,44.68
+Kindred,Riven,20,12,60.0
+Graves,Neeko,21,7,33.33
+Evelynn,Corki,41,18,43.9
+Xin Zhao,Zoe,183,89,48.63
+Lillia,Anivia,5,2,40.0
+Wukong,Ryze,168,90,53.57
+Nocturne,Yone,89,54,60.67
+Evelynn,Qiyana,37,12,32.43
+Ivern,Quinn,5,3,60.0
+Wukong,Aurelion Sol,48,19,39.58
+KhaZix,Zed,86,39,45.35
+Ivern,Ekko,47,34,72.34
+Talon,Rakan,1,0,0.0
+Pantheon,Anivia,108,65,60.19
+Trundle,Hwei,99,45,45.45
+Dr. Mundo,Orianna,92,68,73.91
+Ivern,Anivia,20,14,70.0
+Diana,Smolder,31,19,61.29
+Pantheon,Teemo,22,3,13.64
+Zyra,Quinn,4,4,100.0
+Zac,Ryze,44,17,38.64
+Belveth,Talon,14,6,42.86
+Belveth,Zed,60,39,65.0
+Ambessa,Vladimir,12,3,25.0
+Jarvan IV,Mordekaiser,6,0,0.0
+Vi,Lissandra,39,20,51.28
+Pantheon,Katarina,281,119,42.35
+Hecarim,Twisted Fate,143,60,41.96
+KhaZix,Yasuo,59,20,33.9
+Diana,Akshan,92,46,50.0
+Xin Zhao,Fizz,69,48,69.57
+Trundle,Akali,149,104,69.8
+Viego,Sylas,811,372,45.87
+Belveth,Chogath,14,1,7.14
+Hecarim,Lux,74,47,63.51
+Shaco,Swain,18,10,55.56
+Jax,Ryze,41,28,68.29
+Zac,Naafiri,23,12,52.17
+Gwen,Ahri,71,34,47.89
+Nocturne,Ekko,82,37,45.12
+Belveth,Twisted Fate,94,50,53.19
+Talon,Aurora,235,142,60.43
+Qiyana,Sylas,145,91,62.76
+Graves,Diana,37,28,75.68
+Belveth,Morgana,2,0,0.0
+Belveth,Heimerdinger,2,1,50.0
+Qiyana,Katarina,45,28,62.22
+Pantheon,Kennen,45,23,51.11
+Belveth,Katarina,77,36,46.75
+Qiyana,Viktor,109,56,51.38
+Belveth,Akali,92,66,71.74
+Ekko,Syndra,134,67,50.0
+Graves,Annie,41,27,65.85
+Rammus,Kayle,13,4,30.77
+Ivern,Chogath,8,7,87.5
+Lee Sin,LeBlanc,238,124,52.1
+Fiddlesticks,Kayle,17,5,29.41
+Xin Zhao,Lulu,16,5,31.25
+Trundle,KSante,13,4,30.77
+Qiyana,Cassiopeia,14,11,78.57
+Qiyana,Ahri,78,41,52.56
+Ekko,Sion,52,29,55.77
+Skarner,Syndra,56,29,51.79
+Belveth,LeBlanc,45,33,73.33
+Wukong,Katarina,130,62,47.69
+Hecarim,Annie,94,57,60.64
+Ekko,Corki,256,148,57.81
+Graves,Lissandra,39,25,64.1
+Gwen,Katarina,37,17,45.95
+Belveth,Maokai,3,3,100.0
+KhaZix,Viktor,134,67,50.0
+Pantheon,Gragas,58,32,55.17
+Qiyana,Zed,45,20,44.44
+Gwen,Jayce,38,11,28.95
+Rengar,Aatrox,11,4,36.36
+Gwen,Sion,14,11,78.57
+Gwen,Nocturne,8,3,37.5
+Qiyana,Ambessa,22,11,50.0
+Pantheon,LeBlanc,177,105,59.32
+Belveth,Lux,49,23,46.94
+Jax,Gragas,15,3,20.0
+Kindred,Twisted Fate,115,83,72.17
+Belveth,Fizz,23,13,56.52
+Belveth,Sett,2,2,100.0
+Volibear,Zac,21,14,66.67
+Belveth,Veigar,19,7,36.84
+Taliyah,Riven,15,4,26.67
+Nocturne,Yasuo,57,25,43.86
+Qiyana,Kassadin,45,12,26.67
+Rengar,Ryze,106,62,58.49
+Ivern,Ahri,68,33,48.53
+Kindred,Jayce,28,9,32.14
+Belveth,Ahri,105,58,55.24
+Fiddlesticks,Sett,2,0,0.0
+Wukong,Cassiopeia,14,11,78.57
+Hecarim,Hwei,138,69,50.0
+Kindred,Zoe,112,59,52.68
+Belveth,Mel,50,29,58.0
+Gragas,Corki,17,14,82.35
+Belveth,Xerath,27,13,48.15
+Reksai,Aurora,46,25,54.35
+Kindred,Sylas,273,154,56.41
+Shyvana,Azir,17,13,76.47
+Gwen,Lulu,2,2,100.0
+Gragas,Aurora,25,13,52.0
+Viego,Karthus,4,1,25.0
+Belveth,Kassadin,33,16,48.48
+Graves,Ryze,82,44,53.66
+Rammus,Orianna,45,13,28.89
+Belveth,Gragas,29,23,79.31
+Fiddlesticks,Zed,135,51,37.78
+Evelynn,Vayne,3,0,0.0
+Kayn,Yasuo,112,47,41.96
+Sejuani,Sylas,158,74,46.84
+Maokai,Yone,38,11,28.95
+Volibear,Urgot,11,1,9.09
+Ekko,Akali,100,48,48.0
+Naafiri,Brand,5,4,80.0
+Ivern,Akshan,34,20,58.82
+Reksai,Azir,42,21,50.0
+Nocturne,Katarina,141,62,43.97
+Pantheon,Irelia,74,23,31.08
+Trundle,Xerath,31,12,38.71
+Ekko,Hwei,129,75,58.14
+Vi,Gragas,34,9,26.47
+Taliyah,Akshan,35,18,51.43
+Viego,Galio,473,252,53.28
+Gragas,Syndra,5,3,60.0
+KhaZix,Galio,119,66,55.46
+Viego,KSante,12,11,91.67
+Rengar,Fizz,37,10,27.03
+Ekko,Akshan,264,146,55.3
+Zed,Ryze,278,153,55.04
+Corki,Orianna,8,5,62.5
+Ivern,Veigar,32,12,37.5
+Sylas,Akshan,10,9,90.0
+Xin Zhao,Neeko,48,20,41.67
+Briar,Akali,31,19,61.29
+Gwen,Neeko,10,4,40.0
+Sejuani,Ahri,31,21,67.74
+Fiddlesticks,Briar,4,3,75.0
+Kindred,Akshan,20,14,70.0
+Talon,Lissandra,75,36,48.0
+Jarvan IV,Akshan,108,55,50.93
+Pantheon,Zac,41,18,43.9
+Udyr,Aatrox,8,8,100.0
+Karthus,Sylas,66,17,25.76
+Naafiri,Vladimir,139,52,37.41
+Fiddlesticks,Ornn,8,5,62.5
+Volibear,LeBlanc,75,36,48.0
+Nidalee,Twisted Fate,192,96,50.0
+Viego,Lissandra,213,137,64.32
+Naafiri,Akshan,46,23,50.0
+Karthus,Zed,171,85,49.71
+Nidalee,Renekton,24,5,20.83
+Rengar,Orianna,148,73,49.32
+Zyra,Mel,20,7,35.0
+Shaco,Galio,69,29,42.03
+Kayn,Veigar,56,34,60.71
+Teemo,Sylas,9,2,22.22
+Hecarim,Akali,150,66,44.0
+Qiyana,Xerath,16,6,37.5
+Kayn,Annie,112,60,53.57
+Ekko,Udyr,9,7,77.78
+Gwen,Smolder,32,12,37.5
+Jarvan IV,Zyra,4,0,0.0
+Naafiri,Taliyah,211,105,49.76
+Viego,Neeko,123,64,52.03
+Gwen,Ryze,24,9,37.5
+Vi,Katarina,152,74,48.68
+Qiyana,Yone,41,16,39.02
+Trundle,Qiyana,31,16,51.61
+Jarvan IV,Lissandra,112,48,42.86
+Talon,Syndra,223,119,53.36
+Zac,Hwei,52,29,55.77
+Lillia,Akshan,95,56,58.95
+Gwen,Galio,77,45,58.44
+Viego,Yasuo,152,59,38.82
+Lillia,Nocturne,7,7,100.0
+Trundle,Yasuo,60,26,43.33
+Kayn,Zoe,126,67,53.17
+Rengar,Taliyah,157,82,52.23
+Viego,Jayce,69,42,60.87
+Qiyana,Ziggs,14,5,35.71
+Skarner,Tryndamere,6,6,100.0
+Zed,Ahri,348,135,38.79
+Xin Zhao,Ahri,358,159,44.41
+Reksai,Karma,4,0,0.0
+Chogath,Zoe,10,0,0.0
+Chogath,Aurora,24,8,33.33
+Nidalee,Orianna,69,33,47.83
+Zed,Annie,180,76,42.22
+Chogath,Galio,10,0,0.0
+Nunu & Willump,Tristana,64,38,59.38
+Nocturne,Veigar,57,24,42.11
+KhaZix,Azir,198,92,46.46
+Diana,Corki,106,45,42.45
+Shaco,Azir,104,46,44.23
+Zed,Fiddlesticks,14,1,7.14
+Nidalee,Ziggs,5,3,60.0
+Kindred,Annie,76,50,65.79
+Trundle,Mel,100,29,29.0
+Teemo,Zed,11,1,9.09
+Trundle,Zed,95,45,47.37
+Fiddlesticks,Sion,35,27,77.14
+Pantheon,Vayne,20,10,50.0
+Hecarim,Yone,74,41,55.41
+Xin Zhao,Syndra,259,126,48.65
+Talon,Orianna,230,130,56.52
+Jarvan IV,Sivir,9,9,100.0
+Elise,Karma,10,0,0.0
+KhaZix,Caitlyn,6,5,83.33
+Trundle,Lissandra,55,47,85.45
+Poppy,Ahri,89,53,59.55
+Zed,Lux,127,53,41.73
+Ekko,Yasuo,280,125,44.64
+Diana,Orianna,53,20,37.74
+Hecarim,Yasuo,112,39,34.82
+Belveth,Pantheon,7,6,85.71
+Briar,Orianna,85,48,56.47
+Elise,Varus,6,6,100.0
+Viego,Renekton,22,11,50.0
+Viego,Xerath,150,78,52.0
+Fiddlesticks,Lee Sin,13,9,69.23
+Wukong,Sylas,247,117,47.37
+Wukong,Fizz,39,22,56.41
+Zac,Ambessa,26,20,76.92
+Kayn,Syndra,169,78,46.15
+Naafiri,Annie,156,92,58.97
+Ambessa,Kayle,6,2,33.33
+Hecarim,Ekko,96,45,46.88
+Trundle,Naafiri,28,12,42.86
+Wukong,Syndra,223,119,53.36
+Ambessa,Syndra,49,38,77.55
+Volibear,Gwen,7,0,0.0
+Wukong,Seraphine,12,5,41.67
+Fiddlesticks,Varus,9,5,55.56
+Lee Sin,Lucian,29,9,31.03
+Dr. Mundo,Annie,76,46,60.53
+Hecarim,Ahri,156,83,53.21
+Belveth,Tristana,12,11,91.67
+Volibear,Galio,118,64,54.24
+Qiyana,Corki,26,11,42.31
+Pantheon,Ivern,21,17,80.95
+Jarvan IV,Ekko,168,93,55.36
+Hecarim,KSante,4,4,100.0
+Udyr,Naafiri,24,18,75.0
+Viego,Zed,257,126,49.03
+Kayn,Katarina,174,84,48.28
+Xin Zhao,Morgana,23,18,78.26
+Vi,Talon,24,14,58.33
+Diana,Naafiri,54,24,44.44
+Poppy,Katarina,43,17,39.53
+Lee Sin,Tristana,78,43,55.13
+Elise,Syndra,38,21,55.26
+Hecarim,Kayn,2,0,0.0
+Kindred,Ekko,85,60,70.59
+Lee Sin,Ziggs,75,29,38.67
+Poppy,Taliyah,129,55,42.64
+Zed,Kassadin,96,56,58.33
+Vi,Lee Sin,20,5,25.0
+Briar,Katarina,26,9,34.62
+Qiyana,Annie,73,55,75.34
+Ekko,Sylas,162,58,35.8
+Xin Zhao,Riven,25,21,84.0
+Hecarim,Kayle,62,35,56.45
+Karthus,Azir,64,18,28.12
+Udyr,Zed,129,68,52.71
+Trundle,Tristana,50,23,46.0
+Trundle,Kayle,90,46,51.11
+Naafiri,Ekko,73,27,36.99
+Zyra,Cassiopeia,2,2,100.0
+Taliyah,Graves,4,0,0.0
+Nidalee,Yasuo,126,58,46.03
+Lee Sin,Vayne,12,12,100.0
+Diana,Kaisa,9,8,88.89
+Ambessa,Viktor,37,21,56.76
+Naafiri,Neeko,28,12,42.86
+Kayn,Nunu & Willump,18,13,72.22
+Vi,Twisted Fate,181,93,51.38
+Rammus,Aurora,46,28,60.87
+Gwen,KSante,10,6,60.0
+Nocturne,Irelia,22,10,45.45
+Lee Sin,Jhin,6,4,66.67
+Shaco,Akali,68,35,51.47
+Talon,Zed,55,29,52.73
+Xin Zhao,Cassiopeia,39,25,64.1
+Evelynn,Syndra,25,18,72.0
+Wukong,Twisted Fate,119,62,52.1
+Master Yi,Ahri,104,60,57.69
+Nocturne,Kassadin,61,41,67.21
+Evelynn,Lucian,2,0,0.0
+Xin Zhao,Ivern,12,9,75.0
+Nocturne,Twisted Fate,139,67,48.2
+Talon,LeBlanc,119,67,56.3
+Zed,Kennen,24,11,45.83
+Dr. Mundo,Naafiri,4,3,75.0
+Volibear,Corki,68,35,51.47
+Udyr,Ekko,61,29,47.54
+Taliyah,Neeko,2,2,100.0
+Nidalee,Vladimir,82,47,57.32
+Taliyah,Kayle,8,3,37.5
+Kindred,Corki,25,9,36.0
+Zed,Yone,125,75,60.0
+Ekko,Zed,369,185,50.14
+Poppy,Ryze,101,45,44.55
+Evelynn,Vladimir,24,9,37.5
+Nidalee,Neeko,7,1,14.29
+Maokai,Jayce,12,4,33.33
+Viego,Ziggs,68,35,51.47
+Udyr,Akshan,86,49,56.98
+Jarvan IV,Mel,226,111,49.12
+Gragas,Yunara,9,0,0.0
+Gwen,Irelia,49,29,59.18
+Udyr,Zoe,63,28,44.44
+Viego,Tristana,62,27,43.55
+Viego,Vladimir,384,198,51.56
+Reksai,Rumble,5,5,100.0
+Belveth,Seraphine,12,9,75.0
+Nunu & Willump,Nocturne,7,0,0.0
+Nunu & Willump,Ziggs,14,13,92.86
+Nunu & Willump,Karma,9,7,77.78
+Qiyana,Vladimir,70,46,65.71
+Elise,Galio,51,27,52.94
+Diana,Fiddlesticks,10,9,90.0
+Fiddlesticks,Jayce,53,32,60.38
+Nunu & Willump,Lucian,12,9,75.0
+Rammus,Corki,17,9,52.94
+Jarvan IV,Zoe,212,115,54.25
+Udyr,Jayce,45,18,40.0
+Udyr,Kennen,17,7,41.18
+Pantheon,Ezreal,13,12,92.31
+Qiyana,Ekko,45,27,60.0
+Ekko,Gragas,31,8,25.81
+Zac,Yone,107,64,59.81
+Nocturne,Akali,142,71,50.0
+Gragas,Jayce,18,13,72.22
+Nidalee,Zed,277,147,53.07
+Talon,Galio,208,93,44.71
+Sylas,Lucian,7,0,0.0
+Hecarim,Vladimir,167,83,49.7
+Lee Sin,Irelia,98,50,51.02
+Wukong,Neeko,27,16,59.26
+Lillia,Yone,265,136,51.32
+Skarner,Katarina,38,20,52.63
+Fiddlesticks,Sylas,48,23,47.92
+Amumu,Ziggs,12,12,100.0
+Nocturne,Vladimir,179,88,49.16
+Jarvan IV,Ambessa,33,10,30.3
+Wukong,Yasuo,143,56,39.16
+Graves,Sylas,165,96,58.18
+Jarvan IV,Singed,21,10,47.62
+Ekko,Fizz,47,24,51.06
+Poppy,Irelia,15,4,26.67
+Ekko,Smolder,63,25,39.68
+Karthus,Gragas,2,0,0.0
+Jarvan IV,Tristana,36,22,61.11
+Vi,Hwei,130,83,63.85
+Dr. Mundo,Aurora,115,54,46.96
+Pantheon,Swain,53,32,60.38
+Ekko,LeBlanc,90,41,45.56
+Amumu,Viktor,21,11,52.38
+Fiddlesticks,Ahri,43,20,46.51
+Xin Zhao,Twisted Fate,237,130,54.85
+Ekko,Swain,32,14,43.75
+Ekko,Ezreal,15,3,20.0
+KhaZix,Hwei,141,54,38.3
+Jarvan IV,Lux,136,66,48.53
+Xin Zhao,Caitlyn,12,8,66.67
+Ekko,Renekton,24,11,45.83
+Wukong,Lissandra,56,28,50.0
+Shaco,Warwick,5,0,0.0
+Shaco,Zed,66,32,48.48
+Volibear,Lux,84,36,42.86
+Wukong,Lux,114,62,54.39
+Ekko,Qiyana,223,106,47.53
+Ekko,Lucian,24,16,66.67
+Jarvan IV,Vex,99,44,44.44
+Poppy,Annie,23,12,52.17
+Ekko,Annie,38,16,42.11
+Gwen,Talon,37,17,45.95
+Graves,Akali,80,29,36.25
+Udyr,Ambessa,34,6,17.65
+Wukong,Xerath,65,37,56.92
+Jarvan IV,Talon,53,22,41.51
+Ekko,Anivia,53,21,39.62
+Volibear,Akshan,78,42,53.85
+Ekko,Ryze,124,73,58.87
+Fiddlesticks,Wukong,6,5,83.33
+Draven,Akali,7,3,42.86
+Jarvan IV,Brand,19,10,52.63
+Ekko,Nunu & Willump,17,2,11.76
+Zed,Ziggs,47,8,17.02
+Jarvan IV,Qiyana,93,44,47.31
+Pantheon,Jayce,81,42,51.85
+Elise,Akali,57,27,47.37
+Pantheon,Zed,156,69,44.23
+Qiyana,Aurora,88,33,37.5
+Karthus,Lissandra,18,7,38.89
+Graves,Kled,8,8,100.0
+Qiyana,Mel,73,32,43.84
+Kayn,Twisted Fate,195,113,57.95
+Qiyana,Lux,32,12,37.5
+Qiyana,Twitch,10,7,70.0
+Qiyana,LeBlanc,34,23,67.65
+Ivern,Syndra,70,43,61.43
+Kayn,Lissandra,84,36,42.86
+Qiyana,Vayne,7,7,100.0
+Hecarim,Viktor,178,87,48.88
+KhaZix,Akali,154,78,50.65
+Lee Sin,Nunu & Willump,28,12,42.86
+Qiyana,Neeko,8,4,50.0
+Evelynn,Yone,97,62,63.92
+Volibear,Mel,91,45,49.45
+Volibear,Sion,5,3,60.0
+Qiyana,Aurelion Sol,17,4,23.53
+Nocturne,Qiyana,55,33,60.0
+Graves,Ahri,107,55,51.4
+Evelynn,Ambessa,18,4,22.22
+Qiyana,Diana,11,10,90.91
+Qiyana,Hwei,66,24,36.36
+Qiyana,Karma,22,12,54.55
+Nidalee,Taliyah,94,45,47.87
+Shaco,Kayle,27,13,48.15
+Qiyana,Syndra,85,52,61.18
+Nocturne,Ambessa,16,11,68.75
+Gwen,Zed,150,76,50.67
+Viego,Lux,255,158,61.96
+Zyra,Azir,18,16,88.89
+Lee Sin,Karma,27,7,25.93
+Diana,Yone,233,107,45.92
+Maokai,Viktor,31,11,35.48
+Mordekaiser,Galio,10,9,90.0
+Sylas,Aurora,14,6,42.86
+Jarvan IV,Karthus,15,1,6.67
+Udyr,Aurora,180,89,49.44
+Hecarim,Galio,150,49,32.67
+Master Yi,Azir,155,75,48.39
+Zed,Olaf,3,2,66.67
+Mordekaiser,Twisted Fate,14,7,50.0
+Hecarim,Caitlyn,6,2,33.33
+Pantheon,Xerath,101,37,36.63
+Kindred,Lissandra,70,46,65.71
+Viego,Cassiopeia,65,34,52.31
+Pantheon,Vex,82,44,53.66
+Poppy,Aurora,131,81,61.83
+Evelynn,Sylas,32,9,28.12
+Elise,Sylas,65,9,13.85
+Chogath,KSante,8,8,100.0
+Udyr,Mel,80,40,50.0
+Nocturne,Corki,42,31,73.81
+Shyvana,Wukong,9,0,0.0
+Skarner,Zoe,17,12,70.59
+Master Yi,Vladimir,108,61,56.48
+Zac,Neeko,20,13,65.0
+Ekko,Ahri,124,52,41.94
+Rengar,Malzahar,49,30,61.22
+Master Yi,Hwei,119,58,48.74
+Elise,Aurora,38,10,26.32
+Naafiri,Jayce,33,19,57.58
+Zac,Taliyah,101,51,50.5
+Chogath,Yunara,8,8,100.0
+Jax,Syndra,50,33,66.0
+KSante,Sylas,7,2,28.57
+Nidalee,Galio,123,78,63.41
+Vi,Tryndamere,9,3,33.33
+Dr. Mundo,Zoe,87,35,40.23
+Ambessa,Diana,12,3,25.0
+Volibear,Zoe,104,55,52.88
+Naafiri,Aurora,188,111,59.04
+Ambessa,Ahri,38,18,47.37
+Jax,Hwei,41,27,65.85
+Gragas,Zoe,30,23,76.67
+KhaZix,Zoe,81,39,48.15
+Kayn,Ekko,92,52,56.52
+Ambessa,Zoe,18,13,72.22
+Ekko,Nidalee,12,4,33.33
+Shaco,Vayne,8,3,37.5
+Ivern,Gragas,23,17,73.91
+Elise,Sion,16,7,43.75
+Kindred,Ryze,166,84,50.6
+Ambessa,Hwei,36,23,63.89
+Zed,Morgana,18,5,27.78
+Naafiri,Lissandra,57,28,49.12
+Graves,Zoe,55,37,67.27
+Volibear,Akali,162,60,37.04
+Sejuani,Zoe,7,3,42.86
+Maokai,Neeko,8,2,25.0
+Karthus,Tryndamere,26,4,15.38
+Olaf,Anivia,2,0,0.0
+Nunu & Willump,Xin Zhao,4,4,100.0
+Pantheon,Lissandra,120,54,45.0
+Nidalee,Mel,56,34,60.71
+Nidalee,Shen,3,3,100.0
+Vi,Zoe,128,92,71.88
+Karthus,Yone,196,97,49.49
+Karthus,LeBlanc,21,15,71.43
+Brand,Veigar,2,2,100.0
+Nocturne,Zoe,83,33,39.76
+Karthus,Volibear,9,1,11.11
+Nidalee,Lux,39,19,48.72
+Viego,Hwei,398,201,50.5
+Jax,Sion,10,1,10.0
+Wukong,Ziggs,49,13,26.53
+Ambessa,Ziggs,10,10,100.0
+Shyvana,Akali,34,8,23.53
+Jayce,Lissandra,6,6,100.0
+Mordekaiser,Ekko,9,0,0.0
+Zac,Yasuo,144,76,52.78
+Gwen,Ambessa,28,17,60.71
+Maokai,Orianna,13,13,100.0
+Skarner,Orianna,75,32,42.67
+Nidalee,Annie,101,64,63.37
+Wukong,Yunara,25,11,44.0
+Jarvan IV,Smolder,42,16,38.1
+Kayn,Lee Sin,16,0,0.0
+Rengar,LeBlanc,70,25,35.71
+Nocturne,Taliyah,142,71,50.0
+Pantheon,Aatrox,19,6,31.58
+Hecarim,Fizz,71,38,53.52
+Tryndamere,Twisted Fate,6,0,0.0
+Viego,Swain,102,67,65.69
+Jax,Lucian,7,0,0.0
+Wukong,LeBlanc,63,26,41.27
+Poppy,Kassadin,10,8,80.0
+Taliyah,Lee Sin,5,1,20.0
+Poppy,Nidalee,6,6,100.0
+Jarvan IV,Lee Sin,8,4,50.0
+Kayn,Taliyah,224,116,51.79
+Briar,Hwei,45,15,33.33
+Ivern,Sylas,174,99,56.9
+Zed,Veigar,86,25,29.07
+Wukong,Pyke,2,2,100.0
+Vi,Ekko,97,41,42.27
+Talon,Corki,34,8,23.53
+Jax,Taliyah,81,43,53.09
+Rammus,Neeko,6,1,16.67
+Vi,Kayle,78,43,55.13
+Ivern,Twisted Fate,49,24,48.98
+Pantheon,Morgana,32,16,50.0
+Kayn,Ryze,166,85,51.2
+Vi,Fizz,18,8,44.44
+Dr. Mundo,Taliyah,135,74,54.81
+Karthus,Qiyana,70,44,62.86
+Ivern,LeBlanc,34,13,38.24
+Vi,Aurelion Sol,40,18,45.0
+Naafiri,Yone,72,33,45.83
+Xin Zhao,Naafiri,10,1,10.0
+Fiddlesticks,Aurora,24,10,41.67
+Wukong,Naafiri,15,9,60.0
+Udyr,Syndra,86,42,48.84
+Nidalee,Ahri,62,24,38.71
+Nidalee,Qiyana,98,56,57.14
+Viego,Corki,98,44,44.9
+Lillia,Gragas,6,2,33.33
+Udyr,Akali,97,46,47.42
+Kindred,Hwei,106,60,56.6
+Kayn,Kennen,16,6,37.5
+Ambessa,Lucian,6,4,66.67
+Nidalee,Akali,42,27,64.29
+Lee Sin,Twitch,22,10,45.45
+Ekko,Kled,13,8,61.54
+Naafiri,Mel,128,56,43.75
+Nunu & Willump,Zed,66,33,50.0
+Jax,Kayle,15,9,60.0
+Volibear,Cassiopeia,14,5,35.71
+Ekko,Illaoi,13,4,30.77
+Volibear,Aurelion Sol,38,18,47.37
+Viego,Illaoi,9,5,55.56
+Lee Sin,Zilean,24,7,29.17
+Ekko,Zeri,19,6,31.58
+Vi,Seraphine,2,1,50.0
+Kindred,Morgana,14,14,100.0
+Dr. Mundo,Galio,34,17,50.0
+Kayn,Viktor,199,109,54.77
+Volibear,Zed,137,64,46.72
+Ivern,Aurora,90,39,43.33
+Talon,Ryze,204,96,47.06
+Diana,Ryze,34,11,32.35
+Kayn,Mel,120,38,31.67
+Zac,Vladimir,90,47,52.22
+Reksai,Lissandra,20,10,50.0
+Diana,Jayce,59,29,49.15
+Talon,Ivern,19,6,31.58
+Dr. Mundo,Ryze,90,37,41.11
+Talon,Zoe,158,83,52.53
+Qiyana,Fizz,14,8,57.14
+Diana,Tristana,49,20,40.82
+Talon,Mel,117,57,48.72
+Vi,Shen,3,2,66.67
+Talon,Vladimir,153,84,54.9
+Elise,Ekko,24,4,16.67
+Ambessa,Zilean,10,4,40.0
+Rengar,Kassadin,47,30,63.83
+Teemo,Taliyah,12,0,0.0
+Trundle,Aatrox,3,1,33.33
+Viego,Qiyana,86,46,53.49
+Ekko,Twisted Fate,108,51,47.22
+Lillia,Taliyah,52,30,57.69
+Trundle,Katarina,108,60,55.56
+Jax,Vladimir,41,36,87.8
+Graves,Yone,57,36,63.16
+Elise,Twisted Fate,52,19,36.54
+Skarner,Kayle,28,16,57.14
+Ivern,Vladimir,74,34,45.95
+Ambessa,Zed,17,7,41.18
+Sejuani,Lissandra,7,4,57.14
+Udyr,Ezreal,16,9,56.25
+Rammus,Sylas,50,12,24.0
+Lee Sin,Kassadin,124,60,48.39
+Nocturne,Annie,81,29,35.8
+Jax,Ahri,66,36,54.55
+Udyr,Anivia,20,10,50.0
+Fiddlesticks,Ryze,30,6,20.0
+Karthus,Vladimir,30,20,66.67
+Ivern,Tristana,45,25,55.56
+Elise,Zilean,5,1,20.0
+Evelynn,Diana,16,5,31.25
+Master Yi,Orianna,116,73,62.93
+Udyr,Fizz,28,18,64.29
+Nocturne,Anivia,27,5,18.52
+Evelynn,Azir,23,9,39.13
+Pantheon,Akshan,75,40,53.33
+Nocturne,Jayce,24,8,33.33
+Volibear,Veigar,76,31,40.79
+Ivern,Viktor,74,30,40.54
+Volibear,Vladimir,105,59,56.19
+Xin Zhao,Xerath,73,40,54.79
+Lee Sin,Veigar,101,38,37.62
+Corki,Akali,24,8,33.33
+Xin Zhao,Karma,30,12,40.0
+Jax,Akshan,18,10,55.56
+Jarvan IV,Heimerdinger,20,5,25.0
+Pantheon,Tryndamere,15,9,60.0
+Jarvan IV,Vladimir,299,156,52.17
+Zyra,Irelia,31,10,32.26
+Jarvan IV,Malphite,23,10,43.48
+Naafiri,Ziggs,24,6,25.0
+Volibear,Kayle,43,27,62.79
+Trundle,Garen,12,6,50.0
+Elise,Udyr,8,6,75.0
+Kindred,Azir,124,53,42.74
+Kayn,Azir,170,85,50.0
+Volibear,KhaZix,4,0,0.0
+Zyra,Vladimir,16,12,75.0
+Kayn,Xerath,80,45,56.25
+Jarvan IV,Aurelion Sol,62,33,53.23
+Hecarim,Zoe,90,49,54.44
+Jarvan IV,Irelia,35,18,51.43
+Ambessa,Swain,7,4,57.14
+Trundle,Heimerdinger,23,14,60.87
+Fiddlesticks,Akali,39,16,41.03
+Jarvan IV,Zac,53,17,32.08
+Nocturne,Diana,45,17,37.78
+Jarvan IV,Swain,49,23,46.94
+Diana,Sylas,78,33,42.31
+Ambessa,Lissandra,13,8,61.54
+Talon,Kayle,47,24,51.06
+Naafiri,Qiyana,35,12,34.29
+Lillia,Ambessa,35,13,37.14
+Shaco,Gragas,13,7,53.85
+Ambessa,Aurora,63,35,55.56
+Talon,Veigar,52,25,48.08
+Zac,Jayce,28,15,53.57
+Lee Sin,KSante,15,10,66.67
+Naafiri,Twisted Fate,156,84,53.85
+Nunu & Willump,Ryze,66,30,45.45
+Fiddlesticks,Smolder,24,16,66.67
+Gwen,Gragas,18,12,66.67
+Dr. Mundo,Azir,113,52,46.02
+Ambessa,Twisted Fate,55,21,38.18
+Viego,Lee Sin,17,15,88.24
+Gwen,Aurora,29,8,27.59
+Gwen,Briar,10,7,70.0
+Ambessa,Yone,18,6,33.33
+Lillia,Corki,89,44,49.44
+Volibear,Irelia,67,20,29.85
+Naafiri,LeBlanc,76,49,64.47
+Ekko,Talon,83,32,38.55
+Jarvan IV,Zilean,37,27,72.97
+Fiddlesticks,Ezreal,6,0,0.0
+Xin Zhao,Hwei,209,98,46.89
+Trundle,Kassadin,61,22,36.07
+Nocturne,Karma,20,12,60.0
+Jarvan IV,Senna,2,2,100.0
+Wukong,Garen,4,0,0.0
+Lee Sin,Kennen,16,10,62.5
+Brand,Ambessa,5,3,60.0
+Jax,Diana,7,0,0.0
+Shaco,Vladimir,50,28,56.0
+Xin Zhao,VelKoz,13,7,53.85
+Rammus,Galio,15,8,53.33
+Dr. Mundo,Twisted Fate,102,41,40.2
+Briar,Volibear,7,7,100.0
+Zac,Azir,67,30,44.78
+Shaco,Ryze,105,44,41.9
+Kayn,Malzahar,63,22,34.92
+Volibear,Ambessa,16,7,43.75
+Briar,Azir,33,8,24.24
+Hecarim,Neeko,26,19,73.08
+Xin Zhao,Mel,159,81,50.94
+Volibear,Pantheon,13,3,23.08
+Belveth,Kayle,33,13,39.39
+Ekko,Aatrox,27,14,51.85
+Gwen,Akali,47,20,42.55
+Trundle,Irelia,51,22,43.14
+Viego,Malzahar,106,51,48.11
+Viego,Briar,18,12,66.67
+Nocturne,VelKoz,13,3,23.08
+Talon,Lux,121,34,28.1
+Maokai,Qiyana,16,15,93.75
+Neeko,Galio,12,9,75.0
+Maokai,Aurelion Sol,6,5,83.33
+Shaco,Yasuo,54,32,59.26
+Singed,Brand,5,0,0.0
+Fiddlesticks,Aatrox,12,5,41.67
+Sejuani,Veigar,6,0,0.0
+Zed,Chogath,34,23,67.65
+Xin Zhao,Volibear,1,0,0.0
+Udyr,Katarina,64,38,59.38
+Nocturne,Malzahar,53,27,50.94
+Viego,Diana,157,66,42.04
+Nocturne,Lissandra,48,24,50.0
+Zac,Sylas,102,69,67.65
+Kindred,Swain,21,15,71.43
+Belveth,Corki,33,16,48.48
+Fiddlesticks,Talon,63,21,33.33
+Xin Zhao,Chogath,27,22,81.48
+Poppy,Ziggs,19,11,57.89
+Taliyah,Azir,28,2,7.14
+Vi,Kassadin,59,25,42.37
+Elise,KSante,8,8,100.0
+Shen,Ryze,5,3,60.0
+Ivern,Fizz,29,18,62.07
+Taliyah,Tristana,33,16,48.48
+Wukong,Akali,192,109,56.77
+Udyr,Swain,31,9,29.03
+KhaZix,Kennen,20,6,30.0
+Rengar,Viktor,131,69,52.67
+Dr. Mundo,Yone,70,14,20.0
+Fiddlesticks,Syndra,25,10,40.0
+Nidalee,Ekko,44,24,54.55
+Lee Sin,Mordekaiser,9,7,77.78
+Elise,Gragas,8,5,62.5
+Jarvan IV,Anivia,59,25,42.37
+Karthus,Anivia,9,4,44.44
+Talon,Kassadin,69,42,60.87
+Rengar,Ahri,182,92,50.55
+Kindred,Ambessa,14,9,64.29
+Corki,Hwei,3,0,0.0
+Rengar,Mel,79,39,49.37
+Dr. Mundo,Syndra,105,61,58.1
+Karthus,Akshan,77,53,68.83
+Sejuani,Galio,9,3,33.33
+Fiddlesticks,Irelia,43,25,58.14
+Vi,Gangplank,2,2,100.0
+Nocturne,Gragas,46,19,41.3
+Vi,Tristana,30,18,60.0
+Wukong,Pantheon,4,2,50.0
+Corki,Twitch,7,7,100.0
+Ekko,Ivern,7,2,28.57
+Ivern,Corki,83,58,69.88
+Xin Zhao,Zed,102,51,50.0
+Trundle,Nunu & Willump,8,6,75.0
+Poppy,Lux,23,7,30.43
+Rengar,Malphite,9,3,33.33
+Lee Sin,Zed,178,73,41.01
+Zac,Malzahar,9,6,66.67
+Ambessa,Ryze,28,14,50.0
+Ambessa,Orianna,49,16,32.65
+Kayn,Vladimir,136,62,45.59
+KhaZix,Akshan,41,26,63.41
+Dr. Mundo,Ekko,33,17,51.52
+Ambessa,Corki,11,3,27.27
+Graves,LeBlanc,56,16,28.57
+Kindred,Kaisa,1,1,100.0
+Xin Zhao,Smolder,39,16,41.03
+Ivern,Katarina,65,34,52.31
+Rumble,Yone,13,2,15.38
+Gragas,Ryze,7,3,42.86
+Graves,Katarina,67,28,41.79
+Viego,Gwen,27,8,29.63
+Poppy,LeBlanc,44,19,43.18
+Nunu & Willump,Vayne,11,0,0.0
+Poppy,Lissandra,19,12,63.16
+Belveth,Zoe,68,40,58.82
+Nunu & Willump,Renekton,9,9,100.0
+Pantheon,Corki,105,49,46.67
+Nunu & Willump,Fiddlesticks,6,0,0.0
+Zed,Gragas,39,26,66.67
+Jax,Smolder,7,3,42.86
+Elise,Lissandra,19,14,73.68
+Elise,Vladimir,59,27,45.76
+Pantheon,Vladimir,368,198,53.8
+Zyra,Qiyana,33,7,21.21
+Zac,Gragas,15,8,53.33
+Udyr,Tryndamere,9,5,55.56
+Wukong,Vex,36,19,52.78
+Briar,Syndra,60,23,38.33
+KhaZix,Annie,91,40,43.96
+Hecarim,Zed,104,54,51.92
+Master Yi,Taliyah,135,68,50.37
+Hecarim,Malzahar,43,16,37.21
+Gwen,Yone,165,64,38.79
+Nunu & Willump,Yasuo,95,43,45.26
+Hecarim,Mel,99,45,45.45
+Zac,Fizz,22,15,68.18
+Elise,Twitch,5,5,100.0
+Hecarim,Diana,30,8,26.67
+Zed,Smolder,29,15,51.72
+Elise,Illaoi,8,1,12.5
+Xin Zhao,Seraphine,10,4,40.0
+Xin Zhao,Kennen,44,30,68.18
+Wukong,Mel,143,66,46.15
+Ekko,Tryndamere,44,22,50.0
+Rammus,Tristana,12,0,0.0
+Nocturne,Vex,36,21,58.33
+Lee Sin,Illaoi,6,0,0.0
+Jax,Viktor,33,16,48.48
+Zac,Xerath,42,20,47.62
+Gwen,Zyra,3,0,0.0
+Zed,Ivern,12,2,16.67
+Reksai,Lux,18,4,22.22
+Graves,Vladimir,77,48,62.34
+Briar,Zoe,23,12,52.17
+Udyr,Veigar,37,13,35.14
+Karthus,Miss Fortune,4,4,100.0
+Dr. Mundo,Lissandra,19,9,47.37
+Nocturne,Kennen,20,7,35.0
+Kayn,Heimerdinger,8,6,75.0
+Fiddlesticks,Ambessa,19,8,42.11
+Ivern,Nidalee,7,3,42.86
+Talon,Ahri,218,122,55.96
+Talon,Camille,2,0,0.0
+Lillia,Zed,243,107,44.03
+Gwen,Yasuo,84,51,60.71
+Kayn,Aurora,168,78,46.43
+Kayn,Hwei,207,109,52.66
+Belveth,KSante,5,0,0.0
+Graves,Riven,10,0,0.0
+KhaZix,Twisted Fate,131,82,62.6
+Wukong,Malphite,9,6,66.67
+Amumu,Jayce,11,6,54.55
+Kindred,Tristana,8,5,62.5
+Kayn,Cassiopeia,36,16,44.44
+Kindred,Vladimir,132,80,60.61
+Sejuani,Qiyana,10,0,0.0
+Poppy,Zilean,3,2,66.67
+Nidalee,Kayle,37,10,27.03
+Belveth,Ziggs,17,3,17.65
+Lee Sin,Yasuo,266,118,44.36
+Diana,Shen,4,0,0.0
+Reksai,Akali,22,11,50.0
+Evelynn,Fizz,8,3,37.5
+Trundle,Neeko,43,21,48.84
+Gragas,Yasuo,192,103,53.65
+Poppy,Yone,85,30,35.29
+Gwen,Swain,12,4,33.33
+Elise,Ambessa,20,8,40.0
+Gwen,Pantheon,11,3,27.27
+Xin Zhao,Diana,68,36,52.94
+Kayn,Galio,129,67,51.94
+Lillia,Lux,46,22,47.83
+Poppy,Talon,11,9,81.82
+Amumu,Azir,32,15,46.88
+Pantheon,Chogath,42,20,47.62
+Diana,Irelia,62,22,35.48
+Gwen,Viktor,45,24,53.33
+Rumble,Katarina,9,0,0.0
+Gwen,LeBlanc,34,22,64.71
+Fiddlesticks,Orianna,27,10,37.04
+Naafiri,Morgana,9,5,55.56
+Vi,Caitlyn,2,1,50.0
+Morgana,Annie,7,7,100.0
+Amumu,Corki,15,3,20.0
+Corki,Malzahar,6,2,33.33
+Diana,Ornn,6,1,16.67
+Reksai,Galio,23,15,65.22
+Talon,Swain,26,13,50.0
+Skarner,Caitlyn,2,0,0.0
+Zed,Ekko,77,42,54.55
+Teemo,Yunara,2,0,0.0
+Draven,Taliyah,8,7,87.5
+Xin Zhao,Kayle,71,34,47.89
+Hecarim,Heimerdinger,13,6,46.15
+Karthus,Ekko,22,11,50.0
+Gwen,Heimerdinger,3,0,0.0
+Rengar,Anivia,54,39,72.22
+Xin Zhao,Vayne,4,4,100.0
+Morgana,Ziggs,5,0,0.0
+Hecarim,Tryndamere,11,7,63.64
+Chogath,Yasuo,16,6,37.5
+Briar,Malzahar,13,3,23.08
+Viego,Katarina,429,216,50.35
+Morgana,Corki,34,4,11.76
+Talon,Nidalee,25,19,76.0
+Lee Sin,Xerath,97,45,46.39
+Rammus,Twisted Fate,29,23,79.31
+Malphite,Akshan,2,0,0.0
+Kindred,Nunu & Willump,17,7,41.18
+Skarner,Tristana,30,4,13.33
+Kindred,Akali,117,82,70.09
+Xin Zhao,Kassadin,99,44,44.44
+Sylas,Tryndamere,10,4,40.0
+Neeko,Irelia,2,2,100.0
+Trundle,Nidalee,5,1,20.0
+Pyke,Nautilus,3,0,0.0
+Kindred,Heimerdinger,4,3,75.0
+Nocturne,Vayne,5,0,0.0
+Jax,Quinn,4,4,100.0
+Graves,Orianna,55,25,45.45
+Shyvana,Naafiri,11,5,45.45
+Neeko,Naafiri,4,4,100.0
+Kindred,LeBlanc,100,60,60.0
+Vi,Veigar,33,8,24.24
+Talon,Illaoi,3,1,33.33
+Nocturne,Smolder,19,8,42.11
+Udyr,Aurelion Sol,27,10,37.04
+Rammus,Talon,4,1,25.0
+Brand,Jayce,8,5,62.5
+Elise,Orianna,22,12,54.55
+Xin Zhao,Twitch,17,5,29.41
+Volibear,Smolder,15,7,46.67
+Kayn,Talon,25,19,76.0
+Zac,Aurora,73,43,58.9
+Graves,Ekko,91,59,64.84
+Rengar,Yone,102,61,59.8
+Viego,Malphite,49,17,34.69
+Belveth,Garen,2,0,0.0
+Brand,Aurelion Sol,1,1,100.0
+Naafiri,Hwei,127,64,50.39
+Belveth,KogMaw,6,6,100.0
+Fiddlesticks,Vayne,16,9,56.25
+Hecarim,Xin Zhao,6,6,100.0
+Chogath,Irelia,13,11,84.62
+Fiddlesticks,Pantheon,11,3,27.27
+Diana,Darius,14,11,78.57
+Fiddlesticks,Jhin,8,7,87.5
+Nocturne,LeBlanc,62,34,54.84
+Yunara,Aurora,4,0,0.0
+Jarvan IV,Gwen,12,6,50.0
+Taliyah,Swain,10,4,40.0
+Gwen,Annie,38,15,39.47
+Jarvan IV,Chogath,27,15,55.56
+Rengar,Tristana,17,9,52.94
+Elise,Cassiopeia,11,2,18.18
+Fiddlesticks,Kled,4,2,50.0
+Naafiri,Orianna,219,110,50.23
+KhaZix,Anivia,43,23,53.49
+Shaco,Syndra,74,41,55.41
+Volibear,Zeri,8,2,25.0
+Rammus,Syndra,21,10,47.62
+Udyr,Sivir,3,0,0.0
+Viego,Kassadin,137,68,49.64
+Diana,Vayne,16,16,100.0
+Kindred,Ahri,208,101,48.56
+Evelynn,Akali,21,11,52.38
+Naafiri,Akali,183,91,49.73
+KhaZix,Kayle,80,35,43.75
+Nunu & Willump,Ambessa,19,12,63.16
+Maokai,Azir,24,14,58.33
+Evelynn,Vex,7,2,28.57
+Gragas,Yone,46,12,26.09
+Zac,Viktor,84,51,60.71
+Lee Sin,Seraphine,3,0,0.0
+Ivern,Zoe,29,25,86.21
+Jax,Sylas,96,41,42.71
+Poppy,Teemo,6,4,66.67
+Nocturne,Aatrox,8,6,75.0
+Elise,Yunara,15,2,13.33
+Belveth,Caitlyn,3,2,66.67
+Wukong,Hwei,171,73,42.69
+Diana,Riven,25,21,84.0
+Zac,Smolder,27,15,55.56
+Fiddlesticks,Lucian,12,7,58.33
+Talon,Jayce,34,12,35.29
+Lee Sin,Talon,58,27,46.55
+Jarvan IV,Kassadin,116,52,44.83
+Corki,Fizz,5,5,100.0
+Nunu & Willump,Ivern,8,3,37.5
+Diana,Galio,60,24,40.0
+Graves,Veigar,30,5,16.67
+Skarner,Naafiri,10,5,50.0
+Lillia,Talon,52,24,46.15
+Volibear,Vex,37,23,62.16
+Taliyah,Syndra,29,8,27.59
+Rumble,Viktor,3,3,100.0
+Viego,Wukong,1,1,100.0
+Hecarim,Vayne,6,1,16.67
+Qiyana,Vex,41,16,39.02
+Pantheon,Nunu & Willump,27,15,55.56
+Naafiri,Fizz,33,28,84.85
+Lillia,Smolder,42,17,40.48
+Poppy,Heimerdinger,6,4,66.67
+Nunu & Willump,Zeri,2,1,50.0
+Morgana,Syndra,6,0,0.0
+Shaco,Nunu & Willump,7,3,42.86
+Kayn,Orianna,137,63,45.99
+Ivern,Taliyah,58,28,48.28
+Gwen,Xerath,25,8,32.0
+Hecarim,Graves,5,4,80.0
+Jarvan IV,Lucian,20,7,35.0
+Ekko,Malzahar,53,28,52.83
+Lee Sin,Anivia,71,26,36.62
+Udyr,Zeri,7,2,28.57
+Evelynn,Renekton,4,1,25.0
+Pantheon,Talon,35,18,51.43
+Jarvan IV,Rumble,34,17,50.0
+Taliyah,Nasus,9,2,22.22
+Naafiri,Tryndamere,9,1,11.11
+Poppy,Zed,29,21,72.41
+Nidalee,Naafiri,24,15,62.5
+Poppy,Riven,7,2,28.57
+Fiddlesticks,Akshan,78,53,67.95
+Viego,VelKoz,17,8,47.06
+Nidalee,Garen,16,7,43.75
+Graves,Wukong,3,0,0.0
+Briar,Kennen,6,2,33.33
+Ivern,Mel,47,19,40.43
+Ivern,Malphite,4,2,50.0
+Morgana,Kayle,9,4,44.44
+Evelynn,Kayle,7,3,42.86
+Naafiri,Vex,30,16,53.33
+Taliyah,Naafiri,10,2,20.0
+Zed,Riven,17,6,35.29
+Mordekaiser,Lux,5,0,0.0
+Diana,Graves,1,0,0.0
+Zed,LeBlanc,95,43,45.26
+Jayce,Tristana,7,0,0.0
+Gwen,Master Yi,4,4,100.0
+Master Yi,Naafiri,7,6,85.71
+Hecarim,Yunara,18,4,22.22
+Karthus,Varus,6,6,100.0
+Shyvana,Neeko,9,0,0.0
+Nidalee,Irelia,126,90,71.43
+Pantheon,Twitch,14,5,35.71
+Poppy,Aatrox,9,3,33.33
+Nidalee,Ambessa,55,29,52.73
+Fiddlesticks,Tristana,35,19,54.29
+Gwen,Taliyah,45,17,37.78
+Zyra,Kennen,2,2,100.0
+Nidalee,Viego,5,1,20.0
+Ekko,Lux,79,36,45.57
+Hecarim,Morgana,4,2,50.0
+Graves,Viktor,90,43,47.78
+Pantheon,Malzahar,92,35,38.04
+Gwen,Kassadin,20,5,25.0
+Evelynn,Orianna,15,12,80.0
+Rengar,Cassiopeia,20,17,85.0
+Reksai,LeBlanc,29,5,17.24
+Graves,Zac,32,8,25.0
+Talon,Cassiopeia,42,28,66.67
+Wukong,Ambessa,10,0,0.0
+Udyr,Vladimir,126,49,38.89
+Ivern,Kayle,43,23,53.49
+Ekko,Caitlyn,10,1,10.0
+Zyra,Nidalee,4,4,100.0
+Nunu & Willump,Wukong,9,7,77.78
+Udyr,Gragas,15,11,73.33
+Shaco,LeBlanc,29,21,72.41
+Shyvana,Syndra,24,11,45.83
+Ivern,Qiyana,49,25,51.02
+Zyra,Yasuo,45,14,31.11
+Graves,Mel,69,30,43.48
+Dr. Mundo,Vladimir,58,39,67.24
+Nunu & Willump,Pantheon,10,8,80.0
+Urgot,Veigar,3,0,0.0
+Kindred,Veigar,57,32,56.14
+KhaZix,Smolder,28,6,21.43
+Evelynn,Galio,24,16,66.67
+Pantheon,Smolder,39,29,74.36
+Corki,Galio,3,1,33.33
+Rengar,Syndra,139,80,57.55
+Varus,Yuumi,4,0,0.0
+Karthus,Taliyah,49,21,42.86
+Trundle,Sion,20,8,40.0
+Elise,LeBlanc,16,7,43.75
+Shyvana,Zoe,13,10,76.92
+Gragas,Neeko,11,10,90.91
+Nidalee,Caitlyn,23,8,34.78
+Jarvan IV,Fizz,115,59,51.3
+Talon,Neeko,36,13,36.11
+Elise,Jhin,3,3,100.0
+Zac,Syndra,53,32,60.38
+KhaZix,Ivern,7,3,42.86
+Elise,Nasus,4,3,75.0
+Briar,Taliyah,32,18,56.25
+Jax,Lux,34,32,94.12
+Jax,Twisted Fate,46,27,58.7
+Fiddlesticks,Xerath,14,3,21.43
+Zyra,Orianna,12,8,66.67
+Rengar,Annie,52,31,59.62
+Viego,Ornn,16,12,75.0
+Urgot,Yone,2,1,50.0
+Lillia,Viktor,61,29,47.54
+Gwen,Riven,7,7,100.0
+KhaZix,Corki,38,13,34.21
+Hecarim,Tristana,31,11,35.48
+Zac,Kayle,25,16,64.0
+Gwen,Chogath,4,3,75.0
+Vi,Cassiopeia,31,17,54.84
+Gragas,Vayne,5,2,40.0
+Gragas,Nocturne,4,4,100.0
+Rengar,KogMaw,12,6,50.0
+Diana,Azir,45,27,60.0
+Karthus,Lux,34,17,50.0
+Draven,Katarina,6,1,16.67
+Wukong,Tryndamere,5,5,100.0
+Elise,Irelia,81,48,59.26
+Zyra,Corki,32,14,43.75
+Jarvan IV,Seraphine,20,4,20.0
+KhaZix,Kassadin,50,23,46.0
+Skarner,Veigar,15,7,46.67
+Zac,Qiyana,28,12,42.86
+Zac,Kassadin,26,15,57.69
+Belveth,Anivia,19,5,26.32
+Viego,Ekko,268,144,53.73
+Elise,Aurelion Sol,17,13,76.47
+Maokai,Zed,29,10,34.48
+Talon,Sett,3,3,100.0
+Karthus,Aurora,55,17,30.91
+Lee Sin,Smolder,42,24,57.14
+Rammus,Morgana,6,6,100.0
+Gwen,Kled,5,5,100.0
+KhaZix,Twitch,16,2,12.5
+Belveth,Irelia,27,5,18.52
+Lillia,Qiyana,104,40,38.46
+Zyra,Malzahar,4,1,25.0
+Sylas,Nidalee,5,0,0.0
+Graves,Azir,62,32,51.61
+Diana,Lux,46,26,56.52
+Ambessa,Yasuo,18,5,27.78
+Viego,Morgana,27,13,48.15
+Xin Zhao,Malphite,12,4,33.33
+Nunu & Willump,Akshan,50,24,48.0
+Udyr,Lucian,20,20,100.0
+Viego,Veigar,115,60,52.17
+Kindred,Qiyana,38,17,44.74
+Lee Sin,Sion,19,6,31.58
+Ivern,Hwei,57,42,73.68
+Kindred,Kassadin,71,54,76.06
+Trundle,Ekko,90,53,58.89
+Rengar,Ezreal,6,0,0.0
+Master Yi,Tristana,20,4,20.0
+Master Yi,Sylas,189,67,35.45
+Hecarim,Akshan,52,31,59.62
+Nunu & Willump,Fizz,33,15,45.45
+Pantheon,Aurelion Sol,54,23,42.59
+Nunu & Willump,Galio,42,36,85.71
+Master Yi,Fizz,20,2,10.0
+Lee Sin,Jax,6,6,100.0
+Talon,Chogath,19,12,63.16
+Shaco,Vex,10,7,70.0
+Karthus,Sivir,7,7,100.0
+Shen,Azir,11,0,0.0
+Nunu & Willump,Heimerdinger,16,12,75.0
+Ivern,Nasus,15,3,20.0
+Kayn,Akali,202,93,46.04
+Karthus,Xerath,6,1,16.67
+Shaco,Neeko,8,2,25.0
+Zac,Vex,17,11,64.71
+Dr. Mundo,Katarina,71,32,45.07
+Udyr,Yasuo,133,60,45.11
+Teemo,Lissandra,3,0,0.0
+Diana,Annie,18,9,50.0
+Rengar,Nidalee,11,7,63.64
+Kindred,Yone,105,76,72.38
+Ekko,Xerath,46,19,41.3
+Kindred,Aurora,132,70,53.03
+Sejuani,Taliyah,47,34,72.34
+Master Yi,Galio,122,68,55.74
+Diana,Kindred,4,1,25.0
+Reksai,Ekko,27,13,48.15
+Gwen,Zac,10,3,30.0
+Brand,Tryndamere,3,0,0.0
+Master Yi,Kayle,24,9,37.5
+Gragas,Diana,10,6,60.0
+Poppy,Rumble,3,3,100.0
+Ivern,Ambessa,15,2,13.33
+Udyr,Hwei,56,26,46.43
+Corki,Yasuo,6,6,100.0
+Udyr,Azir,107,64,59.81
+Briar,LeBlanc,24,12,50.0
+Nunu & Willump,Qiyana,51,23,45.1
+Trundle,Shen,5,5,100.0
+Naafiri,Diana,54,36,66.67
+Fiddlesticks,Vladimir,25,12,48.0
+Volibear,Lee Sin,6,0,0.0
+Maokai,Corki,11,3,27.27
+Maokai,Yasuo,17,9,52.94
+Nunu & Willump,Jayce,28,16,57.14
+Nidalee,Gwen,13,12,92.31
+Reksai,Yunara,10,1,10.0
+Ekko,Vladimir,99,41,41.41
+Pantheon,Seraphine,23,13,56.52
+Elise,Mel,45,13,28.89
+Elise,Pyke,1,0,0.0
+Poppy,Gragas,2,0,0.0
+Hecarim,Qiyana,49,24,48.98
+Wukong,KogMaw,19,9,47.37
+Taliyah,Jayce,25,8,32.0
+Ivern,Jayce,51,32,62.75
+Elise,Ornn,10,10,100.0
+Rumble,Tristana,5,1,20.0
+Udyr,Vex,25,21,84.0
+Zyra,Veigar,3,0,0.0
+KhaZix,Nunu & Willump,10,2,20.0
+Shaco,Twisted Fate,70,29,41.43
+Graves,Hwei,98,53,54.08
+Sion,Mel,4,3,75.0
+Nidalee,Tryndamere,16,5,31.25
+Fiddlesticks,Twisted Fate,28,21,75.0
+Belveth,Zac,16,11,68.75
+Udyr,Smolder,21,13,61.9
+Evelynn,Ziggs,1,0,0.0
+Rengar,Neeko,13,6,46.15
+Shaco,Kassadin,20,17,85.0
+Master Yi,Kindred,6,6,100.0
+Corki,Ekko,10,6,60.0
+Diana,Qiyana,125,66,52.8
+Naafiri,Ryze,175,91,52.0
+Sejuani,Viktor,24,12,50.0
+KogMaw,Yone,4,2,50.0
+Karthus,Talon,36,21,58.33
+Zac,Zed,110,48,43.64
+KhaZix,Briar,2,2,100.0
+Master Yi,Ryze,106,41,38.68
+Pantheon,Naafiri,18,8,44.44
+Vi,Wukong,5,5,100.0
+Xin Zhao,Nidalee,33,17,51.52
+Jax,Yone,37,13,35.14
+Sylas,Irelia,20,13,65.0
+Pantheon,Kassadin,102,48,47.06
+Zyra,Sylas,29,8,27.59
+Ekko,Jhin,5,2,40.0
+Rengar,Volibear,4,0,0.0
+Nidalee,KSante,27,12,44.44
+Kayn,Garen,6,3,50.0
+Karthus,Kled,3,0,0.0
+Talon,Qiyana,44,18,40.91
+Urgot,Zoe,4,0,0.0
+Talon,Viktor,187,110,58.82
+Master Yi,Briar,4,2,50.0
+Rengar,Veigar,33,19,57.58
+Urgot,Ahri,8,1,12.5
+Corki,Zoe,6,6,100.0
+Jax,Veigar,18,12,66.67
+Urgot,Ziggs,1,0,0.0
+Gwen,Qiyana,67,38,56.72
+Gwen,Sylas,58,39,67.24
+Udyr,Cassiopeia,24,10,41.67
+Urgot,Syndra,4,0,0.0
+Viego,Naafiri,37,11,29.73
+Zed,Malzahar,51,24,47.06
+Poppy,Ekko,24,8,33.33
+Fiddlesticks,Qiyana,66,35,53.03
+Viego,Aurelion Sol,121,49,40.5
+Viego,Chogath,61,26,42.62
+Zed,Akshan,94,36,38.3
+Talon,Yone,100,49,49.0
+Ivern,Rumble,14,8,57.14
+Belveth,Twitch,5,0,0.0
+Zac,Kennen,12,3,25.0
+Sejuani,Vladimir,23,11,47.83
+Rengar,Vladimir,115,57,49.57
+Jarvan IV,Riven,21,4,19.05
+Dr. Mundo,Ziggs,17,15,88.24
+Jarvan IV,Volibear,6,6,100.0
+Gragas,Fizz,7,3,42.86
+Volibear,Seraphine,3,3,100.0
+Zac,Kindred,3,0,0.0
+Trundle,Twitch,10,8,80.0
+Belveth,Akshan,27,4,14.81
+Wukong,Irelia,62,17,27.42
+Rengar,Hwei,104,57,54.81
+Belveth,Tryndamere,3,3,100.0
+Lillia,Yasuo,161,92,57.14
+Kindred,Mel,92,46,50.0
+Belveth,Malzahar,14,8,57.14
+Sion,Viktor,7,1,14.29
+Belveth,Nasus,5,1,20.0
+Kayn,Varus,8,0,0.0
+Zac,Ekko,43,25,58.14
+Vi,Zed,66,27,40.91
+Hecarim,Xerath,48,20,41.67
+Rammus,Lissandra,18,11,61.11
+Taliyah,Zed,78,33,42.31
+Jarvan IV,Morgana,21,15,71.43
+Wukong,Brand,7,6,85.71
+Vi,Pantheon,13,4,30.77
+Taliyah,Ekko,9,1,11.11
+Nidalee,LeBlanc,45,18,40.0
+Zyra,Twisted Fate,9,4,44.44
+Briar,Sylas,75,30,40.0
+Poppy,Nocturne,3,3,100.0
+Shaco,Chogath,22,12,54.55
+Zed,Katarina,201,69,34.33
+Naafiri,Gragas,26,11,42.31
+Rammus,Smolder,12,5,41.67
+Ivern,Malzahar,21,5,23.81
+Pantheon,Zilean,40,23,57.5
+Zac,Swain,14,7,50.0
+Wukong,Zed,118,91,77.12
+Gwen,Diana,16,5,31.25
+Kindred,Fiddlesticks,11,5,45.45
+Lillia,Caitlyn,3,3,100.0
+Rengar,Katarina,97,49,50.52
+Zed,Fizz,81,45,55.56
+Rumble,Cassiopeia,2,0,0.0
+Morgana,Yone,29,8,27.59
+KhaZix,Karma,23,10,43.48
+Jax,Kennen,9,4,44.44
+Lee Sin,Aurelion Sol,82,44,53.66
+Sejuani,Ekko,25,8,32.0
+Gwen,Azir,59,32,54.24
+Yasuo,Rakan,2,2,100.0
+Corki,Annie,9,5,55.56
+Gragas,Hwei,17,6,35.29
+Nidalee,Chogath,11,9,81.82
+Nidalee,Cassiopeia,18,7,38.89
+Sejuani,Mel,36,12,33.33
+Karthus,Yasuo,76,28,36.84
+Graves,Volibear,2,0,0.0
+Kayn,Ambessa,17,10,58.82
+Evelynn,Zed,99,42,42.42
+Teemo,Wukong,1,1,100.0
+Volibear,Naafiri,29,20,68.97
+Udyr,Lux,67,34,50.75
+Jayce,Viktor,7,0,0.0
+Nunu & Willump,Mel,37,18,48.65
+KhaZix,Singed,7,4,57.14
+Ivern,Zed,94,59,62.77
+Briar,Ekko,29,12,41.38
+Ekko,KSante,22,9,40.91
+Zed,Lucian,8,7,87.5
+Briar,Vladimir,30,20,66.67
+Briar,Akshan,10,3,30.0
+Hecarim,Kassadin,49,20,40.82
+Fiddlesticks,Ekko,29,19,65.52
+Zyra,Sion,7,4,57.14
+Nidalee,Swain,18,5,27.78
+Ivern,Riven,14,10,71.43
+Poppy,Diana,6,1,16.67
+Zac,Corki,66,41,62.12
+Nocturne,Nunu & Willump,11,10,90.91
+Evelynn,VelKoz,2,0,0.0
+Fiddlesticks,Ivern,5,2,40.0
+Twisted Fate,Akali,1,1,100.0
+Talon,Rumble,24,19,79.17
+Udyr,Irelia,41,18,43.9
+Nocturne,Ziggs,15,3,20.0
+Poppy,Corki,19,9,47.37
+Dr. Mundo,Viktor,64,24,37.5
+Lee Sin,Ivern,14,4,28.57
+Udyr,Kayle,51,27,52.94
+Shaco,Karthus,3,0,0.0
+Amumu,Qiyana,10,4,40.0
+Teemo,Vayne,3,0,0.0
+Shyvana,Ryze,13,9,69.23
+Lillia,Naafiri,19,11,57.89
+Yone,Mel,1,1,100.0
+Graves,Heimerdinger,10,6,60.0
+Rammus,Ekko,22,9,40.91
+Hecarim,Cassiopeia,30,20,66.67
+Gwen,Shen,5,0,0.0
+Taliyah,Zac,9,8,88.89
+Nocturne,Zed,69,35,50.72
+Lillia,Twisted Fate,45,20,44.44
+Sylas,KSante,2,2,100.0
+Gragas,Akshan,24,12,50.0
+Lillia,Kayle,18,17,94.44
+Xin Zhao,Teemo,6,4,66.67
+Volibear,Warwick,1,0,0.0
+Jarvan IV,Kled,10,9,90.0
+Kayn,Akshan,34,12,35.29
+Hecarim,Talon,35,16,45.71
+Master Yi,Zyra,2,2,100.0
+Vi,Malzahar,38,14,36.84
+Rengar,Ornn,8,1,12.5
+Jax,Akali,38,22,57.89
+Xin Zhao,Malzahar,53,23,43.4
+Jax,Zeri,2,2,100.0
+Kindred,Malzahar,60,20,33.33
+Fiddlesticks,Zoe,17,10,58.82
+Kayn,LeBlanc,103,51,49.51
+Nidalee,Varus,14,1,7.14
+Gwen,Hwei,29,16,55.17
+Viego,Talon,60,29,48.33
+Yasuo,Azir,2,0,0.0
+Trundle,Shaco,1,0,0.0
+KhaZix,Heimerdinger,6,2,33.33
+Urgot,Tryndamere,1,0,0.0
+Gwen,Zoe,23,15,65.22
+Vi,Corki,39,8,20.51
+Reksai,Zoe,55,29,52.73
+Udyr,Nunu & Willump,11,5,45.45
+Nidalee,Vex,14,7,50.0
+Dr. Mundo,Sylas,119,78,65.55
+Volibear,Vayne,5,0,0.0
+Olaf,Nidalee,2,0,0.0
+KhaZix,Jayce,7,3,42.86
+Qiyana,Nunu & Willump,3,0,0.0
+Briar,Ahri,31,16,51.61
+Skarner,Lissandra,10,2,20.0
+Lee Sin,Ornn,8,6,75.0
+Lee Sin,Fizz,128,76,59.38
+Naafiri,Tristana,18,13,72.22
+Lee Sin,Nidalee,25,9,36.0
+Ivern,Kassadin,20,14,70.0
+Graves,Morgana,5,3,60.0
+Kayn,Yone,118,73,61.86
+Lee Sin,Swain,42,18,42.86
+Master Yi,Corki,32,19,59.38
+Olaf,Lux,5,5,100.0
+Rammus,Hwei,40,14,35.0
+Shen,Twisted Fate,2,0,0.0
+Morgana,Akshan,14,5,35.71
+Fiddlesticks,Viego,2,1,50.0
+Gwen,Naafiri,41,27,65.85
+Nocturne,Zac,18,11,61.11
+Qiyana,VelKoz,7,4,57.14
+Talon,Riven,19,15,78.95
+Jarvan IV,VelKoz,22,12,54.55
+Lillia,Mel,30,13,43.33
+Rammus,Taliyah,40,14,35.0
+Jarvan IV,Kayle,130,73,56.15
+Rammus,Gwen,3,0,0.0
+Warwick,Annie,15,8,53.33
+Vi,Smolder,28,12,42.86
+Skarner,Corki,12,8,66.67
+Viego,Smolder,52,31,59.62
+Nocturne,Swain,8,3,37.5
+Nidalee,Xerath,16,4,25.0
+Volibear,Tryndamere,20,11,55.0
+Nocturne,Seraphine,8,2,25.0
+Karthus,Kayle,15,8,53.33
+Lee Sin,VelKoz,35,16,45.71
+Lee Sin,Ezreal,12,10,83.33
+Xin Zhao,Brand,22,13,59.09
+Karthus,Lucian,34,10,29.41
+Shaco,Yone,82,34,41.46
+Volibear,Anivia,38,20,52.63
+Briar,Neeko,8,7,87.5
+Poppy,Twisted Fate,45,29,64.44
+Poppy,Viktor,73,40,54.79
+Qiyana,Akshan,39,16,41.03
+Viego,Ivern,16,7,43.75
+Dr. Mundo,Nunu & Willump,7,0,0.0
+Sylas,Gragas,5,0,0.0
+Hecarim,Katarina,103,61,59.22
+Belveth,Kennen,10,6,60.0
+Elise,Naafiri,45,24,53.33
+Rengar,Ekko,80,38,47.5
+Gwen,Morgana,3,3,100.0
+Ekko,Morgana,12,11,91.67
+Naafiri,Azir,183,100,54.64
+Evelynn,KSante,3,0,0.0
+Hecarim,Karma,41,23,56.1
+Zed,Naafiri,15,6,40.0
+Diana,Caitlyn,6,1,16.67
+Morgana,KSante,9,7,77.78
+Poppy,Naafiri,9,8,88.89
+Evelynn,Viktor,21,16,76.19
+Xin Zhao,Nasus,18,9,50.0
+Nasus,Taliyah,5,2,40.0
+Talon,Naafiri,21,12,57.14
+Teemo,Ahri,5,3,60.0
+Rammus,Naafiri,5,3,60.0
+Lillia,Blitzcrank,3,0,0.0
+Karthus,Morgana,6,6,100.0
+Evelynn,Naafiri,16,14,87.5
+Reksai,Zed,30,16,53.33
+Talon,Morgana,14,9,64.29
+Morgana,Azir,9,8,88.89
+Volibear,Illaoi,5,4,80.0
+Evelynn,Pantheon,16,10,62.5
+Kindred,Quinn,4,2,50.0
+Morgana,Yasuo,10,4,40.0
+Volibear,Kled,5,3,60.0
+Master Yi,Kennen,24,11,45.83
+Urgot,Morgana,1,0,0.0
+Ivern,Naafiri,26,16,61.54
+Shaco,Lux,20,4,20.0
+Corki,Aurelion Sol,2,0,0.0
+Ekko,Kennen,24,12,50.0
+Karthus,Briar,4,3,75.0
+Karthus,Kassadin,15,6,40.0
+Kindred,Naafiri,12,5,41.67
+Urgot,Briar,2,0,0.0
+Ryze,Kled,1,0,0.0
+Brand,Naafiri,1,0,0.0
+Shaco,Poppy,2,2,100.0
+Nocturne,Naafiri,12,7,58.33
+Taliyah,Lux,7,2,28.57
+Fiddlesticks,Naafiri,16,8,50.0
+Corki,Morgana,4,0,0.0
+Nunu & Willump,Diana,10,4,40.0
+Ambessa,Veigar,16,4,25.0
+Xin Zhao,Lissandra,64,36,56.25
+Viego,Heimerdinger,29,17,58.62
+KhaZix,Taliyah,142,71,50.0
+Viego,Ezreal,15,13,86.67
+Corki,Vayne,2,2,100.0
+Ivern,Lissandra,32,13,40.62
+Lee Sin,Diana,97,37,38.14
+Sejuani,Kayle,16,12,75.0
+Evelynn,Lux,22,11,50.0
+Evelynn,Zoe,23,20,86.96
+Kindred,Yasuo,87,50,57.47
+Brand,Azir,6,1,16.67
+Reksai,Cassiopeia,9,2,22.22
+Zed,Mel,179,77,43.02
+Graves,Zed,45,18,40.0
+Jarvan IV,Nidalee,37,20,54.05
+Rengar,Diana,38,15,39.47
+Corki,Ryze,9,6,66.67
+Vi,Rumble,16,2,12.5
+Wukong,Zyra,2,0,0.0
+Talon,Aurelion Sol,49,27,55.1
+Trundle,Talon,24,17,70.83
+Morgana,Kindred,2,2,100.0
+Rengar,Kindred,5,2,40.0
+Karthus,Pyke,4,1,25.0
+Draven,Ahri,6,0,0.0
+Kayn,Karma,24,13,54.17
+Zyra,Ekko,4,0,0.0
+Vi,Neeko,18,11,61.11
+Jax,Karma,8,6,75.0
+Nunu & Willump,Seraphine,7,0,0.0
+Talon,Brand,4,1,25.0
+Xin Zhao,Ezreal,12,0,0.0
+Talon,Zac,22,6,27.27
+Ekko,Sett,12,2,16.67
+Jarvan IV,Nunu & Willump,28,11,39.29
+Poppy,Nunu & Willump,7,7,100.0
+Lee Sin,Cassiopeia,64,34,53.12
+Taliyah,Corki,43,18,41.86
+Lee Sin,Lux,203,93,45.81
+Kindred,Nidalee,16,10,62.5
+Zed,Corki,56,42,75.0
+Zyra,Talon,11,2,18.18
+Skarner,Sylas,46,24,52.17
+Diana,Ahri,49,20,40.82
+Urgot,Malzahar,2,0,0.0
+Xin Zhao,Garen,8,6,75.0
+Rumble,Kassadin,1,1,100.0
+Belveth,Vex,16,10,62.5
+Nocturne,Heimerdinger,18,14,77.78
+Pantheon,Tristana,31,11,35.48
+Kayn,Zeri,16,1,6.25
+Yone,Zeri,1,0,0.0
+Graves,Mordekaiser,5,1,20.0
+Kayn,Tristana,16,10,62.5
+Rengar,Nilah,2,2,100.0
+Ekko,Wukong,3,3,100.0
+Hecarim,Nilah,1,0,0.0
+Talon,Yasuo,105,54,51.43
+Naafiri,Zac,11,4,36.36
+Kindred,Zilean,15,10,66.67
+Ambessa,Rumble,7,0,0.0
+Ekko,Aurelion Sol,35,25,71.43
+Volibear,Talon,19,10,52.63
+Gwen,Zilean,18,16,88.89
+Zyra,Urgot,5,4,80.0
+Jax,Ambessa,3,0,0.0
+Talon,Anivia,41,30,73.17
+Shaco,Briar,1,1,100.0
+Viego,Urgot,10,1,10.0
+Azir,Corki,1,0,0.0
+Lillia,Ahri,71,29,40.85
+Viego,Ambessa,33,7,21.21
+Morgana,Akali,8,2,25.0
+Reksai,Hwei,38,13,34.21
+Gragas,Vex,10,0,0.0
+Diana,Miss Fortune,3,3,100.0
+Evelynn,Tristana,23,3,13.04
+KhaZix,Vayne,4,2,50.0
+Trundle,Smolder,22,8,36.36
+Teemo,Shen,7,0,0.0
+Trundle,Kaisa,7,4,57.14
+Udyr,Caitlyn,15,1,6.67
+Taliyah,Sylas,40,15,37.5
+Hecarim,Garen,1,0,0.0
+Karthus,Vayne,5,1,20.0
+Nocturne,Mel,74,34,45.95
+Hecarim,Aurelion Sol,37,29,78.38
+Belveth,Ivern,8,5,62.5
+Trundle,Swain,29,20,68.97
+Pantheon,Nocturne,3,0,0.0
+Zyra,Ryze,17,2,11.76
+Corki,Ahri,14,0,0.0
+Ambessa,Heimerdinger,4,2,50.0
+Hecarim,Swain,17,3,17.65
+Talon,Ambessa,33,21,63.64
+Sejuani,Irelia,46,18,39.13
+Lee Sin,Malzahar,85,29,34.12
+Olaf,Ryze,21,11,52.38
+Taliyah,LeBlanc,7,3,42.86
+Diana,Akali,50,23,46.0
+Malphite,Twisted Fate,3,0,0.0
+Vi,Samira,8,3,37.5
+Talon,Shen,1,0,0.0
+Kindred,Katarina,107,51,47.66
+Gwen,Karthus,4,0,0.0
+Vi,Karthus,2,1,50.0
+Naafiri,Yasuo,49,20,40.82
+Ivern,Diana,34,16,47.06
+Talon,Katarina,158,64,40.51
+Dr. Mundo,Shen,2,2,100.0
+Ivern,Blitzcrank,2,0,0.0
+Sejuani,Riven,8,6,75.0
+Kindred,Renekton,17,9,52.94
+Lillia,Pantheon,11,6,54.55
+Nocturne,Teemo,7,0,0.0
+Ekko,Ziggs,14,7,50.0
+Sylas,Tristana,7,6,85.71
+Tryndamere,Syndra,2,0,0.0
+Lillia,KSante,13,11,84.62
+Kindred,Diana,31,21,67.74
+Volibear,Katarina,114,63,55.26
+Rammus,Vladimir,20,8,40.0
+KhaZix,Jhin,3,3,100.0
+Nunu & Willump,Nasus,2,0,0.0
+Dr. Mundo,Akali,51,21,41.18
+Ryze,Syndra,2,2,100.0
+Kindred,Fizz,21,11,52.38
+Xin Zhao,Aurelion Sol,39,20,51.28
+Evelynn,Katarina,21,12,57.14
+Belveth,Yasuo,47,26,55.32
+Shaco,Sett,9,9,100.0
+Hecarim,Rakan,7,6,85.71
+Poppy,Seraphine,5,0,0.0
+Sylas,Azir,14,1,7.14
+Lillia,Neeko,15,5,33.33
+Shen,Katarina,5,4,80.0
+Corki,Lux,9,1,11.11
+Naafiri,Corki,31,12,38.71
+Volibear,Jayce,36,18,50.0
+Naafiri,Viktor,160,90,56.25
+Qiyana,Yasuo,50,38,76.0
+Pantheon,Gangplank,5,4,80.0
+Corki,Azir,14,0,0.0
+Zed,Xerath,74,43,58.11
+Zac,Zoe,62,51,82.26
+Poppy,Chogath,10,4,40.0
+Nunu & Willump,Vex,16,4,25.0
+Qiyana,Irelia,6,1,16.67
+Hecarim,Zyra,8,2,25.0
+Fiddlesticks,Katarina,48,24,50.0
+Jarvan IV,Jax,7,6,85.71
+Tryndamere,Corki,6,0,0.0
+Poppy,Tristana,10,8,80.0
+Hecarim,LeBlanc,108,37,34.26
+Corki,Yone,5,0,0.0
+Zac,Annie,36,20,55.56
+Master Yi,Syndra,127,62,48.82
+Jarvan IV,Camille,6,0,0.0
+Kindred,Gragas,19,12,63.16
+Wukong,Morgana,8,4,50.0
+Shaco,Mel,45,19,42.22
+Vi,Yasuo,123,70,56.91
+Jax,Galio,21,13,61.9
+Zed,Viktor,217,79,36.41
+Elise,Lux,20,15,75.0
+Sejuani,Kled,3,0,0.0
+Ekko,Mel,74,38,51.35
+Zed,Poppy,1,1,100.0
+Hecarim,Irelia,26,5,19.23
+Diana,Twisted Fate,57,27,47.37
+Taliyah,Talon,12,4,33.33
+Rengar,Morgana,6,3,50.0
+Zed,Ambessa,34,19,55.88
+Briar,Annie,26,18,69.23
+Poppy,Fizz,14,8,57.14
+Fiddlesticks,Jarvan IV,1,0,0.0
+Zac,Ivern,1,1,100.0
+Zyra,Tristana,18,3,16.67
+Briar,Zed,24,12,50.0
+Corki,Anivia,6,0,0.0
+Rengar,Briar,4,1,25.0
+Rengar,Corki,27,10,37.04
+Dr. Mundo,Ashe,2,0,0.0
+Kindred,Ivern,5,0,0.0
+Volibear,Caitlyn,7,0,0.0
+Volibear,Yasuo,76,35,46.05
+Urgot,Kayle,2,0,0.0
+Shaco,Zyra,4,0,0.0
+Amumu,Katarina,17,12,70.59
+Zyra,Galio,25,14,56.0
+Belveth,Briar,2,1,50.0
+Shaco,Malzahar,15,6,40.0
+Reksai,Aurelion Sol,9,5,55.56
+Briar,Lux,30,8,26.67
+Master Yi,Garen,3,2,66.67
+Kindred,Vex,42,27,64.29
+Gragas,Azir,21,5,23.81
+Taliyah,Hwei,23,9,39.13
+Sylas,Yasuo,29,9,31.03
+Corki,Kayle,3,3,100.0
+Ambessa,Akshan,7,7,100.0
+Tryndamere,Tristana,2,0,0.0
+Hecarim,Jayce,14,6,42.86
+Zac,Tryndamere,19,17,89.47
+Lillia,Tryndamere,20,7,35.0
+Mordekaiser,Akshan,8,2,25.0
+Corki,Gangplank,1,0,0.0
+Rengar,Qiyana,35,18,51.43
+Lee Sin,Malphite,20,12,60.0
+Brand,Akali,5,2,40.0
+Rengar,Aurelion Sol,41,12,29.27
+Zac,Seraphine,2,0,0.0
+Briar,Ryze,46,27,58.7
+Gragas,Briar,3,1,33.33
+Reksai,Yasuo,28,13,46.43
+Naafiri,Chogath,11,4,36.36
+Jarvan IV,Zeri,12,0,0.0
+Jayce,Aurora,13,13,100.0
+Fiddlesticks,Aurelion Sol,8,5,62.5
+Wukong,Nasus,11,10,90.91
+Nidalee,Seraphine,3,1,33.33
+Lee Sin,Rumble,40,35,87.5
+Trundle,Gragas,19,8,42.11
+Vi,Vex,40,24,60.0
+Nidalee,Pantheon,44,27,61.36
+Wukong,Nunu & Willump,29,4,13.79
+Gragas,Orianna,8,8,100.0
+Ambessa,Irelia,12,10,83.33
+Jarvan IV,Olaf,4,4,100.0
+Lillia,Orianna,60,35,58.33
+Elise,Qiyana,79,49,62.03
+Poppy,Vayne,9,0,0.0
+Diana,Nocturne,6,6,100.0
+Zed,Kayle,62,33,53.23
+Ekko,Nilah,4,4,100.0
+Shaco,Viktor,48,17,35.42
+Urgot,LeBlanc,6,4,66.67
+Kayn,Renekton,13,10,76.92
+Jayce,Kayle,3,3,100.0
+Volibear,Neeko,18,14,77.78
+Fiddlesticks,Annie,20,13,65.0
+Reksai,Twisted Fate,39,21,53.85
+Sylas,Katarina,7,4,57.14
+Pantheon,Qiyana,86,43,50.0
+Sylas,Ahri,7,2,28.57
+Maokai,Galio,11,2,18.18
+Reksai,Irelia,11,4,36.36
+Taliyah,Galio,23,16,69.57
+Reksai,Vladimir,32,18,56.25
+Diana,Viktor,52,40,76.92
+Wukong,Jarvan IV,3,3,100.0
+Sylas,Neeko,1,0,0.0
+Sylas,Yone,46,26,56.52
+Sejuani,Syndra,23,19,82.61
+Reksai,Syndra,34,20,58.82
+Viego,Vayne,16,8,50.0
+Reksai,Taliyah,53,17,32.08
+Lillia,Ryze,36,2,5.56
+Brand,Yone,14,3,21.43
+Diana,Taliyah,59,15,25.42
+Graves,Smolder,7,1,14.29
+Viego,Bard,2,0,0.0
+Zeri,Zed,2,0,0.0
+Jarvan IV,Shen,11,2,18.18
+Gwen,Kayle,14,9,64.29
+Volibear,Fizz,33,22,66.67
+Udyr,Pantheon,11,9,81.82
+Evelynn,Talon,27,20,74.07
+Evelynn,Garen,6,4,66.67
+Evelynn,Lissandra,11,2,18.18
+Amumu,Yasuo,31,9,29.03
+Kayn,Naafiri,8,8,100.0
+Master Yi,LeBlanc,58,32,55.17
+Ryze,Zoe,1,0,0.0
+Taliyah,Sion,14,8,57.14
+Talon,Vayne,5,5,100.0
+Skarner,Akali,24,11,45.83
+Sejuani,Heimerdinger,3,0,0.0
+Poppy,Anivia,15,11,73.33
+KhaZix,Xerath,59,33,55.93
+Master Yi,Akshan,37,22,59.46
+Qiyana,Talon,8,6,75.0
+Hecarim,Kennen,14,7,50.0
+Nidalee,Kindred,5,4,80.0
+Volibear,Varus,1,0,0.0
+Ambessa,Kassadin,12,4,33.33
+KhaZix,Varus,2,0,0.0
+Taliyah,Irelia,36,17,47.22
+Nidalee,Talon,68,31,45.59
+Aatrox,Syndra,2,0,0.0
+Jayce,Yasuo,2,2,100.0
+Shyvana,Gangplank,2,2,100.0
+Jax,Nidalee,4,2,50.0
+Teemo,Jayce,4,1,25.0
+Hecarim,Teemo,1,1,100.0
+KhaZix,KSante,3,2,66.67
+Pantheon,Kindred,1,1,100.0
+Fiddlesticks,Nocturne,8,5,62.5
+Karthus,Twisted Fate,46,30,65.22
+Fiddlesticks,Ziggs,14,0,0.0
+Zyra,Pantheon,7,7,100.0
+Viego,Tryndamere,28,24,85.71
+Gwen,Garen,7,6,85.71
+Rengar,Kayle,56,19,33.93
+Fiddlesticks,Galio,33,22,66.67
+Corki,Kennen,4,0,0.0
+Ivern,Urgot,2,1,50.0
+Evelynn,Twisted Fate,33,23,69.7
+Fiddlesticks,Illaoi,1,1,100.0
+Evelynn,Fiddlesticks,1,1,100.0
+Shaco,Talon,16,4,25.0
+Belveth,Cassiopeia,38,19,50.0
+Taliyah,Qiyana,27,16,59.26
+Fiddlesticks,Zilean,7,3,42.86
+Corki,Taliyah,2,1,50.0
+Fiddlesticks,Viktor,25,16,64.0
+Udyr,Fiddlesticks,4,3,75.0
+Jayce,Chogath,4,4,100.0
+Ivern,Ryze,80,44,55.0
+Shaco,Diana,19,7,36.84
+Naafiri,Twitch,8,8,100.0
+Graves,Nidalee,17,9,52.94
+Ekko,Trundle,3,3,100.0
+Brand,Irelia,5,2,40.0
+Ambessa,Naafiri,2,2,100.0
+Brand,Yasuo,12,2,16.67
+Rammus,Ivern,4,1,25.0
+KhaZix,Lissandra,36,28,77.78
+Sejuani,Azir,21,10,47.62
+Amumu,Zac,3,3,100.0
+Zac,Udyr,2,2,100.0
+Belveth,Riven,8,6,75.0
+Kindred,Kennen,16,9,56.25
+Talon,Tristana,16,10,62.5
+Kindred,Kayle,41,19,46.34
+Shaco,Zoe,40,27,67.5
+Master Yi,Aurelion Sol,32,15,46.88
+Qiyana,Zoe,33,16,48.48
+Viego,Rumble,30,22,73.33
+Taliyah,Nunu & Willump,4,0,0.0
+Rammus,Ahri,24,10,41.67
+Evelynn,Kennen,10,5,50.0
+Naafiri,Zed,72,26,36.11
+Brand,Corki,17,6,35.29
+Corki,Cassiopeia,2,2,100.0
+Volibear,Morgana,8,4,50.0
+Poppy,Olaf,2,0,0.0
+Nocturne,Kalista,3,1,33.33
+Nidalee,Veigar,26,16,61.54
+Nidalee,Karma,6,0,0.0
+Olaf,Zed,6,2,33.33
+Hecarim,Ambessa,16,5,31.25
+Volibear,Kassadin,44,30,68.18
+Volibear,Aatrox,9,5,55.56
+Pantheon,KSante,22,4,18.18
+Master Yi,Anivia,29,20,68.97
+Lee Sin,Tryndamere,27,19,70.37
+Draven,Gragas,2,2,100.0
+Sejuani,Kassadin,15,13,86.67
+Nidalee,Sivir,4,0,0.0
+KhaZix,Pantheon,5,4,80.0
+Zyra,Katarina,13,1,7.69
+Gwen,Ekko,19,10,52.63
+Udyr,Twitch,2,0,0.0
+Ekko,Vayne,14,5,35.71
+Graves,Urgot,4,3,75.0
+Kayn,Jax,4,1,25.0
+Kayn,Kayle,52,20,38.46
+Udyr,Camille,5,0,0.0
+Jax,Naafiri,5,1,20.0
+Talon,Vex,41,17,41.46
+Taliyah,Fizz,6,3,50.0
+Evelynn,Aurora,21,7,33.33
+Viego,Pantheon,16,13,81.25
+Udyr,Qiyana,70,29,41.43
+Kindred,Tryndamere,2,0,0.0
+KhaZix,Zilean,17,4,23.53
+Hecarim,Chogath,16,13,81.25
+Zac,Akali,71,46,64.79
+Evelynn,Ekko,8,4,50.0
+Kindred,KhaZix,2,0,0.0
+Master Yi,Akali,80,43,53.75
+Nocturne,Aurelion Sol,17,5,29.41
+Rengar,Zed,57,34,59.65
+Rengar,Ivern,11,5,45.45
+Master Yi,Ekko,85,53,62.35
+Ivern,Sion,7,4,57.14
+Graves,Jayce,21,16,76.19
+Karthus,Riven,9,6,66.67
+Xin Zhao,Kaisa,8,6,75.0
+Brand,Zoe,6,6,100.0
+Talon,Fizz,70,39,55.71
+Master Yi,Shen,4,4,100.0
+Nocturne,Viego,1,1,100.0
+Naafiri,Aatrox,1,0,0.0
+Zyra,Ambessa,6,3,50.0
+Lillia,Hwei,44,22,50.0
+Trundle,Malzahar,27,6,22.22
+Zac,Lucian,6,1,16.67
+Talon,Gragas,29,20,68.97
+Rengar,KSante,7,4,57.14
+Viego,Sivir,20,8,40.0
+Malphite,Aurora,4,4,100.0
+Olaf,Akali,32,17,53.12
+Pantheon,Malphite,6,4,66.67
+Xin Zhao,Akshan,46,31,67.39
+Wukong,Kassadin,44,26,59.09
+Malphite,Katarina,7,0,0.0
+Xin Zhao,Katarina,212,117,55.19
+Viego,Kayle,152,72,47.37
+Zeri,Gwen,2,2,100.0
+Trundle,Wukong,5,0,0.0
+Shaco,Aatrox,6,2,33.33
+Rumble,Ambessa,2,2,100.0
+Xin Zhao,Zac,28,17,60.71
+Malphite,LeBlanc,1,1,100.0
+Kayn,Lux,100,56,56.0
+Rumble,Ryze,6,4,66.67
+Volibear,Xerath,63,29,46.03
+Udyr,Wukong,2,2,100.0
+Shaco,Wukong,3,3,100.0
+Talon,Kennen,14,12,85.71
+Jarvan IV,Malzahar,39,20,51.28
+Karthus,Lee Sin,12,8,66.67
+Zyra,Yunara,7,6,85.71
+Diana,Katarina,52,19,36.54
+Talon,Gangplank,14,7,50.0
+Karthus,Tristana,43,22,51.16
+Maokai,Ahri,13,8,61.54
+Karthus,Syndra,37,11,29.73
+Kayn,Zac,15,9,60.0
+Tryndamere,Taliyah,5,0,0.0
+Hecarim,Karthus,7,2,28.57
+Lee Sin,Jayce,41,23,56.1
+Taliyah,Malphite,2,0,0.0
+Vi,Akshan,30,22,73.33
+Belveth,Zilean,16,4,25.0
+Zed,Caitlyn,9,5,55.56
+Elise,Hwei,28,12,42.86
+Shyvana,Corki,6,3,50.0
+Dr. Mundo,Lux,43,19,44.19
+Kindred,Anivia,32,23,71.88
+Udyr,Neeko,8,6,75.0
+Karthus,Fizz,7,1,14.29
+Naafiri,Kassadin,62,35,56.45
+Urgot,Hwei,2,2,100.0
+Urgot,Neeko,3,2,66.67
+Nocturne,Riven,4,1,25.0
+Ivern,Zac,22,14,63.64
+Shaco,Hwei,38,19,50.0
+Sylas,Ryze,8,2,25.0
+Corki,Viktor,11,9,81.82
+Corki,Caitlyn,2,2,100.0
+Urgot,Katarina,4,1,25.0
+Viego,Garen,11,5,45.45
+Kindred,Xerath,44,24,54.55
+Pantheon,Briar,7,5,71.43
+Kaisa,Syndra,5,4,80.0
+Graves,Kennen,13,11,84.62
+Talon,Heimerdinger,7,5,71.43
+Evelynn,Mel,11,6,54.55
+Aatrox,Zac,2,2,100.0
+Zyra,Aatrox,3,3,100.0
+Nocturne,Sivir,2,0,0.0
+Talon,Aatrox,5,5,100.0
+Briar,Nasus,13,9,69.23
+Karthus,Pantheon,5,2,40.0
+Briar,Tristana,2,0,0.0
+Dr. Mundo,Ivern,2,0,0.0
+Poppy,Yasuo,31,16,51.61
+Ekko,Volibear,5,1,20.0
+Dr. Mundo,Veigar,35,15,42.86
+Udyr,Annie,64,40,62.5
+Udyr,Malphite,5,3,60.0
+Karthus,Katarina,44,24,54.55
+Zeri,Draven,1,0,0.0
+Evelynn,Neeko,11,10,90.91
+Shyvana,Qiyana,11,4,36.36
+Jax,Zed,28,21,75.0
+Master Yi,Zac,19,10,52.63
+Jax,Neeko,9,8,88.89
+Graves,Cassiopeia,9,2,22.22
+Lillia,Vladimir,40,12,30.0
+Rengar,Gangplank,8,6,75.0
+Talon,KogMaw,9,1,11.11
+Master Yi,Sett,3,3,100.0
+Rengar,Talon,19,9,47.37
+Kindred,Malphite,13,6,46.15
+Diana,Aurora,48,19,39.58
+Zed,Yasuo,102,41,40.2
+Lee Sin,Akshan,118,57,48.31
+Shen,Irelia,4,0,0.0
+Viego,Darius,17,17,100.0
+Jarvan IV,Renekton,7,0,0.0
+Xin Zhao,Darius,5,5,100.0
+Udyr,Chogath,10,9,90.0
+Darius,Akali,11,2,18.18
+Rengar,Pantheon,7,3,42.86
+Ambessa,Smolder,7,4,57.14
+Wukong,Gragas,53,28,52.83
+Nidalee,Kayn,2,0,0.0
+Shaco,KSante,1,0,0.0
+Lillia,Sylas,61,40,65.57
+Rengar,Xerath,42,19,45.24
+Twitch,Sylas,3,0,0.0
+Rammus,LeBlanc,15,7,46.67
+Volibear,Fiddlesticks,11,7,63.64
+Jax,Aatrox,4,4,100.0
+Dr. Mundo,Smolder,21,5,23.81
+Elise,Ziggs,13,0,0.0
+Taliyah,Smolder,16,3,18.75
+Volibear,Gragas,18,11,61.11
+Karthus,Sion,21,5,23.81
+Viego,Sion,17,11,64.71
+Shaco,Irelia,31,15,48.39
+Trundle,Anivia,27,9,33.33
+Nunu & Willump,Katarina,54,28,51.85
+Ambessa,Katarina,13,7,53.85
+Ambessa,Gragas,4,4,100.0
+Reksai,Neeko,4,2,50.0
+Dr. Mundo,Qiyana,20,13,65.0
+Sylas,Naafiri,4,3,75.0
+Kindred,Mordekaiser,8,2,25.0
+Graves,Gangplank,7,5,71.43
+Yorick,Twisted Fate,4,0,0.0
+Dr. Mundo,Diana,15,3,20.0
+Brand,Syndra,4,4,100.0
+Brand,Vladimir,3,1,33.33
+Lillia,Fizz,25,14,56.0
+Zac,Sivir,2,1,50.0
+Viego,Irelia,104,41,39.42
+Udyr,Diana,22,11,50.0
+Urgot,Jayce,3,3,100.0
+Heimerdinger,Naafiri,3,3,100.0
+Sion,Neeko,2,0,0.0
+Corki,Sylas,6,1,16.67
+Gwen,Malzahar,13,5,38.46
+Reksai,Jayce,5,0,0.0
+Kayn,Kassadin,75,25,33.33
+Master Yi,Heimerdinger,4,2,50.0
+Xin Zhao,Talon,13,3,23.08
+Diana,Talon,58,26,44.83
+Rengar,Nunu & Willump,8,4,50.0
+Evelynn,Riven,7,0,0.0
+Jayce,Cassiopeia,3,0,0.0
+Vi,Kled,3,0,0.0
+Poppy,Morgana,3,0,0.0
+Lillia,Aurora,30,18,60.0
+Udyr,Elise,4,4,100.0
+Teemo,Vladimir,1,0,0.0
+Shaco,Anivia,25,15,60.0
+Corki,Syndra,5,2,40.0
+Morgana,Tristana,12,0,0.0
+Master Yi,Lulu,18,16,88.89
+Belveth,Nidalee,5,3,60.0
+Trundle,Malphite,6,0,0.0
+Rammus,Yasuo,38,18,47.37
+Rammus,Irelia,12,6,50.0
+Rammus,Lee Sin,6,4,66.67
+Kindred,Zed,97,57,58.76
+Kayn,Vex,57,41,71.93
+Taliyah,Aurora,9,4,44.44
+Sejuani,Briar,4,1,25.0
+Rammus,Annie,33,9,27.27
+Diana,Nunu & Willump,3,3,100.0
+Lee Sin,Gwen,17,8,47.06
+Taliyah,Annie,11,8,72.73
+Kayn,Neeko,24,5,20.83
+Morgana,LeBlanc,11,4,36.36
+Vi,Qiyana,43,23,53.49
+Olaf,Zilean,8,8,100.0
+Brand,Sion,2,0,0.0
+Poppy,Lucian,4,1,25.0
+Olaf,Wukong,1,1,100.0
+Urgot,Kennen,1,1,100.0
+Hecarim,Rumble,10,7,70.0
+Jax,Vex,10,3,30.0
+Ekko,Garen,18,10,55.56
+Ivern,Smolder,18,4,22.22
+Shaco,Xerath,21,12,57.14
+Jarvan IV,Tryndamere,17,12,70.59
+Xin Zhao,Qiyana,58,37,63.79
+Lillia,Galio,35,10,28.57
+Shyvana,Yone,27,8,29.63
+Taliyah,Orianna,31,14,45.16
+Xin Zhao,Veigar,80,44,55.0
+Zac,Nunu & Willump,7,7,100.0
+Jarvan IV,Cassiopeia,44,22,50.0
+Urgot,Ryze,8,5,62.5
+Ekko,Gangplank,19,14,73.68
+Graves,Aatrox,10,0,0.0
+Yuumi,Soraka,3,0,0.0
+Rammus,Zyra,4,3,75.0
+Aatrox,Sylas,17,3,17.65
+Evelynn,Morgana,6,2,33.33
+Naafiri,Lux,58,29,50.0
+Kayn,Anivia,56,16,28.57
+Shaco,Annie,35,10,28.57
+Riven,Veigar,2,0,0.0
+Master Yi,Twisted Fate,105,52,49.52
+Rumble,Akshan,10,4,40.0
+Graves,Renekton,3,2,66.67
+Diana,Xerath,20,8,40.0
+Yorick,Annie,2,0,0.0
+Ekko,Shyvana,1,0,0.0
+Rammus,Aurelion Sol,16,14,87.5
+Ekko,Diana,18,9,50.0
+Dr. Mundo,Aatrox,1,0,0.0
+Shyvana,Aurora,20,5,25.0
+Poppy,Mel,33,30,90.91
+Volibear,Diana,30,14,46.67
+Vi,Ziggs,41,18,43.9
+Fiddlesticks,Morgana,2,2,100.0
+Wukong,Diana,57,26,45.61
+Belveth,Ornn,3,3,100.0
+Graves,Ornn,6,4,66.67
+Xin Zhao,Ornn,7,7,100.0
+Karthus,Caitlyn,7,6,85.71
+Shaco,Zac,7,6,85.71
+Urgot,Swain,5,5,100.0
+Wukong,Kennen,11,3,27.27
+Shaco,Katarina,48,25,52.08
+Reksai,Ahri,45,18,40.0
+Fiddlesticks,Zac,3,1,33.33
+Graves,Talon,8,6,75.0
+Urgot,Azir,2,2,100.0
+Kindred,Gwen,5,4,80.0
+Chogath,Ahri,4,4,100.0
+KhaZix,Swain,28,13,46.43
+Chogath,Vladimir,5,3,60.0
+Chogath,Ekko,2,1,50.0
+Hecarim,Elise,7,1,14.29
+Naafiri,Urgot,3,3,100.0
+Jax,Tristana,6,5,83.33
+Gragas,Galio,14,6,42.86
+Pantheon,KhaZix,2,2,100.0
+Sylas,Lissandra,1,0,0.0
+Belveth,Nunu & Willump,6,3,50.0
+Volibear,Nunu & Willump,10,5,50.0
+Hecarim,Nunu & Willump,11,8,72.73
+Reksai,Nunu & Willump,1,1,100.0
+Taliyah,Rumble,1,0,0.0
+Xin Zhao,Nunu & Willump,8,6,75.0
+Teemo,Orianna,3,2,66.67
+Sejuani,Akali,50,20,40.0
+Lillia,Nunu & Willump,8,1,12.5
+Trundle,Zilean,30,17,56.67
+Talon,Nunu & Willump,10,5,50.0
+Ekko,Kayle,60,33,55.0
+Fiddlesticks,Nunu & Willump,4,3,75.0
+Qiyana,Zeri,6,1,16.67
+Karthus,Nunu & Willump,3,2,66.67
+Nunu & Willump,Malzahar,15,7,46.67
+Xin Zhao,Gragas,31,21,67.74
+Pantheon,Nilah,6,5,83.33
+Gwen,Lee Sin,2,1,50.0
+Karthus,Viktor,34,14,41.18
+Lee Sin,Garen,24,5,20.83
+Jax,Garen,5,2,40.0
+Evelynn,Briar,10,1,10.0
+Morgana,Sylas,20,11,55.0
+Taliyah,Viktor,19,10,52.63
+Lee Sin,Darius,14,9,64.29
+Ekko,Ornn,7,1,14.29
+Taliyah,Ryze,23,15,65.22
+Zed,Ornn,5,4,80.0
+Ivern,Garen,5,5,100.0
+Skarner,Vex,10,6,60.0
+Zed,Tryndamere,9,0,0.0
+Shyvana,Brand,3,2,66.67
+Gragas,Vladimir,17,6,35.29
+Karthus,Jax,5,0,0.0
+KhaZix,Tryndamere,20,11,55.0
+Vi,Sivir,5,5,100.0
+Karthus,Aatrox,8,1,12.5
+Rammus,Azir,37,15,40.54
+Trundle,Gwen,5,2,40.0
+Udyr,Lissandra,22,10,45.45
+Wukong,Smolder,27,7,25.93
+Viego,Shen,18,15,83.33
+Reksai,Fizz,30,22,73.33
+Lillia,Akali,28,17,60.71
+Sejuani,Katarina,48,17,35.42
+Rammus,Katarina,30,15,50.0
+KhaZix,Nidalee,6,4,66.67
+Hecarim,Anivia,18,8,44.44
+Elise,Miss Fortune,1,0,0.0
+Rammus,Kassadin,25,14,56.0
+Nunu & Willump,Xerath,14,3,21.43
+Xin Zhao,Anivia,53,34,64.15
+Skarner,Vladimir,57,29,50.88
+Pantheon,Urgot,5,2,40.0
+Graves,Aurelion Sol,20,13,65.0
+Kindred,Brand,4,2,50.0
+Gwen,Aurelion Sol,5,3,60.0
+Shaco,Aurelion Sol,17,6,35.29
+Ambessa,Tristana,1,0,0.0
+Aatrox,Zed,5,4,80.0
+Xin Zhao,Ziggs,45,22,48.89
+Sejuani,Zilean,7,4,57.14
+Diana,Zac,17,10,58.82
+Talon,Zilean,9,4,44.44
+Skarner,Xerath,14,12,85.71
+Shen,Naafiri,3,0,0.0
+Qiyana,Malzahar,24,12,50.0
+Karthus,Gangplank,9,3,33.33
+Nidalee,Malzahar,31,16,51.61
+Nidalee,Aurelion Sol,13,8,61.54
+Olaf,Sylas,32,14,43.75
+Graves,Xerath,39,22,56.41
+Belveth,Vayne,4,0,0.0
+Ivern,Orianna,63,28,44.44
+Sylas,Galio,7,0,0.0
+Graves,Garen,7,7,100.0
+Dr. Mundo,Gragas,9,6,66.67
+Elise,Kassadin,15,4,26.67
+Hecarim,Gragas,35,23,65.71
+Udyr,Kassadin,32,10,31.25
+Nunu & Willump,Aurelion Sol,14,4,28.57
+Wukong,Poppy,2,2,100.0
+Karthus,Twitch,6,2,33.33
+Lillia,Xin Zhao,5,5,100.0
+Shaco,Twitch,7,2,28.57
+Nunu & Willump,Malphite,4,4,100.0
+Nunu & Willump,Rumble,3,3,100.0
+Hecarim,Gangplank,6,1,16.67
+Volibear,Ivern,9,8,88.89
+Nocturne,KSante,9,7,77.78
+Trundle,Nilah,6,0,0.0
+Volibear,Ziggs,19,7,36.84
+Morgana,Ekko,9,2,22.22
+Master Yi,Smolder,22,11,50.0
+Xin Zhao,KSante,8,2,25.0
+Amumu,Ahri,6,3,50.0
+Pantheon,VelKoz,26,15,57.69
+Kindred,Aurelion Sol,24,9,37.5
+Amumu,Irelia,10,3,30.0
+Lillia,Lee Sin,13,5,38.46
+Kled,Akali,1,0,0.0
+Rengar,Jayce,18,11,61.11
+Riven,Zoe,4,1,25.0
+Pantheon,Rumble,13,10,76.92
+Poppy,Vladimir,55,29,52.73
+Shen,Annie,3,0,0.0
+Lillia,VelKoz,2,0,0.0
+Briar,Kayle,15,11,73.33
+Shyvana,Swain,2,2,100.0
+Elise,Ezreal,10,5,50.0
+Zac,Briar,3,2,66.67
+Malzahar,Garen,2,2,100.0
+Taliyah,Malzahar,2,1,50.0
+Naafiri,Aurelion Sol,18,4,22.22
+KhaZix,Mel,94,28,29.79
+Vi,Kaisa,6,3,50.0
+Gragas,Aurelion Sol,5,2,40.0
+Shaco,Kaisa,2,1,50.0
+Kayn,Warwick,1,0,0.0
+Master Yi,Swain,8,2,25.0
+Shen,Orianna,5,0,0.0
+Jax,Anivia,7,4,57.14
+Trundle,Brand,7,4,57.14
+Zyra,Ahri,11,7,63.64
+Reksai,Anivia,23,15,65.22
+Zyra,Kassadin,9,4,44.44
+Zed,Anivia,72,36,50.0
+Shen,Zed,5,5,100.0
+Graves,Anivia,28,14,50.0
+Teemo,Viktor,2,0,0.0
+Hecarim,Smolder,21,14,66.67
+Shyvana,Zac,3,0,0.0
+Naafiri,Kennen,12,5,41.67
+Evelynn,Malphite,3,0,0.0
+Zac,Mel,44,11,25.0
+Udyr,LeBlanc,45,22,48.89
+Rengar,Gwen,2,2,100.0
+Jax,Lissandra,20,8,40.0
+Kaisa,Viktor,3,0,0.0
+Gwen,Lissandra,16,13,81.25
+Taliyah,Ivern,2,1,50.0
+Sylas,Corki,33,22,66.67
+Zyra,Renekton,6,3,50.0
+Talon,Warwick,3,2,66.67
+Draven,Naafiri,2,2,100.0
+Rammus,Gragas,5,0,0.0
+Talon,Garen,11,1,9.09
+Ekko,Katarina,155,85,54.84
+Gwen,Aatrox,7,4,57.14
+Kayn,Irelia,33,14,42.42
+Rammus,Yone,31,15,48.39
+Reksai,Qiyana,17,7,41.18
+Urgot,Viktor,6,0,0.0
+Heimerdinger,Azir,2,0,0.0
+Rammus,Ambessa,9,6,66.67
+Master Yi,Aurora,172,70,40.7
+Shen,Aphelios,2,0,0.0
+Hecarim,Ziggs,15,1,6.67
+Dr. Mundo,Nasus,3,2,66.67
+Nidalee,Lissandra,15,8,53.33
+Briar,Diana,14,9,64.29
+Amumu,KSante,5,4,80.0
+Shaco,Lucian,8,1,12.5
+Poppy,Ivern,5,2,40.0
+Hecarim,Ivern,2,2,100.0
+Fizz,Orianna,1,1,100.0
+Graves,Karma,6,5,83.33
+Singed,Swain,1,1,100.0
+Taliyah,Vladimir,12,7,58.33
+Wukong,Ivern,5,2,40.0
+Twitch,Sivir,2,0,0.0
+Zyra,Hwei,12,1,8.33
+Xin Zhao,Jayce,33,25,75.76
+Diana,Lucian,13,7,53.85
+Nidalee,Kennen,5,1,20.0
+Volibear,Tristana,31,11,35.48
+Rammus,Veigar,3,0,0.0
+Dr. Mundo,Kassadin,42,14,33.33
+Draven,Yone,8,0,0.0
+Belveth,Ambessa,5,2,40.0
+Zed,Kindred,2,0,0.0
+Graves,Zilean,13,9,69.23
+Zac,Katarina,53,31,58.49
+Jarvan IV,Jayce,37,14,37.84
+Lee Sin,Brand,2,0,0.0
+Ambessa,Pantheon,2,2,100.0
+Graves,Chogath,16,7,43.75
+Ekko,Chogath,17,6,35.29
+Lee Sin,Chogath,37,17,45.95
+Karthus,Chogath,12,6,50.0
+Xin Zhao,Briar,4,3,75.0
+Rammus,Mel,22,17,77.27
+Fiddlesticks,LeBlanc,7,6,85.71
+Nocturne,Chogath,9,5,55.56
+Diana,LeBlanc,26,11,42.31
+KhaZix,Garen,1,0,0.0
+Gragas,Zed,47,15,31.91
+Volibear,Lulu,1,1,100.0
+Viego,Zyra,4,3,75.0
+Dr. Mundo,Chogath,13,9,69.23
+Kayn,Fizz,58,27,46.55
+Gragas,Ahri,13,8,61.54
+Morgana,Swain,1,0,0.0
+Fiddlesticks,Vex,3,2,66.67
+Fiddlesticks,Kassadin,6,3,50.0
+Ekko,Vex,26,13,50.0
+Skarner,Swain,1,1,100.0
+Nocturne,Xerath,36,23,63.89
+Talon,Smolder,17,4,23.53
+Poppy,Tryndamere,6,4,66.67
+Gragas,Chogath,4,4,100.0
+Amumu,Galio,3,1,33.33
+Darius,Chogath,1,1,100.0
+Evelynn,Chogath,4,1,25.0
+Ambessa,Chogath,1,0,0.0
+Lee Sin,Gangplank,16,8,50.0
+Shen,Vayne,5,0,0.0
+Lee Sin,Shen,6,1,16.67
+Viego,Akshan,103,41,39.81
+Yorick,Lux,2,2,100.0
+Graves,Kassadin,37,14,37.84
+KhaZix,Veigar,36,15,41.67
+Volibear,Udyr,1,1,100.0
+Dr. Mundo,Yasuo,47,22,46.81
+Master Yi,Pantheon,15,9,60.0
+Karthus,Akali,30,13,43.33
+Poppy,Brand,3,0,0.0
+Trundle,Vex,18,10,55.56
+Wukong,Tristana,27,3,11.11
+Nidalee,Gragas,12,3,25.0
+Nunu & Willump,Nidalee,3,2,66.67
+Taliyah,Caitlyn,1,0,0.0
+Lillia,Xerath,11,2,18.18
+Kayn,Caitlyn,12,6,50.0
+KhaZix,Urgot,2,0,0.0
+Zeri,Urgot,2,0,0.0
+Evelynn,Heimerdinger,2,2,100.0
+Evelynn,Malzahar,8,3,37.5
+Sejuani,Chogath,1,1,100.0
+Lillia,Kassadin,28,14,50.0
+Zac,Ezreal,6,4,66.67
+Brand,Akshan,9,1,11.11
+Zac,Lux,39,19,48.72
+Nidalee,Nasus,11,7,63.64
+Zyra,KSante,8,7,87.5
+Rumble,Zed,14,9,64.29
+Vi,Anivia,45,26,57.78
+Elise,Graves,2,0,0.0
+Graves,Briar,1,1,100.0
+Ambessa,Graves,2,2,100.0
+Dr. Mundo,Mel,54,18,33.33
+Zed,Irelia,57,42,73.68
+Zac,Heimerdinger,7,5,71.43
+Evelynn,Irelia,20,11,55.0
+Evelynn,Akshan,26,9,34.62
+Lillia,Briar,15,5,33.33
+Corki,Aurora,8,3,37.5
+Olaf,Azir,50,31,62.0
+Shaco,Brand,7,4,57.14
+Zac,Akshan,51,35,68.63
+Udyr,Nidalee,16,10,62.5
+Zyra,Tryndamere,8,7,87.5
+Ambessa,Mel,11,1,9.09
+Shaco,Kennen,7,5,71.43
+Ekko,Malphite,9,2,22.22
+Poppy,VelKoz,2,1,50.0
+Zac,LeBlanc,33,11,33.33
+Dr. Mundo,Pantheon,9,6,66.67
+Olaf,Malzahar,3,1,33.33
+Ivern,Kennen,10,9,90.0
+Zed,Diana,99,46,46.46
+Wukong,Kayle,56,22,39.29
+Malzahar,VelKoz,1,0,0.0
+Nunu & Willump,Lux,35,22,62.86
+Urgot,Corki,1,1,100.0
+Diana,Syndra,46,17,36.96
+Rumble,Gragas,1,1,100.0
+Diana,Mel,36,20,55.56
+Rumble,Pantheon,3,0,0.0
+Taliyah,Master Yi,1,1,100.0
+Lillia,Tristana,44,20,45.45
+Dr. Mundo,LeBlanc,43,20,46.51
+Dr. Mundo,Zilean,24,8,33.33
+Taliyah,Kindred,1,1,100.0
+Udyr,KSante,9,5,55.56
+Dr. Mundo,Zed,61,32,52.46
+Ivern,Swain,13,9,69.23
+Ivern,Briar,4,2,50.0
+Dr. Mundo,Hwei,70,36,51.43
+Rengar,Lux,60,40,66.67
+Urgot,Smolder,2,0,0.0
+Rengar,Rumble,15,13,86.67
+Ivern,Gangplank,12,11,91.67
+Fiddlesticks,Malphite,5,0,0.0
+Kayn,Gragas,44,31,70.45
+Lillia,Riven,4,4,100.0
+Urgot,Xerath,1,0,0.0
+Dr. Mundo,Sett,7,0,0.0
+Rumble,Sylas,7,1,14.29
+Shen,Swain,1,0,0.0
+Qiyana,Gangplank,2,0,0.0
+Rengar,Swain,18,17,94.44
+Karthus,Galio,32,9,28.12
+Ivern,Sivir,2,2,100.0
+Rengar,Rammus,3,2,66.67
+Urgot,Sylas,1,0,0.0
+Rengar,Sivir,2,0,0.0
+Diana,Briar,2,2,100.0
+Rammus,Diana,5,5,100.0
+Sylas,Kindred,1,0,0.0
+Maokai,Aurora,14,9,64.29
+Nocturne,Briar,4,4,100.0
+Gragas,Viktor,9,7,77.78
+Shyvana,Katarina,7,5,71.43
+Yorick,Yasuo,2,0,0.0
+Yunara,Ryze,2,2,100.0
+Shaco,Fiddlesticks,2,2,100.0
+Kayn,Ziggs,14,2,14.29
+Zac,Talon,14,6,42.86
+Nunu & Willump,Morgana,8,5,62.5
+Jarvan IV,Ornn,2,2,100.0
+Shyvana,Olaf,3,3,100.0
+Udyr,Briar,5,2,40.0
+Wukong,Miss Fortune,8,1,12.5
+Gragas,Katarina,30,16,53.33
+Karthus,Garen,9,5,55.56
+Nunu & Willump,Anivia,24,8,33.33
+Warwick,Akali,25,16,64.0
+Shyvana,LeBlanc,16,3,18.75
+Rengar,Zac,7,2,28.57
+Talon,Sivir,6,2,33.33
+Dr. Mundo,Rumble,12,3,25.0
+Lillia,Irelia,102,55,53.92
+Malphite,Gragas,6,0,0.0
+Master Yi,Annie,133,71,53.38
+Kaisa,Galio,9,3,33.33
+Fiddlesticks,Volibear,2,0,0.0
+Master Yi,Katarina,92,61,66.3
+Nocturne,Lee Sin,6,3,50.0
+Kindred,Zac,17,13,76.47
+Zed,Nasus,12,5,41.67
+Taliyah,Nidalee,2,1,50.0
+Zeri,Riven,1,0,0.0
+Malphite,Mel,2,0,0.0
+Viego,Aatrox,8,0,0.0
+Nunu & Willump,Briar,3,2,66.67
+Lillia,Poppy,2,2,100.0
+Naafiri,Kayle,37,18,48.65
+Zyra,Jayce,21,8,38.1
+Elise,Briar,2,1,50.0
+Jax,Katarina,32,21,65.62
+Olaf,Katarina,8,4,50.0
+Kayn,Malphite,11,5,45.45
+Gwen,Nasus,8,2,25.0
+Evelynn,Rumble,2,0,0.0
+Kayn,Zed,109,50,45.87
+Neeko,Sylas,3,1,33.33
+Diana,Kled,1,0,0.0
+Gragas,Taliyah,11,5,45.45
+Briar,Swain,5,2,40.0
+Ivern,Ezreal,6,2,33.33
+Amumu,Diana,8,2,25.0
+Jax,Kassadin,10,2,20.0
+Qiyana,Jayce,3,1,33.33
+Briar,Ambessa,10,7,70.0
+Ivern,Irelia,50,32,64.0
+Zac,Nidalee,7,7,100.0
+Yorick,Aurora,5,5,100.0
+Yorick,Ahri,5,0,0.0
+Taliyah,Lissandra,7,3,42.86
+Taliyah,Ambessa,11,4,36.36
+Lee Sin,Singed,32,11,34.38
+Gwen,Singed,1,1,100.0
+Heimerdinger,Aphelios,2,2,100.0
+Zeri,Aurora,1,1,100.0
+Volibear,Swain,11,7,63.64
+Master Yi,Mel,84,39,46.43
+Sylas,Riven,5,3,60.0
+Vi,Chogath,11,5,45.45
+Gwen,Kennen,6,4,66.67
+Evelynn,Aatrox,4,1,25.0
+Kled,Syndra,2,0,0.0
+Pantheon,Pyke,3,0,0.0
+Zeri,Ekko,1,0,0.0
+Nunu & Willump,Swain,13,6,46.15
+Rengar,Warwick,2,0,0.0
+Rengar,Riven,8,8,100.0
+Talon,Lucian,10,6,60.0
+Yorick,Azir,1,0,0.0
+Kindred,Illaoi,5,4,80.0
+Diana,Kayle,11,7,63.64
+Udyr,Twisted Fate,93,59,63.44
+Ivern,Kled,2,0,0.0
+Taliyah,Yasuo,38,18,47.37
+Nocturne,Zilean,6,4,66.67
+Poppy,Karthus,4,3,75.0
+Draven,Heimerdinger,2,0,0.0
+Qiyana,Lee Sin,2,2,100.0
+Pantheon,Caitlyn,11,7,63.64
+Volibear,Chogath,15,8,53.33
+Naafiri,Zyra,2,1,50.0
+Rengar,Kennen,20,12,60.0
+Poppy,Malzahar,13,6,46.15
+Kayn,Vayne,5,1,20.0
+Briar,Elise,1,0,0.0
+Lee Sin,Aatrox,13,11,84.62
+Ekko,Kindred,4,1,25.0
+KogMaw,Akshan,1,0,0.0
+Karthus,Malzahar,9,4,44.44
+Udyr,Zilean,29,14,48.28
+Ekko,Jax,9,4,44.44
+Sejuani,Fizz,5,3,60.0
+Naafiri,Malphite,8,6,75.0
+Morgana,Naafiri,3,3,100.0
+Briar,Qiyana,8,1,12.5
+Naafiri,Shaco,1,1,100.0
+Zed,Mordekaiser,4,1,25.0
+Volibear,Darius,3,2,66.67
+Graves,Camille,2,0,0.0
+Ivern,Lux,54,21,38.89
+Teemo,Trundle,3,0,0.0
+Ekko,Zac,20,12,60.0
+Gwen,Anivia,12,5,41.67
+Rengar,Yasuo,68,32,47.06
+Naafiri,Sion,4,3,75.0
+Master Yi,Ambessa,12,12,100.0
+Briar,KSante,1,0,0.0
+Lillia,Annie,14,2,14.29
+Jayce,Diana,1,1,100.0
+Graves,Ambessa,5,1,20.0
+Belveth,Rumble,3,2,66.67
+Warwick,Mel,33,9,27.27
+KhaZix,Sion,14,8,57.14
+Lillia,Ekko,23,18,78.26
+Gwen,Mel,29,17,58.62
+Karthus,Mel,33,16,48.48
+Talon,KSante,4,4,100.0
+Zyra,Akali,5,3,60.0
+Wukong,Heimerdinger,14,13,92.86
+Gwen,Kindred,1,0,0.0
+Nidalee,Graves,2,0,0.0
+Fiddlesticks,Zeri,2,1,50.0
+Nunu & Willump,Aatrox,9,6,66.67
+Rengar,Naafiri,9,1,11.11
+Graves,Dr. Mundo,2,0,0.0
+Volibear,Thresh,2,2,100.0
+Taliyah,Zilean,3,3,100.0
+Evelynn,Annie,11,4,36.36
+Rammus,Ryze,27,11,40.74
+Elise,Lee Sin,17,16,94.12
+Shaco,Nidalee,2,0,0.0
+Trundle,Caitlyn,6,4,66.67
+Karthus,Ornn,2,0,0.0
+Volibear,Briar,4,2,50.0
+Taliyah,Veigar,10,4,40.0
+Jarvan IV,Varus,12,8,66.67
+Corki,Sivir,2,2,100.0
+Karthus,Zilean,9,6,66.67
+Kayn,Zilean,21,15,71.43
+Graves,Akshan,21,17,80.95
+Udyr,Seraphine,7,6,85.71
+Evelynn,Taliyah,18,9,50.0
+Udyr,Karma,8,3,37.5
+Sejuani,Aatrox,2,2,100.0
+Master Yi,Soraka,3,0,0.0
+Lillia,Yorick,1,0,0.0
+Teemo,Yone,5,3,60.0
+Shen,Viktor,8,1,12.5
+Graves,Sivir,1,0,0.0
+Shaco,Malphite,3,0,0.0
+Gragas,LeBlanc,14,6,42.86
+Nocturne,Brand,4,4,100.0
+Vi,Jayce,30,25,83.33
+Gwen,Kaisa,3,1,33.33
+Jarvan IV,Ivern,12,4,33.33
+Lee Sin,Qiyana,104,44,42.31
+Master Yi,Lux,79,59,74.68
+Reksai,KSante,1,1,100.0
+Sejuani,Zed,43,15,34.88
+Naafiri,Katarina,129,49,37.98
+Sion,Yasuo,8,8,100.0
+Hecarim,Vex,31,14,45.16
+Ekko,Nasus,12,8,66.67
+Corki,Gragas,2,2,100.0
+Gragas,Smolder,14,14,100.0
+KhaZix,Shen,4,0,0.0
+Pantheon,Ornn,9,6,66.67
+Amumu,Veigar,3,0,0.0
+Talon,Sion,14,5,35.71
+Kindred,Pyke,1,0,0.0
+Sion,Aurora,6,6,100.0
+Sion,Twisted Fate,3,2,66.67
+Brand,Briar,6,0,0.0
+Talon,Diana,68,41,60.29
+Nautilus,Azir,2,0,0.0
+Rammus,Qiyana,16,5,31.25
+Shaco,Lissandra,19,17,89.47
+Shyvana,Hwei,17,11,64.71
+Shaco,Ziggs,4,1,25.0
+Zeri,Twisted Fate,1,1,100.0
+Volibear,Kennen,30,4,13.33
+Udyr,Rumble,8,7,87.5
+Zed,Gwen,8,2,25.0
+Brand,Kennen,2,0,0.0
+KhaZix,Darius,3,0,0.0
+Gwen,Olaf,5,3,60.0
+KogMaw,Sion,2,0,0.0
+Sejuani,Karma,5,0,0.0
+Dr. Mundo,Corki,32,14,43.75
+Karthus,Xin Zhao,4,4,100.0
+Corki,Swain,1,0,0.0
+Jax,Ivern,1,1,100.0
+Gwen,Reksai,1,1,100.0
+Rengar,Brand,5,1,20.0
+Hecarim,VelKoz,17,10,58.82
+Ekko,Pantheon,25,21,84.0
+Taliyah,Katarina,11,3,27.27
+Talon,VelKoz,2,1,50.0
+Nunu & Willump,Sion,3,3,100.0
+Master Yi,Caitlyn,4,2,50.0
+Zyra,Singed,4,0,0.0
+Maokai,Tristana,18,7,38.89
+Naafiri,Quinn,5,0,0.0
+Rumble,Vladimir,3,1,33.33
+Naafiri,Heimerdinger,7,2,28.57
+Ambessa,Nidalee,5,0,0.0
+Lillia,Zac,12,0,0.0
+Ivern,KogMaw,4,2,50.0
+Rengar,Lissandra,46,24,52.17
+Shyvana,Tryndamere,1,1,100.0
+Irelia,Azir,2,0,0.0
+Master Yi,Talon,22,16,72.73
+Master Yi,Qiyana,37,21,56.76
+Diana,Lee Sin,16,2,12.5
+Rengar,Irelia,38,12,31.58
+Yorick,Orianna,1,1,100.0
+Elise,Vayne,2,0,0.0
+Naafiri,Ivern,4,4,100.0
+Pantheon,Sivir,2,2,100.0
+Poppy,Zac,14,13,92.86
+Gragas,Zeri,5,0,0.0
+Gragas,Volibear,2,2,100.0
+Amumu,Taliyah,10,5,50.0
+Taliyah,Zoe,7,3,42.86
+Skarner,Hwei,33,12,36.36
+Wukong,Yone,94,32,34.04
+Gwen,Fizz,10,4,40.0
+Jarvan IV,Quinn,9,4,44.44
+Amumu,Twisted Fate,8,2,25.0
+Karthus,Jhin,4,0,0.0
+Vi,Ivern,2,1,50.0
+Hecarim,Lee Sin,6,0,0.0
+Shyvana,Taliyah,15,8,53.33
+Hecarim,Nidalee,30,14,46.67
+Udyr,Zyra,2,2,100.0
+Nunu & Willump,Zyra,1,0,0.0
+KhaZix,Aatrox,7,0,0.0
+Fiddlesticks,Tryndamere,14,3,21.43
+Graves,Lux,54,30,55.56
+KhaZix,Diana,27,15,55.56
+Nidalee,Teemo,1,1,100.0
+Naafiri,Ambessa,11,5,45.45
+Zyra,Taliyah,5,0,0.0
+Fiddlesticks,Fizz,17,3,17.65
+Rengar,Urgot,3,0,0.0
+Shyvana,Pyke,1,0,0.0
+Warwick,Fizz,19,9,47.37
+Trundle,Singed,13,12,92.31
+Fiddlesticks,Gwen,2,1,50.0
+Viego,Zeri,11,8,72.73
+Vi,Nidalee,12,5,41.67
+Zed,Twitch,8,3,37.5
+Rammus,Nunu & Willump,11,4,36.36
+Udyr,Tristana,43,18,41.86
+Master Yi,Yone,71,36,50.7
+Ivern,Aatrox,3,0,0.0
+Aatrox,Chogath,1,1,100.0
+Xin Zhao,Tristana,11,6,54.55
+Fiddlesticks,Shen,1,1,100.0
+Briar,Lissandra,27,13,48.15
+Viego,Kaisa,16,8,50.0
+Rammus,Viktor,23,10,43.48
+Graves,Irelia,15,9,60.0
+Kayn,Corki,28,13,46.43
+Fiddlesticks,VelKoz,2,1,50.0
+Zed,Darius,6,3,50.0
+Hecarim,Nasus,3,0,0.0
+Ivern,Poppy,1,0,0.0
+Jayce,Zac,3,0,0.0
+Nunu & Willump,Draven,5,3,60.0
+Darius,Lux,4,3,75.0
+Jax,Cassiopeia,9,2,22.22
+Reksai,Tryndamere,6,1,16.67
+Nocturne,Talon,21,8,38.1
+Reksai,Olaf,2,2,100.0
+Rengar,Ambessa,7,3,42.86
+Kaisa,Zac,1,0,0.0
+Yorick,Viktor,1,0,0.0
+Teemo,Tryndamere,1,1,100.0
+Elise,Zac,4,3,75.0
+Evelynn,Zac,5,0,0.0
+Fiddlesticks,Anivia,21,18,85.71
+Gwen,Zeri,1,0,0.0
+Dr. Mundo,Zac,17,5,29.41
+Ivern,Karma,3,1,33.33
+Taliyah,Tryndamere,9,2,22.22
+Gragas,Naafiri,10,4,40.0
+Diana,Zoe,43,13,30.23
+Xin Zhao,Ambessa,17,6,35.29
+Rumble,LeBlanc,1,1,100.0
+Nocturne,Nidalee,24,6,25.0
+Neeko,Syndra,1,1,100.0
+Shen,Garen,3,0,0.0
+KhaZix,Sett,5,4,80.0
+Tryndamere,Ambessa,4,0,0.0
+Poppy,Briar,1,1,100.0
+Skarner,Ryze,47,17,36.17
+Trundle,Vayne,5,5,100.0
+Zed,Swain,33,16,48.48
+Reksai,Katarina,51,26,50.98
+Zac,Caitlyn,3,1,33.33
+Zac,Veigar,17,5,29.41
+Warwick,Kassadin,14,9,64.29
+Zac,Ziggs,2,2,100.0
+Qiyana,Jhin,3,0,0.0
+Zac,Renekton,12,9,75.0
+Graves,Rumble,3,0,0.0
+Volibear,Lucian,18,15,83.33
+Shaco,Tryndamere,1,0,0.0
+Morgana,Taliyah,16,7,43.75
+Evelynn,Samira,1,1,100.0
+Kaisa,LeBlanc,1,1,100.0
+Aatrox,Yone,4,0,0.0
+Briar,Yone,24,17,70.83
+Xin Zhao,Jhin,2,2,100.0
+Reksai,Talon,5,5,100.0
+Master Yi,Veigar,36,19,52.78
+Gwen,Urgot,3,3,100.0
+Trundle,Ivern,8,7,87.5
+Shen,Tristana,1,0,0.0
+Neeko,Hwei,8,1,12.5
+Master Yi,Ziggs,8,6,75.0
+Xin Zhao,Camille,1,0,0.0
+Lee Sin,Nasus,27,17,62.96
+Kayn,Swain,17,6,35.29
+Lee Sin,Caitlyn,6,3,50.0
+Rengar,Heimerdinger,10,1,10.0
+Zed,Heimerdinger,13,6,46.15
+Karthus,Shen,6,6,100.0
+Poppy,Swain,5,3,60.0
+Trundle,Sett,3,2,66.67
+Wukong,Renekton,3,1,33.33
+Naafiri,Malzahar,22,16,72.73
+Sejuani,Orianna,16,8,50.0
+Lee Sin,Karthus,15,5,33.33
+Kindred,Lux,102,62,60.78
+Zac,Elise,2,0,0.0
+Volibear,Nidalee,24,12,50.0
+Rumble,Syndra,3,3,100.0
+Graves,Ziggs,10,5,50.0
+Skarner,Lux,6,3,50.0
+Karthus,Neeko,5,1,20.0
+Neeko,Veigar,1,0,0.0
+Evelynn,Xerath,7,5,71.43
+Fiddlesticks,Renekton,12,6,50.0
+Shyvana,Tristana,5,1,20.0
+Rammus,Karma,3,3,100.0
+Darius,Veigar,10,8,80.0
+Skarner,Yone,23,3,13.04
+Nidalee,Kled,4,0,0.0
+Rumble,Garen,3,3,100.0
+Evelynn,Aurelion Sol,6,4,66.67
+Viego,Xin Zhao,2,1,50.0
+Lillia,Fiddlesticks,4,4,100.0
+Jarvan IV,Garen,16,2,12.5
+Draven,LeBlanc,9,8,88.89
+Dr. Mundo,Nidalee,6,0,0.0
+Malphite,Azir,1,1,100.0
+Brand,Aatrox,3,3,100.0
+Nasus,Orianna,5,0,0.0
+Hecarim,Zilean,45,31,68.89
+Karthus,Diana,20,4,20.0
+Zyra,Fizz,5,5,100.0
+Camille,Ryze,2,1,50.0
+Shaco,Heimerdinger,4,3,75.0
+Briar,Fizz,8,2,25.0
+Darius,Soraka,2,0,0.0
+Camille,Viktor,2,2,100.0
+Nidalee,Fizz,9,5,55.56
+Skarner,Fizz,5,5,100.0
+KhaZix,Fizz,25,3,12.0
+Shaco,Fizz,10,8,80.0
+Sylas,Mel,5,3,60.0
+Master Yi,Irelia,47,24,51.06
+KhaZix,Ziggs,14,7,50.0
+Poppy,Jayce,9,4,44.44
+Diana,Sivir,1,0,0.0
+Zed,Warwick,3,1,33.33
+Shaco,Jarvan IV,4,3,75.0
+KhaZix,Qiyana,40,18,45.0
+Poppy,Xerath,14,6,42.86
+Trundle,Lux,80,39,48.75
+Urgot,Yasuo,4,0,0.0
+Shaco,Qiyana,20,4,20.0
+Zyra,Lee Sin,2,1,50.0
+Reksai,Zilean,1,0,0.0
+Taliyah,Anivia,2,2,100.0
+Rengar,Shen,4,4,100.0
+Rammus,Akshan,3,0,0.0
+Rammus,Anivia,6,6,100.0
+Zed,Aurelion Sol,44,6,13.64
+Talon,Xin Zhao,1,0,0.0
+Zed,Yorick,10,3,30.0
+Graves,Yasuo,46,19,41.3
+Amumu,Zoe,9,3,33.33
+Heimerdinger,Nasus,4,4,100.0
+Viego,Singed,25,12,48.0
+Elise,Viktor,55,29,52.73
+Rammus,Heimerdinger,2,2,100.0
+Qiyana,Anivia,33,15,45.45
+Zed,Qiyana,61,20,32.79
+Ambessa,Qiyana,6,1,16.67
+Skarner,Twitch,1,0,0.0
+KhaZix,Talon,6,2,33.33
+Kayn,Qiyana,52,25,48.08
+Qiyana,Veigar,39,23,58.97
+Nidalee,Briar,6,5,83.33
+Xin Zhao,Aatrox,8,0,0.0
+Diana,Wukong,2,1,50.0
+Jarvan IV,Fiddlesticks,6,4,66.67
+KhaZix,Malzahar,51,23,45.1
+Rammus,Urgot,1,0,0.0
+Taliyah,Nautilus,1,0,0.0
+Lillia,Garen,9,7,77.78
+Lee Sin,Teemo,21,5,23.81
+Ekko,Briar,10,6,60.0
+Shaco,Veigar,14,5,35.71
+Briar,Irelia,11,5,45.45
+Qiyana,Sett,6,3,50.0
+Aurelion Sol,Malzahar,5,5,100.0
+Ekko,Dr. Mundo,2,2,100.0
+Sion,Taliyah,12,8,66.67
+Sylas,Zoe,14,2,14.29
+Master Yi,Karthus,13,6,46.15
+Jax,Elise,2,1,50.0
+Qiyana,Tryndamere,2,0,0.0
+Fiddlesticks,Pyke,3,1,33.33
+Jarvan IV,Caitlyn,8,6,75.0
+Ambessa,Aurelion Sol,7,0,0.0
+Wukong,VelKoz,11,4,36.36
+Aatrox,Azir,2,2,100.0
+Trundle,VelKoz,6,1,16.67
+Vi,Naafiri,11,7,63.64
+Draven,Aurora,3,1,33.33
+Gragas,Kassadin,8,4,50.0
+Ivern,Yasuo,85,52,61.18
+Udyr,Zac,20,6,30.0
+Belveth,Gangplank,5,3,60.0
+Warwick,Sivir,3,0,0.0
+Diana,Morgana,1,1,100.0
+Zyra,Briar,1,1,100.0
+Yorick,Naafiri,1,0,0.0
+Lee Sin,Pantheon,7,4,57.14
+Vi,Dr. Mundo,2,0,0.0
+Graves,Karthus,4,4,100.0
+Fiddlesticks,Riven,2,0,0.0
+Kayn,Briar,9,6,66.67
+KhaZix,Lee Sin,2,2,100.0
+Jax,Zac,3,0,0.0
+Trundle,Renekton,4,4,100.0
+Poppy,Vex,12,3,25.0
+Karthus,Irelia,69,44,63.77
+Skarner,Ahri,19,9,47.37
+Wukong,Karma,21,11,52.38
+Graves,KSante,5,0,0.0
+Shyvana,Talon,5,2,40.0
+Vi,Yunara,5,0,0.0
+Poppy,Zyra,3,3,100.0
+Shaco,Akshan,33,13,39.39
+Jarvan IV,Sejuani,5,0,0.0
+Sylas,Smolder,7,7,100.0
+Gragas,Nasus,7,3,42.86
+Maokai,Ambessa,4,4,100.0
+Zac,Aatrox,5,0,0.0
+Yorick,Smolder,3,0,0.0
+Ivern,Talon,29,11,37.93
+Kayn,Pyke,7,1,14.29
+Shyvana,KogMaw,4,1,25.0
+Master Yi,Rumble,24,6,25.0
+Xin Zhao,Mordekaiser,8,1,12.5
+Reksai,Zac,10,7,70.0
+Amumu,Vayne,3,3,100.0
+Poppy,Lee Sin,3,0,0.0
+Nunu & Willump,Quinn,1,1,100.0
+Zed,Camille,5,2,40.0
+Yorick,Vladimir,6,0,0.0
+Warwick,Viktor,48,24,50.0
+Zac,Chogath,2,0,0.0
+Reksai,Ryze,41,21,51.22
+Jax,Vayne,1,1,100.0
+Volibear,Wukong,1,1,100.0
+Elise,Nunu & Willump,1,1,100.0
+Zeri,Syndra,1,1,100.0
+Evelynn,Smolder,10,6,60.0
+Pantheon,Lee Sin,1,1,100.0
+Sejuani,Sivir,3,3,100.0
+Shen,Sylas,6,3,50.0
+Lillia,Kennen,6,4,66.67
+Trundle,Tryndamere,8,3,37.5
+Teemo,Katarina,5,2,40.0
+Volibear,Nautilus,1,1,100.0
+Diana,Anivia,21,8,38.1
+Olaf,Twisted Fate,23,17,73.91
+Naafiri,Cassiopeia,9,5,55.56
+Nocturne,Fizz,30,14,46.67
+Zac,Anivia,14,14,100.0
+Viego,Kindred,3,2,66.67
+Rammus,Zeri,1,1,100.0
+KhaZix,Xin Zhao,1,1,100.0
+Reksai,Kassadin,13,3,23.08
+Pantheon,Mordekaiser,15,14,93.33
+Volibear,Reksai,2,0,0.0
+Taliyah,Shen,4,0,0.0
+Evelynn,Caitlyn,3,2,66.67
+Darius,Orianna,22,5,22.73
+Skarner,Taliyah,42,26,61.9
+Naafiri,KSante,9,0,0.0
+Poppy,Elise,2,0,0.0
+Viego,Varus,5,0,0.0
+Aatrox,Fizz,2,2,100.0
+Viego,Yunara,21,6,28.57
+Morgana,Irelia,2,2,100.0
+Lillia,Diana,7,6,85.71
+Jax,Nunu & Willump,1,1,100.0
+Udyr,Sion,26,15,57.69
+KhaZix,Poppy,7,3,42.86
+Reksai,Smolder,5,1,20.0
+Morgana,Ahri,7,4,57.14
+Jarvan IV,Yunara,26,7,26.92
+Zyra,LeBlanc,6,3,50.0
+Malphite,Vladimir,2,1,50.0
+Ekko,Olaf,4,2,50.0
+Evelynn,Veigar,11,4,36.36
+Jax,Seraphine,4,0,0.0
+Mordekaiser,Ornn,3,3,100.0
+Graves,Swain,15,3,20.0
+Diana,Garen,8,4,50.0
+Fiddlesticks,Garen,1,1,100.0
+Elise,Malphite,8,4,50.0
+Viego,Zilean,50,23,46.0
+Talon,Varus,1,0,0.0
+Udyr,Ivern,2,1,50.0
+Vi,Riven,2,2,100.0
+Qiyana,Ivern,1,0,0.0
+Elise,Garen,7,7,100.0
+Pantheon,Varus,7,2,28.57
+Poppy,Karma,2,2,100.0
+Elise,Katarina,29,19,65.52
+Jax,Ekko,34,9,26.47
+Master Yi,Malzahar,29,9,31.03
+Lillia,Nasus,13,7,53.85
+Volibear,Elise,1,1,100.0
+Nidalee,Yunara,5,1,20.0
+Reksai,Chogath,2,2,100.0
+Nunu & Willump,Gragas,18,5,27.78
+Pantheon,Kaisa,25,15,60.0
+KhaZix,Cassiopeia,23,19,82.61
+Nunu & Willump,Cassiopeia,10,6,60.0
+Viego,Brand,6,3,50.0
+Trundle,Rumble,6,3,50.0
+Ambessa,Malphite,2,0,0.0
+Ambessa,Xerath,1,1,100.0
+Ambessa,Ivern,3,3,100.0
+Dr. Mundo,Ahri,83,38,45.78
+Jax,Twitch,2,0,0.0
+Trundle,Zac,15,12,80.0
+Nunu & Willump,Garen,3,1,33.33
+Zyra,Garen,1,1,100.0
+Udyr,Kindred,1,0,0.0
+Zed,Kaisa,11,8,72.73
+Kindred,Chogath,13,6,46.15
+Darius,Quinn,2,0,0.0
+Diana,Sett,9,1,11.11
+Nunu & Willump,Zac,6,0,0.0
+Sejuani,Akshan,18,15,83.33
+Heimerdinger,Lissandra,3,0,0.0
+Hecarim,Pyke,1,0,0.0
+Zac,Irelia,40,16,40.0
+Fiddlesticks,Malzahar,5,0,0.0
+Master Yi,Zed,67,35,52.24
+Mordekaiser,Azir,1,1,100.0
+Elise,Lucian,25,14,56.0
+Ivern,Jax,4,4,100.0
+Kindred,Neeko,8,5,62.5
+Ivern,VelKoz,6,4,66.67
+Naafiri,Jhin,7,2,28.57
+Rammus,Jayce,11,4,36.36
+Ivern,Xerath,23,8,34.78
+Shen,Kassadin,2,0,0.0
+Evelynn,Soraka,1,1,100.0
+Evelynn,Lee Sin,3,0,0.0
+Trundle,Chogath,18,9,50.0
+Jarvan IV,Darius,4,2,50.0
+Ambessa,Brand,1,0,0.0
+Corki,Zac,1,1,100.0
+Shyvana,Viktor,17,5,29.41
+Master Yi,Udyr,3,3,100.0
+Karthus,Hwei,35,19,54.29
+Wukong,Lee Sin,4,0,0.0
+Gwen,Lux,41,32,78.05
+Vi,Swain,19,10,52.63
+Karthus,Smolder,32,11,34.38
+Urgot,Lux,1,0,0.0
+Lee Sin,Viego,9,1,11.11
+Elise,Urgot,1,0,0.0
+Elise,Malzahar,13,3,23.08
+Mordekaiser,Viktor,15,4,26.67
+Talon,Briar,4,1,25.0
+Graves,Vex,23,18,78.26
+Belveth,Renekton,4,0,0.0
+Lillia,Katarina,45,27,60.0
+Karthus,Annie,21,2,9.52
+Ivern,Vex,8,6,75.0
+Ivern,Brand,4,0,0.0
+Kayn,Gangplank,10,5,50.0
+Jayce,Lux,1,1,100.0
+Jarvan IV,Pantheon,2,1,50.0
+KhaZix,Gragas,22,13,59.09
+Kaisa,Sylas,4,2,50.0
+Zac,Malphite,3,2,66.67
+Ambessa,Nasus,1,1,100.0
+Elise,Pantheon,17,5,29.41
+Taliyah,Kassadin,6,2,33.33
+Taliyah,Pantheon,7,6,85.71
+Zyra,Aurelion Sol,6,6,100.0
+Dr. Mundo,Gwen,11,6,54.55
+Rumble,Riven,3,3,100.0
+Master Yi,Jax,4,4,100.0
+Karthus,KSante,3,0,0.0
+Fiddlesticks,Brand,2,1,50.0
+Nidalee,Jax,1,1,100.0
+Pantheon,Yunara,7,4,57.14
+Poppy,Mordekaiser,6,4,66.67
+Zed,Zac,49,33,67.35
+Nunu & Willump,Dr. Mundo,3,1,33.33
+Naafiri,Renekton,3,2,66.67
+Kayn,Rumble,26,20,76.92
+Yunara,Qiyana,1,0,0.0
+Karthus,Swain,3,1,33.33
+Briar,Aurora,48,32,66.67
+Dr. Mundo,Malzahar,13,2,15.38
+Qiyana,Caitlyn,2,0,0.0
+Diana,Swain,14,6,42.86
+Zac,Zyra,1,1,100.0
+Lee Sin,Zyra,1,0,0.0
+Ekko,Reksai,1,1,100.0
+Teemo,Corki,10,10,100.0
+Corki,Vex,3,1,33.33
+Elise,Poppy,3,1,33.33
+Elise,Wukong,3,2,66.67
+Zac,Rumble,9,5,55.56
+Maokai,Katarina,10,7,70.0
+Skarner,Irelia,11,11,100.0
+Zac,Kled,2,2,100.0
+Reksai,Swain,10,4,40.0
+Zac,Varus,2,0,0.0
+Kayn,Zyra,2,0,0.0
+Lillia,Azir,52,31,59.62
+Pantheon,Karthus,5,3,60.0
+Talon,Akshan,31,13,41.94
+Sion,Corki,2,0,0.0
+Jarvan IV,Teemo,2,2,100.0
+Vi,Ambessa,7,2,28.57
+Nidalee,Diana,13,9,69.23
+Zyra,Viktor,3,1,33.33
+Morgana,Ezreal,6,3,50.0
+Warwick,Sylas,66,28,42.42
+Master Yi,Zilean,17,5,29.41
+Kaisa,Irelia,1,0,0.0
+Kindred,Graves,1,1,100.0
+Shyvana,Zilean,5,3,60.0
+Pantheon,Brand,7,2,28.57
+Pantheon,Jhin,2,2,100.0
+Reksai,Tristana,1,0,0.0
+Vi,Draven,1,0,0.0
+Poppy,Caitlyn,2,0,0.0
+Gragas,Lux,6,5,83.33
+Graves,Malzahar,19,5,26.32
+Karthus,Heimerdinger,3,0,0.0
+Malphite,Yone,3,0,0.0
+Graves,Fizz,17,8,47.06
+Lillia,Cassiopeia,11,1,9.09
+Evelynn,Twitch,3,2,66.67
+Ekko,Graves,1,1,100.0
+Teemo,Caitlyn,1,0,0.0
+Kaisa,Yone,4,3,75.0
+Qiyana,Chogath,2,1,50.0
+Draven,Veigar,3,2,66.67
+Jayce,Nidalee,1,0,0.0
+Poppy,Veigar,16,5,31.25
+Master Yi,Neeko,21,4,19.05
+Kayn,Sejuani,1,1,100.0
+Teemo,Syndra,2,1,50.0
+Fiddlesticks,Cassiopeia,7,7,100.0
+Darius,Qiyana,1,0,0.0
+Zeri,Sylas,3,2,66.67
+Fiddlesticks,Olaf,2,2,100.0
+Pantheon,Renekton,5,2,40.0
+Ambessa,Mordekaiser,4,4,100.0
+Master Yi,Singed,6,2,33.33
+Zeri,KSante,2,0,0.0
+Skarner,Qiyana,11,6,54.55
+Fiddlesticks,Kindred,3,3,100.0
+Kayn,Ezreal,5,0,0.0
+Karthus,Brand,1,0,0.0
+Rengar,Gragas,21,15,71.43
+Ekko,Sivir,3,1,33.33
+Ekko,Karma,23,16,69.57
+Wukong,Talon,26,7,26.92
+Karthus,Veigar,14,1,7.14
+Evelynn,Zeri,10,9,90.0
+Shaco,Zeri,1,1,100.0
+Viego,Gangplank,17,9,52.94
+Gwen,Ezreal,15,6,40.0
+Taliyah,Aatrox,4,3,75.0
+Lillia,Syndra,23,8,34.78
+Diana,Vex,24,19,79.17
+Xin Zhao,Zilean,27,22,81.48
+Naafiri,Swain,14,10,71.43
+Naafiri,Xerath,70,29,41.43
+Aatrox,Orianna,2,0,0.0
+Ambessa,Fizz,12,7,58.33
+Shyvana,Ahri,17,8,47.06
+Graves,Brand,9,4,44.44
+Reksai,Malzahar,18,14,77.78
+Zyra,Lux,2,1,50.0
+Wukong,Qiyana,38,17,44.74
+Hecarim,Seraphine,14,10,71.43
+Amumu,Aatrox,2,0,0.0
+Yorick,Syndra,1,1,100.0
+KhaZix,Quinn,6,4,66.67
+Hecarim,Mordekaiser,7,0,0.0
+Dr. Mundo,Jayce,29,19,65.52
+Volibear,Nasus,5,2,40.0
+Volibear,Zilean,12,3,25.0
+Pantheon,Sion,43,15,34.88
+Volibear,Kindred,4,1,25.0
+Lee Sin,Zeri,10,9,90.0
+Jax,Ezreal,1,0,0.0
+Graves,Qiyana,16,2,12.5
+Ekko,Aphelios,1,0,0.0
+Nocturne,Akshan,41,23,56.1
+Viego,Fiddlesticks,15,10,66.67
+Trundle,Ambessa,24,18,75.0
+Belveth,Yunara,1,1,100.0
+Fiddlesticks,Caitlyn,2,1,50.0
+Warwick,Twisted Fate,36,24,66.67
+Xin Zhao,Gangplank,13,5,38.46
+Rengar,Smolder,9,6,66.67
+Kayn,Singed,10,7,70.0
+Skarner,Kassadin,13,8,61.54
+Wukong,Sion,7,4,57.14
+Yorick,Swain,2,0,0.0
+Jax,Xerath,10,8,80.0
+Dr. Mundo,Xerath,27,17,62.96
+Volibear,Garen,2,1,50.0
+Lillia,Aurelion Sol,11,2,18.18
+Ekko,Pyke,3,1,33.33
+Viego,Twitch,37,12,32.43
+Nocturne,Singed,16,5,31.25
+Teemo,Irelia,3,1,33.33
+Zed,Aatrox,11,7,63.64
+Briar,Jax,3,0,0.0
+Trundle,Volibear,6,3,50.0
+Volibear,KSante,15,9,60.0
+Urgot,Annie,1,1,100.0
+Taliyah,Mel,13,7,53.85
+Graves,Ivern,2,2,100.0
+Twitch,Hwei,1,0,0.0
+Qiyana,Yunara,6,2,33.33
+Volibear,Karma,11,10,90.91
+KhaZix,Pyke,3,2,66.67
+Kayn,Jhin,2,0,0.0
+Olaf,Rumble,1,1,100.0
+Gwen,Vex,4,1,25.0
+Xin Zhao,Rakan,3,1,33.33
+KhaZix,Tristana,16,7,43.75
+Fiddlesticks,Kennen,6,4,66.67
+Master Yi,Seraphine,7,6,85.71
+Brand,Twisted Fate,3,0,0.0
+Qiyana,Shen,1,0,0.0
+Jax,VelKoz,1,0,0.0
+Malphite,Lissandra,1,0,0.0
+Lee Sin,Poppy,6,5,83.33
+Qiyana,Kennen,7,1,14.29
+Zac,Twitch,1,1,100.0
+Rammus,Yorick,2,0,0.0
+Reksai,Quinn,2,2,100.0
+Nunu & Willump,KSante,1,1,100.0
+Wukong,Yorick,1,0,0.0
+Shaco,Graves,2,2,100.0
+Nocturne,Mordekaiser,7,6,85.71
+Morgana,Jayce,3,1,33.33
+Jax,Mel,32,15,46.88
+Qiyana,Malphite,1,1,100.0
+Rammus,Tryndamere,3,1,33.33
+Dr. Mundo,Trundle,1,0,0.0
+Jarvan IV,Kindred,5,0,0.0
+Nidalee,Ivern,1,1,100.0
+Sejuani,Annie,7,1,14.29
+Jarvan IV,Jhin,1,1,100.0
+Rengar,Fiddlesticks,8,5,62.5
+Xin Zhao,Olaf,1,0,0.0
+Tryndamere,Vladimir,1,1,100.0
+Taliyah,Jhin,1,1,100.0
+Master Yi,Malphite,8,2,25.0
+Talon,Malzahar,38,21,55.26
+Zed,Zyra,2,1,50.0
+Vi,Kennen,21,4,19.05
+Ekko,Neeko,11,3,27.27
+Rumble,Galio,4,1,25.0
+Lee Sin,Renekton,7,4,57.14
+Gragas,Swain,2,0,0.0
+Rammus,Udyr,3,2,66.67
+Hecarim,Varus,3,3,100.0
+Wukong,Malzahar,18,8,44.44
+Neeko,Vladimir,1,0,0.0
+Poppy,Aurelion Sol,15,14,93.33
+Elise,Viego,6,3,50.0
+Diana,Ambessa,26,17,65.38
+Elise,Nocturne,1,0,0.0
+Zeri,Neeko,1,0,0.0
+Belveth,Smolder,4,3,75.0
+Zyra,Zoe,2,0,0.0
+Diana,Kennen,9,3,33.33
+Zyra,Brand,1,1,100.0
+Sejuani,Yasuo,49,15,30.61
+Lee Sin,Morgana,23,14,60.87
+Reksai,Ezreal,2,0,0.0
+Qiyana,Nocturne,2,2,100.0
+Zyra,Smolder,10,5,50.0
+Sejuani,Twitch,1,0,0.0
+Maokai,Caitlyn,1,1,100.0
+Jax,Malzahar,8,3,37.5
+Jarvan IV,Nasus,11,10,90.91
+Wukong,Caitlyn,2,0,0.0
+Rengar,Lucian,4,0,0.0
+Talon,Kled,2,2,100.0
+Zyra,Annie,1,1,100.0
+Quinn,Annie,3,0,0.0
+Jax,Fiddlesticks,1,1,100.0
+Zeri,Viktor,4,2,50.0
+Volibear,Jhin,3,1,33.33
+Nunu & Willump,Kassadin,18,9,50.0
+Evelynn,Sett,5,1,20.0
+Master Yi,Gragas,17,12,70.59
+Warwick,Orianna,26,15,57.69
+Darius,Aurora,7,6,85.71
+Sejuani,Yorick,4,2,50.0
+Gwen,Fiora,1,0,0.0
+Trundle,Olaf,3,1,33.33
+Reksai,Udyr,2,0,0.0
+Brand,Neeko,1,0,0.0
+Kayn,Smolder,18,3,16.67
+Naafiri,Zilean,15,3,20.0
+Reksai,Kennen,4,0,0.0
+Morgana,Karthus,1,0,0.0
+Kindred,Wukong,10,5,50.0
+Jarvan IV,Reksai,1,1,100.0
+Nidalee,Illaoi,2,0,0.0
+Diana,Veigar,14,7,50.0
+Nidalee,Lee Sin,8,6,75.0
+Evelynn,Ezreal,8,5,62.5
+Shyvana,KSante,4,1,25.0
+Jarvan IV,Soraka,10,1,10.0
+Gragas,Riven,1,0,0.0
+Sylas,Garen,1,1,100.0
+Jarvan IV,Briar,1,1,100.0
+Shyvana,Lux,10,5,50.0
+Vi,Senna,1,0,0.0
+Fiddlesticks,Sivir,2,0,0.0
+Zeri,Malzahar,1,0,0.0
+Zed,Renekton,21,10,47.62
+Briar,Nidalee,1,0,0.0
+Shyvana,Ziggs,1,0,0.0
+Belveth,Gwen,1,0,0.0
+Kindred,VelKoz,8,6,75.0
+Nunu & Willump,Kindred,3,2,66.67
+Morgana,Qiyana,3,2,66.67
+Reksai,Veigar,8,3,37.5
+Amumu,Ekko,13,5,38.46
+Jax,Brand,7,0,0.0
+Kayn,Diana,72,36,50.0
+Gragas,Akali,16,7,43.75
+Ekko,Nocturne,8,2,25.0
+Master Yi,Tryndamere,7,4,57.14
+Ekko,Brand,8,6,75.0
+Ivern,Neeko,3,1,33.33
+Hecarim,Camille,1,0,0.0
+Shyvana,Galio,8,1,12.5
+Nocturne,Karthus,2,1,50.0
+Morgana,Veigar,1,0,0.0
+Ivern,Tryndamere,5,5,100.0
+Ivern,Senna,1,1,100.0
+Morgana,Zed,19,9,47.37
+Corki,Kassadin,2,1,50.0
+Shaco,Illaoi,1,1,100.0
+Malphite,Viego,1,0,0.0
+Corki,Aatrox,1,0,0.0
+Belveth,Jayce,8,8,100.0
+Nidalee,VelKoz,5,5,100.0
+Lee Sin,Briar,2,1,50.0
+Udyr,Garen,4,0,0.0
+Diana,VelKoz,6,2,33.33
+Karthus,Vex,3,3,100.0
+Xin Zhao,Quinn,7,5,71.43
+Xin Zhao,Kindred,1,1,100.0
+Diana,Lissandra,17,7,41.18
+Gragas,Veigar,8,2,25.0
+Kindred,Yorick,5,4,80.0
+Maokai,Irelia,9,2,22.22
+Fiddlesticks,Chogath,1,0,0.0
+Jayce,Vladimir,1,1,100.0
+Urgot,Illaoi,1,0,0.0
+Zeri,Aurelion Sol,8,1,12.5
+Shaco,Nilah,1,0,0.0
+Sylas,Urgot,1,0,0.0
+Warwick,Qiyana,20,7,35.0
+Shen,Yone,2,0,0.0
+Kayn,KSante,8,3,37.5
+Graves,Corki,5,2,40.0
+Jarvan IV,Nocturne,3,0,0.0
+Udyr,Malzahar,28,10,35.71
+Jax,Xin Zhao,2,2,100.0
+Kayn,Ivern,3,0,0.0
+Kayn,Kaisa,7,4,57.14
+Zed,Karma,17,9,52.94
+Kayn,Aurelion Sol,59,32,54.24
+Rumble,Chogath,5,3,60.0
+Briar,Caitlyn,2,0,0.0
+Belveth,Ezreal,1,1,100.0
+Viego,Quinn,14,10,71.43
+Graves,VelKoz,3,2,66.67
+Naafiri,Zeri,5,5,100.0
+Diana,Neeko,4,2,50.0
+Olaf,Annie,31,18,58.06
+Vi,Nunu & Willump,12,7,58.33
+Udyr,Sett,1,0,0.0
+Zed,Xin Zhao,2,1,50.0
+Shaco,Quinn,5,3,60.0
+Zed,Yunara,11,3,27.27
+Udyr,Heimerdinger,15,8,53.33
+Skarner,Malzahar,4,3,75.0
+Nautilus,Aurora,1,1,100.0
+Zyra,Nasus,14,3,21.43
+Belveth,Elise,8,3,37.5
+Zac,Yunara,5,0,0.0
+Pantheon,Singed,24,17,70.83
+Shaco,Yunara,4,4,100.0
+Kaisa,Mel,1,0,0.0
+Jarvan IV,Twitch,15,10,66.67
+Hecarim,Brand,5,3,60.0
+Vi,Zac,26,10,38.46
+Diana,Pyke,1,1,100.0
+Taliyah,Samira,2,0,0.0
+Belveth,Olaf,2,1,50.0
+Diana,Nasus,13,4,30.77
+Sejuani,Seraphine,3,0,0.0
+Hecarim,Jhin,1,0,0.0
+Jax,Lulu,1,1,100.0
+Rengar,Vex,25,10,40.0
+Xin Zhao,Sivir,3,2,66.67
+Rammus,Chogath,16,10,62.5
+Gragas,Lissandra,5,3,60.0
+Gragas,Sion,1,1,100.0
+Ivern,Fiddlesticks,1,1,100.0
+Nunu & Willump,Jhin,1,0,0.0
+Viego,Shaco,1,0,0.0
+Ekko,Twitch,16,7,43.75
+Diana,Ekko,25,10,40.0
+Brand,Galio,8,6,75.0
+Rengar,Nasus,6,1,16.67
+Talon,Karthus,9,3,33.33
+Zac,Diana,18,15,83.33
+Reksai,Corki,5,5,100.0
+Rumble,Lucian,1,0,0.0
+Nidalee,Master Yi,2,0,0.0
+Fiddlesticks,Veigar,6,3,50.0
+Sylas,Akali,6,2,33.33
+Nunu & Willump,Ashe,1,0,0.0
+Zac,Volibear,3,1,33.33
+KhaZix,Mordekaiser,10,9,90.0
+Ekko,Darius,5,5,100.0
+Rengar,Vayne,1,0,0.0
+Evelynn,Anivia,7,5,71.43
+Naafiri,Talon,22,12,54.55
+Lee Sin,Dr. Mundo,11,3,27.27
+KhaZix,Bard,1,0,0.0
+Skarner,Twisted Fate,13,2,15.38
+Lillia,Pyke,1,1,100.0
+Reksai,Mordekaiser,1,0,0.0
+Talon,Darius,1,0,0.0
+Ekko,Teemo,1,1,100.0
+Rengar,Mordekaiser,6,6,100.0
+Belveth,Kindred,1,1,100.0
+Amumu,Akali,19,11,57.89
+Qiyana,Mordekaiser,8,7,87.5
+Qiyana,Heimerdinger,4,4,100.0
+Rengar,Zyra,1,0,0.0
+Riven,Mel,1,0,0.0
+Nocturne,Garen,3,0,0.0
+Taliyah,Xerath,2,1,50.0
+Fiddlesticks,Hwei,18,12,66.67
+Evelynn,Kled,11,3,27.27
+Lillia,LeBlanc,21,9,42.86
+Hecarim,Kaisa,1,0,0.0
+Amumu,Ryze,12,1,8.33
+Maokai,Lissandra,1,1,100.0
+Xin Zhao,Shen,7,4,57.14
+Maokai,Hwei,16,11,68.75
+Sylas,Swain,2,2,100.0
+Shen,VelKoz,1,1,100.0
+Amumu,Zed,21,13,61.9
+Zed,Jayce,32,15,46.88
+Briar,Viktor,54,32,59.26
+Fiddlesticks,Mel,14,3,21.43
+Shaco,Tristana,29,21,72.41
+Shyvana,Jayce,4,3,75.0
+Elise,Zoe,21,11,52.38
+Teemo,Ezreal,1,1,100.0
+Amumu,Swain,1,0,0.0
+KhaZix,Seraphine,11,2,18.18
+Naafiri,Vayne,3,2,66.67
+Karthus,Rumble,8,7,87.5
+Tryndamere,Xerath,1,0,0.0
+Zac,Nasus,13,12,92.31
+KhaZix,Aurelion Sol,39,28,71.79
+Brand,Nasus,1,0,0.0
+Diana,Renekton,14,11,78.57
+KhaZix,Gwen,11,8,72.73
+Sylas,Wukong,1,1,100.0
+Fiddlesticks,Heimerdinger,1,1,100.0
+Diana,Zeri,11,2,18.18
+Fiddlesticks,Rammus,2,0,0.0
+Rammus,Swain,2,0,0.0
+Karthus,Karma,1,0,0.0
+Talon,Wukong,1,1,100.0
+Sejuani,LeBlanc,8,3,37.5
+Gragas,Tryndamere,7,2,28.57
+Nunu & Willump,Singed,8,4,50.0
+Rammus,Fizz,7,3,42.86
+Master Yi,Chogath,11,3,27.27
+Graves,Pantheon,6,3,50.0
+Taliyah,Gangplank,2,0,0.0
+Briar,Jhin,1,0,0.0
+Wukong,Lucian,9,6,66.67
+Pantheon,Yuumi,2,0,0.0
+Teemo,Twisted Fate,2,1,50.0
+Sejuani,Jayce,8,4,50.0
+Sylas,Jayce,10,6,60.0
+Ornn,Orianna,2,0,0.0
+Shaco,Rumble,3,3,100.0
+Reksai,Jhin,1,1,100.0
+Jarvan IV,Nilah,1,0,0.0
+Diana,Quinn,10,5,50.0
+Zed,Zilean,21,1,4.76
+Talon,Janna,1,0,0.0
+Kaisa,Malzahar,1,0,0.0
+Master Yi,Xerath,39,19,48.72
+Jarvan IV,Viego,1,0,0.0
+Hecarim,Briar,7,4,57.14
+Brand,Lee Sin,1,1,100.0
+Brand,Katarina,10,3,30.0
+KhaZix,Zac,13,12,92.31
+Diana,Sion,18,10,55.56
+Ivern,Camille,1,1,100.0
+Briar,Galio,31,16,51.61
+Kindred,Aatrox,1,1,100.0
+Lee Sin,Camille,1,0,0.0
+Olaf,Galio,18,10,55.56
+Elise,Kindred,4,2,50.0
+Shyvana,Irelia,8,6,75.0
+Sejuani,Draven,1,0,0.0
+Nunu & Willump,Yunara,3,0,0.0
+Volibear,Heimerdinger,1,1,100.0
+Sylas,Diana,1,1,100.0
+Xin Zhao,Wukong,1,1,100.0
+Nocturne,Fiddlesticks,9,3,33.33
+Amumu,Lissandra,2,0,0.0
+Rumble,Orianna,1,0,0.0
+Olaf,Ivern,1,1,100.0
+Corki,Viego,1,1,100.0
+Lee Sin,Draven,2,0,0.0
+Shyvana,Nidalee,1,1,100.0
+Rammus,Xerath,6,4,66.67
+Jarvan IV,KSante,4,1,25.0
+Taliyah,Singed,2,0,0.0
+Fiddlesticks,Yunara,6,0,0.0
+Rengar,Akshan,18,10,55.56
+Shaco,Udyr,1,1,100.0
+Draven,Sylas,8,8,100.0
+Jayce,Gragas,1,1,100.0
+Nidalee,Anivia,15,15,100.0
+Udyr,Pyke,3,1,33.33
+Trundle,Akshan,37,14,37.84
+Briar,Anivia,11,3,27.27
+Zed,Malphite,13,12,92.31
+Sylas,Xerath,4,0,0.0
+Hecarim,Pantheon,5,4,80.0
+Amumu,Sylas,21,16,76.19
+Zed,Pantheon,9,5,55.56
+Master Yi,Shyvana,1,0,0.0
+Nocturne,Cassiopeia,24,14,58.33
+Gragas,Irelia,9,3,33.33
+Evelynn,Sivir,1,0,0.0
+Nocturne,Gangplank,2,1,50.0
+Ekko,Urgot,8,3,37.5
+Lillia,Veigar,25,15,60.0
+Sylas,Talon,5,2,40.0
+Qiyana,Aatrox,2,1,50.0
+Urgot,Nasus,5,4,80.0
+Kayn,Sion,11,9,81.82
+Zac,Jax,12,3,25.0
+Talon,Irelia,46,12,26.09
+Shaco,Caitlyn,1,0,0.0
+Shyvana,Xerath,7,4,57.14
+Diana,Tryndamere,12,6,50.0
+Volibear,Malzahar,35,24,68.57
+Amumu,Syndra,16,13,81.25
+Jarvan IV,Pyke,3,2,66.67
+Sylas,Syndra,5,4,80.0
+Zed,Vayne,14,5,35.71
+Dr. Mundo,Mordekaiser,2,0,0.0
+Hecarim,Warwick,2,2,100.0
+Kindred,Kled,2,0,0.0
+Belveth,Singed,8,4,50.0
+Viego,Fiora,8,5,62.5
+Jax,Volibear,1,1,100.0
+Jarvan IV,KogMaw,15,1,6.67
+Chogath,Annie,1,0,0.0
+Shaco,Renekton,8,6,75.0
+Zac,Sett,6,5,83.33
+Pantheon,Lucian,7,3,42.86
+Lee Sin,Olaf,6,5,83.33
+Olaf,Taliyah,40,13,32.5
+Pantheon,Shen,7,6,85.71
+Lillia,Sion,19,10,52.63
+Vi,Elise,7,6,85.71
+Kindred,Karma,47,21,44.68
+Jarvan IV,Illaoi,6,5,83.33
+Reksai,Diana,7,1,14.29
+Rengar,Caitlyn,1,1,100.0
+Master Yi,Nunu & Willump,19,12,63.16
+Shen,Akali,3,1,33.33
+Graves,Nunu & Willump,6,1,16.67
+Evelynn,Nunu & Willump,1,1,100.0
+Nunu & Willump,Kayle,24,17,70.83
+Gwen,Nunu & Willump,1,1,100.0
+Viego,Caitlyn,1,1,100.0
+Ivern,Nunu & Willump,2,0,0.0
+Reksai,Varus,7,1,14.29
+Diana,Samira,2,2,100.0
+Zed,Brand,9,9,100.0
+Kaisa,Orianna,1,0,0.0
+Vi,Heimerdinger,2,2,100.0
+Reksai,Viego,1,0,0.0
+Reksai,Mel,23,7,30.43
+Nocturne,Malphite,11,9,81.82
+Talon,Mordekaiser,6,6,100.0
+Yorick,Akali,4,3,75.0
+Rengar,Illaoi,3,0,0.0
+Elise,Caitlyn,1,0,0.0
+Ivern,Lucian,20,16,80.0
+Reksai,Naafiri,1,1,100.0
+Reksai,Renekton,10,9,90.0
+Teemo,Naafiri,1,1,100.0
+Neeko,Ezreal,1,1,100.0
+Ivern,Morgana,3,1,33.33
+Xin Zhao,Kled,1,0,0.0
+Viego,Elise,3,3,100.0
+Shyvana,Gragas,2,2,100.0
+Shyvana,Fizz,4,1,25.0
+Jax,Fizz,5,1,20.0
+Xin Zhao,Yunara,21,11,52.38
+Trundle,Lucian,6,1,16.67
+Nasus,Ekko,1,0,0.0
+Elise,Anivia,7,5,71.43
+Rumble,Hwei,2,0,0.0
+Hecarim,Lucian,3,1,33.33
+Brand,Taliyah,9,9,100.0
+Kayn,Twitch,6,2,33.33
+Kayn,Shen,3,1,33.33
+Evelynn,Teemo,1,1,100.0
+Nidalee,Volibear,2,0,0.0
+Ambessa,Tryndamere,1,1,100.0
+Sylas,Kennen,7,6,85.71
+Briar,Tryndamere,1,0,0.0
+Graves,Tryndamere,12,0,0.0
+Hecarim,Sivir,1,0,0.0
+Nocturne,Renekton,1,0,0.0
+Rumble,Talon,2,1,50.0
+Dr. Mundo,Tryndamere,11,3,27.27
+Elise,Heimerdinger,1,0,0.0
+Yorick,VelKoz,1,0,0.0
+Mordekaiser,Naafiri,1,0,0.0
+Vi,Viego,1,0,0.0
+Rumble,Yasuo,1,0,0.0
+Briar,Xerath,7,4,57.14
+Xin Zhao,Warwick,2,0,0.0
+Volibear,Brand,2,2,100.0
+Talon,Singed,4,2,50.0
+Talon,Nasus,10,0,0.0
+Udyr,Nasus,14,1,7.14
+Briar,VelKoz,1,0,0.0
+Kindred,KogMaw,1,1,100.0
+Ambessa,Ornn,1,0,0.0
+Zyra,Lissandra,3,3,100.0
+Gragas,Pyke,1,1,100.0
+Trundle,Dr. Mundo,5,3,60.0
+Lee Sin,Nocturne,2,2,100.0
+Jax,Singed,3,2,66.67
+Hecarim,KhaZix,1,0,0.0
+Sylas,Aurelion Sol,2,1,50.0
+Rengar,Karma,7,4,57.14
+Ivern,KSante,2,1,50.0
+Shyvana,Diana,2,0,0.0
+Rumble,Twisted Fate,1,1,100.0
+Brand,Talon,1,0,0.0
+Sejuani,Hwei,20,17,85.0
+Rammus,Karthus,1,0,0.0
+Belveth,Brand,4,4,100.0
+Varus,Ahri,2,1,50.0
+Udyr,Xin Zhao,2,1,50.0
+Jarvan IV,Shyvana,1,0,0.0
+Draven,Aurelion Sol,1,0,0.0
+Skarner,Talon,3,2,66.67
+Brand,Viktor,1,1,100.0
+Lee Sin,Kaisa,15,5,33.33
+Ekko,Seraphine,2,2,100.0
+Brand,Kaisa,1,1,100.0
+Morgana,Xerath,3,1,33.33
+Warwick,Zed,33,13,39.39
+Nasus,Swain,1,0,0.0
+Wukong,Karthus,5,0,0.0
+Xin Zhao,Renekton,13,3,23.08
+Qiyana,Gragas,20,20,100.0
+Master Yi,Lissandra,36,21,58.33
+Poppy,Cassiopeia,1,1,100.0
+Sylas,Orianna,4,0,0.0
+Amumu,Akshan,20,17,85.0
+Gragas,Udyr,1,0,0.0
+Reksai,Illaoi,1,1,100.0
+Kindred,Smolder,24,14,58.33
+Sejuani,Garen,1,1,100.0
+Dr. Mundo,Sion,1,0,0.0
+KhaZix,Samira,3,0,0.0
+Lillia,Swain,4,4,100.0
+Ivern,Kindred,1,1,100.0
+Reksai,Yone,25,11,44.0
+Zyra,Xerath,3,3,100.0
+Diana,Ziggs,14,12,85.71
+Master Yi,Yasuo,68,15,22.06
+Diana,Malzahar,26,9,34.62
+Shyvana,Twisted Fate,9,6,66.67
+Rengar,Zilean,14,4,28.57
+Zyra,Sett,1,0,0.0
+Rammus,Xin Zhao,1,1,100.0
+Taric,Akali,1,1,100.0
+Taric,Nidalee,1,0,0.0
+Poppy,Ornn,1,1,100.0
+Skarner,Dr. Mundo,2,1,50.0
+Diana,Singed,6,1,16.67
+Brand,KSante,3,1,33.33
+Karthus,KhaZix,1,1,100.0
+Fiddlesticks,Karma,1,1,100.0
+Amumu,LeBlanc,8,1,12.5
+Kindred,Garen,1,0,0.0
+Xin Zhao,Nilah,1,1,100.0
+Rumble,Zilean,1,1,100.0
+Skarner,Ekko,17,12,70.59
+Evelynn,Ahri,15,5,33.33
+Lillia,Wukong,1,0,0.0
+Pantheon,Garen,6,5,83.33
+Pantheon,Zeri,9,7,77.78
+Briar,Mel,30,7,23.33
+Kayn,Nocturne,1,1,100.0
+Master Yi,Renekton,3,1,33.33
+Master Yi,Twitch,10,9,90.0
+Master Yi,KSante,9,9,100.0
+Ivern,Viego,3,1,33.33
+Master Yi,Graves,1,1,100.0
+Lillia,Gangplank,19,12,63.16
+Vi,Mordekaiser,10,2,20.0
+Lillia,Master Yi,1,1,100.0
+Rumble,Camille,1,0,0.0
+Smolder,Aphelios,1,0,0.0
+Master Yi,Brand,3,1,33.33
+Talon,Quinn,6,6,100.0
+Master Yi,Lee Sin,1,1,100.0
+Master Yi,VelKoz,3,1,33.33
+Hecarim,Ornn,3,0,0.0
+Volibear,Kaisa,1,0,0.0
+Shaco,Ambessa,12,8,66.67
+Xin Zhao,Elise,3,1,33.33
+Elise,Veigar,16,7,43.75
+Rumble,Lissandra,1,0,0.0
+Shyvana,Caitlyn,1,0,0.0
+Belveth,Aatrox,1,1,100.0
+Hecarim,Quinn,3,2,66.67
+Hecarim,Twitch,3,3,100.0
+Olaf,Orianna,66,22,33.33
+Nocturne,Varus,2,0,0.0
+Kaisa,Rumble,1,1,100.0
+Lillia,Quinn,8,6,75.0
+Viego,Olaf,3,1,33.33
+Sylas,Morgana,5,3,60.0
+Sylas,Ambessa,1,0,0.0
+Naafiri,Smolder,14,8,57.14
+Warwick,Lissandra,23,2,8.7
+Rammus,Kaisa,7,4,57.14
+Naafiri,Braum,4,4,100.0
+Rammus,Elise,5,5,100.0
+Kaisa,KogMaw,3,0,0.0
+Qiyana,Singed,6,6,100.0
+Zac,Lee Sin,11,0,0.0
+Vi,Zilean,29,19,65.52
+Gragas,Anivia,2,1,50.0
+Graves,Singed,2,2,100.0
+Kayn,Teemo,9,9,100.0
+Kindred,Rumble,15,6,40.0
+Vi,Aatrox,6,5,83.33
+Lillia,Nidalee,10,0,0.0
+Zed,Singed,24,11,45.83
+Vi,Karma,5,0,0.0
+Nidalee,Gangplank,15,8,53.33
+Olaf,Ahri,26,19,73.08
+Lillia,Jhin,2,2,100.0
+Udyr,Dr. Mundo,8,0,0.0
+Morgana,Vladimir,24,5,20.83
+Morgana,Yunara,8,8,100.0
+Nocturne,Kayle,46,21,45.65
+Ekko,Quinn,20,9,45.0
+Naafiri,Irelia,20,2,10.0
+Elise,Sett,11,3,27.27
+Naafiri,Dr. Mundo,7,0,0.0
+Vi,Gwen,6,4,66.67
+Ambessa,Singed,2,2,100.0
+Udyr,Morgana,10,10,100.0
+Lillia,Singed,6,0,0.0
+Zed,Nocturne,3,3,100.0
+Viego,Jarvan IV,10,9,90.0
+Teemo,Kassadin,7,7,100.0
+Maokai,Talon,4,1,25.0
+Udyr,Lee Sin,10,4,40.0
+Wukong,Ezreal,14,0,0.0
+Belveth,Lee Sin,6,6,100.0
+Skarner,Jayce,8,1,12.5
+Nidalee,Singed,16,13,81.25
+Zed,VelKoz,7,7,100.0
+Wukong,Nocturne,5,5,100.0
+Jax,Teemo,7,7,100.0
+Neeko,Xerath,8,0,0.0
+Talon,Lee Sin,3,0,0.0
+Vi,KogMaw,26,15,57.69
+Shaco,Morgana,7,0,0.0
+Rammus,Riven,7,7,100.0
+Rengar,Quinn,6,1,16.67
+Zed,Nidalee,23,9,39.13
+Brand,Quinn,3,3,100.0
+Vi,Xerath,42,15,35.71
+Vi,Warwick,1,0,0.0
+Gragas,Lee Sin,3,3,100.0
+Volibear,KogMaw,14,0,0.0
+Viego,Jhin,3,3,100.0
+KhaZix,Tahm Kench,2,0,0.0
+KhaZix,Teemo,6,5,83.33
+Udyr,Quinn,8,0,0.0
+Zac,Morgana,3,0,0.0
+Dr. Mundo,Karma,12,0,0.0
+Elise,Renekton,10,9,90.0
+Ekko,Gwen,6,2,33.33
+Kayn,Dr. Mundo,12,6,50.0
+Kayn,Chogath,20,9,45.0
+Udyr,Yunara,9,6,66.67
+Corki,Chogath,4,4,100.0
+Mordekaiser,Gragas,6,0,0.0
+Qiyana,Seraphine,7,0,0.0
+Rengar,Chogath,8,2,25.0
+Shaco,Pantheon,5,5,100.0
+Gwen,Ornn,7,0,0.0
+Draven,Riven,2,2,100.0
+Wukong,Jayce,20,5,25.0
+Sylas,Zed,13,8,61.54
+Kindred,Teemo,10,6,60.0
+Wukong,Quinn,5,4,80.0
+Hecarim,Shaco,1,0,0.0
+Hecarim,Vi,1,1,100.0
+Lillia,Gwen,3,0,0.0
+Skarner,Yasuo,14,5,35.71
+Zyra,Jhin,4,0,0.0
+Vi,Singed,15,6,40.0
+Fiddlesticks,Gangplank,9,2,22.22
+Zeri,Irelia,3,0,0.0
+Elise,Talon,17,6,35.29
+Trundle,KogMaw,5,2,40.0
+Trundle,Jhin,9,7,77.78
+Olaf,Viktor,36,19,52.78
+Olaf,Diana,1,1,100.0
+Zed,Talon,17,3,17.65
+Warwick,Vladimir,41,22,53.66
+Vi,Sett,11,11,100.0
+Jax,Jayce,6,5,83.33
+Lillia,Warwick,4,0,0.0
+Vi,Graves,7,6,85.71
+Ivern,Kayn,18,0,0.0
+Warwick,Taliyah,28,12,42.86
+Kayn,Morgana,13,7,53.85
+Gwen,VelKoz,6,0,0.0
+Briar,KogMaw,8,8,100.0
+Skarner,Annie,33,18,54.55
+Qiyana,KogMaw,3,0,0.0
+Zed,Rumble,28,13,46.43
+Warwick,Ornn,7,7,100.0
+Lillia,Yunara,9,1,11.11
+Naafiri,Nidalee,13,3,23.08
+KhaZix,Gangplank,4,2,50.0
+Diana,Hwei,49,28,57.14
+Morgana,Viktor,8,0,0.0
+Naafiri,Singed,23,8,34.78
+Master Yi,Kassadin,45,16,35.56
+Trundle,Jayce,31,14,45.16
+Dr. Mundo,VelKoz,2,0,0.0
+Naafiri,Gangplank,5,5,100.0
+Naafiri,Nunu & Willump,6,5,83.33
+Briar,Cassiopeia,13,1,7.69
+Lee Sin,Lulu,8,4,50.0
+Sylas,Taliyah,3,3,100.0
+Udyr,Ziggs,7,3,42.86
+Brand,Ryze,6,3,50.0
+Naafiri,Karma,13,10,76.92
+Taliyah,Aurelion Sol,2,2,100.0
+Briar,Jayce,4,3,75.0
+Diana,Karma,12,12,100.0
+Kindred,Irelia,26,15,57.69
+Kindred,Vayne,1,0,0.0
+Kayn,Master Yi,5,0,0.0
+Wukong,Aatrox,1,1,100.0
+Zyra,Akshan,20,6,30.0
+Kayn,Camille,1,1,100.0
+Naafiri,Lee Sin,4,1,25.0
+Olaf,Aurelion Sol,7,3,42.86
+Briar,Zilean,6,0,0.0
+Skarner,Heimerdinger,6,0,0.0
+Fiddlesticks,Gragas,3,2,66.67
+Ekko,Kalista,4,2,50.0
+Skarner,Brand,12,7,58.33
+Vi,Ornn,10,0,0.0
+Sejuani,Ryze,23,5,21.74
+Olaf,Kayle,13,8,61.54
+Morgana,Aurora,11,9,81.82
+Corki,Garen,8,0,0.0
+Zed,KogMaw,26,26,100.0
+Ivern,Ziggs,3,3,100.0
+Olaf,Ornn,3,0,0.0
+Kayn,Jayce,21,6,28.57
+Kindred,Singed,11,5,45.45
+Zyra,Udyr,3,0,0.0
+Trundle,Sivir,3,0,0.0
+Wukong,Akshan,52,18,34.62
+KhaZix,Malphite,12,6,50.0
+Jax,KSante,7,7,100.0
+Morgana,Katarina,10,1,10.0
+Pantheon,Quinn,7,7,100.0
+Brand,Kassadin,4,1,25.0
+Lillia,Ezreal,23,18,78.26
+Nocturne,Ezreal,5,3,60.0
+Evelynn,Viego,2,2,100.0
+Vi,Twitch,5,4,80.0
+Briar,Yunara,8,8,100.0
+Briar,Karthus,7,0,0.0
+Briar,Kassadin,10,7,70.0
+Briar,Corki,8,0,0.0
+Qiyana,Swain,16,4,25.0
+Briar,Twitch,1,0,0.0
+Ivern,Kalista,5,5,100.0
+Lillia,Miss Fortune,6,6,100.0
+Evelynn,Karma,2,0,0.0
+Dr. Mundo,Twitch,2,2,100.0
+Urgot,Twisted Fate,6,4,66.67
+Kindred,Lee Sin,5,3,60.0
+Yone,Viktor,4,0,0.0
+Pantheon,Nasus,10,4,40.0
+Rammus,Zilean,2,2,100.0
+Nidalee,Ezreal,15,0,0.0
+Xin Zhao,KogMaw,6,0,0.0
+Evelynn,Cassiopeia,4,2,50.0
+Master Yi,Vayne,7,3,42.86
+Mordekaiser,Orianna,2,0,0.0
+Dr. Mundo,Akshan,23,15,65.22
+Ekko,Heimerdinger,3,3,100.0
+Vi,Lucian,7,7,100.0
+Briar,Aurelion Sol,6,3,50.0
+Naafiri,Draven,5,3,60.0
+Mordekaiser,Ahri,6,0,0.0
+Kindred,Gnar,8,8,100.0
+Amumu,Yone,20,10,50.0
+Pantheon,Elise,10,7,70.0
+Darius,Katarina,8,0,0.0
+Zac,Cassiopeia,4,1,25.0
+Trundle,Yunara,22,8,36.36
+Udyr,Teemo,1,1,100.0
+Fiddlesticks,Nidalee,10,7,70.0
+Gwen,KogMaw,1,0,0.0
+Ekko,Zilean,21,4,19.05
+Trundle,Briar,8,6,75.0
+Master Yi,Vex,13,6,46.15
+Mordekaiser,Qiyana,13,9,69.23
+Dr. Mundo,KogMaw,4,2,50.0
+Taliyah,KogMaw,2,2,100.0
+Kayn,Riven,7,3,42.86
+Master Yi,Dr. Mundo,5,0,0.0
+Darius,Syndra,3,2,66.67
+Zeri,Nunu & Willump,6,6,100.0
+Nidalee,Kaisa,2,2,100.0
+Master Yi,KogMaw,9,5,55.56
+Lee Sin,KogMaw,10,8,80.0
+Fiddlesticks,Lux,23,13,56.52
+Kayle,Hwei,3,2,66.67
+Naafiri,Udyr,6,6,100.0
+Chogath,Rumble,3,3,100.0
+Ivern,Lulu,4,0,0.0
+Aatrox,LeBlanc,7,4,57.14
+Ambessa,Jayce,4,4,100.0
+Shyvana,Zed,26,8,30.77
+Ambessa,Morgana,3,0,0.0
+Kaisa,Veigar,2,0,0.0
+Zed,Sion,16,10,62.5
+Talon,Tryndamere,10,9,90.0
+Volibear,Soraka,1,0,0.0
+Gwen,Aphelios,6,0,0.0
+Zed,Garen,6,3,50.0
+Elise,Quinn,11,8,72.73
+Nidalee,Draven,4,0,0.0
+Poppy,Garen,5,4,80.0
+Zyra,Zac,3,3,100.0
+Kayn,Draven,8,0,0.0
+Poppy,Yunara,7,0,0.0
+Ambessa,Cassiopeia,7,6,85.71
+Gwen,Lucian,5,5,100.0
+Draven,Orianna,5,0,0.0
+KhaZix,Ambessa,21,12,57.14
+Shyvana,Ezreal,3,1,33.33
+Viego,Kayn,4,1,25.0
+Nidalee,Senna,6,0,0.0
+Elise,Brand,2,0,0.0
+Zeri,Annie,4,0,0.0
+Morgana,Samira,4,0,0.0
+Viego,Udyr,4,0,0.0
+Kindred,Talon,35,24,68.57
+Gwen,Mordekaiser,2,2,100.0
+Mordekaiser,Katarina,1,0,0.0
+Kindred,Lulu,5,5,100.0
+Vi,Teemo,3,0,0.0
+KhaZix,Kaisa,6,5,83.33
+Xin Zhao,Karthus,3,0,0.0
+Viego,Rengar,1,0,0.0
+Jax,Rakan,10,0,0.0
+Sejuani,Kaisa,2,2,100.0
+Jax,Irelia,4,2,50.0
+Udyr,Viego,3,0,0.0
+Olaf,Yone,5,2,40.0
+Kindred,Briar,1,0,0.0
+Master Yi,Quinn,7,7,100.0
+Nidalee,Zilean,10,4,40.0
+Briar,Talon,15,3,20.0
+Volibear,Singed,9,7,77.78
+Skarner,LeBlanc,14,5,35.71
+Evelynn,Zilean,4,3,75.0
+Lillia,Varus,2,1,50.0
+Udyr,Singed,10,6,60.0
+Jax,Talon,6,3,50.0
+Qiyana,Tristana,3,3,100.0
+Pantheon,Fiora,4,2,50.0
+Kayn,Karthus,10,3,30.0
+Talon,Zeri,11,1,9.09
+Mordekaiser,Aurelion Sol,2,2,100.0
+Kayn,Pantheon,16,6,37.5
+Talon,Yunara,2,0,0.0
+Nocturne,Shaco,2,2,100.0
+Gragas,Tristana,8,5,62.5
+Rumble,Singed,4,4,100.0
+Mordekaiser,Syndra,14,10,71.43
+Ekko,Singed,3,0,0.0
+Gragas,Mel,8,7,87.5
+Mordekaiser,Yunara,2,0,0.0
+Lillia,Karthus,1,0,0.0
+Kindred,Cassiopeia,22,7,31.82
+Vi,VelKoz,11,4,36.36
+Kindred,Seraphine,2,1,50.0
+Diana,Gangplank,8,5,62.5
+Warwick,Yone,27,17,62.96
+Udyr,KogMaw,3,3,100.0
+Draven,Yasuo,3,3,100.0
+Viego,Aphelios,6,2,33.33
+Neeko,Qiyana,6,4,66.67
+Graves,Gragas,13,11,84.62
+Karthus,VelKoz,9,0,0.0
+Olaf,Aurora,41,24,58.54
+Camille,Vladimir,2,0,0.0
+Lillia,Aphelios,2,0,0.0
+Vi,Jhin,2,2,100.0
+Zed,Gangplank,8,2,25.0
+Ivern,Renekton,1,0,0.0
+Xin Zhao,Singed,11,0,0.0
+Talon,Jhin,4,2,50.0
+Karthus,Quinn,4,3,75.0
+Shyvana,Lucian,5,0,0.0
+Urgot,Lissandra,1,1,100.0
+Gragas,Talon,10,7,70.0
+Wukong,Teemo,2,2,100.0
+Briar,Yasuo,13,3,23.08
+Kayn,Tryndamere,10,2,20.0
+Naafiri,Darius,1,1,100.0
+Shaco,Ezreal,3,3,100.0
+Dr. Mundo,Rakan,3,3,100.0
+Volibear,Camille,3,0,0.0
+Darius,Sylas,21,15,71.43
+Zed,Ezreal,1,0,0.0
+Diana,Varus,4,2,50.0
+Naafiri,Ezreal,5,5,100.0
+Lillia,Zoe,33,30,90.91
+Karthus,Yunara,7,1,14.29
+Neeko,Yasuo,9,3,33.33
+Nunu & Willump,Ezreal,4,4,100.0
+Skarner,Elise,2,2,100.0
+Lee Sin,Kalista,5,4,80.0
+KhaZix,Elise,2,2,100.0
+Lee Sin,Sona,1,0,0.0
+Zyra,Nocturne,1,1,100.0
+Lillia,Sett,5,4,80.0
+Rammus,Singed,1,0,0.0
+Nunu & Willump,Varus,7,6,85.71
+Sejuani,Gragas,11,3,27.27
+Shyvana,Mel,23,9,39.13
+Wukong,Singed,11,9,81.82
+Shaco,Garen,3,1,33.33
+Xin Zhao,Rumble,6,6,100.0
+Poppy,KogMaw,7,4,57.14
+Qiyana,Zilean,19,0,0.0
+Fiddlesticks,Diana,9,3,33.33
+Vi,Quinn,9,0,0.0
+Kayn,KogMaw,4,0,0.0
+Shen,Ahri,3,0,0.0
+Skarner,Cassiopeia,9,6,66.67
+Dr. Mundo,Morgana,4,1,25.0
+Morgana,Orianna,2,2,100.0
+Shaco,Cassiopeia,16,9,56.25
+Briar,Fiora,5,5,100.0
+KhaZix,Nasus,8,2,25.0
+Naafiri,Samira,1,0,0.0
+Master Yi,Jayce,9,7,77.78
+Trundle,Seraphine,4,0,0.0
+Evelynn,LeBlanc,16,4,25.0
+Volibear,Gangplank,19,11,57.89
+Nidalee,Renata,1,0,0.0
+Hecarim,Singed,10,7,70.0
+Rengar,Renekton,11,11,100.0
+Skarner,Gnar,1,0,0.0
+Brand,Singed,1,1,100.0
+Viego,Poppy,3,1,33.33
+Vi,Miss Fortune,2,2,100.0
+Nidalee,Jhin,6,3,50.0
+Diana,Ezreal,4,2,50.0
+Skarner,Pantheon,4,4,100.0
+Pantheon,KogMaw,20,11,55.0
+Xin Zhao,Gwen,22,4,18.18
+Jax,Samira,1,1,100.0
+Elise,Annie,11,8,72.73
+Kayn,Sett,8,2,25.0
+Zed,Shen,21,19,90.48
+Talon,Ziggs,34,12,35.29
+Brand,Ekko,3,3,100.0
+Vayne,Yasuo,7,7,100.0
+Taliyah,Warwick,2,2,100.0
+Kled,Katarina,5,0,0.0
+Jarvan IV,Fiora,7,0,0.0
+Maokai,Swain,1,0,0.0
+Draven,Syndra,3,0,0.0
+Dr. Mundo,Swain,6,2,33.33
+Darius,Swain,6,3,50.0
+Nocturne,Warwick,4,0,0.0
+KhaZix,Morgana,12,10,83.33
+Shyvana,Heimerdinger,2,2,100.0
+Karthus,Ezreal,2,0,0.0
+Sett,Azir,1,0,0.0
+Qiyana,Rumble,13,9,69.23
+Ekko,Ashe,2,2,100.0
+Karthus,Aurelion Sol,8,7,87.5
+Dr. Mundo,Singed,10,0,0.0
+Volibear,Ezreal,8,3,37.5
+Kindred,Ziggs,17,12,70.59
+Neeko,Yone,12,3,25.0
+Karthus,KogMaw,1,0,0.0
+Fiddlesticks,Singed,5,1,20.0
+Master Yi,Aphelios,3,0,0.0
+Rammus,Ziggs,2,2,100.0
+Warwick,Lux,44,22,50.0
+Ivern,Zilean,3,3,100.0
+Nocturne,Udyr,1,1,100.0
+Dr. Mundo,Talon,9,5,55.56
+Teemo,Ziggs,1,0,0.0
+Kayn,Quinn,11,1,9.09
+Sion,Chogath,2,0,0.0
+Morgana,Hwei,7,6,85.71
+Olaf,Nunu & Willump,3,0,0.0
+Brand,Qiyana,4,4,100.0
+Dr. Mundo,Briar,3,0,0.0
+Amumu,Vladimir,3,0,0.0
+Rammus,Gangplank,5,5,100.0
+Hecarim,KogMaw,8,6,75.0
+Sylas,KogMaw,2,2,100.0
+Karthus,Singed,1,0,0.0
+Vayne,Aurora,5,1,20.0
+Gwen,Quinn,5,4,80.0
+Qiyana,Kayn,2,0,0.0
+Kayle,Yone,1,0,0.0
+Zed,Sivir,4,0,0.0
+Briar,Gragas,10,6,60.0
+Shyvana,Quinn,1,1,100.0
+Amumu,Aurelion Sol,4,0,0.0
+Dr. Mundo,Quinn,6,1,16.67
+Nidalee,Nunu & Willump,1,1,100.0
+Lillia,Ziggs,5,1,20.0
+Qiyana,Garen,2,2,100.0
+Master Yi,Kaisa,2,2,100.0
+Master Yi,Nidalee,10,4,40.0
+Rammus,Garen,4,3,75.0
+Dr. Mundo,Aurelion Sol,18,9,50.0
+Amumu,Hwei,2,2,100.0
+Sylas,Lux,6,5,83.33
+Morgana,Vex,2,1,50.0
+Graves,Warwick,1,0,0.0
+Viego,KogMaw,25,19,76.0
+Neeko,Viktor,1,0,0.0
+Talon,Seraphine,9,3,33.33
+Talon,Kaisa,8,7,87.5
+Rammus,Malzahar,3,0,0.0
+Pantheon,Shyvana,2,2,100.0
+Ekko,Cassiopeia,18,9,50.0
+Katarina,Singed,2,0,0.0
+Ezreal,Gragas,1,0,0.0
+Gwen,Cassiopeia,2,2,100.0
+Skarner,Kindred,1,1,100.0
+Dr. Mundo,Karthus,1,1,100.0
+Wukong,Chogath,17,16,94.12
+Gwen,Tryndamere,6,4,66.67
+Gwen,Dr. Mundo,10,5,50.0
+Nunu & Willump,Zilean,3,0,0.0
+Sona,Irelia,1,0,0.0
+Naafiri,Rumble,3,1,33.33
+Talon,Pantheon,15,4,26.67
+Wukong,Gangplank,6,0,0.0
+Zed,Lee Sin,1,0,0.0
+Zed,Varus,3,1,33.33
+Yasuo,Nunu & Willump,3,0,0.0
+Udyr,Varus,7,5,71.43
+Taliyah,Ahri,12,3,25.0
+Shyvana,Sylas,5,5,100.0
+Pantheon,Miss Fortune,1,0,0.0
+Sylas,Twisted Fate,4,3,75.0
+Zac,Sona,1,0,0.0
+Yone,Zoe,1,0,0.0
+Lucian,Zed,1,1,100.0
+Master Yi,Volibear,1,0,0.0
+Sejuani,Quinn,3,2,66.67
+Zed,Zeri,9,8,88.89
+Xin Zhao,Urgot,2,2,100.0
+Lillia,Renekton,12,2,16.67
+Ekko,Kayn,4,4,100.0
+Belveth,Dr. Mundo,4,0,0.0
+Skarner,Teemo,1,0,0.0
+Gwen,Renekton,15,15,100.0
+Wukong,Kaisa,4,1,25.0
+Ekko,Mordekaiser,2,0,0.0
+Neeko,Zed,2,0,0.0
+Nocturne,Kayn,2,0,0.0
+Master Yi,Aatrox,1,0,0.0
+Wukong,Twitch,9,0,0.0
+Nocturne,KogMaw,10,6,60.0
+Reksai,Singed,4,4,100.0
+Volibear,Teemo,8,1,12.5
+Talon,Poppy,1,0,0.0
+Zed,Karthus,15,2,13.33
+Shyvana,Akshan,22,16,72.73
+Mordekaiser,Vladimir,2,0,0.0
+Darius,Vladimir,2,2,100.0
+Elise,Gnar,9,4,44.44
+Elise,Ashe,2,2,100.0
+Lee Sin,Soraka,2,0,0.0
+Viego,Sejuani,10,2,20.0
+Fiddlesticks,Udyr,3,3,100.0
+Viego,Warwick,11,7,63.64
+Warwick,Katarina,47,14,29.79
+Rengar,Singed,7,2,28.57
+Vayne,Katarina,2,1,50.0
+Elise,Kayle,6,4,66.67
+Evelynn,Gwen,3,0,0.0
+Evelynn,Kassadin,2,1,50.0
+Lux,Vladimir,2,0,0.0
+Teemo,Lux,4,0,0.0
+Sejuani,Lux,8,6,75.0
+Kayn,Urgot,1,1,100.0
+Nunu & Willump,Twitch,1,0,0.0
+Fiddlesticks,KogMaw,1,1,100.0
+Zeri,Morgana,1,0,0.0
+Lillia,Lucian,19,1,5.26
+Draven,Galio,9,1,11.11
+Briar,Teemo,1,0,0.0
+Udyr,Gangplank,4,3,75.0
+Kayn,Gwen,3,3,100.0
+Rengar,Karthus,15,12,80.0
+Nidalee,Ashe,1,1,100.0
+Briar,Renekton,1,0,0.0
+Wukong,Rakan,1,1,100.0
+Diana,Aurelion Sol,12,8,66.67
+Dr. Mundo,Udyr,2,0,0.0
+Lillia,Malzahar,9,6,66.67
+Rengar,Lee Sin,1,1,100.0
+Warwick,Ahri,42,27,64.29
+Nilah,Viktor,1,1,100.0
+Aphelios,Kassadin,1,0,0.0
+Shyvana,Yasuo,22,7,31.82
+Zac,Garen,1,0,0.0
+Lillia,Zilean,6,1,16.67
+Elise,Xerath,17,5,29.41
+Draven,Qiyana,1,0,0.0
+Sion,Ahri,4,1,25.0
+Gwen,Camille,1,0,0.0
+Jax,Pantheon,5,5,100.0
+Trundle,Ezreal,3,1,33.33
+Skarner,Ezreal,1,1,100.0
+Kayn,Nidalee,20,12,60.0
+Taliyah,Renekton,10,10,100.0
+Rammus,Briar,1,0,0.0
+Briar,Veigar,11,7,63.64
+Naafiri,Gnar,1,1,100.0
+Evelynn,Yunara,2,0,0.0
+Dr. Mundo,Cassiopeia,26,17,65.38
+Zed,Lulu,1,1,100.0
+Kayn,Samira,1,1,100.0
+Mordekaiser,Zed,14,7,50.0
+Yasuo,Vladimir,2,2,100.0
+Rengar,Kayn,5,0,0.0
+Draven,Briar,3,3,100.0
+Rumble,Aurora,1,0,0.0
+Kayn,VelKoz,8,5,62.5
+Sylas,Kassadin,5,1,20.0
+Kindred,Nasus,7,1,14.29
+Dr. Mundo,Zeri,1,0,0.0
+Kindred,Karthus,1,0,0.0
+KhaZix,Rumble,15,12,80.0
+Jarvan IV,Taric,3,0,0.0
+Nidalee,Pyke,1,1,100.0
+Vayne,Kayle,1,0,0.0
+Udyr,Taric,1,1,100.0
+KhaZix,Draven,2,0,0.0
+Vi,Sion,4,4,100.0
+Lillia,Brand,7,0,0.0
+Master Yi,Cassiopeia,25,20,80.0
+Zed,Nautilus,1,1,100.0
+Skarner,Gragas,4,2,50.0
+Belveth,Shen,1,1,100.0
+Shaco,Nasus,1,1,100.0
+Morgana,Twisted Fate,5,0,0.0
+Neeko,Talon,2,2,100.0
+Graves,Poppy,1,1,100.0
+KSante,Zed,2,2,100.0
+Ivern,Cassiopeia,7,2,28.57
+Talon,Teemo,1,0,0.0
+Elise,Kayn,1,1,100.0
+Naafiri,VelKoz,9,5,55.56
+Hecarim,Aatrox,9,4,44.44
+Sejuani,Rumble,5,5,100.0
+Skarner,Kayn,2,2,100.0
+Vi,Sejuani,1,1,100.0
+Skarner,Nunu & Willump,2,0,0.0
+Warwick,Ekko,26,17,65.38
+Lee Sin,Udyr,2,1,50.0
+Graves,Tristana,9,4,44.44
+Nocturne,Alistar,1,0,0.0
+Zed,Dr. Mundo,2,1,50.0
+Gragas,Gangplank,1,0,0.0
+Corki,VelKoz,1,0,0.0
+Chogath,Azir,1,1,100.0
+Ekko,Miss Fortune,5,0,0.0
+VelKoz,Chogath,1,0,0.0
+Talon,Ezreal,3,0,0.0
+Maokai,Riven,1,1,100.0
+Ivern,Teemo,2,1,50.0
+Vi,Morgana,3,3,100.0
+Dr. Mundo,Poppy,2,0,0.0
+Ekko,Tahm Kench,1,0,0.0
+Rammus,Yunara,1,0,0.0
+Maokai,Singed,1,0,0.0
+Kindred,Kalista,1,1,100.0
+Dr. Mundo,Irelia,23,12,52.17
+Zyra,Ornn,2,2,100.0
+Talon,Dr. Mundo,12,10,83.33
+Evelynn,Xayah,1,0,0.0
+Belveth,Viego,1,0,0.0
+Dr. Mundo,Vayne,3,0,0.0
+Kayn,Aphelios,2,0,0.0
+Maokai,Vladimir,10,10,100.0
+Ekko,Poppy,1,0,0.0
+Master Yi,Lucian,2,1,50.0
+Zac,Pantheon,1,0,0.0
+Shyvana,Kayle,2,0,0.0
+Lillia,KogMaw,3,2,66.67
+Pantheon,Dr. Mundo,5,4,80.0
+Mordekaiser,Jayce,1,0,0.0
+Vi,Lulu,2,0,0.0
+Teemo,Ryze,2,1,50.0
+Zed,Teemo,2,1,50.0
+Jarvan IV,Gangplank,9,5,55.56
+Skarner,Anivia,4,3,75.0
+Darius,Zed,10,2,20.0
+Hecarim,Sion,5,4,80.0
+Master Yi,Gwen,1,0,0.0
+Zed,Briar,3,0,0.0
+Talon,Twitch,15,11,73.33
+Jarvan IV,Udyr,5,5,100.0
+Morgana,Galio,4,3,75.0
+Sylas,Vladimir,6,6,100.0
+Skarner,Quinn,2,2,100.0
+Shyvana,Cassiopeia,3,0,0.0
+Nasus,Malzahar,3,2,66.67
+Lillia,Karma,14,10,71.43
+Jax,Karthus,1,0,0.0
+Reksai,Gwen,2,1,50.0
+Neeko,Corki,1,0,0.0
+Ivern,Annie,21,7,33.33
+Rengar,Jhin,1,1,100.0
+Sejuani,Corki,4,3,75.0
+Shyvana,Ivern,1,1,100.0
+Maokai,Lucian,1,0,0.0
+Gragas,Ezreal,2,1,50.0
+Naafiri,Alistar,1,1,100.0
+Kayn,Darius,3,2,66.67
+Master Yi,Rammus,3,0,0.0
+Ambessa,Teemo,1,0,0.0
+Ekko,Shen,21,9,42.86
+Karthus,Renekton,2,1,50.0
+Shaco,Gangplank,2,1,50.0
+Tryndamere,Nunu & Willump,1,0,0.0
+Draven,Ekko,1,0,0.0
+Rengar,Twitch,8,3,37.5
+Graves,Lulu,1,0,0.0
+Jax,Qiyana,13,5,38.46
+Karthus,Seraphine,1,0,0.0
+Rengar,Lulu,1,0,0.0
+Naafiri,Kaisa,1,0,0.0
+Kayn,Fiora,1,0,0.0
+Gragas,Ekko,11,1,9.09
+Talon,Miss Fortune,1,1,100.0
+Ekko,Fiora,2,2,100.0
+Dr. Mundo,Seraphine,2,2,100.0
+Draven,Viktor,1,0,0.0
+Zed,Seraphine,3,1,33.33
+Maokai,Kassadin,1,1,100.0
+Singed,Sylas,1,0,0.0
+Singed,Mel,1,0,0.0
+Talon,Malphite,9,2,22.22
+Gwen,Elise,1,0,0.0
+Volibear,Xin Zhao,1,0,0.0
+Naafiri,Varus,1,1,100.0
+Vayne,Mordekaiser,3,2,66.67
+Viego,Teemo,2,2,100.0
+Mordekaiser,Lucian,1,0,0.0
+Gragas,Lillia,1,0,0.0
+Mordekaiser,Taliyah,7,1,14.29
+Volibear,Renekton,1,0,0.0
+Teemo,Sona,1,0,0.0
+Olaf,Singed,3,1,33.33
+Mordekaiser,Ryze,4,2,50.0
+Zed,Kled,1,0,0.0
+Udyr,Poppy,1,1,100.0
+Ivern,Twitch,3,2,66.67
+Sejuani,Nunu & Willump,2,2,100.0
+Wukong,Shen,6,1,16.67
+Ambessa,Draven,1,0,0.0
+Viego,Nocturne,1,0,0.0
+Mordekaiser,Twitch,1,1,100.0
+Neeko,Smolder,1,0,0.0
+Amumu,Lux,5,3,60.0
+Ambessa,Malzahar,12,12,100.0
+Sejuani,KogMaw,6,6,100.0
+Briar,Smolder,5,0,0.0
+Gragas,Pantheon,2,1,50.0
+Qiyana,Smolder,10,9,90.0
+Ambessa,VelKoz,6,5,83.33
+Warwick,Malzahar,8,5,62.5
+Nocturne,Sett,10,0,0.0
+Volibear,Rumble,29,21,72.41
+Volibear,Shen,5,5,100.0
+Volibear,Malphite,13,13,100.0
+Elise,Fiora,6,6,100.0
+Elise,Vex,22,11,50.0
+Viego,Kled,4,3,75.0
+Rumble,Urgot,3,3,100.0
+Belveth,VelKoz,6,0,0.0
+Warwick,Zoe,36,13,36.11
+Amumu,Ambessa,13,13,100.0
+Ekko,KogMaw,4,3,75.0
+Diana,KogMaw,9,2,22.22
+KhaZix,Camille,4,2,50.0
+Sion,Kassadin,5,4,80.0
+Belveth,Qiyana,17,11,64.71
+Warwick,Diana,24,11,45.83
+Yunara,Zac,3,0,0.0
+Rumble,Swain,8,0,0.0
+Lillia,Kindred,4,0,0.0
+Kindred,Warwick,1,0,0.0
+Lillia,Vex,14,11,78.57
+Jayce,Orianna,4,0,0.0
+Evelynn,Nasus,7,1,14.29
+Volibear,Sett,6,5,83.33
+Rengar,Sion,8,1,12.5
+Evelynn,Tryndamere,3,0,0.0
+Shyvana,Anivia,11,6,54.55
+Shen,Hwei,4,4,100.0
+Lee Sin,Varus,7,4,57.14
+Volibear,Nocturne,4,4,100.0
+Rengar,Ziggs,8,3,37.5
+Kaisa,Diana,4,0,0.0
+Evelynn,Gragas,3,3,100.0
+Viego,Trundle,7,4,57.14
+Xin Zhao,Jax,11,4,36.36
+Warwick,KogMaw,11,11,100.0
+Morgana,Anivia,3,1,33.33
+Sejuani,Dr. Mundo,6,0,0.0
+Ekko,Fiddlesticks,9,9,100.0
+Warwick,Aurora,27,17,62.96
+Master Yi,Riven,3,3,100.0
+Kaisa,Talon,4,0,0.0
+Hecarim,Fiddlesticks,2,2,100.0
+Briar,Ezreal,7,7,100.0
+Poppy,Singed,3,0,0.0
+Warwick,Azir,49,20,40.82
+Ekko,Viego,9,9,100.0
+Nocturne,KhaZix,1,0,0.0
+Warwick,Syndra,33,5,15.15
+Graves,Darius,2,0,0.0
+Warwick,Fiddlesticks,4,4,100.0
+Warwick,Gragas,2,2,100.0
+Warwick,Yasuo,42,15,35.71
+Warwick,LeBlanc,20,12,60.0
+Jarvan IV,Lulu,2,1,50.0
+Jayce,Mel,1,0,0.0
+Olaf,Fizz,3,2,66.67
+Maokai,Ryze,8,1,12.5
+Reksai,Xerath,11,9,81.82
+Trundle,Yorick,10,2,20.0
+Gwen,Rumble,10,5,50.0
+Graves,Sion,4,2,50.0
+Shyvana,Malzahar,6,0,0.0
+Master Yi,Fiddlesticks,8,3,37.5
+Ivern,Shen,8,0,0.0
+Malphite,Qiyana,1,1,100.0
+Warwick,Hwei,50,23,46.0
+Kindred,Dr. Mundo,7,4,57.14
+Warwick,Ryze,42,18,42.86
+Graves,Kindred,2,2,100.0
+Kindred,Gangplank,2,2,100.0
+Viego,Mordekaiser,18,11,61.11
+Warwick,Illaoi,2,0,0.0
+Trundle,Pantheon,2,1,50.0
+Rengar,Nocturne,2,2,100.0
+Warwick,Veigar,14,7,50.0
+Naafiri,Shen,9,5,55.56
+Ekko,Camille,5,3,60.0
+Sett,Kennen,5,1,20.0
+Sion,Sylas,11,0,0.0
+Udyr,Ornn,5,0,0.0
+Shyvana,Ekko,9,3,33.33
+Master Yi,Ezreal,4,4,100.0
+Warwick,Akshan,25,14,56.0
+Sett,Sylas,5,0,0.0
+Talon,Ornn,9,3,33.33
+Hecarim,Zeri,4,4,100.0
+Elise,KogMaw,4,0,0.0
+Gwen,Gangplank,4,4,100.0
+Naafiri,KogMaw,16,8,50.0
+Qiyana,Karthus,2,2,100.0
+Neeko,Twisted Fate,1,0,0.0
+Viego,Seraphine,14,5,35.71
+Kaisa,Nidalee,4,4,100.0
+Diana,Jarvan IV,2,0,0.0
+Kayn,Lucian,16,6,37.5
+Lillia,Chogath,1,1,100.0
+Gragas,KogMaw,4,4,100.0
+Amumu,Neeko,7,2,28.57
+Diana,Fizz,14,8,57.14
+Shyvana,Veigar,11,5,45.45
+Nasus,Sylas,2,0,0.0
+Warwick,Galio,15,4,26.67
+Shyvana,Vladimir,6,3,50.0
+Teemo,Qiyana,9,2,22.22
+Amumu,Vex,1,0,0.0
+Diana,Pantheon,9,7,77.78
+Elise,Lulu,3,3,100.0
+Elise,Warwick,3,3,100.0
+Mordekaiser,Talon,6,5,83.33
+Kayn,Illaoi,3,0,0.0
+Brand,Hwei,11,7,63.64
+Hecarim,Malphite,11,6,54.55
+Morgana,Ryze,5,3,60.0
+Belveth,Fiddlesticks,2,0,0.0
+Skarner,Mel,8,2,25.0
+Warwick,Vayne,2,0,0.0
+Shyvana,Sett,4,4,100.0
+Sett,Kayle,2,2,100.0
+Warwick,Kayle,8,6,75.0
+Warwick,Smolder,8,5,62.5
+Gragas,Cassiopeia,4,0,0.0
+Kaisa,Vladimir,6,4,66.67
+KhaZix,Dr. Mundo,7,3,42.86
+Vi,Pyke,4,4,100.0
+Master Yi,Yorick,9,8,88.89
+Graves,Sett,4,0,0.0
+Wukong,Zeri,3,1,33.33
+Sejuani,Pantheon,1,0,0.0
+Lillia,Vayne,6,4,66.67
+Trundle,Morgana,6,1,16.67
+Naafiri,Jarvan IV,3,0,0.0
+Rengar,Tryndamere,3,1,33.33
+Talon,Viego,3,3,100.0
+Thresh,Vladimir,3,0,0.0
+Nasus,Varus,1,0,0.0
+Mordekaiser,KogMaw,2,2,100.0
+KhaZix,Fiddlesticks,2,0,0.0
+Morgana,Gangplank,4,0,0.0
+Nasus,Fizz,1,1,100.0
+Wukong,Kled,2,0,0.0
+Maokai,Rumble,6,6,100.0
+Tryndamere,Yasuo,4,0,0.0
+Shaco,Singed,4,3,75.0
+Volibear,Quinn,9,5,55.56
+Sejuani,Bard,2,0,0.0
+Warwick,Pyke,2,0,0.0
+Wukong,Jhin,8,8,100.0
+Karthus,Urgot,2,0,0.0
+Ivern,Lee Sin,11,10,90.91
+Vayne,Zed,9,9,100.0
+Mordekaiser,Yorick,2,2,100.0
+Shyvana,Morgana,1,1,100.0
+Warwick,Teemo,5,5,100.0
+Naafiri,Maokai,4,0,0.0
+Zed,KSante,4,4,100.0
+Naafiri,Fiddlesticks,8,4,50.0
+Amumu,Sion,2,0,0.0
+Skarner,Fiddlesticks,3,3,100.0
+Sylas,Hwei,16,4,25.0
+Dr. Mundo,Yunara,8,0,0.0
+Maokai,Xerath,11,0,0.0
+Nunu & Willump,Kled,2,0,0.0
+Master Yi,Illaoi,3,3,100.0
+Vi,Fiddlesticks,3,3,100.0
+Warwick,Urgot,3,3,100.0
+Chogath,Karma,1,0,0.0
+Qiyana,Kaisa,1,1,100.0
+Warwick,Kennen,1,0,0.0
+Lee Sin,Yuumi,1,0,0.0
+Briar,Fiddlesticks,2,2,100.0
+Graves,Fiddlesticks,1,0,0.0
+Amumu,Kaisa,1,0,0.0
+Hecarim,Nautilus,3,0,0.0
+Kayle,Talon,1,1,100.0
+Kayle,Qiyana,2,0,0.0
+Yone,Twisted Fate,7,2,28.57
+Gragas,Annie,7,4,57.14
+Neeko,Pantheon,1,0,0.0
+Rammus,Wukong,1,1,100.0
+Elise,Singed,5,0,0.0
+Sion,Akali,7,6,85.71
+Vayne,Ryze,3,0,0.0
+Trundle,Teemo,6,6,100.0
+Skarner,Renekton,6,0,0.0
+Maokai,Syndra,4,1,25.0
+Kayle,Zed,2,2,100.0
+Tristana,Lux,3,3,100.0
+Warwick,Jayce,4,0,0.0
+Darius,Yone,6,0,0.0
+Maokai,Ekko,15,9,60.0
+Warwick,Garen,4,2,50.0
+Kaisa,Katarina,4,4,100.0
+Lillia,Aatrox,5,1,20.0
+Rengar,Jax,1,1,100.0
+Shaco,VelKoz,7,3,42.86
+Mordekaiser,Anivia,1,1,100.0
+Zeri,Talon,2,0,0.0
+Volibear,VelKoz,7,5,71.43
+Nocturne,Nasus,8,5,62.5
+Maokai,Malzahar,2,0,0.0
+Nocturne,Lucian,4,1,25.0
+Vayne,Viktor,6,6,100.0
+Diana,Malphite,5,4,80.0
+Qiyana,Quinn,1,0,0.0
+Lillia,Seraphine,4,1,25.0
+Mordekaiser,Fizz,2,0,0.0
+Viego,Lillia,3,0,0.0
+Belveth,Naafiri,9,1,11.11
+Talon,Nautilus,3,0,0.0
+Warwick,Tristana,4,0,0.0
+Dr. Mundo,Neeko,3,3,100.0
+Skarner,Diana,6,0,0.0
+Rammus,Vex,8,1,12.5
+Qiyana,Tahm Kench,1,1,100.0
+Master Yi,Mordekaiser,3,3,100.0
+Sion,Malzahar,1,0,0.0
+Brand,Aurora,2,2,100.0
+Reksai,Nidalee,4,0,0.0
+Warwick,KSante,1,0,0.0
+Jax,Urgot,1,1,100.0
+Master Yi,Urgot,6,0,0.0
+Sejuani,Brand,3,3,100.0
+Warwick,Sion,2,0,0.0
+Brand,Mel,3,0,0.0
+Nocturne,Sion,3,0,0.0
+Amumu,Smolder,3,3,100.0
+Evelynn,Mordekaiser,2,0,0.0
+Rengar,Camille,3,0,0.0
+Amumu,Talon,6,6,100.0
+Olaf,Ekko,10,3,30.0
+Vi,Garen,1,0,0.0
+Neeko,Anivia,3,0,0.0
+Nunu & Willump,Chogath,7,7,100.0
+Elise,Yorick,5,0,0.0
+Warwick,Talon,6,5,83.33
+Akshan,Sylas,2,0,0.0
+Shyvana,Kassadin,8,1,12.5
+Mordekaiser,Hwei,9,5,55.56
+Diana,Yuumi,2,0,0.0
+Maokai,Sylas,18,7,38.89
+Warwick,Vex,7,3,42.86
+Maokai,Mel,7,4,57.14
+Vayne,Qiyana,6,1,16.67
+Elise,Rumble,1,1,100.0
+Kindred,Sett,5,2,40.0
+Nocturne,Elise,4,4,100.0
+Ekko,Samira,4,1,25.0
+Talon,Fiddlesticks,5,3,60.0
+Qiyana,Ezreal,2,0,0.0
+Zac,Samira,3,3,100.0
+Amumu,Xerath,9,5,55.56
+Dr. Mundo,Fizz,8,3,37.5
+Shyvana,Kennen,2,0,0.0
+Tryndamere,Lux,2,0,0.0
+Warwick,Karma,2,0,0.0
+Viego,Lucian,6,0,0.0
+Ekko,Lillia,3,0,0.0
+Fiddlesticks,Draven,2,1,50.0
+Graves,Gwen,4,2,50.0
+Kaisa,Lux,6,4,66.67
+Poppy,Akshan,8,1,12.5
+Volibear,Bard,3,0,0.0
+Diana,Gragas,9,4,44.44
+Aatrox,Gwen,2,0,0.0
+Kayn,Fiddlesticks,5,2,40.0
+Volibear,Belveth,1,0,0.0
+Naafiri,Sett,4,4,100.0
+Amumu,Naafiri,2,0,0.0
+Morgana,Renekton,3,3,100.0
+Diana,Rumble,4,4,100.0
+Sett,Mel,1,1,100.0
+Volibear,Twitch,4,2,50.0
+Belveth,Sion,2,2,100.0
+Kindred,Ornn,3,1,33.33
+Lee Sin,Kled,6,1,16.67
+Pantheon,Viego,3,3,100.0
+Briar,Naafiri,4,1,25.0
+Vayne,Fizz,2,2,100.0
+Shen,Gragas,3,0,0.0
+Urgot,Fizz,1,1,100.0
+KhaZix,Jarvan IV,1,1,100.0
+Warwick,Corki,2,1,50.0
+Reksai,Urgot,1,1,100.0
+Malphite,Akali,2,0,0.0
+Urgot,Aurora,8,2,25.0
+Skarner,VelKoz,2,0,0.0
+Lillia,Urgot,1,1,100.0
+Poppy,Sion,3,2,66.67
+Viego,Dr. Mundo,14,9,64.29
+Mordekaiser,Blitzcrank,2,0,0.0
+Wukong,Darius,9,9,100.0
+Xin Zhao,Pyke,1,1,100.0
+Gragas,Olaf,2,0,0.0
+Vayne,Taliyah,4,4,100.0
+Briar,Sion,3,0,0.0
+Master Yi,Sion,4,1,25.0
+Vayne,Hwei,1,1,100.0
+Wukong,Vayne,7,2,28.57
+Master Yi,Yunara,12,7,58.33
+Kayn,Yunara,2,0,0.0
+Warwick,Anivia,11,2,18.18
+Amumu,Renekton,2,2,100.0
+Viego,Sett,6,2,33.33
+Amumu,Mel,15,5,33.33
+Graves,Elise,2,2,100.0
+Poppy,Neeko,2,1,50.0
+Brand,Twitch,1,1,100.0
+Yorick,Neeko,1,1,100.0
+Graves,Nasus,4,0,0.0
+Warwick,Renekton,4,4,100.0
+Hecarim,Gwen,4,1,25.0
+Jarvan IV,Yorick,3,0,0.0
+Amumu,Aurora,7,2,28.57
+Shyvana,Kalista,1,0,0.0
+Diana,Heimerdinger,4,4,100.0
+Yuumi,Kassadin,1,0,0.0
+Skarner,Lucian,1,1,100.0
+Evelynn,Quinn,10,6,60.0
+Sett,Swain,1,0,0.0
+Taric,Corki,1,1,100.0
+KhaZix,Viego,1,1,100.0
+Briar,Chogath,2,1,50.0
+Brand,Lux,4,1,25.0
+Talon,Gwen,11,3,27.27
+Zed,Viego,3,0,0.0
+Jarvan IV,Urgot,3,1,33.33
+Diana,Mordekaiser,2,1,50.0
+Elise,Fizz,1,1,100.0
+Nocturne,Pantheon,13,13,100.0
+Wukong,Bard,3,3,100.0
+Kayn,Seraphine,8,2,25.0
+Naafiri,Hecarim,1,0,0.0
+Lillia,Jarvan IV,1,1,100.0
+Graves,Lucian,3,0,0.0
+Chogath,VelKoz,2,2,100.0
+Pantheon,Hecarim,1,0,0.0
+Brand,Gragas,2,0,0.0
+Shaco,Lulu,1,0,0.0
+Teemo,Akali,2,2,100.0
+Hecarim,Renekton,1,1,100.0
+Evelynn,KogMaw,2,2,100.0
+Zeri,Lissandra,1,1,100.0
+Lillia,Malphite,13,5,38.46
+Sion,Zed,5,2,40.0
+Mordekaiser,Veigar,2,0,0.0
+Graves,Teemo,1,1,100.0
+Zyra,Karma,3,0,0.0
+Elise,Diana,9,4,44.44
+Briar,Rumble,2,0,0.0
+Qiyana,Sejuani,3,3,100.0
+Maokai,LeBlanc,4,2,50.0
+Pantheon,Fiddlesticks,3,1,33.33
+Briar,Karma,5,5,100.0
+KhaZix,KogMaw,5,0,0.0
+Zac,Brand,1,1,100.0
+Amumu,Cassiopeia,2,2,100.0
+Kindred,Jarvan IV,2,0,0.0
+Urgot,Talon,1,0,0.0
+Dr. Mundo,Tristana,13,12,92.31
+Naafiri,Pantheon,7,5,71.43
+Maokai,Tryndamere,1,1,100.0
+Kayn,Jarvan IV,1,0,0.0
+Maokai,Gangplank,4,0,0.0
+Maokai,Smolder,4,0,0.0
+Maokai,Akshan,7,2,28.57
+Tryndamere,Akali,8,1,12.5
+Nocturne,Kled,3,0,0.0
+Kayn,Brand,4,0,0.0
+Diana,Camille,3,3,100.0
+Brand,Tristana,6,4,66.67
+Xin Zhao,Tahm Kench,1,1,100.0
+Warwick,Pantheon,1,0,0.0
+Varus,Viktor,1,0,0.0
+Amumu,Kassadin,3,3,100.0
+Nocturne,Dr. Mundo,2,2,100.0
+Kindred,Xayah,2,2,100.0
+Kindred,KSante,4,4,100.0
+Maokai,Gwen,4,4,100.0
+Olaf,Hwei,30,15,50.0
+Lillia,Dr. Mundo,3,2,66.67
+Olaf,Akshan,2,2,100.0
+Ivern,Mordekaiser,2,0,0.0
+Gragas,Malzahar,3,3,100.0
+Wukong,Mordekaiser,2,0,0.0
+Vayne,Diana,1,1,100.0
+Pantheon,Darius,2,1,50.0
+Brand,Ahri,2,1,50.0
+Zed,Quinn,4,2,50.0
+Nasus,Qiyana,3,0,0.0
+Briar,Poppy,1,1,100.0
+Diana,Volibear,2,0,0.0
+Qiyana,Jax,4,2,50.0
+Sejuani,Fiddlesticks,1,1,100.0
+Gragas,Xerath,5,4,80.0
+Mordekaiser,Smolder,3,0,0.0
+Lillia,Viego,2,2,100.0
+Jax,Yasuo,7,2,28.57
+Lee Sin,Tahm Kench,3,0,0.0
+Poppy,Smolder,5,5,100.0
+Briar,Heimerdinger,2,2,100.0
+Briar,Nami,2,2,100.0
+Vayne,Ahri,1,1,100.0
+Maokai,Lux,16,15,93.75
+Lillia,Illaoi,1,0,0.0
+Zac,Teemo,1,0,0.0
+Sejuani,Belveth,2,0,0.0
+KhaZix,Volibear,2,2,100.0
+Warwick,Xerath,12,10,83.33
+Tryndamere,Mel,1,0,0.0
+Vayne,Irelia,3,0,0.0
+Warwick,Ambessa,3,0,0.0
+Shaco,Shen,1,1,100.0
+Jax,Shen,1,1,100.0
+Mordekaiser,Malzahar,1,0,0.0
+Ivern,Dr. Mundo,6,4,66.67
+Lee Sin,Fiddlesticks,1,0,0.0
+Elise,Fiddlesticks,2,1,50.0
+Diana,KhaZix,1,0,0.0
+Kaisa,Aurora,6,2,33.33
+Xin Zhao,Fiddlesticks,3,0,0.0
+Mordekaiser,Nilah,2,2,100.0
+Morgana,Lissandra,2,0,0.0
+Gragas,Kennen,2,2,100.0
+Taliyah,Ezreal,1,0,0.0
+Skarner,Akshan,4,3,75.0
+Graves,Rakan,1,1,100.0
+Kayle,Annie,2,2,100.0
+Tryndamere,Malphite,1,1,100.0
+Sylas,Nunu & Willump,2,1,50.0
+Naafiri,Nasus,1,0,0.0
+Ekko,Kaisa,14,5,35.71
+Akali,Diana,1,0,0.0
+Udyr,VelKoz,5,4,80.0
+Udyr,Brand,1,1,100.0
+Kayle,Smolder,1,0,0.0
+Kayle,Karma,1,0,0.0
+Ahri,Twisted Fate,1,0,0.0
+Tryndamere,Ekko,1,0,0.0
+Naafiri,Mordekaiser,1,1,100.0
+Diana,Illaoi,1,0,0.0
+Xin Zhao,Trundle,4,4,100.0
+Briar,Pantheon,1,0,0.0
+Volibear,Samira,2,2,100.0
+KhaZix,Ornn,3,1,33.33
+Gragas,Zac,1,1,100.0
+Diana,Zilean,7,5,71.43
+Sett,Vladimir,1,1,100.0
+Udyr,Illaoi,3,3,100.0
+Sett,Hwei,5,3,60.0
+Naafiri,Gwen,2,1,50.0
+Hecarim,Dr. Mundo,3,3,100.0
+Darius,Viktor,8,0,0.0
+Sion,Kayle,1,1,100.0
+Elise,Jarvan IV,1,0,0.0
+Zac,Quinn,2,1,50.0
+Gwen,Brand,2,2,100.0
+Neeko,Jarvan IV,1,0,0.0
+Pantheon,Gnar,1,1,100.0
+Zac,VelKoz,4,1,25.0
+Neeko,Orianna,1,1,100.0
+Evelynn,Swain,2,1,50.0
+Shen,LeBlanc,3,2,66.67
+Nunu & Willump,VelKoz,3,1,33.33
+Skarner,Aurelion Sol,5,4,80.0
+Mordekaiser,Mel,2,0,0.0
+Rumble,Jayce,3,3,100.0
+Sylas,Anivia,3,0,0.0
+Shyvana,Briar,1,1,100.0
+Xin Zhao,Viego,2,0,0.0
+Viego,Jax,12,0,0.0
+Wukong,Varus,1,0,0.0
+Warwick,Naafiri,2,2,100.0
+Mordekaiser,Akali,2,2,100.0
+Zac,KSante,3,1,33.33
+Zac,Aurelion Sol,9,1,11.11
+Dr. Mundo,Brand,2,0,0.0
+Warwick,Irelia,5,2,40.0
+Warwick,Ziggs,6,2,33.33
+Hecarim,Samira,1,0,0.0
+Qiyana,Ornn,3,3,100.0
+Nunu & Willump,Samira,2,0,0.0
+Shyvana,Singed,1,1,100.0
+Rammus,Poppy,1,0,0.0
+Graves,KogMaw,3,3,100.0
+Rengar,Sett,4,2,50.0
+Sylas,Veigar,3,1,33.33
+Skarner,Mordekaiser,4,0,0.0
+Vayne,Anivia,1,1,100.0
+Rammus,KogMaw,3,3,100.0
+Maokai,Anivia,2,2,100.0
+Briar,Malphite,2,2,100.0
+Xin Zhao,Sett,2,0,0.0
+Jarvan IV,Sett,2,2,100.0
+Warwick,Viego,2,2,100.0
+Maokai,Warwick,2,2,100.0
+Tryndamere,Yone,1,0,0.0
+Brand,Xerath,3,3,100.0
+Mordekaiser,Wukong,1,0,0.0
+Reksai,Kayle,6,4,66.67
+Maokai,Zoe,5,1,20.0
+Brand,Lucian,1,0,0.0
+Maokai,Akali,8,4,50.0
+Maokai,Pyke,1,0,0.0
+Maokai,Gragas,3,3,100.0
+Maokai,Taliyah,10,4,40.0
+Reksai,Morgana,1,0,0.0
+Mordekaiser,Zoe,3,1,33.33
+Neeko,Sion,1,1,100.0
+Taric,Kassadin,1,1,100.0
+Jarvan IV,Yuumi,1,0,0.0
+Zac,Nocturne,2,2,100.0
+Briar,Quinn,2,0,0.0
+Ekko,Bard,1,1,100.0
+Teemo,Yasuo,6,0,0.0
+Sejuani,Vex,2,0,0.0
+Darius,Diana,5,0,0.0
+Darius,Aurelion Sol,1,0,0.0
+Sylas,Qiyana,2,1,50.0
+Amumu,Ezreal,2,2,100.0
+Mordekaiser,Aurora,3,2,66.67
+Sett,Aurora,2,1,50.0
+Yunara,Yasuo,2,0,0.0
+Zac,Sion,6,4,66.67
+Nidalee,KhaZix,1,0,0.0
+Reksai,Vex,1,1,100.0
+Wukong,KSante,2,1,50.0
+Warwick,VelKoz,2,0,0.0
+KSante,Azir,3,3,100.0
+Graves,Vayne,1,0,0.0
+Taliyah,Diana,1,1,100.0
+Sejuani,Aurelion Sol,7,7,100.0
+Neeko,Mel,2,1,50.0
+Kaisa,Taliyah,2,0,0.0
+Sejuani,Twisted Fate,5,3,60.0
+Gwen,Seraphine,3,0,0.0
+Talon,Vi,1,0,0.0
+Mordekaiser,LeBlanc,1,0,0.0
+Amumu,Annie,2,1,50.0
+Warwick,Sona,1,1,100.0
+Teemo,Xerath,2,0,0.0
+Jax,Caitlyn,1,1,100.0
+Udyr,Jarvan IV,1,0,0.0
+Sett,Ahri,1,1,100.0
+Teemo,Fizz,1,1,100.0
+Vayne,Lissandra,1,0,0.0
+Nidalee,Rumble,2,2,100.0
+Gwen,KhaZix,1,1,100.0
+Sett,Xerath,2,2,100.0
+Amumu,Kayle,3,2,66.67
+Nunu & Willump,Alistar,1,0,0.0
+Sylas,Vex,3,0,0.0
+Diana,Seraphine,3,0,0.0
+Lee Sin,Gnar,3,3,100.0
+Lee Sin,Warwick,2,0,0.0
+Lee Sin,Urgot,12,0,0.0
+Yuumi,Jayce,1,0,0.0
+Viego,Nasus,28,11,39.29
+Sion,Ziggs,2,2,100.0
+Sejuani,Tristana,3,3,100.0
+Ezreal,Jhin,1,0,0.0
+Ambessa,Vex,1,0,0.0
+Lee Sin,Yunara,10,6,60.0
+Briar,Sona,1,1,100.0
+Graves,Seraphine,1,1,100.0
+Shyvana,Jarvan IV,1,1,100.0
+Morgana,Aurelion Sol,1,1,100.0
+Nautilus,Taliyah,1,0,0.0
+Qiyana,Naafiri,1,1,100.0
+Graves,Fiora,3,0,0.0
+Ambessa,Anivia,2,1,50.0
+Trundle,Mordekaiser,1,1,100.0
+Dr. Mundo,Ezreal,2,2,100.0
+Elise,Morgana,1,1,100.0
+Gragas,Aatrox,1,0,0.0
+Nocturne,Quinn,1,0,0.0
+Shen,Mel,3,2,66.67
+Nasus,Veigar,1,0,0.0
+Taliyah,Garen,1,1,100.0
+Kindred,Varus,1,1,100.0
+Viego,Lulu,2,0,0.0
+Chogath,Mel,1,1,100.0
+Warwick,Aurelion Sol,4,1,25.0
+Warwick,Zac,3,2,66.67
+Poppy,Dr. Mundo,3,0,0.0
+Elise,Jinx,1,1,100.0
+Diana,Cassiopeia,3,0,0.0
+Morgana,Mel,6,0,0.0
+Naafiri,Seraphine,1,1,100.0
+Zac,Wukong,1,0,0.0
+Diana,Jhin,1,1,100.0
+Malzahar,Hwei,2,2,100.0
+Shyvana,Aurelion Sol,1,0,0.0
+Warwick,Malphite,1,0,0.0
+Briar,Nocturne,1,0,0.0
+Sejuani,Neeko,10,1,10.0
+Sylas,LeBlanc,6,5,83.33
+Shyvana,Annie,3,2,66.67
+Udyr,Vayne,4,4,100.0
+Nasus,Hwei,5,0,0.0
+Nasus,Ryze,2,1,50.0
+Darius,Twisted Fate,6,0,0.0
+Warwick,Gangplank,2,0,0.0
+Pantheon,Warwick,8,3,37.5
+Viego,Yuumi,1,0,0.0
+Singed,Jayce,1,1,100.0
+Tristana,Azir,1,0,0.0
+Nasus,Gangplank,1,0,0.0
+Zac,Fiddlesticks,1,1,100.0
+Kayn,Yorick,9,2,22.22
+Rengar,Kaisa,2,2,100.0
+Warwick,Seraphine,1,1,100.0
+Warwick,Chogath,3,1,33.33
+Kayn,Xin Zhao,1,1,100.0
+Fiddlesticks,Swain,2,2,100.0
+Sett,Akali,1,1,100.0
+Nidalee,Dr. Mundo,12,11,91.67
+Amumu,Fiddlesticks,2,2,100.0
+Morgana,Ambessa,4,3,75.0
+Master Yi,Nasus,2,2,100.0
+Vayne,Yone,2,1,50.0
+Evelynn,Varus,1,0,0.0
+Maokai,Veigar,2,2,100.0
+Twitch,Ryze,1,0,0.0
+Urgot,Ekko,1,0,0.0
+KhaZix,VelKoz,5,3,60.0
+Sion,Lux,1,1,100.0
+Sejuani,Singed,1,1,100.0
+Nasus,Zed,3,3,100.0
+Neeko,Lux,1,0,0.0
+Singed,Aurora,1,0,0.0
+Diana,Rakan,1,1,100.0
+Evelynn,Nidalee,4,3,75.0
+Shaco,Karma,3,1,33.33
+Ivern,Sett,5,0,0.0
+Dr. Mundo,KSante,2,0,0.0
+Diana,Kayn,1,0,0.0
+KhaZix,Zyra,1,1,100.0
+Sion,Sett,1,0,0.0
+Shen,Cassiopeia,4,0,0.0
+Warwick,Neeko,3,2,66.67
+Graves,Malphite,3,0,0.0
+Zeri,Karma,1,0,0.0
+Mordekaiser,Diana,1,1,100.0
+Lillia,Shen,4,3,75.0
+Sylas,Ornn,3,3,100.0
+Lee Sin,Aphelios,1,0,0.0
+Darius,Vayne,1,0,0.0
+Briar,Vex,2,2,100.0
+Poppy,Quinn,1,1,100.0
+Twitch,Akali,1,1,100.0
+Sion,Annie,2,1,50.0
+Naafiri,Jax,2,2,100.0
+Ekko,Warwick,2,1,50.0
+Fiddlesticks,Rumble,2,0,0.0
+Lillia,Rumble,1,1,100.0
+Warwick,Rumble,2,2,100.0
+Reksai,Ziggs,6,2,33.33
+Naafiri,Garen,1,1,100.0
+Skarner,Sett,1,1,100.0
+Shen,Lux,8,7,87.5
+KhaZix,Shaco,1,0,0.0
+Brand,Vex,1,1,100.0
+Sejuani,Malzahar,4,3,75.0
+Olaf,Mel,9,3,33.33
+Chogath,Orianna,1,1,100.0
+Neeko,LeBlanc,5,1,20.0
+Vayne,Akali,2,2,100.0
+Hecarim,Ezreal,1,1,100.0
+Jarvan IV,Sion,3,2,66.67
+Rengar,VelKoz,9,6,66.67
+Graves,Draven,1,1,100.0
+Volibear,Master Yi,1,0,0.0
+Nocturne,Shen,1,1,100.0
+Sion,Hwei,1,1,100.0
+Trundle,Nasus,3,1,33.33
+Leona,Katarina,1,1,100.0
+Graves,Udyr,1,1,100.0
+KhaZix,Udyr,1,1,100.0
+Gwen,Sett,2,0,0.0
+Warwick,Udyr,1,1,100.0
+Nasus,Fiddlesticks,1,0,0.0
+Zyra,Vex,1,0,0.0
+Zed,Ashe,1,0,0.0
+Sett,Malphite,1,1,100.0
+Maokai,Varus,1,1,100.0
+Maokai,Viego,1,1,100.0
+Shen,Teemo,2,0,0.0
+Kaisa,Ahri,2,1,50.0
+Hecarim,Urgot,1,0,0.0
+Warwick,Twitch,2,2,100.0
+Nocturne,Twitch,2,1,50.0
+Mordekaiser,Xerath,1,0,0.0
+Kayle,Ekko,1,0,0.0
+Gwen,Malphite,1,0,0.0
+Trundle,Fiddlesticks,1,0,0.0
+Xin Zhao,Pantheon,5,2,40.0
+Shyvana,Nasus,1,1,100.0
+Zed,Sett,2,2,100.0
+Evelynn,Singed,1,0,0.0
+Reksai,Ambessa,2,2,100.0
+Briar,Singed,1,0,0.0
+Shyvana,Elise,1,1,100.0
+Graves,Naafiri,1,1,100.0
+Vayne,Sylas,4,4,100.0
+Vayne,Galio,1,1,100.0
+Diana,Belveth,1,1,100.0
+Kindred,Udyr,1,0,0.0
+Mordekaiser,Jarvan IV,1,0,0.0
+Graves,Shen,2,0,0.0
+Shen,Yasuo,1,1,100.0
+Neeko,Katarina,1,0,0.0
+Neeko,Ryze,1,0,0.0
+Qiyana,Poppy,1,1,100.0
+Wukong,Lulu,1,1,100.0
+Sejuani,Talon,1,1,100.0
+Sion,Galio,1,0,0.0
+Vayne,Malzahar,1,0,0.0
+Sylas,Karma,8,8,100.0
+Karthus,Cassiopeia,9,0,0.0
+Fiddlesticks,Dr. Mundo,5,5,100.0
+Gragas,Quinn,4,1,25.0
+Lillia,Zeri,6,4,66.67
+Rumble,Quinn,3,3,100.0
+Ivern,Aurelion Sol,10,8,80.0
+Diana,Yorick,8,2,25.0
+Ekko,Yorick,18,7,38.89
+Viego,Gnar,1,1,100.0
+Xin Zhao,Varus,7,6,85.71
+Urgot,Kassadin,4,0,0.0
+Dr. Mundo,Yorick,5,0,0.0
+Evelynn,Jarvan IV,5,0,0.0
+Diana,Nidalee,7,5,71.43
+Wukong,Nidalee,23,12,52.17
+Viego,Yorick,11,7,63.64
+Darius,Ekko,2,0,0.0
+Naafiri,Yorick,7,2,28.57
+Reksai,Nasus,7,0,0.0
+Ivern,Yunara,7,2,28.57
+Sett,Ryze,7,4,57.14
+Zed,Illaoi,10,10,100.0
+Jax,Rumble,2,2,100.0
+Maokai,Nidalee,3,0,0.0
+Rumble,Irelia,3,3,100.0
+Darius,Ahri,9,7,77.78
+Reksai,Annie,16,4,25.0
+Warwick,Karthus,7,7,100.0
+Hecarim,Sett,2,2,100.0
+Reksai,Akshan,4,4,100.0
+Zac,Camille,3,3,100.0
+Lucian,Taliyah,7,0,0.0
+Fiddlesticks,Yorick,1,1,100.0
+Morgana,Nidalee,2,0,0.0
+Master Yi,Gangplank,6,5,83.33
+Xin Zhao,Zeri,7,3,42.86
+Lee Sin,Elise,3,0,0.0
+Amumu,Anivia,7,6,85.71
+Belveth,Warwick,6,0,0.0
+Ezreal,Galio,5,0,0.0
+KhaZix,Yorick,5,1,20.0
+Aphelios,Twisted Fate,2,0,0.0
+Darius,Zoe,11,6,54.55
+Jarvan IV,Kalista,4,0,0.0
+Lee Sin,Ashe,9,0,0.0
+Tryndamere,Jayce,3,3,100.0
+Shaco,Yorick,5,0,0.0
+Reksai,Zeri,5,5,100.0
+Elise,Zeri,5,1,20.0
+Gragas,Malphite,4,1,25.0
+Reksai,Seraphine,2,2,100.0
+Jax,Malphite,3,3,100.0
+Rengar,Yorick,12,6,50.0
+Vi,Yorick,5,0,0.0
+Karthus,Nasus,5,3,60.0
+Lillia,Udyr,6,6,100.0
+Tryndamere,Katarina,5,5,100.0
+Volibear,Shaco,6,0,0.0
+Sejuani,Gangplank,6,0,0.0
+Nidalee,Zeri,10,0,0.0
+Sejuani,Teemo,2,0,0.0
+Zac,Vayne,4,4,100.0
+Darius,Vex,4,4,100.0
+Darius,Malzahar,4,2,50.0
+Neeko,Soraka,1,1,100.0
+Ekko,Rumble,9,4,44.44
+Qiyana,Nidalee,5,1,20.0
+Elise,Kennen,5,2,40.0
+Rumble,Gwen,2,2,100.0
+Nidalee,Quinn,26,14,53.85
+Amumu,Karthus,6,0,0.0
+Talon,Soraka,3,0,0.0
+Vi,Jinx,3,3,100.0
+Ezreal,Hwei,5,0,0.0
+Jax,Kaisa,4,0,0.0
+Reksai,Draven,7,0,0.0
+Ivern,Jinx,1,1,100.0
+Ekko,Jinx,6,3,50.0
+Ivern,Kaisa,3,0,0.0
+Yorick,Ryze,4,0,0.0
+Sejuani,Anivia,9,0,0.0
+Neeko,Lissandra,3,0,0.0
+Tryndamere,Ahri,4,4,100.0
+Kaisa,Twisted Fate,1,0,0.0
+Belveth,Lucian,3,3,100.0
+Gragas,Lucian,9,0,0.0
+Xin Zhao,Lucian,5,1,20.0
+Fiddlesticks,Twitch,4,2,50.0
+Caitlyn,Zoe,1,0,0.0
+Neeko,Ahri,4,3,75.0
+Lissandra,Galio,1,0,0.0
+Lee Sin,Yorick,13,7,53.85
+Viego,Camille,6,0,0.0
+Zac,Zeri,6,5,83.33
+Jinx,Camille,2,2,100.0
+Shyvana,Lissandra,5,0,0.0
+Jax,Aurelion Sol,6,5,83.33
+Diana,Jinx,2,0,0.0
+Aurora,Lissandra,5,0,0.0
+Sylas,Fizz,8,0,0.0
+Mordekaiser,Sylas,3,0,0.0
+Wukong,Vi,4,0,0.0
+Ambessa,Gangplank,5,0,0.0
+Sejuani,Jinx,2,0,0.0
+Nunu & Willump,KogMaw,12,1,8.33
+Lee Sin,Quinn,7,7,100.0
+KhaZix,Vi,5,0,0.0
+KhaZix,Zeri,1,0,0.0
+Lee Sin,Rammus,1,1,100.0
+Jarvan IV,Samira,1,1,100.0
+Belveth,Zeri,7,7,100.0
+Rammus,Lucian,1,0,0.0
+Reksai,Gragas,2,0,0.0
+Morgana,Malzahar,1,1,100.0
+Reksai,Twitch,6,0,0.0
+Reksai,Aatrox,3,0,0.0
+Reksai,Lucian,4,0,0.0
+Sylas,Viktor,5,3,60.0
+Kaisa,Xerath,1,0,0.0
+Reksai,VelKoz,2,2,100.0
+Illaoi,Karma,4,0,0.0
+Shaco,Ivern,1,1,100.0
+Draven,Lux,1,1,100.0
+Taliyah,Vex,8,7,87.5
+Vi,Ezreal,7,0,0.0
+Ivern,Volibear,7,0,0.0
+Naafiri,Elise,3,3,100.0
+KhaZix,Warwick,2,1,50.0
+Gragas,VelKoz,4,4,100.0
+Trundle,Zeri,2,2,100.0
+Diana,Yunara,10,6,60.0
+Nidalee,Urgot,2,1,50.0
+Yorick,Katarina,1,0,0.0
+Darius,Azir,9,2,22.22
+Darius,Zilean,6,0,0.0
+Alistar,Smolder,5,5,100.0
+Darius,Kassadin,2,0,0.0
+Karthus,Yorick,1,0,0.0
+Shaco,Seraphine,3,3,100.0
+KogMaw,Taliyah,5,5,100.0
+Shyvana,Vex,4,2,50.0
+Xin Zhao,Ashe,1,0,0.0
+Amumu,Graves,1,0,0.0
+Gwen,Soraka,3,3,100.0
+Hecarim,Yorick,4,4,100.0
+Ivern,Yorick,1,0,0.0
+Morgana,Zeri,1,1,100.0
+Tryndamere,Azir,1,0,0.0
+Fiddlesticks,Darius,1,0,0.0
+Twisted Fate,Qiyana,2,0,0.0
+Rammus,Quinn,2,2,100.0
+Sejuani,Xerath,2,0,0.0
+Diana,Twitch,1,1,100.0
+Fiddlesticks,Xin Zhao,4,4,100.0
+Vi,Varus,4,4,100.0
+Morgana,Talon,5,4,80.0
+Vi,Volibear,2,0,0.0
+Diana,Dr. Mundo,10,6,60.0
+Kindred,Yunara,11,11,100.0
+Naafiri,Lucian,2,0,0.0
+Shaco,KogMaw,1,0,0.0
+Evelynn,Ivern,2,0,0.0
+Graves,Twitch,2,0,0.0
+Poppy,Gwen,4,0,0.0
+Ornn,Aurora,2,0,0.0
+Skarner,Zeri,3,3,100.0
+Gragas,Nidalee,3,3,100.0
+Ezreal,Malzahar,2,2,100.0
+Talon,Udyr,1,0,0.0
+Shaco,Sivir,2,0,0.0
+Zac,Zilean,2,2,100.0
+Draven,Yuumi,1,0,0.0
+Draven,Ryze,1,1,100.0
+Jayce,Galio,2,0,0.0
+Zed,Jax,3,2,66.67
+Viego,Kalista,2,0,0.0
+Malphite,Yasuo,3,0,0.0
+Maokai,Naafiri,2,0,0.0
+Jax,Gwen,2,0,0.0
+Amumu,Rakan,1,1,100.0
+Gwen,Nautilus,3,3,100.0
+Graves,Kaisa,5,4,80.0
+Rammus,Teemo,1,1,100.0
+Reksai,KogMaw,6,6,100.0
+Aatrox,Hwei,2,2,100.0
+Master Yi,Jinx,3,2,66.67
+Rammus,Pantheon,1,0,0.0
+Zed,Kalista,2,1,50.0
+Maokai,Sivir,2,0,0.0
+Neeko,Yorick,1,0,0.0
+Sejuani,Tryndamere,1,0,0.0
+Urgot,Zed,3,0,0.0
+Aatrox,Viktor,1,1,100.0
+Udyr,Kaisa,2,0,0.0
+Darius,Ryze,1,1,100.0
+Tryndamere,Zed,7,7,100.0
+Olaf,Yasuo,3,3,100.0
+Nunu & Willump,Gwen,3,1,33.33
+Diana,Vi,2,0,0.0
+Viego,Taric,1,1,100.0
+Graves,Yunara,3,0,0.0
+Sylas,Sivir,4,0,0.0
+Briar,Darius,2,0,0.0
+Sejuani,Lucian,2,2,100.0
+Briar,Brand,3,3,100.0
+Kindred,Camille,1,1,100.0
+Rengar,Garen,5,0,0.0
+Graves,Ezreal,2,0,0.0
+Olaf,Zoe,20,16,80.0
+Kaisa,Zed,2,2,100.0
+Ryze,Orianna,1,1,100.0
+Sion,Ekko,3,0,0.0
+Naafiri,Miss Fortune,2,0,0.0
+Gwen,Twitch,2,2,100.0
+Ivern,Seraphine,1,0,0.0
+Nunu & Willump,Yorick,1,1,100.0
+Kaisa,Kayle,1,0,0.0
+Ryze,Sylas,1,1,100.0
+Volibear,Dr. Mundo,3,1,33.33
+Teemo,Azir,10,7,70.0
+Trundle,Elise,3,0,0.0
+Urgot,Qiyana,5,5,100.0
+Belveth,Yorick,1,1,100.0
+Aurelion Sol,Katarina,3,3,100.0
+Nasus,Annie,4,2,50.0
+Corki,Irelia,3,3,100.0
+Pantheon,Zyra,1,0,0.0
+Corki,Akshan,2,0,0.0
+Taliyah,Kalista,1,0,0.0
+Teemo,Morgana,1,0,0.0
+Warwick,Zyra,2,0,0.0
+Aatrox,Anivia,2,0,0.0
+Kindred,Volibear,1,0,0.0
+KhaZix,Karthus,10,9,90.0
+Vi,Malphite,3,0,0.0
+Fiddlesticks,Jinx,1,0,0.0
+Nocturne,Kaisa,1,1,100.0
+Gwen,Teemo,2,2,100.0
+Viego,Samira,4,4,100.0
+Gwen,Karma,2,1,50.0
+Wukong,Master Yi,2,2,100.0
+Vi,Urgot,3,1,33.33
+Rammus,Rakan,1,1,100.0
+Olaf,Pantheon,1,0,0.0
+Rumble,Zoe,1,1,100.0
+Twitch,Briar,3,0,0.0
+Morgana,Twitch,2,2,100.0
+Lee Sin,Rakan,1,1,100.0
+Lee Sin,Janna,11,0,0.0
+Nunu & Willump,Jinx,2,2,100.0
+Talon,Jax,4,2,50.0
+Jinx,Twisted Fate,1,0,0.0
+Gragas,Rakan,1,1,100.0
+Master Yi,Rakan,2,0,0.0
+Skarner,Yorick,1,0,0.0
+Shaco,Kled,1,0,0.0
+Volibear,Yunara,1,0,0.0
+Vayne,Yunara,1,0,0.0
+Sett,Lux,1,0,0.0
+Briar,Morgana,2,2,100.0
+Kayn,Jinx,1,0,0.0
+Yone,Hwei,1,1,100.0
+Skarner,Chogath,1,0,0.0
+Darius,Mel,1,0,0.0
+Jinx,Shen,5,0,0.0
+Urgot,Kaisa,1,0,0.0
+Jax,Chogath,2,0,0.0
+Karthus,Ivern,2,2,100.0
+Tryndamere,KSante,1,1,100.0
+Taliyah,Lucian,3,0,0.0
+Mordekaiser,Annie,1,1,100.0
+Aphelios,Pantheon,1,0,0.0
+Pantheon,Kalista,6,1,16.67
+Kaisa,Vex,1,0,0.0
+Ekko,Varus,6,2,33.33
+Jarvan IV,Dr. Mundo,2,2,100.0
+Trundle,Karthus,1,1,100.0
+Reksai,Jax,2,2,100.0
+Hecarim,Ashe,3,0,0.0
+Yone,Taliyah,3,3,100.0
+Yone,Syndra,1,0,0.0
+Darius,Yasuo,4,4,100.0
+Nidalee,Yorick,5,4,80.0
+Gragas,Fiddlesticks,1,0,0.0
+Diana,Aatrox,1,0,0.0
+Gragas,Renekton,2,0,0.0
+Dr. Mundo,Kaisa,1,0,0.0
+Neeko,Illaoi,1,1,100.0
+Jarvan IV,Ezreal,2,0,0.0
+Nasus,Zoe,1,1,100.0
+Darius,Irelia,3,3,100.0
+Urgot,Aurelion Sol,1,0,0.0
+Warwick,Tryndamere,1,1,100.0
+Gragas,Yorick,1,0,0.0
+Kindred,Ezreal,3,0,0.0
+Dr. Mundo,Camille,2,2,100.0
+Gragas,Urgot,1,0,0.0
+Sejuani,Sett,1,1,100.0
+Kayn,Sivir,1,0,0.0
+Mordekaiser,Neeko,1,0,0.0
+Udyr,Draven,1,1,100.0
+Rengar,Jarvan IV,1,1,100.0
+Graves,Quinn,1,1,100.0
+Morgana,Pyke,1,0,0.0
+Sett,Zoe,1,1,100.0
+Kayn,Aatrox,3,3,100.0
+Pantheon,Trundle,1,1,100.0
+Volibear,Trundle,1,1,100.0
+Gragas,Twitch,1,1,100.0
+Gragas,Kled,2,2,100.0
+Karthus,Zeri,3,3,100.0
+Volibear,Sivir,2,0,0.0
+Neeko,Dr. Mundo,1,1,100.0
+Zed,Rakan,1,1,100.0
+Ekko,Rakan,2,0,0.0
+Belveth,Tahm Kench,3,0,0.0
+Belveth,Jinx,2,2,100.0
+Elise,Kalista,1,0,0.0
+Rengar,Seraphine,1,0,0.0
+Brand,VelKoz,1,1,100.0
+Sion,Diana,1,1,100.0
+Pantheon,Xin Zhao,1,0,0.0
+Sejuani,Darius,1,0,0.0
+Sylas,Renekton,1,0,0.0
+Olaf,Xerath,1,1,100.0
+Amumu,Karma,1,0,0.0
+Warwick,Lulu,2,0,0.0
+Vayne,Morgana,1,0,0.0
+Poppy,Yorick,1,1,100.0
+Twitch,Renekton,1,0,0.0
+Elise,Gangplank,1,0,0.0
+Kayn,Nasus,1,1,100.0
+Ivern,Wukong,2,0,0.0
+Hecarim,Kled,1,1,100.0
+Zac,Yorick,2,2,100.0
+Shyvana,Twitch,2,2,100.0
+Darius,Hwei,10,9,90.0
+Karthus,Jarvan IV,1,1,100.0
+Aphelios,Syndra,3,0,0.0
+Viego,Jinx,1,0,0.0
+Taliyah,Kled,3,3,100.0
+Tristana,Galio,2,0,0.0
+Amumu,Malzahar,2,0,0.0
+Qiyana,Fiddlesticks,1,1,100.0
+Ryze,VelKoz,1,1,100.0
+Corki,Diana,2,0,0.0
+Lee Sin,Sivir,2,0,0.0
+Chogath,Urgot,2,2,100.0
+Briar,Lucian,1,0,0.0
+Xin Zhao,Sion,3,1,33.33
+Vi,Vayne,2,2,100.0
+Warwick,Nidalee,2,0,0.0
+Xin Zhao,Kalista,1,0,0.0
+Kindred,Zeri,5,0,0.0
+Chogath,LeBlanc,2,0,0.0
+Lee Sin,Taric,2,2,100.0
+Zyra,Sivir,1,1,100.0
+Reksai,Pyke,1,0,0.0
+Morgana,Rumble,1,1,100.0
+KhaZix,Kalista,2,2,100.0
+Talon,Pyke,1,0,0.0
+Lee Sin,Bard,1,0,0.0
+Zeri,LeBlanc,1,1,100.0
+Sejuani,Ambessa,12,2,16.67
+Urgot,Galio,2,1,50.0
+Amumu,Brand,1,0,0.0
+Aphelios,Sylas,1,1,100.0
+Shyvana,Renekton,1,0,0.0
+Naafiri,Volibear,1,1,100.0
+Qiyana,Rakan,1,1,100.0
+Qiyana,Morgana,1,0,0.0
+Vi,Nasus,4,0,0.0
+Graves,Kalista,1,1,100.0
+Zeri,Mel,1,0,0.0
+Nocturne,Draven,1,1,100.0
+Lucian,VelKoz,1,1,100.0
+Urgot,Twitch,1,0,0.0
+Trundle,Jinx,2,2,100.0
+Aatrox,Aurora,1,0,0.0
+Volibear,Ashe,1,1,100.0
+Darius,Galio,2,1,50.0
+Chogath,Gwen,1,0,0.0
+Zed,Urgot,1,0,0.0
+Ryze,Zed,1,0,0.0
+Udyr,Kled,1,1,100.0
+Sylas,Twitch,1,0,0.0
+Nasus,Lux,1,1,100.0
+Belveth,Teemo,1,0,0.0
+Hecarim,Udyr,7,1,14.29
+Volibear,Ornn,2,0,0.0
+Karthus,Mordekaiser,1,1,100.0
+Yone,Yasuo,1,0,0.0
+Vi,Zeri,1,0,0.0
+Karthus,Kaisa,1,1,100.0
+Aatrox,Yasuo,1,0,0.0
+Lillia,Twitch,1,1,100.0
+Talon,Yorick,1,1,100.0
+Sett,Malzahar,1,1,100.0
+Sejuani,Yunara,1,1,100.0
+Jarvan IV,Rakan,1,1,100.0
+Gragas,Jhin,1,0,0.0
+Zed,Shaco,1,0,0.0
+Viego,Vi,1,1,100.0
+Fiddlesticks,Kalista,1,1,100.0
+Teemo,Belveth,3,0,0.0
+Trundle,Xayah,1,0,0.0
+Olaf,Tristana,5,4,80.0
+Skarner,Trundle,10,0,0.0
+Zed,Miss Fortune,12,12,100.0
+Lillia,Soraka,7,7,100.0
+Wukong,Ashe,7,7,100.0
+Trundle,Fiora,6,0,0.0
+Shen,Aurelion Sol,5,5,100.0
+Ivern,Karthus,1,0,0.0
+Urgot,Mel,1,0,0.0
+Sejuani,Renekton,8,8,100.0
+Nidalee,Sett,4,4,100.0
+Xin Zhao,Lee Sin,12,4,33.33
+Karthus,Gwen,5,5,100.0
+Jax,Sivir,3,0,0.0
+Dr. Mundo,Viego,4,2,50.0
+Nasus,Yone,4,0,0.0
+Dr. Mundo,Malphite,2,2,100.0
+Olaf,Vladimir,20,6,30.0
+Nasus,Garen,5,0,0.0
+Wukong,Sivir,3,3,100.0
+Pantheon,Nautilus,1,1,100.0
+Sion,Vladimir,5,0,0.0
+Amumu,Pantheon,1,0,0.0
+Dr. Mundo,Vex,16,6,37.5
+Lillia,Ornn,3,0,0.0
+Volibear,Jarvan IV,4,4,100.0
+Maokai,Quinn,6,6,100.0
+Morgana,Dr. Mundo,2,0,0.0
+Shaco,Varus,7,0,0.0
+Pantheon,Jax,2,2,100.0
+Olaf,KSante,5,0,0.0
+Olaf,Ziggs,3,3,100.0
+Nunu & Willump,Kaisa,3,0,0.0
+Karthus,Viego,11,6,54.55
+Singed,Yasuo,3,0,0.0
+Taliyah,Quinn,4,4,100.0
+Elise,Olaf,4,0,0.0
+Qiyana,Gwen,4,4,100.0
+Sion,Ryze,4,0,0.0
+Rengar,Olaf,2,0,0.0
+Poppy,Malphite,1,0,0.0
+Elise,Jax,4,3,75.0
+Olaf,Sion,2,2,100.0
+Kindred,Soraka,6,0,0.0
+Aurelion Sol,Tryndamere,4,0,0.0
+Karthus,Sett,5,3,60.0
+Nasus,Akshan,6,6,100.0
+Singed,Orianna,1,1,100.0
+Reksai,Sion,1,0,0.0
+Poppy,Jhin,2,2,100.0
+Maokai,Malphite,1,0,0.0
+Brand,Kled,2,2,100.0
+Shaco,Gwen,2,1,50.0
+Diana,KSante,1,1,100.0
+Rumble,Zeri,3,0,0.0
+Singed,Taliyah,3,0,0.0
+Diana,Olaf,4,1,25.0
+Jax,Nasus,4,0,0.0
+Darius,Kayle,1,1,100.0
+Shyvana,Pantheon,3,3,100.0
+Volibear,Yorick,4,4,100.0
+Qiyana,Darius,4,0,0.0
+Twisted Fate,Zed,1,0,0.0
+Nocturne,Darius,2,1,50.0
+Olaf,Kennen,1,0,0.0
+Nasus,Vladimir,3,0,0.0
+Volibear,Olaf,4,4,100.0
+Olaf,Jayce,5,1,20.0
+Lillia,Olaf,2,0,0.0
+Vi,Darius,1,0,0.0
+Rengar,Shaco,2,0,0.0
+Lillia,Samira,1,0,0.0
+Shaco,Ornn,2,2,100.0
+Taliyah,Olaf,3,1,33.33
+Shen,Vladimir,5,5,100.0
+Shen,Taliyah,3,3,100.0
+Amumu,Tristana,4,4,100.0
+Karthus,Darius,6,6,100.0
+Mordekaiser,Swain,2,0,0.0
+Zyra,Gwen,1,1,100.0
+Sejuani,Olaf,2,2,100.0
+Teemo,Aurora,2,2,100.0
+KhaZix,Yunara,4,0,0.0
+Udyr,Olaf,2,0,0.0
+Shaco,Zilean,6,0,0.0
+Shaco,Viego,5,0,0.0
+Nasus,Kayle,3,1,33.33
+Nautilus,Zed,1,0,0.0
+Olaf,Nasus,2,1,50.0
+Gwen,Warwick,1,0,0.0
+Shyvana,VelKoz,1,0,0.0
+Aurelion Sol,Ezreal,1,1,100.0
+Nidalee,Olaf,4,2,50.0
+Mordekaiser,Renekton,3,3,100.0
+Kayle,Ryze,4,0,0.0
+Diana,Teemo,3,1,33.33
+Shaco,Jhin,1,0,0.0
+Ivern,Xin Zhao,1,1,100.0
+Qiyana,Pantheon,1,0,0.0
+Belveth,Shaco,1,0,0.0
+Zyra,Malphite,1,1,100.0
+Teemo,Blitzcrank,2,0,0.0
+Talon,Lulu,2,2,100.0
+Naafiri,Sivir,3,0,0.0
+Nocturne,Lulu,3,3,100.0
+Teemo,Galio,1,0,0.0
+Zyra,Kayle,4,0,0.0
+Zyra,Warwick,1,1,100.0
+Neeko,Tristana,2,2,100.0
+Zed,Draven,8,8,100.0
+Darius,Cassiopeia,3,3,100.0
+Xin Zhao,Soraka,3,3,100.0
+Nasus,Zilean,3,3,100.0
+Udyr,Shen,2,2,100.0
+Nasus,Ahri,3,1,33.33
+KhaZix,Lucian,2,2,100.0
+Malphite,Ryze,2,0,0.0
+Jarvan IV,Vi,2,2,100.0
+Nidalee,Mordekaiser,3,0,0.0
+Vi,Shaco,1,0,0.0
+Karthus,Malphite,1,1,100.0
+Nasus,Akali,2,2,100.0
+Nasus,Azir,1,1,100.0
+Naafiri,Ornn,1,0,0.0
+Wukong,Urgot,1,0,0.0
+Darius,Corki,1,0,0.0
+Kaisa,Ryze,1,1,100.0
+Olaf,Karma,2,1,50.0
+Olaf,Veigar,3,0,0.0
+Shyvana,Warwick,1,0,0.0
+Udyr,Renekton,3,2,66.67
+Shaco,Nautilus,1,0,0.0
+Mordekaiser,Ambessa,1,0,0.0
+Briar,Zac,3,0,0.0
+Fiddlesticks,Kaisa,1,0,0.0
+Olaf,Aphelios,2,2,100.0
+Teemo,Hwei,1,0,0.0
+Graves,Jax,2,2,100.0
+Urgot,Quinn,3,0,0.0
+Urgot,Irelia,1,0,0.0
+Vi,Braum,1,0,0.0
+Olaf,Corki,3,0,0.0
+Teemo,Riven,1,1,100.0
+Teemo,Sion,2,2,100.0
+Ezreal,Kayle,1,1,100.0
+Shyvana,Sivir,1,0,0.0
+Jarvan IV,Poppy,2,2,100.0
+Sett,Heimerdinger,2,0,0.0
+Poppy,Illaoi,3,3,100.0
+Reksai,Gangplank,2,0,0.0
+Nocturne,Fiora,1,0,0.0
+Vi,Fiora,4,4,100.0
+Taliyah,Soraka,1,0,0.0
+Brand,Chogath,2,0,0.0
+Olaf,Gragas,3,3,100.0
+Zac,Warwick,2,0,0.0
+Nocturne,Zeri,1,0,0.0
+Olaf,Chogath,2,2,100.0
+Zed,Alistar,1,0,0.0
+Olaf,Talon,2,0,0.0
+Twisted Fate,Taliyah,2,2,100.0
+Lee Sin,Master Yi,2,0,0.0
+Zyra,Zilean,1,0,0.0
+Olaf,Zac,2,0,0.0
+Kayle,Viego,1,0,0.0
+Sejuani,Gwen,1,1,100.0
+Jarvan IV,KhaZix,1,1,100.0
+Belveth,Quinn,1,0,0.0
+Master Yi,Darius,1,0,0.0
+Olaf,Qiyana,1,1,100.0
+Zac,Gwen,1,0,0.0
+Zac,Dr. Mundo,2,2,100.0
+Zac,Shen,1,1,100.0
+Trundle,Kled,2,0,0.0
+Jarvan IV,Shaco,1,0,0.0
+Taliyah,Chogath,1,0,0.0
+Sylas,Chogath,1,0,0.0
+Viego,Master Yi,2,1,50.0
+Volibear,Mordekaiser,3,3,100.0
+Nasus,Ziggs,1,1,100.0
+Brand,LeBlanc,1,0,0.0
+Udyr,Nocturne,1,0,0.0
+Brand,Olaf,4,0,0.0
+Teemo,Brand,2,0,0.0
+Olaf,Shen,4,0,0.0
+Udyr,Sejuani,3,0,0.0
+Pantheon,Olaf,2,1,50.0
+Wukong,Viego,1,0,0.0
+Taliyah,KSante,1,0,0.0
+Teemo,Swain,3,0,0.0
+Trundle,Rammus,3,3,100.0
+Nidalee,Ornn,2,0,0.0
+KhaZix,Brand,1,0,0.0
+Ezreal,Sylas,3,0,0.0
+Nidalee,Warwick,1,1,100.0
+Kayle,Ahri,1,0,0.0
+Olaf,Cassiopeia,2,0,0.0
+Viego,Miss Fortune,1,0,0.0
+Ivern,Gwen,2,1,50.0
+Nunu & Willump,Brand,2,2,100.0
+Sejuani,Cassiopeia,3,0,0.0
+Udyr,Yorick,1,0,0.0
+Xin Zhao,Tryndamere,2,2,100.0
+Udyr,Darius,2,2,100.0
+Mordekaiser,Quinn,1,1,100.0
+Mordekaiser,Lissandra,1,1,100.0
+Brand,Ornn,1,0,0.0
+Elise,Camille,1,1,100.0
+Ezreal,Ahri,2,0,0.0
+Rumble,Corki,1,1,100.0
+Udyr,Master Yi,2,0,0.0
+Xin Zhao,Dr. Mundo,1,0,0.0
+Kindred,Fiora,1,0,0.0
+Diana,Viego,1,1,100.0
+Kindred,Olaf,2,0,0.0
+Shen,Aurora,1,0,0.0
+Taliyah,Varus,1,0,0.0
+Taliyah,Shaco,1,0,0.0
+Rammus,Jhin,1,1,100.0
+Gwen,Trundle,1,0,0.0
+Zyra,Heimerdinger,1,1,100.0
+Nidalee,Bard,1,1,100.0
+Ekko,Elise,1,0,0.0
+Udyr,Fiora,1,0,0.0
+Sejuani,Smolder,1,1,100.0
+Teemo,Cassiopeia,1,0,0.0
+Teemo,Varus,3,0,0.0
+Taliyah,Ornn,1,0,0.0
+Neeko,Azir,1,0,0.0
+Trundle,Lulu,2,2,100.0
+Lee Sin,Sett,2,0,0.0
+Taric,Orianna,1,1,100.0
+Zed,Gnar,1,0,0.0
+Wukong,Kayn,1,0,0.0
+Shaco,Fiora,1,1,100.0
+Olaf,Dr. Mundo,2,2,100.0
+Taliyah,Yunara,1,1,100.0
+Olaf,Vex,2,2,100.0
+Urgot,Taliyah,2,0,0.0
+Olaf,Jax,1,1,100.0
+Elise,Senna,1,0,0.0
+Sion,Katarina,1,1,100.0
+Urgot,Garen,1,0,0.0
+Ivern,Master Yi,2,1,50.0
+Nasus,Karma,1,1,100.0
+Shyvana,Chogath,1,0,0.0
+Shaco,Jax,1,1,100.0
+Morgana,Tryndamere,1,1,100.0
+Olaf,Naafiri,1,1,100.0
+Zeri,Yasuo,1,0,0.0
+Nunu & Willump,Shen,1,1,100.0
+Urgot,Akshan,1,1,100.0
+Belveth,Soraka,1,0,0.0
+Sona,Shaco,1,0,0.0
+Skarner,Yunara,1,0,0.0
+Jax,KogMaw,1,0,0.0
+Lee Sin,Fiora,1,1,100.0
+Elise,Kaisa,1,0,0.0
+Sylas,Pantheon,1,1,100.0
+Karthus,Ziggs,2,2,100.0
+Elise,Ivern,1,0,0.0
+Nunu & Willump,Teemo,3,1,33.33
+Corki,Ziggs,2,0,0.0
+Zyra,Viego,1,0,0.0
+Shyvana,Dr. Mundo,3,0,0.0
+Darius,Taliyah,1,0,0.0
+Jarvan IV,Elise,1,1,100.0
+Ivern,Xayah,1,1,100.0
+Hecarim,Tahm Kench,1,0,0.0
+Hecarim,Viego,2,0,0.0
+Dr. Mundo,Lee Sin,1,0,0.0
+Nunu & Willump,Kayn,1,0,0.0
+Diana,Draven,1,0,0.0
+Olaf,Kassadin,1,1,100.0
+Lee Sin,Sejuani,1,1,100.0
+Lillia,Darius,1,0,0.0
+Master Yi,Sejuani,1,0,0.0
+KhaZix,Sejuani,1,0,0.0
+Ivern,Sejuani,1,0,0.0
+Belveth,Sejuani,1,1,100.0
+Shaco,Belveth,1,0,0.0
+Ezreal,Lissandra,1,1,100.0
+Singed,Annie,1,0,0.0
+Morgana,Heimerdinger,1,1,100.0
+Skarner,Ambessa,1,0,0.0
+Ivern,Olaf,1,1,100.0
+Corki,Nautilus,1,1,100.0
+Nidalee,Heimerdinger,1,1,100.0
+Sejuani,Sion,1,0,0.0
+Nidalee,Camille,1,0,0.0
+Taliyah,Viego,1,0,0.0
+Dr. Mundo,Miss Fortune,1,1,100.0
+Zyra,Ezreal,1,0,0.0
+Shaco,Naafiri,2,1,50.0
+Yasuo,Corki,1,0,0.0
+Nasus,Yasuo,1,1,100.0
+Teemo,Mel,1,0,0.0
+Olaf,Heimerdinger,1,0,0.0
+Lillia,Reksai,1,0,0.0
+Nasus,Pantheon,1,1,100.0

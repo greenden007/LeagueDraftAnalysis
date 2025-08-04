@@ -1,0 +1,6 @@
+opponent,games,wins,kills,deaths,assists,win_rate,kda,avg_kills,avg_deaths,avg_assists
+LeBlanc,4,0,0,20,16,0.0,0.8,0.0,5.0,4.0
+Zed,2,0,4,4,2,0.0,1.5,2.0,2.0,1.0
+Syndra,2,2,10,10,28,100.0,3.8,5.0,5.0,14.0
+Aurora,2,2,0,16,70,100.0,4.38,0.0,8.0,35.0
+Chogath,4,4,20,4,48,100.0,17.0,5.0,1.0,12.0

@@ -1,0 +1,5 @@
+opponent,games,wins,kills,deaths,assists,win_rate,kda,avg_kills,avg_deaths,avg_assists
+Zed,6,0,6,48,6,0.0,0.25,1.0,8.0,1.0
+Malphite,2,0,12,16,18,0.0,1.88,6.0,8.0,9.0
+Riven,6,6,48,42,84,100.0,3.14,8.0,7.0,14.0
+Akali,2,2,16,16,14,100.0,1.88,8.0,8.0,7.0

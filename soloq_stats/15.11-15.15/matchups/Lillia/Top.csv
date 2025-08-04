@@ -1,0 +1,5 @@
+opponent,games,wins,kills,deaths,assists,win_rate,kda,avg_kills,avg_deaths,avg_assists
+Ornn,4,0,4,12,8,0.0,1.0,1.0,3.0,2.0
+Ambessa,2,0,6,20,2,0.0,0.4,3.0,10.0,1.0
+Gwen,6,6,12,6,66,100.0,13.0,2.0,1.0,11.0
+Udyr,2,2,12,8,20,100.0,4.0,6.0,4.0,10.0

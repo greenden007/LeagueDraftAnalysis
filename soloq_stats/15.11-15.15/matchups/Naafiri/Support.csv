@@ -1,0 +1,5 @@
+opponent,games,wins,kills,deaths,assists,win_rate,kda,avg_kills,avg_deaths,avg_assists
+Sona,6,0,0,30,0,0.0,0.0,0.0,5.0,0.0
+Nami,6,6,24,42,42,100.0,1.57,4.0,7.0,7.0
+Bard,6,0,48,72,102,0.0,2.08,8.0,12.0,17.0
+Alistar,2,0,0,4,8,0.0,2.0,0.0,2.0,4.0

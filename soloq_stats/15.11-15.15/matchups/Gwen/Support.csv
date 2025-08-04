@@ -1,0 +1,4 @@
+opponent,games,wins,kills,deaths,assists,win_rate,kda,avg_kills,avg_deaths,avg_assists
+Braum,8,0,0,80,56,0.0,0.7,0.0,10.0,7.0
+Yuumi,8,0,0,8,40,0.0,5.0,0.0,1.0,5.0
+Nami,4,4,24,12,28,100.0,4.33,6.0,3.0,7.0

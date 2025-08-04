@@ -1,0 +1,5 @@
+opponent,games,wins,kills,deaths,assists,win_rate,kda,avg_kills,avg_deaths,avg_assists
+Zoe,2,0,4,12,6,0.0,0.83,2.0,6.0,3.0
+Gragas,2,2,8,12,30,100.0,3.17,4.0,6.0,15.0
+Fizz,2,0,0,12,0,0.0,0.0,0.0,6.0,0.0
+Smolder,2,0,0,4,4,0.0,1.0,0.0,2.0,2.0

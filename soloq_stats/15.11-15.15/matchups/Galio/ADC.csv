@@ -1,0 +1,5 @@
+opponent,games,wins,kills,deaths,assists,win_rate,kda,avg_kills,avg_deaths,avg_assists
+Mel,2,2,24,2,20,100.0,22.0,12.0,1.0,10.0
+Ziggs,10,10,28,12,98,100.0,10.5,2.8,1.2,9.8
+Brand,2,0,2,8,6,0.0,1.0,1.0,4.0,3.0
+Aphelios,2,0,4,8,16,0.0,2.5,2.0,4.0,8.0
